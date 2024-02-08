@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-
+/*Spilleren*/
 
 #character {
     width: 40px;
@@ -13,6 +13,9 @@
     background-color: blue;
     position: fixed;
 }
+
+
+/*Øya og havet*/
 
 #øy {
     background-color: yellowgreen;
@@ -26,6 +29,9 @@ body {
     background-color: aqua;
 }
 
+
+
+/*Menyknapp*/
 #menyknapp {
     position: fixed;
     top: 20px;

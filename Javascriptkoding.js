@@ -1,4 +1,4 @@
-
+//interne notater:
 
 //Bevegelse 
 
@@ -6,7 +6,6 @@
 document.addEventListener("keydown", function(event) {
     if (event.key === "d") {
       moveLeft(); 
-      console.log("d pressed")
     }
   });
 
@@ -21,7 +20,6 @@ document.addEventListener("keydown", function(event) {
   document.addEventListener("keydown", function(event) {
     if (event.key === "a") {
       moveRight(); 
-      console.log("a pressed")
     }
   });
 
@@ -35,7 +33,6 @@ document.addEventListener("keydown", function(event) {
   document.addEventListener("keydown", function(event) {
     if (event.key === "s") {
       moveDown(); 
-      console.log("s pressed")
     }
   });
 
@@ -49,7 +46,6 @@ document.addEventListener("keydown", function(event) {
   document.addEventListener("keydown", function(event) {
     if (event.key === "w") {
       moveUp(); 
-      console.log("w pressed")
     }
   });
 
