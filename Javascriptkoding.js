@@ -13,7 +13,7 @@ document.addEventListener("keydown", function(event) {
   function moveLeft() {
     var character = document.getElementById("character");
     var currentLeft = parseInt(character.style.left) || 0; 
-    character.style.left = (currentLeft + 100) + "px"; 
+    character.style.left = (currentLeft + 40) + "px"; 
     character.style.backgroundColor ="red"
   }
   
@@ -27,8 +27,8 @@ document.addEventListener("keydown", function(event) {
 
   function moveRight() {
     var character = document.getElementById("character");
-    var currentLeft = parseInt(character.style.left) || 0; 
-    character.style.left = (currentLeft + 100) + "px";
+    var currentRight = parseInt(character.style.left) || 0;
+    character.style.left = (currentRight - 40) + "px";
     character.style.backgroundColor ="green"
   }
 
@@ -42,7 +42,7 @@ document.addEventListener("keydown", function(event) {
   function moveDown() {
     var character = document.getElementById("character");
     var currentTop = parseInt(character.style.top) || 0; 
-    character.style.top = (currentTop + 100) + "px"; 
+    character.style.top = (currentTop + 40) + "px"; 
     character.style.backgroundColor ="blue"
   }
 
@@ -56,9 +56,15 @@ document.addEventListener("keydown", function(event) {
   function moveUp() {
     var character = document.getElementById("character");
     var currentTop = parseInt(character.style.top) || 0; 
-    character.style.top = (currentTop - 100) + "px"; 
+    character.style.top = (currentTop - 40) + "px"; 
     character.style.backgroundColor ="orange"
   }
+
+
+
+
+
+  //meny
 
   function toggleFlexBox() {
     console.log("trykk")
