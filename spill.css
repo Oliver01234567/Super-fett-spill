@@ -73,13 +73,15 @@ body {
     padding: 50px;
     background-color: white;
     display: inline-block;
-    
+
 }
+
 
 /*Chests*/
 
 .Chest {
-
+    position: fixed;
+    z-index: 1;
 }
 
 #Chest1 {
