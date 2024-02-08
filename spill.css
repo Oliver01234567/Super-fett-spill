@@ -8,3 +8,13 @@
     left: calc(50% - 100px);
     top: calc(50% - 150px);
 }
+
+#øy {
+    background-color: yellowgreen;
+    height: 75vh;
+    width: 75%;
+}
+
+body {
+    background-color: aqua;
+}
