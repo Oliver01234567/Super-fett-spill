@@ -59,3 +59,14 @@ document.addEventListener("keydown", function(event) {
     character.style.top = (currentTop - 100) + "px"; 
     character.style.backgroundColor ="orange"
   }
+
+  function toggleFlexBox() {
+    console.log("trykk")
+    var flexBoxContainer = document.getElementById('flexBoxContainer');
+    if (flexBoxContainer.style.display === 'none' || flexBoxContainer.style.display === '') {
+        flexBoxContainer.style.display = 'flex';
+    } else {
+        flexBoxContainer.style.display = 'none';
+    }
+}
+
