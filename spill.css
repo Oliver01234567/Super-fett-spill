@@ -8,20 +8,21 @@
 
 
 #character {
-    width: 200px;
-    height: 300px;
+    width: 40px;
+    height: 40px;
     background-color: blue;
-    left: 100px;
-    top: 100px;
-    position: fixed;
-    left: calc(50% - 100px);
-    top: calc(50% - 150px);
+    grid-row: 1;
+    grid-column: 1;
 }
 
 #øy {
     background-color: yellowgreen;
     height: 75vh;
     width: 75%;
+
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
 }
 
 body {
