@@ -1,4 +1,5 @@
 //interne notater:
+//Husk å markere alt i js og css slik at man enklere kan se hva som er hva
 
 //Bevegelse 
 
@@ -6,6 +7,7 @@
 document.addEventListener("keydown", function(event) {
     if (event.key === "d") {
       moveLeft(); 
+      checkCharacterPosition();
     }
   });
 
@@ -20,6 +22,7 @@ document.addEventListener("keydown", function(event) {
   document.addEventListener("keydown", function(event) {
     if (event.key === "a") {
       moveRight(); 
+      checkCharacterPosition();
     }
   });
 
@@ -33,6 +36,7 @@ document.addEventListener("keydown", function(event) {
   document.addEventListener("keydown", function(event) {
     if (event.key === "s") {
       moveDown(); 
+      checkCharacterPosition();
     }
   });
 
@@ -46,6 +50,7 @@ document.addEventListener("keydown", function(event) {
   document.addEventListener("keydown", function(event) {
     if (event.key === "w") {
       moveUp(); 
+      checkCharacterPosition();
     }
   });
 
@@ -55,6 +60,30 @@ document.addEventListener("keydown", function(event) {
     character.style.top = (currentTop - 40) + "px"; 
     character.style.backgroundColor ="orange"
   }
+
+
+  //Hav
+    function die() {
+        console.log("du døde")
+}
+
+  function checkCharacterPosition() {
+    var character = document.getElementById("character");
+    var island = document.getElementById("øy");
+    var characterPlassering = character.getBoundingClientRect();
+    var islandPlassering = island.getBoundingClientRect();
+
+    if (
+        characterPlassering.right > islandPlassering.right ||
+        characterPlassering.left < islandPlassering.left ||
+        characterPlassering.bottom > islandPlassering.bottom ||
+        characterPlassering.top < islandPlassering.top
+    ) {
+        die();
+    }
+}
+
+
 
 
 
