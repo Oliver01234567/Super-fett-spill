@@ -3,71 +3,72 @@
 
 //Bevegelse 
 
-    
-document.addEventListener("keydown", function(event) {
+
+document.addEventListener("keydown", function (event) {
     if (event.key === "d") {
-      moveLeft(); 
-      checkCharacterPosition();
+        moveLeft();
+        checkCharacterPosition();
     }
-  });
+});
 
-  function moveLeft() {
+function moveLeft() {
     var character = document.getElementById("character");
-    var currentLeft = parseInt(character.style.left) || 0; 
-    character.style.left = (currentLeft + 40) + "px"; 
-    character.style.backgroundColor ="red"
-  }
-  
+    var currentLeft = parseInt(character.style.left) || 0;
+    character.style.left = (currentLeft + 40) + "px";
+    character.style.backgroundColor = "red"
+}
 
-  document.addEventListener("keydown", function(event) {
+
+document.addEventListener("keydown", function (event) {
     if (event.key === "a") {
-      moveRight(); 
-      checkCharacterPosition();
+        moveRight();
+        checkCharacterPosition();
     }
-  });
+});
 
-  function moveRight() {
+function moveRight() {
     var character = document.getElementById("character");
     var currentRight = parseInt(character.style.left) || 0;
     character.style.left = (currentRight - 40) + "px";
-    character.style.backgroundColor ="green"
-  }
-
-  document.addEventListener("keydown", function(event) {
-    if (event.key === "s") {
-      moveDown(); 
-      checkCharacterPosition();
-    }
-  });
-
-  function moveDown() {
-    var character = document.getElementById("character");
-    var currentTop = parseInt(character.style.top) || 0; 
-    character.style.top = (currentTop + 40) + "px"; 
-    character.style.backgroundColor ="blue"
-  }
-
-  document.addEventListener("keydown", function(event) {
-    if (event.key === "w") {
-      moveUp(); 
-      checkCharacterPosition();
-    }
-  });
-
-  function moveUp() {
-    var character = document.getElementById("character");
-    var currentTop = parseInt(character.style.top) || 0; 
-    character.style.top = (currentTop - 40) + "px"; 
-    character.style.backgroundColor ="orange"
-  }
-
-
-  //Hav
-    function die() {
-        console.log("du døde")
+    character.style.backgroundColor = "green"
 }
 
-  function checkCharacterPosition() {
+document.addEventListener("keydown", function (event) {
+    if (event.key === "s") {
+        moveDown();
+        checkCharacterPosition();
+    }
+});
+
+function moveDown() {
+    var character = document.getElementById("character");
+    var currentTop = parseInt(character.style.top) || 0;
+    character.style.top = (currentTop + 40) + "px";
+    character.style.backgroundColor = "blue"
+}
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "w") {
+        moveUp();
+        checkCharacterPosition();
+    }
+});
+
+function moveUp() {
+    var character = document.getElementById("character");
+    var currentTop = parseInt(character.style.top) || 0;
+    character.style.top = (currentTop - 40) + "px";
+    character.style.backgroundColor = "orange"
+}
+
+
+//Hav
+function die() {
+    console.log("du døde")
+    showPopup("Du kan ikke forlatte øya, GÅ TILBAKE")
+}
+
+function checkCharacterPosition() {
     var character = document.getElementById("character");
     var island = document.getElementById("øy");
     var characterPlassering = character.getBoundingClientRect();
@@ -83,15 +84,28 @@ document.addEventListener("keydown", function(event) {
     }
 }
 
+function showPopup(message) {
+    var popup = document.createElement("div");
+    popup.className = "popup";
+    popup.innerHTML = message;
+
+    document.body.appendChild(popup);
+
+    // Lukk popup etter 2 sekunder
+    setTimeout(function () {
+        document.body.removeChild(popup);
+    }, 2000);
+}
 
 
 
 
 
 
-  //meny
 
-  function toggleFlexBox() {
+//meny
+
+function toggleFlexBox() {
     console.log("trykk")
     var flexBoxContainer = document.getElementById('flexBoxContainer');
     if (flexBoxContainer.style.display === 'none' || flexBoxContainer.style.display === '') {
