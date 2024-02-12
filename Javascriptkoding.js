@@ -151,9 +151,14 @@ function toggleFlexBox() {
   var flexBoxContainer = document.getElementById('flexBoxContainer');
   if (flexBoxContainer.style.display === 'none' || flexBoxContainer.style.display === '') {
     flexBoxContainer.style.display = 'flex';
+     menyknapp.innerHTML=("x")
+    
   } else {
     flexBoxContainer.style.display = 'none';
+    menyknapp.innerHTML=("Menu")
+
   }
+  
 }
 
 // Teleportering når man går på vannet, Oliver
