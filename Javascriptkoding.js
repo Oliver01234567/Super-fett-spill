@@ -84,6 +84,7 @@ function checkCharacterPosition() {
     }
 }
 
+// Popup, Oliver
 function showPopup(message) {
     var popup = document.createElement("div");
     popup.className = "popup";
@@ -98,11 +99,6 @@ function showPopup(message) {
 }
 
 
-
-
-
-
-
 //meny
 
 function toggleFlexBox() {
@@ -115,3 +111,33 @@ function toggleFlexBox() {
     }
 }
 
+// teleportering når man går på vannet, Oliver
+function isCharacterOnWater(character, island) {
+    var characterPlassering = character.getBoundingClientRect();
+    var islandPlassering = island.getBoundingClientRect();
+
+    // Sjekk om karakteren er på det lyseblå området
+    return (
+        characterPlassering.right > islandPlassering.right ||
+        characterPlassering.left < islandPlassering.left ||
+        characterPlassering.bottom > islandPlassering.bottom ||
+        characterPlassering.top < islandPlassering.top
+    );
+}
+
+function resetCharacterPosition() {
+    var character = document.getElementById("character");
+    var island = document.getElementById("øy");
+    var onWater = isCharacterOnWater(character, island);
+
+    if (onWater) {
+        character.style.left = "50%";
+        character.style.top = "50%";
+        showPopup("Du får ikke forlate øya");
+    }
+}
+
+function die() {
+    console.log("du døde")
+    resetCharacterPosition();
+}
