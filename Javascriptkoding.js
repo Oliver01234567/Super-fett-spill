@@ -3,83 +3,55 @@
 
 //Bevegelse 
 
-//Move Left
-document.addEventListener("keydown", function (event) {
-  if (event.key === "a") {
-    moveLeft();
-    checkCharacterPosition();
-  }
-  else if(event.key === "ArrowLeft"){
-    moveLeft();
-    checkCharacterPosition();
-    checkForChests()
-  }
-});
+var movement = {
+  "ArrowLeft": false,
+  "ArrowRight": false,
+  "ArrowUp": false,
+  "ArrowDown": false,
+  "a": false,
+  "d": false,
+  "w": false,
+  "s": false,
+};
 
-function moveLeft() {
+function move() {
   var character = document.getElementById("character");
   var currentLeft = parseInt(character.style.left) || 0;
-  character.style.left = (currentLeft - 25) + "px";
-  character.style.backgroundColor = "red"
-}
-
-//Move Right
-document.addEventListener("keydown", function (event) {
-  if (event.key === "d") {
-    moveRight();
-    checkCharacterPosition();
-  }
-  else if(event.key === "ArrowRight"){
-    moveRight();
-    checkCharacterPosition();
-    checkForChests()
-  }
-});
-
-function moveRight() {
-  var character = document.getElementById("character");
-  var currentLeft = parseInt(character.style.left) || 0;
-  character.style.left = (currentLeft + 25) + "px";
-  character.style.backgroundColor = "green"
-}
-//Move Down
-document.addEventListener("keydown", function (event) {
-  if (event.key === "s") {
-    moveDown();
-    checkCharacterPosition();
-    checkForChests()
-  }
-  else if(event.key === "ArrowDown"){
-    moveDown();
-    checkCharacterPosition();
-  }
-});
-
-function moveDown() {
-  var character = document.getElementById("character");
   var currentTop = parseInt(character.style.top) || 0;
-  character.style.top = (currentTop + 25) + "px";
-  character.style.backgroundColor = "blue"
-}
-// Move up
-document.addEventListener("keydown", function (event) {
-  if (event.key === "w") {
-    moveUp();
+
+  if (movement.ArrowLeft || movement.a) {
+    character.style.left = (currentLeft - 4) + "px";
     checkCharacterPosition();
     checkForChests()
   }
-  else if(event.key === "ArrowUp"){
-    moveUp();
+  if (movement.ArrowRight || movement.d) {
+    character.style.left = (currentLeft + 4) + "px";
     checkCharacterPosition();
+    checkForChests()
   }
+  if (movement.ArrowUp || movement.w) {
+    character.style.top = (currentTop - 4) + "px";
+    checkCharacterPosition();
+    checkForChests()
+  }
+  if (movement.ArrowDown || movement.s) {
+    character.style.top = (currentTop + 4) + "px";
+    checkCharacterPosition();
+    checkForChests()
+  }
+
+  requestAnimationFrame(move);
+}
+
+document.addEventListener("keydown", function (event) {
+  movement[event.key] = true;
 });
 
-function moveUp() {
-  var character = document.getElementById("character");
-  var currentTop = parseInt(character.style.top) || 0;
-  character.style.top = (currentTop - 25) + "px";
-  character.style.backgroundColor = "orange"
-}
+document.addEventListener("keyup", function (event) {
+  movement[event.key] = false;
+});
+
+move(); // Start continuous movement
 
 
 //Chest
