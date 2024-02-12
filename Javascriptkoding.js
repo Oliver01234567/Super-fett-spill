@@ -3,38 +3,53 @@
 
 //Bevegelse 
 
-
+//Move Left
 document.addEventListener("keydown", function (event) {
-  if (event.key === "d") {
+  if (event.key === "a") {
     moveLeft();
     checkCharacterPosition();
+  }
+  else if(event.key === "ArrowLeft"){
+    moveLeft();
+    checkCharacterPosition();
+    checkForChests()
   }
 });
 
 function moveLeft() {
   var character = document.getElementById("character");
   var currentLeft = parseInt(character.style.left) || 0;
-  character.style.left = (currentLeft + 40) + "px";
+  character.style.left = (currentLeft - 25) + "px";
   character.style.backgroundColor = "red"
 }
 
-
+//Move Right
 document.addEventListener("keydown", function (event) {
-  if (event.key === "a") {
+  if (event.key === "d") {
     moveRight();
     checkCharacterPosition();
+  }
+  else if(event.key === "ArrowRight"){
+    moveRight();
+    checkCharacterPosition();
+    checkForChests()
   }
 });
 
 function moveRight() {
   var character = document.getElementById("character");
-  var currentRight = parseInt(character.style.left) || 0;
-  character.style.left = (currentRight - 40) + "px";
+  var currentLeft = parseInt(character.style.left) || 0;
+  character.style.left = (currentLeft + 25) + "px";
   character.style.backgroundColor = "green"
 }
-
+//Move Down
 document.addEventListener("keydown", function (event) {
   if (event.key === "s") {
+    moveDown();
+    checkCharacterPosition();
+    checkForChests()
+  }
+  else if(event.key === "ArrowDown"){
     moveDown();
     checkCharacterPosition();
   }
@@ -43,12 +58,17 @@ document.addEventListener("keydown", function (event) {
 function moveDown() {
   var character = document.getElementById("character");
   var currentTop = parseInt(character.style.top) || 0;
-  character.style.top = (currentTop + 40) + "px";
+  character.style.top = (currentTop + 25) + "px";
   character.style.backgroundColor = "blue"
 }
-
+// Move up
 document.addEventListener("keydown", function (event) {
   if (event.key === "w") {
+    moveUp();
+    checkCharacterPosition();
+    checkForChests()
+  }
+  else if(event.key === "ArrowUp"){
     moveUp();
     checkCharacterPosition();
   }
@@ -57,10 +77,34 @@ document.addEventListener("keydown", function (event) {
 function moveUp() {
   var character = document.getElementById("character");
   var currentTop = parseInt(character.style.top) || 0;
-  character.style.top = (currentTop - 40) + "px";
+  character.style.top = (currentTop - 25) + "px";
   character.style.backgroundColor = "orange"
 }
 
+
+//Chest
+function checkForChests() {
+  var character = document.getElementById("character");
+  var chests = document.getElementsByClassName("Chest");
+  var characterPlassering = character.getBoundingClientRect();
+
+  for (var i = 0; i < chests.length; i++) {
+    var chestPlassering = chests[i].getBoundingClientRect();
+
+    if (
+      characterPlassering.right > chestPlassering.left &&
+      characterPlassering.left < chestPlassering.right &&
+      characterPlassering.bottom > chestPlassering.top &&
+      characterPlassering.top < chestPlassering.bottom
+    ) {
+      chestFound();
+    }
+  }
+}
+
+function chestFound() {
+  console.log("Chest found!");
+}
 
 //Hav
 function die() {
