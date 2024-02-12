@@ -2,7 +2,6 @@
 //Husk å markere alt i js og css slik at man enklere kan se hva som er hva
 
 //Bevegelse 
-
 var movement = {
   "ArrowLeft": false,
   "ArrowRight": false,
@@ -61,6 +60,7 @@ function checkForChests() {
   var characterPlassering = character.getBoundingClientRect();
 
   for (var i = 0; i < chests.length; i++) {
+    var chest = chests[i];
     var chestPlassering = chests[i].getBoundingClientRect();
 
     if (
@@ -70,13 +70,39 @@ function checkForChests() {
       characterPlassering.top < chestPlassering.bottom
     ) {
       chestFound();
-    }
+      showChestPopup(chest);
+    } 
   }
 }
 
 function chestFound() {
   console.log("Chest found!");
 }
+
+function showChestPopup(chest) {
+  var popup = document.createElement("div");
+  popup.className = "chest-popup";
+  popup.innerHTML = `
+    <p>You found a chest! Do you want to open it?</p>
+    <button onclick="openChest('${chest.id}')">Open</button>
+    <button onclick="declineChest('${chest.id}')">Decline</button>
+  `;
+
+  document.body.appendChild(popup);
+}
+
+function openChest(chestId) {
+  // Add your logic for what happens when the chest is opened
+  console.log(`Opened chest with ID: ${chestId}`);
+  document.body.removeChild(document.querySelector(".chest-popup"));
+}
+
+function declineChest(chestId) {
+  // Add your logic for what happens when the chest is declined
+  console.log(`Declined chest with ID: ${chestId}`);
+  document.body.removeChild(document.querySelector(".chest-popup"));
+}
+
 
 //Hav
 function die() {
