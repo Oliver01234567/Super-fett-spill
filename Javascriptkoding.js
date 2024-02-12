@@ -3,9 +3,13 @@
 
 //Bevegelse 
 
-
+//Move Left
 document.addEventListener("keydown", function (event) {
-  if (event.key === "d") {
+  if (event.key === "a") {
+    moveLeft();
+    checkCharacterPosition();
+  }
+  else if(event.key === "ArrowLeft"){
     moveLeft();
     checkCharacterPosition();
   }
@@ -14,13 +18,17 @@ document.addEventListener("keydown", function (event) {
 function moveLeft() {
   var character = document.getElementById("character");
   var currentLeft = parseInt(character.style.left) || 0;
-  character.style.left = (currentLeft + 40) + "px";
+  character.style.left = (currentLeft - 25) + "px";
   character.style.backgroundColor = "red"
 }
 
-
+//Move Right
 document.addEventListener("keydown", function (event) {
-  if (event.key === "a") {
+  if (event.key === "d") {
+    moveRight();
+    checkCharacterPosition();
+  }
+  else if(event.key === "ArrowRight"){
     moveRight();
     checkCharacterPosition();
   }
@@ -28,13 +36,17 @@ document.addEventListener("keydown", function (event) {
 
 function moveRight() {
   var character = document.getElementById("character");
-  var currentRight = parseInt(character.style.left) || 0;
-  character.style.left = (currentRight - 40) + "px";
+  var currentLeft = parseInt(character.style.left) || 0;
+  character.style.left = (currentLeft + 25) + "px";
   character.style.backgroundColor = "green"
 }
-
+//Move Down
 document.addEventListener("keydown", function (event) {
   if (event.key === "s") {
+    moveDown();
+    checkCharacterPosition();
+  }
+  else if(event.key === "ArrowDown"){
     moveDown();
     checkCharacterPosition();
   }
@@ -43,12 +55,16 @@ document.addEventListener("keydown", function (event) {
 function moveDown() {
   var character = document.getElementById("character");
   var currentTop = parseInt(character.style.top) || 0;
-  character.style.top = (currentTop + 40) + "px";
+  character.style.top = (currentTop + 25) + "px";
   character.style.backgroundColor = "blue"
 }
-
+// Move up
 document.addEventListener("keydown", function (event) {
   if (event.key === "w") {
+    moveUp();
+    checkCharacterPosition();
+  }
+  else if(event.key === "ArrowUp"){
     moveUp();
     checkCharacterPosition();
   }
@@ -57,7 +73,7 @@ document.addEventListener("keydown", function (event) {
 function moveUp() {
   var character = document.getElementById("character");
   var currentTop = parseInt(character.style.top) || 0;
-  character.style.top = (currentTop - 40) + "px";
+  character.style.top = (currentTop - 25) + "px";
   character.style.backgroundColor = "orange"
 }
 
