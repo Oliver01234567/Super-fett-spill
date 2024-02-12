@@ -87,9 +87,9 @@ function checkCharacterPosition() {
 
 // Popup, Oliver
 function showPopup(message) {
-  var popup = document.createElement("div");
-  popup.className = "popup";
-  popup.innerHTML = message;
+    const popup = document.createElement("div");
+    popup.className = "popup";
+    popup.innerHTML = message;
 
   document.body.appendChild(popup);
 
@@ -114,8 +114,8 @@ function toggleFlexBox() {
 
 // teleportering når man går på vannet, Oliver
 function isCharacterOnWater(character, island) {
-  var characterPlassering = character.getBoundingClientRect();
-  var islandPlassering = island.getBoundingClientRect();
+    const characterPlassering = character.getBoundingClientRect();
+    const islandPlassering = island.getBoundingClientRect();
 
   // Sjekk om karakteren er på det lyseblå området
   return (
@@ -127,14 +127,13 @@ function isCharacterOnWater(character, island) {
 }
 
 function resetCharacterPosition() {
-  var character = document.getElementById("character");
-  var island = document.getElementById("øy");
-  var onWater = isCharacterOnWater(character, island);
+    const character = document.getElementById("character");
+    const island = document.getElementById("øy");
+    const onWater = isCharacterOnWater(character, island);
 
-  if (onWater) {
-    character.style.left = "50%";
-    character.style.top = "50%";
-    showPopup("Du får ikke forlate øya");
-  }
+    if (onWater) {
+        character.style.left = "500px";
+        character.style.top = "500px";
+    }
 }
 
