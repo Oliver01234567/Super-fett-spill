@@ -8,6 +8,7 @@ document.addEventListener("keydown", function (event) {
   if (event.key === "d") {
     moveLeft();
     checkCharacterPosition();
+    checkForChests()
   }
 });
 
@@ -23,6 +24,7 @@ document.addEventListener("keydown", function (event) {
   if (event.key === "a") {
     moveRight();
     checkCharacterPosition();
+    checkForChests()
   }
 });
 
@@ -37,6 +39,7 @@ document.addEventListener("keydown", function (event) {
   if (event.key === "s") {
     moveDown();
     checkCharacterPosition();
+    checkForChests()
   }
 });
 
@@ -51,6 +54,7 @@ document.addEventListener("keydown", function (event) {
   if (event.key === "w") {
     moveUp();
     checkCharacterPosition();
+    checkForChests()
   }
 });
 
@@ -61,6 +65,30 @@ function moveUp() {
   character.style.backgroundColor = "orange"
 }
 
+
+//Chest
+function checkForChests() {
+  var character = document.getElementById("character");
+  var chests = document.getElementsByClassName("Chest");
+  var characterPlassering = character.getBoundingClientRect();
+
+  for (var i = 0; i < chests.length; i++) {
+    var chestPlassering = chests[i].getBoundingClientRect();
+
+    if (
+      characterPlassering.right > chestPlassering.left &&
+      characterPlassering.left < chestPlassering.right &&
+      characterPlassering.bottom > chestPlassering.top &&
+      characterPlassering.top < chestPlassering.bottom
+    ) {
+      chestFound();
+    }
+  }
+}
+
+function chestFound() {
+  console.log("Chest found!");
+}
 
 //Hav
 function die() {
