@@ -112,7 +112,7 @@ function toggleFlexBox() {
   }
 }
 
-// teleportering når man går på vannet, Oliver
+// Teleportering når man går på vannet, Oliver
 function isCharacterOnWater(character, island) {
     const characterPlassering = character.getBoundingClientRect();
     const islandPlassering = island.getBoundingClientRect();
@@ -131,9 +131,24 @@ function resetCharacterPosition() {
     const island = document.getElementById("øy");
     const onWater = isCharacterOnWater(character, island);
 
+
+    // Endre antall pixler for å endre hvor man blir teleportert
     if (onWater) {
         character.style.left = "500px";
         character.style.top = "500px";
     }
 }
 
+const moneyBox = document.createElement("div");
+moneyBox.className = "money-box";
+moneyBox.innerHTML = "<span>&#x1F4B0</span><span id='money-amount'>0</span>";
+document.body.appendChild(moneyBox);
+
+function updateMoneyAmount(amount) {
+  const moneyAmountElement = document.getElementById("money-amount");
+  if (moneyAmountElement) {
+      moneyAmountElement.textContent = amount;
+  }
+}
+
+updateMoneyAmount(100);

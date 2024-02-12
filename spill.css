@@ -103,3 +103,26 @@ body {
     border: 2px solid #333;
     z-index: 10000;
 }
+
+.money-box {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(255, 215, 0, 0.7); /* Change to the desired color */
+    padding: 10px;
+    border: 3px solid #88540B; /* Darker border color for contrast */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.money-box span {
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+#money-amount {
+    color: goldenrod; 
+    font-size: 20px; 
+}
