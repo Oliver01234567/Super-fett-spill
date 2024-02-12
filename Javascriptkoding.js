@@ -66,6 +66,7 @@ function moveUp() {
 function die() {
     console.log("du døde")
     showPopup("Du kan ikke forlatte øya, GÅ TILBAKE")
+    resetCharacterPosition();
 }
 
 function checkCharacterPosition() {
@@ -137,7 +138,3 @@ function resetCharacterPosition() {
     }
 }
 
-function die() {
-    console.log("du døde")
-    resetCharacterPosition();
-}
