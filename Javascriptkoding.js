@@ -18,14 +18,29 @@ var movement = {
 
 let movePlayer = 4
 
-function SpeedIncrease(){
-  if(movePlayer >= 10) {
-    movePlayer = 10
-    console.log("Maks fart er nådd")
-  } else {
-  movePlayer = movePlayer + 2
-console.log("maksfart er ikke nådd") }
+function checkForMove10() {
+  if (movePlayer >= 9) {
+    clearInterval(move10)
+
+    const speedButton = document.getElementById("speedButton")
+    speedButton.innerHTML = "Maksfart er nådd"
+  }
 }
+
+function SpeedIncrease() {
+
+  if (movePlayer >= 9) {
+    movePlayer = 10
+
+  }
+  else {
+    movePlayer = movePlayer + 2
+    console.log("maksfart er ikke nådd" + movePlayer)
+  }
+}
+
+const move10 = setInterval(checkForMove10, 1)
+
 
 function move() {
   var character = document.getElementById("character");
@@ -72,7 +87,7 @@ function checkForChests() {
   var character = document.getElementById("character");
   var chests = document.querySelectorAll(".Chest");
   var characterPlassering = character.getBoundingClientRect();
-  chests.forEach(function(chest) {
+  chests.forEach(function (chest) {
     var chestPlassering = chest.getBoundingClientRect();
 
     if (
@@ -83,7 +98,7 @@ function checkForChests() {
     ) {
       chestFound();
       showChestPopup(chest);
-    } 
+    }
   });
 }
 
@@ -142,9 +157,9 @@ function checkCharacterPosition() {
 
 // Popup, Oliver
 function showPopup(message) {
-    const popup = document.createElement("div");
-    popup.className = "popup";
-    popup.innerHTML = message;
+  const popup = document.createElement("div");
+  popup.className = "popup";
+  popup.innerHTML = message;
 
   document.body.appendChild(popup);
 
@@ -162,14 +177,14 @@ function toggleFlexBox() {
   var flexBoxContainer = document.getElementById('flexBoxContainer');
   if (flexBoxContainer.style.display === 'none' || flexBoxContainer.style.display === '') {
     flexBoxContainer.style.display = 'flex';
-     menyknapp.innerHTML=("x")
-    
+    menyknapp.innerHTML = ("x")
+
   } else {
     flexBoxContainer.style.display = 'none';
-    menyknapp.innerHTML=("Menu")
+    menyknapp.innerHTML = ("Menu")
 
   }
-  
+
 }
 
 const skinsS = document.getElementById("skins")
@@ -193,8 +208,8 @@ function showStats() {
 
 // Teleportering når man går på vannet, Oliver
 function isCharacterOnWater(character, island) {
-    const characterPlassering = character.getBoundingClientRect();
-    const islandPlassering = island.getBoundingClientRect();
+  const characterPlassering = character.getBoundingClientRect();
+  const islandPlassering = island.getBoundingClientRect();
 
   // Sjekk om karakteren er på det lyseblå området
   return (
@@ -206,16 +221,16 @@ function isCharacterOnWater(character, island) {
 }
 
 function resetCharacterPosition() {
-    const character = document.getElementById("character");
-    const island = document.getElementById("øy");
-    const onWater = isCharacterOnWater(character, island);
+  const character = document.getElementById("character");
+  const island = document.getElementById("øy");
+  const onWater = isCharacterOnWater(character, island);
 
 
-    // Endre antall pixler for å endre hvor man blir teleportert
-    if (onWater) {
-        character.style.left = "500px";
-        character.style.top = "500px";
-    }
+  // Endre antall pixler for å endre hvor man blir teleportert
+  if (onWater) {
+    character.style.left = "500px";
+    character.style.top = "500px";
+  }
 }
 
 let money = 100;
@@ -230,10 +245,10 @@ function updateMoneyAmount() {
 
 function formatNumber(number) {
   if (number >= 1000000) {
-      return number.toExponential(2);
+    return number.toExponential(2);
   }
   else {
-      return number.toFixed(0);
+    return number.toFixed(0);
   }
 }
 
