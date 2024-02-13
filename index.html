@@ -11,11 +11,14 @@
 
 <body>
     <main id="øy">
-        <div id="character"></div>
+        <div id="character"><img src="Bilder/Rasmus.png" alt="character"></div>
 
         <div id="Chest1" class="InteractiveMaterial Chest">Chest</div>
 
-        <div id="skins"> </div>
+        <div id="skins"> 
+            <button onclick="ChoosenDuck()">And</button>
+            <Button onclick="ChoosenRasmus()">Rasmus</Button>
+        </div>
     </main>
 
     <div class="moneyContainer">
@@ -27,7 +30,10 @@
 
     <button id="menyknapp" onclick="toggleFlexBox()">Menu</button>
     <div id="flexBoxContainer">
-        <div class="flexBox"></div>
+        <div class="flexBox">
+            <Button onclick="showSkins()">skins</Button>
+            <button onclick="backToGame()">tilbake til spillet</button>
+        </div>
     </div>
 
     <script src="Javascriptkoding.js"></script>

@@ -158,6 +158,21 @@ function toggleFlexBox() {
   
 }
 
+const skinsS = document.getElementById("skins")
+
+function backToGame() {
+
+  skinsS.style.zIndex = "-1"
+}
+
+//skins section
+function showSkins() {
+  
+
+  skinsS.style.zIndex = "4"
+}
+
+
 // Teleportering når man går på vannet, Oliver
 function isCharacterOnWater(character, island) {
     const characterPlassering = character.getBoundingClientRect();
@@ -212,8 +227,13 @@ function freeMoney() {
 }
 
 
+//skins section
+const characterP = document.querySelector("#character img")
 
+function ChoosenDuck() {
+  characterP.src = "Bilder/playerIcon1.png"
+}
 
-
-
-
+function ChoosenRasmus() {
+  characterP.src = "Bilder/Rasmus.png"
+}

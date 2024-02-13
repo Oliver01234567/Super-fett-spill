@@ -11,13 +11,17 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 40px;
-    height: 40px;
-    background-color: blue;  
+    width: 60px;
+    height: 60px;
+    
     transition: left 0.2s linear, top 0.2s linear;
     z-index: 2;
 }
 
+#character img {
+    height: 60px;
+    width: 60px;
+}
 
 /*Øya og havet*/
 
@@ -158,7 +162,6 @@ body {
     margin-right: 3px;
 }
 
-<<<<<<< Updated upstream
 #freeMoneyButton {
     width: 30px;
     height: 30px;
@@ -170,7 +173,6 @@ body {
 }
 
 
-=======
 #money-amount {
     color: goldenrod; 
     font-size: 20px; 
@@ -187,4 +189,3 @@ body {
 
     z-index: -1;
 }
->>>>>>> Stashed changes
