@@ -2,84 +2,55 @@
 //Husk å markere alt i js og css slik at man enklere kan se hva som er hva
 
 //Bevegelse 
+var movement = {
+  "ArrowLeft": false,
+  "ArrowRight": false,
+  "ArrowUp": false,
+  "ArrowDown": false,
+  "a": false,
+  "d": false,
+  "w": false,
+  "s": false,
+};
 
-//Move Left
-document.addEventListener("keydown", function (event) {
-  if (event.key === "a") {
-    moveLeft();
-    checkCharacterPosition();
-  }
-  else if(event.key === "ArrowLeft"){
-    moveLeft();
-    checkCharacterPosition();
-    checkForChests()
-  }
-});
-
-function moveLeft() {
+function move() {
   var character = document.getElementById("character");
   var currentLeft = parseInt(character.style.left) || 0;
-  character.style.left = (currentLeft - 25) + "px";
-  character.style.backgroundColor = "red"
-}
-
-//Move Right
-document.addEventListener("keydown", function (event) {
-  if (event.key === "d") {
-    moveRight();
-    checkCharacterPosition();
-  }
-  else if(event.key === "ArrowRight"){
-    moveRight();
-    checkCharacterPosition();
-    checkForChests()
-  }
-});
-
-function moveRight() {
-  var character = document.getElementById("character");
-  var currentLeft = parseInt(character.style.left) || 0;
-  character.style.left = (currentLeft + 25) + "px";
-  character.style.backgroundColor = "green"
-}
-//Move Down
-document.addEventListener("keydown", function (event) {
-  if (event.key === "s") {
-    moveDown();
-    checkCharacterPosition();
-    checkForChests()
-  }
-  else if(event.key === "ArrowDown"){
-    moveDown();
-    checkCharacterPosition();
-  }
-});
-
-function moveDown() {
-  var character = document.getElementById("character");
   var currentTop = parseInt(character.style.top) || 0;
-  character.style.top = (currentTop + 25) + "px";
-  character.style.backgroundColor = "blue"
-}
-// Move up
-document.addEventListener("keydown", function (event) {
-  if (event.key === "w") {
-    moveUp();
+
+  if (movement.ArrowLeft || movement.a) {
+    character.style.left = (currentLeft - 4) + "px";
     checkCharacterPosition();
     checkForChests()
   }
-  else if(event.key === "ArrowUp"){
-    moveUp();
+  if (movement.ArrowRight || movement.d) {
+    character.style.left = (currentLeft + 4) + "px";
     checkCharacterPosition();
+    checkForChests()
   }
+  if (movement.ArrowUp || movement.w) {
+    character.style.top = (currentTop - 4) + "px";
+    checkCharacterPosition();
+    checkForChests()
+  }
+  if (movement.ArrowDown || movement.s) {
+    character.style.top = (currentTop + 4) + "px";
+    checkCharacterPosition();
+    checkForChests()
+  }
+
+  requestAnimationFrame(move);
+}
+
+document.addEventListener("keydown", function (event) {
+  movement[event.key] = true;
 });
 
-function moveUp() {
-  var character = document.getElementById("character");
-  var currentTop = parseInt(character.style.top) || 0;
-  character.style.top = (currentTop - 25) + "px";
-  character.style.backgroundColor = "orange"
-}
+document.addEventListener("keyup", function (event) {
+  movement[event.key] = false;
+});
+
+move(); // Start continuous movement
 
 
 //Chest
@@ -89,6 +60,7 @@ function checkForChests() {
   var characterPlassering = character.getBoundingClientRect();
 
   for (var i = 0; i < chests.length; i++) {
+    var chest = chests[i];
     var chestPlassering = chests[i].getBoundingClientRect();
 
     if (
@@ -98,13 +70,39 @@ function checkForChests() {
       characterPlassering.top < chestPlassering.bottom
     ) {
       chestFound();
-    }
+      showChestPopup(chest);
+    } 
   }
 }
 
 function chestFound() {
   console.log("Chest found!");
 }
+
+function showChestPopup(chest) {
+  var popup = document.createElement("div");
+  popup.className = "chest-popup";
+  popup.innerHTML = `
+    <p>You found a chest! Do you want to open it?</p>
+    <button onclick="openChest('${chest.id}')">Open</button>
+    <button onclick="declineChest('${chest.id}')">Decline</button>
+  `;
+
+  document.body.appendChild(popup);
+}
+
+function openChest(chestId) {
+  // Add your logic for what happens when the chest is opened
+  console.log(`Opened chest with ID: ${chestId}`);
+  document.body.removeChild(document.querySelector(".chest-popup"));
+}
+
+function declineChest(chestId) {
+  // Add your logic for what happens when the chest is declined
+  console.log(`Declined chest with ID: ${chestId}`);
+  document.body.removeChild(document.querySelector(".chest-popup"));
+}
+
 
 //Hav
 function die() {
@@ -151,9 +149,14 @@ function toggleFlexBox() {
   var flexBoxContainer = document.getElementById('flexBoxContainer');
   if (flexBoxContainer.style.display === 'none' || flexBoxContainer.style.display === '') {
     flexBoxContainer.style.display = 'flex';
+     menyknapp.innerHTML=("x")
+    
   } else {
     flexBoxContainer.style.display = 'none';
+    menyknapp.innerHTML=("Menu")
+
   }
+  
 }
 
 // Teleportering når man går på vannet, Oliver
