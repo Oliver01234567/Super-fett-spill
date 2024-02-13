@@ -19,7 +19,12 @@ var movement = {
 let movePlayer = 4
 
 function SpeedIncrease(){
+  if(movePlayer >= 10) {
+    movePlayer = 10
+    console.log("Maks fart er nådd")
+  } else {
   movePlayer = movePlayer + 2
+console.log("maksfart er ikke nådd") }
 }
 
 function move() {
