@@ -167,8 +167,6 @@ function backToGame() {
 
 //skins section
 function showSkins() {
-  
-
   skinsS.style.zIndex = "4"
 }
 
