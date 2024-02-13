@@ -49,11 +49,13 @@ function move() {
 
   if (movement.ArrowLeft || movement.a) {
     character.style.left = (currentLeft - movePlayer) + "px";
+    character.style.transform = "scaleX(-1)"
     checkCharacterPosition();
     checkForChests()
   }
   if (movement.ArrowRight || movement.d) {
     character.style.left = (currentLeft + movePlayer) + "px";
+    character.style.transform = "scaleX(1)"
     checkCharacterPosition();
     checkForChests()
   }
@@ -79,7 +81,7 @@ document.addEventListener("keyup", function (event) {
   movement[event.key] = false;
 });
 
-move(); // Start continuous movement
+move(); 
 
 
 //Chest
