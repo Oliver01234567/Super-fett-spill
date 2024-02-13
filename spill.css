@@ -134,26 +134,38 @@ body {
     cursor: pointer;
 }
 
-.money-box {
-    position: fixed;
+.moneyContainer {
+    position: absolute;
     top: 10px;
     left: 10px;
-    background-color: rgba(255, 215, 0, 0.7); /* Change to the desired color */
+    background-color: rgba(255, 215, 0, 0.7);
     padding: 10px;
-    border: 3px solid #88540B; /* Darker border color for contrast */
+    border: 3px solid #88540B;
     border-radius: 10px;
     display: flex;
     align-items: center;
     font-weight: bold;
-    z-index: 100;
+    z-index: 3;
 }
 
-.money-box span {
-    margin-right: 5px;
+.moneyBox {
+    margin-right: 7px;
+}
+
+.moneyBox span {
     font-size: 20px;
+    color: goldenrod;
+    margin-right: 3px;
 }
 
-#money-amount {
-    color: goldenrod; 
-    font-size: 20px; 
+#freeMoneyButton {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px;
+    background-color: goldenrod;
+    color: #fff;
+    cursor: pointer;
 }
+
+

@@ -58,7 +58,6 @@ function checkForChests() {
   var character = document.getElementById("character");
   var chests = document.querySelectorAll(".Chest");
   var characterPlassering = character.getBoundingClientRect();
-
   chests.forEach(function(chest) {
     var chestPlassering = chest.getBoundingClientRect();
 
@@ -186,16 +185,35 @@ function resetCharacterPosition() {
     }
 }
 
-const moneyBox = document.createElement("div");
-moneyBox.className = "money-box";
-moneyBox.innerHTML = "<span>&#x1F4B0</span><span id='money-amount'>0</span>";
-document.body.appendChild(moneyBox);
+let money = 100;
 
-function updateMoneyAmount(amount) {
-  const moneyAmountElement = document.getElementById("money-amount");
-  if (moneyAmountElement) {
-      moneyAmountElement.textContent = amount;
+const moneyAmount = document.getElementById("moneyAmount");
+const moneyBox = document.getElementById("moneyBox");
+const freeMoneyBtn = document.getElementById("freeMoneyButton");
+
+function updateMoneyAmount() {
+  moneyAmount.innerText = formatNumber(money);
+}
+
+function formatNumber(number) {
+  if (number >= 1000000) {
+      return number.toExponential(2);
+  }
+  else {
+      return number.toFixed(0);
   }
 }
 
-updateMoneyAmount(100);
+freeMoneyBtn.addEventListener('click', freeMoney);
+
+function freeMoney() {
+  money += 10000;
+  updateMoneyAmount();
+}
+
+
+
+
+
+
+
