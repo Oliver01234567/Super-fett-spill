@@ -68,12 +68,51 @@ body {
 
 }
 
+
 .flexBox {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     width: 800px;
     height: 500px;
     background-color: white;
 }
+
+.menyoverskrift {
+    background-color: brown;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    font-size: 40px;
+    
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.wrapper1, .wrapper2 {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.settings, .upgrades, .skins, .HowToPlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 150px;
+    padding: 20px;
+    font-size: 30px;
+    margin: 20px;
+    background-color: brown;
+}
+
+
 
 
 /*Alt materiale som spilleren skal interaktere med*/

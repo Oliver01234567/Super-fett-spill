@@ -37,12 +37,24 @@
     <button id="menyknapp" onclick="toggleFlexBox()">Menu</button>
     <div id="flexBoxContainer">
         <div class="flexBox">
-            <Button onclick="showSkins()">skins</Button>
-            <button onclick="backToGame()">tilbake til spillet</button>
-            <button onclick="showStats()">stats</button>
+
+            <div class="menyposisjon">
+                <nav class="menyoverskrift">Meny</nav>
+            </div>
+            <div class="buttons">
+                <div class="wrapper1">
+                    <button class="settings" >settings</button>
+                    <button class="upgrades" onclick="showStats()">upgrades</button>
+                </div>
+                <div class="wrapper2">
+                    <button class="skins" onclick="showSkins()">skins</button>
+                    <button class="HowToPlay">How to play</button>
+                </div>
+            </div>
         </div>
     </div>
 
+    
     <script src="Javascriptkoding.js"></script>
 </body>
 
