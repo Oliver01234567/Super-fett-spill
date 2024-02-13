@@ -13,28 +13,37 @@ var movement = {
   "s": false,
 };
 
+//Variabel for movement
+
+
+let movePlayer = 4
+
+function SpeedIncrease(){
+  movePlayer = movePlayer + 2
+}
+
 function move() {
   var character = document.getElementById("character");
   var currentLeft = parseInt(character.style.left) || 0;
   var currentTop = parseInt(character.style.top) || 0;
 
   if (movement.ArrowLeft || movement.a) {
-    character.style.left = (currentLeft - 4) + "px";
+    character.style.left = (currentLeft - movePlayer) + "px";
     checkCharacterPosition();
     checkForChests()
   }
   if (movement.ArrowRight || movement.d) {
-    character.style.left = (currentLeft + 4) + "px";
+    character.style.left = (currentLeft + movePlayer) + "px";
     checkCharacterPosition();
     checkForChests()
   }
   if (movement.ArrowUp || movement.w) {
-    character.style.top = (currentTop - 4) + "px";
+    character.style.top = (currentTop - movePlayer) + "px";
     checkCharacterPosition();
     checkForChests()
   }
   if (movement.ArrowDown || movement.s) {
-    character.style.top = (currentTop + 4) + "px";
+    character.style.top = (currentTop + movePlayer) + "px";
     checkCharacterPosition();
     checkForChests()
   }
@@ -159,15 +168,21 @@ function toggleFlexBox() {
 }
 
 const skinsS = document.getElementById("skins")
+const statsS = document.getElementById("stats")
 
 function backToGame() {
 
   skinsS.style.zIndex = "-1"
+  statsS.style.zIndex = "-1"
 }
 
 //skins section
 function showSkins() {
   skinsS.style.zIndex = "4"
+}
+
+function showStats() {
+  statsS.style.zIndex = "4"
 }
 
 
