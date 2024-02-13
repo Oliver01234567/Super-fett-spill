@@ -183,14 +183,15 @@ body {
     width: 100%;
     position: relative;
     background-color: wheat;
+    z-index: 9997;
 }
 
 /*Skins*/
 #skins {
-    z-index: -1;
+    display: none;
 }
 
 /*Stats*/
 #stats {
-    z-index: -1
+    display: none;
 }

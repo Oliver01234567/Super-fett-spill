@@ -177,17 +177,17 @@ const statsS = document.getElementById("stats")
 
 function backToGame() {
 
-  skinsS.style.zIndex = "-1"
-  statsS.style.zIndex = "-1"
+  skinsS.style.display = "none"
+  statsS.style.display = "none"
 }
 
 //skins section
 function showSkins() {
-  skinsS.style.zIndex = "4"
+  skinsS.style.display = "block"
 }
 
 function showStats() {
-  statsS.style.zIndex = "4"
+  statsS.style.display = "block"
 }
 
 
