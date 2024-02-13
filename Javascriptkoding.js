@@ -56,12 +56,11 @@ move(); // Start continuous movement
 //Chest
 function checkForChests() {
   var character = document.getElementById("character");
-  var chests = document.getElementsByClassName("Chest");
+  var chests = document.querySelectorAll(".Chest");
   var characterPlassering = character.getBoundingClientRect();
 
-  for (var i = 0; i < chests.length; i++) {
-    var chest = chests[i];
-    var chestPlassering = chests[i].getBoundingClientRect();
+  chests.forEach(function(chest) {
+    var chestPlassering = chest.getBoundingClientRect();
 
     if (
       characterPlassering.right > chestPlassering.left &&
@@ -72,8 +71,9 @@ function checkForChests() {
       chestFound();
       showChestPopup(chest);
     } 
-  }
+  });
 }
+
 
 function chestFound() {
   console.log("Chest found!");
