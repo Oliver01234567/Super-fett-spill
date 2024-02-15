@@ -35,7 +35,6 @@ function SpeedIncrease() {
   }
   else {
     movePlayer = movePlayer + 2
-    console.log("maksfart er ikke nådd" + movePlayer)
   }
 }
 
@@ -235,6 +234,7 @@ function resetCharacterPosition() {
   }
 }
 
+//Penger
 let money = 100;
 
 const moneyAmount = document.getElementById("moneyAmount");

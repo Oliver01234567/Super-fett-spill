@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test</title>
+
+    <style>
+        .karakter {
+            height: 100px;
+        }
+
+        #spillerDiv {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #arena {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .cGrid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(9, 1fr);
+        }
+
+        #motstander {
+            grid-row: 1;
+            grid-column: 2;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #spiller {
+            grid-row: 1;
+            grid-column: 2;
+        }
+
+        #Sverd {
+            position: fixed;
+            height: 100px;
+            width: 100px;
+
+        }
+
+        #holdtSverd {
+          
+            height: 100px;
+            width: 100px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <h1><span id="healthBar">10</span></h1>
+    <div id="arena">
+
+
+        <div class="cGrid">
+            <div id="spillerDiv">
+                <img src="Bilder/Rasmus.png" alt="Din fyr" class="karakter">
+                
+            </div>
+        </div>
+
+
+        <div class="cGrid">
+            <div id="motstander"><img src="Bilder/playerIcon1.png" alt="motstander" class="karakter"></div>
+        </div>
+    </div>
+
+    <script>
+        const player = document.getElementById("spillerDiv")
+
+        var sverd = document.createElement('img');
+            sverd.src = 'Bilder/sverd.gif';
+            sverd.alt = "Sverd";
+            sverd.id = "holdtSverd";
+            document.getElementById("spillerDiv").appendChild(sverd);
+
+
+        let stopp = setInterval(move, 1000)
+
+        let EmyHealth = 10
+
+        const spanHealt = document.getElementById("healthBar")
+
+
+        const and = document.getElementById("motstander")
+
+        and.addEventListener("click", skadet)
+
+        function move() {
+            let y = Math.floor(Math.random() * 8) + 1
+            let x = Math.floor(Math.random() * 2) + 1
+            and.style.gridRow = y
+            and.style.gridColumn = x
+        }
+
+        function skadet() {
+            spillerDiv.removeChild(document.querySelector("#holdtSverd"));
+            clearInterval(stopp);
+            and.removeEventListener("click", skadet);
+
+            EmyHealth--;
+            healthBar.innerText = EmyHealth;
+
+
+            var sverdSlag = document.createElement('img');
+            sverdSlag.src = 'Bilder/sverdSlag.gif';
+            sverdSlag.alt = "Sverd";
+            sverdSlag.id = "Sverd";
+            document.getElementById("motstander").appendChild(sverdSlag);
+
+            setTimeout(fjernSverd, 1000);
+            setTimeout(skapSverd, 1000);
+
+            if (EmyHealth <= 0) {
+                clearInterval(stopp);
+                console.log("ja");
+                setTimeout(dødfallMotstander, 1500)
+                return;
+            }
+
+            setTimeout(startInterval, 1500);
+        }
+
+
+
+        function dødfallMotstander() {
+            and.style.rotate = "60deg"
+        }
+
+
+        function fjernSverd() {
+            and.removeChild(document.querySelector("#Sverd"));
+        }
+
+        function skapSverd() {
+            var sverd = document.createElement('img');
+            sverd.src = 'Bilder/sverd.gif';
+            sverd.alt = "Sverd";
+            sverd.id = "holdtSverd";
+            document.getElementById("spillerDiv").appendChild(sverd);
+        }
+
+
+        function startInterval() {
+            move()
+            stopp = setInterval(move, 500)
+            and.addEventListener("click", skadet)
+        }
+
+
+
+    </script>
+</body>
+
+</html>
