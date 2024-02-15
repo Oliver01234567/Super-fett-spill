@@ -8,7 +8,7 @@
 
     <style>
         .karakter {
-            height: 100px;
+            height: 75px;
         }
 
         #spillerDiv {
@@ -18,18 +18,16 @@
         }
 
         #arena {
-            height: 100vh;
-            width: 100%;
             display: flex;
-            align-items: center;
-            justify-content: center;
-
         }
 
         .cGrid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(9, 1fr);
+            grid-template-rows: repeat(7, 1fr);
+            background-color: black;
+            height: 700px;
+            width: 530px;
         }
 
         #motstander {
@@ -41,55 +39,86 @@
             justify-content: center;
         }
 
-        #spiller {
+        #spillerDiv {
             grid-row: 1;
             grid-column: 2;
+            z-index: 1;
         }
 
+
+
         #Sverd {
-            position: fixed;
+            position: absolute;
             height: 100px;
             width: 100px;
 
         }
 
         #holdtSverd {
-          
+
             height: 100px;
             width: 100px;
-            
+
         }
     </style>
 </head>
 
 <body>
     <h1><span id="healthBar">10</span></h1>
+    <h1><span id="pHealthBar">35</span></h1>
     <div id="arena">
+        <div class="cGrid" id="playerGrid">
 
-
-        <div class="cGrid">
             <div id="spillerDiv">
                 <img src="Bilder/Rasmus.png" alt="Din fyr" class="karakter">
-                
             </div>
+
         </div>
 
 
         <div class="cGrid">
-            <div id="motstander"><img src="Bilder/playerIcon1.png" alt="motstander" class="karakter"></div>
+
+            <div id="motstander">
+                <img src="Bilder/playerIcon1.png" alt="motstander" class="karakter">
+            </div>
+
         </div>
     </div>
 
     <script>
+
+        //skaper divene som senere blir røde
+        let nummer = 1
+        for (let j = 1; j < 8; j++) {
+            for (let i = 1; i < 3; i++) {
+
+
+                const square = document.createElement("div")
+
+                square.id = "s-" + nummer
+                nummer++
+                square.style.gridColumn = i
+                square.style.gridRow = j
+
+                square.classList.add("c_" + i)
+                square.classList.add("r_" + j)
+
+                document.getElementById("playerGrid").appendChild(square)
+
+            }
+        }
+
+
         const player = document.getElementById("spillerDiv")
 
         var sverd = document.createElement('img');
-            sverd.src = 'Bilder/sverd.gif';
-            sverd.alt = "Sverd";
-            sverd.id = "holdtSverd";
-            document.getElementById("spillerDiv").appendChild(sverd);
+        sverd.src = 'Bilder/sverd.gif';
+        sverd.alt = "Sverd";
+        sverd.id = "holdtSverd";
+        document.getElementById("spillerDiv").appendChild(sverd);
 
 
+        //fiendens systemer
         let stopp = setInterval(move, 1000)
 
         let EmyHealth = 10
@@ -101,13 +130,17 @@
 
         and.addEventListener("click", skadet)
 
+
+        //hvordan fienden beveger seg
         function move() {
-            let y = Math.floor(Math.random() * 8) + 1
+            let y = Math.floor(Math.random() * 7) + 1
             let x = Math.floor(Math.random() * 2) + 1
             and.style.gridRow = y
             and.style.gridColumn = x
         }
 
+
+        //hva som skjer når du skader fienden
         function skadet() {
             spillerDiv.removeChild(document.querySelector("#holdtSverd"));
             clearInterval(stopp);
@@ -123,17 +156,16 @@
             sverdSlag.id = "Sverd";
             document.getElementById("motstander").appendChild(sverdSlag);
 
-            setTimeout(fjernSverd, 1000);
-            setTimeout(skapSverd, 1000);
+            setTimeout(fjernSverd, 1800);
+            setTimeout(skapSverd, 1800);
 
             if (EmyHealth <= 0) {
                 clearInterval(stopp);
-                console.log("ja");
                 setTimeout(dødfallMotstander, 1500)
                 return;
             }
 
-            setTimeout(startInterval, 1500);
+            setTimeout(startInterval, 2300);
         }
 
 
@@ -163,6 +195,103 @@
         }
 
 
+        //spillerens systemer
+        let plyHealth = 35
+
+        const spanPHealt = document.getElementById("pHealthBar")
+
+        //bevegelse
+        let h = 1
+        let w = 2
+
+        function BevegelseFrammover() {
+            w += 1;
+            spillerDiv.style.gridColumn = w;
+        }
+
+        function BevegelseOppover() {
+            h -= 1;
+            spillerDiv.style.gridRow = h;
+        }
+
+        function BevegelseNedover() {
+            h += 1;
+            spillerDiv.style.gridRow = h;
+        }
+
+        function BevegelseBakover() {
+            w -= 1;
+            spillerDiv.style.gridColumn = w;
+        }
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "ArrowRight" || event.key === "d" || event.key === "D") {
+                BevegelseFrammover();
+            } else if (event.key === "ArrowDown" || event.key === "s" || event.key === "D") {
+                BevegelseNedover();
+            } else if (event.key === "ArrowLeft" || event.key === "a" || event.key === "A") {
+                BevegelseBakover();
+            } else if (event.key === "ArrowUp" || event.key === "w" || event.key === "W") {
+                BevegelseOppover();
+            }
+
+
+
+
+
+                // Setter begrensninger for hvor man kan gå.
+                if (h === 8) {
+                    h -= 1;
+                    spillerDiv.style.gridRow = h;
+                }
+
+                if (w === 3) {
+                    w -= 1;
+                    spillerDiv.style.gridColumn = w;
+                }
+
+                if (w === 0) {
+                    w += 1;
+                    spillerDiv.style.gridColumn = w;
+                }
+
+                if (h === 0) {
+                    h += 1;
+                    spillerDiv.style.gridRow = h;
+                }
+            });
+
+            //redZones
+
+            let a = Math.floor(Math.random() * 14) + 1
+
+            let e = Math.floor(Math.random() * 14) + 1
+
+            let s = Math.floor(Math.random() * 14) + 1
+
+            let n = Math.floor(Math.random() * 14) + 1
+
+
+            let red1 = document.getElementById("s-" + a)
+            red1.style.backgroundColor = "red"
+            red1.classList.add = "redZone"
+
+
+            let red2 = document.getElementById("s-" + e)
+            red2.style.backgroundColor = "red"
+            red2.classList.add = "redZone"
+
+            let red3 = document.getElementById("s-" + s)
+            red3.style.backgroundColor = "red"
+            red3.classList.add = "redZone"
+
+            let red4 = document.getElementById("s-" + n)
+            red4.style.backgroundColor = "red"
+            red4.classList.add = "redZone"
+
+            function damage() {
+
+            }
 
     </script>
 </body>
