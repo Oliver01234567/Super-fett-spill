@@ -11,22 +11,16 @@
 
 <body>
     <main id="øy">
+        <div class="strand"></div>
+
         <div id="character"><img src="Bilder/Rasmus.png" alt="character"></div>
 
         <div id="Chest1" class="InteractiveMaterial Chest">Chest</div>
 
 
-        <div id="skins" class="sections">
-            <button onclick="ChoosenDuck()">And</button>
-            <Button onclick="ChoosenRasmus()">Rasmus</Button>
-            <button  onclick=" backToGame()">Tilbake</button>
-        </div>
 
-        <div id="stats" class="sections">
 
-            <button onclick="SpeedIncrease()" id="speedButton">Øk farten</button>
-            <button onclick=" backToGame()">Tilbake</button>
-        </div>
+       
     </main>
 
     <div class="moneyContainer">
@@ -53,6 +47,25 @@
                     <button class="HowToPlay">How to play</button>
                 </div>
             </div>
+        </div>
+    </div>
+    <div id="skinSelect">
+        <nav id="skinNav">
+            <p>Velg ditt skin!</p>
+        </nav>
+        <div id="skinButtons">           
+                <button class="skinButtons" onclick="ChoosenDuck()">And</button>
+                <Button class="skinButtons" onclick="ChoosenRasmus()">Rasmus</Button>
+                <button class="skinButtons" onclick=" backToGame()">Tilbake</button>
+        </div>
+    </div>
+    <div id="statsSelect">
+        <nav id="statsNav">
+            <p>Oppgrader characteren!</p>
+        </nav>
+        <div id="statsButtons">           
+                <button class="statsButtons" onclick="SpeedIncrease()" id="speedButton">Øk farten</button>
+                <button class="statsButtons" onclick=" backToGame()">Tilbake</button>
         </div>
     </div>
 

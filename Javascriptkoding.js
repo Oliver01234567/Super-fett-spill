@@ -13,9 +13,37 @@ var movement = {
   "s": false,
 };
 
+/* funskjon for busk og tre
+function generateTreesAndBushes() {
+  var map = document.getElementById('øy');
+  var mapWidth = map.offsetWidth;
+  var mapHeight = map.offsetHeight;
+  
+  for (var i = 0; i < 20; i++) {
+      // randomly velger tre eller busk
+      var elementType = Math.random() < 0.5 ? 'tre' : 'busk';
+      
+      // Create element
+      var element = document.createElement('div');
+      element.classList.add(elementType);
+      
+      // Random posisjon
+      var xPos = Math.random() * (mapWidth - 50); // subtracting width of element
+      var yPos = Math.random() * (mapHeight - 50); // subtracting height of element
+      element.style.left = xPos + 'px';
+      element.style.top = yPos + 'px';
+      
+      // Random størrelse
+      var sizeVariation = Math.random() * 0.5 + 0.5; // range: 0.5 to 1
+      element.style.width = (sizeVariation * (elementType === 'tre' ? 20 : 30)) + 'px';
+      element.style.height = (sizeVariation * (elementType === 'tre' ? 40 : 20)) + 'px';
+      
+      map.appendChild(element);
+  }
+} */
+
+
 //Variabel for movement
-
-
 let movePlayer = 4
 
 function checkForMove10() {
@@ -179,32 +207,18 @@ function toggleFlexBox() {
   if (flexBoxContainer.style.display === 'none' || flexBoxContainer.style.display === '') {
     flexBoxContainer.style.display = 'flex';
     menyknapp.innerHTML = ("x")
+    
 
   } else {
     flexBoxContainer.style.display = 'none';
     menyknapp.innerHTML = ("Menu")
+    skinSelect.style.display ="none"
 
   }
 
 }
 
-const skinsS = document.getElementById("skins")
-const statsS = document.getElementById("stats")
 
-function backToGame() {
-
-  skinsS.style.display = "none"
-  statsS.style.display = "none"
-}
-
-//skins section
-function showSkins() {
-  skinsS.style.display = "block"
-}
-
-function showStats() {
-  statsS.style.display = "block"
-}
 
 
 // Teleportering når man går på vannet, Oliver
@@ -271,4 +285,30 @@ function ChoosenDuck() {
 
 function ChoosenRasmus() {
   characterP.src = "Bilder/Rasmus.png"
+}
+
+const skinsS = document.getElementById("skins")
+const statsS = document.getElementById("stats")
+
+
+
+//skins section
+function showSkins() {
+  skinSelect.style.display ="block"
+  skinSelect.style.display ="flex"
+  
+  
+}
+
+function showStats() {
+  statsSelect.style.display = "block"
+ statsSelect.style.display = "flex"
+
+}
+
+function backToGame() {
+
+  skinSelect.style.display = "none"
+  statsSelect.style.display = "none"
+  
 }
