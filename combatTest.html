@@ -37,6 +37,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 75px;
         }
 
         #spillerDiv {
@@ -190,7 +191,7 @@
 
         function startInterval() {
             move()
-            stopp = setInterval(move, 500)
+            stopp = setInterval(move, 1000)
             and.addEventListener("click", skadet)
         }
 
@@ -239,30 +240,33 @@
 
 
 
-                // Setter begrensninger for hvor man kan gå.
-                if (h === 8) {
-                    h -= 1;
-                    spillerDiv.style.gridRow = h;
-                }
+            // Setter begrensninger for hvor man kan gå.
+            if (h === 8) {
+                h -= 1;
+                spillerDiv.style.gridRow = h;
+            }
 
-                if (w === 3) {
-                    w -= 1;
-                    spillerDiv.style.gridColumn = w;
-                }
+            if (w === 3) {
+                w -= 1;
+                spillerDiv.style.gridColumn = w;
+            }
 
-                if (w === 0) {
-                    w += 1;
-                    spillerDiv.style.gridColumn = w;
-                }
+            if (w === 0) {
+                w += 1;
+                spillerDiv.style.gridColumn = w;
+            }
 
-                if (h === 0) {
-                    h += 1;
-                    spillerDiv.style.gridRow = h;
-                }
-            });
+            if (h === 0) {
+                h += 1;
+                spillerDiv.style.gridRow = h;
+            }
+        });
 
-            //redZones
+        //redZones
+        attackOfTheDuck();
+        setInterval(attackOfTheDuck, 9000)
 
+        function attackOfTheDuck() {
             let a = Math.floor(Math.random() * 14) + 1
 
             let e = Math.floor(Math.random() * 14) + 1
@@ -271,27 +275,103 @@
 
             let n = Math.floor(Math.random() * 14) + 1
 
+            let d = Math.floor(Math.random() * 14) + 1
 
-            let red1 = document.getElementById("s-" + a)
-            red1.style.backgroundColor = "red"
-            red1.classList.add = "redZone"
+            let p = Math.floor(Math.random() * 14) + 1
+            setTimeout(orangeZones, 3000)
 
 
-            let red2 = document.getElementById("s-" + e)
-            red2.style.backgroundColor = "red"
-            red2.classList.add = "redZone"
 
-            let red3 = document.getElementById("s-" + s)
-            red3.style.backgroundColor = "red"
-            red3.classList.add = "redZone"
 
-            let red4 = document.getElementById("s-" + n)
-            red4.style.backgroundColor = "red"
-            red4.classList.add = "redZone"
 
-            function damage() {
+            function orangeZones() {
 
+
+
+                let red1 = document.getElementById("s-" + a)
+                red1.style.backgroundColor = "orange"
+                red1.classList.add = "redZone"
+
+
+                let red2 = document.getElementById("s-" + e)
+                red2.style.backgroundColor = "orange"
+                red2.classList.add = "redZone"
+
+                let red3 = document.getElementById("s-" + s)
+                red3.style.backgroundColor = "orange"
+                red3.classList.add = "redZone"
+
+                let red4 = document.getElementById("s-" + n)
+                red4.style.backgroundColor = "orange"
+                red4.classList.add = "redZone"
+
+                let red5 = document.getElementById("s-" + d)
+                red5.style.backgroundColor = "orange"
+                red5.classList.add = "redZone"
+
+                let red6 = document.getElementById("s-" + p)
+                red6.style.backgroundColor = "orange"
+                red6.classList.add = "redZone"
+
+                setTimeout(redZones, 2000)
             }
+
+            function redZones() {
+                let red1 = document.getElementById("s-" + a)
+                red1.style.backgroundColor = "red"
+                red1.classList.add = "redZone"
+
+
+                let red2 = document.getElementById("s-" + e)
+                red2.style.backgroundColor = "red"
+                red2.classList.add = "redZone"
+
+                let red3 = document.getElementById("s-" + s)
+                red3.style.backgroundColor = "red"
+                red3.classList.add = "redZone"
+
+                let red4 = document.getElementById("s-" + n)
+                red4.style.backgroundColor = "red"
+                red4.classList.add = "redZone"
+
+                let red5 = document.getElementById("s-" + d)
+                red5.style.backgroundColor = "red"
+                red5.classList.add = "redZone"
+
+                let red6 = document.getElementById("s-" + p)
+                red6.style.backgroundColor = "red"
+                red6.classList.add = "redZone"
+
+                setTimeout(blackout, 3000)
+            }
+
+            function blackout() {
+                let red1 = document.getElementById("s-" + a)
+                red1.style.backgroundColor = "transparent"
+                red1.classList.add = "redZone"
+
+
+                let red2 = document.getElementById("s-" + e)
+                red2.style.backgroundColor = "transparent"
+                red2.classList.add = "redZone"
+
+                let red3 = document.getElementById("s-" + s)
+                red3.style.backgroundColor = "transparent"
+                red3.classList.add = "redZone"
+
+                let red4 = document.getElementById("s-" + n)
+                red4.style.backgroundColor = "transparent"
+                red4.classList.add = "redZone"
+
+                let red5 = document.getElementById("s-" + d)
+                red5.style.backgroundColor = "transparent"
+                red5.classList.add = "redZone"
+
+                let red6 = document.getElementById("s-" + p)
+                red6.style.backgroundColor = "transparent"
+                red6.classList.add = "redZone"
+            }
+        }
 
     </script>
 </body>
