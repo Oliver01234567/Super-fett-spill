@@ -213,6 +213,7 @@ function toggleFlexBox() {
     flexBoxContainer.style.display = 'none';
     menyknapp.innerHTML = ("Menu")
     skinSelect.style.display ="none"
+    statsSelect.style.display ="none"
 
   }
 

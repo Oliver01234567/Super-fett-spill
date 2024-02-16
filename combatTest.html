@@ -7,6 +7,7 @@
     <title>Test</title>
 
     <style>
+
         .karakter {
             height: 75px;
         }
@@ -61,6 +62,26 @@
             width: 100px;
 
         }
+        @keyframes død{
+            100%{
+                transform: rotate(90deg);
+            }
+        }
+        @keyframes lowHP{
+            25%{
+                box-shadow: 0 0 30px red;
+            }
+            50%{
+                box-shadow: none;
+            }
+            75%{
+                box-shadow: 0 0 30px red;
+            }
+            100%{
+                box-shadow: none;
+            }
+        }
+
     </style>
 </head>
 
@@ -71,7 +92,7 @@
         <div class="cGrid" id="playerGrid">
 
             <div id="spillerDiv">
-                <img src="Bilder/Rasmus.png" alt="Din fyr" class="karakter">
+                <img src="Bilder/Rasmus.png" alt="Din fyr" class="karakter" id="karakter">
             </div>
 
         </div>
@@ -150,6 +171,9 @@
             EmyHealth--;
             healthBar.innerText = EmyHealth;
 
+            if(EmyHealth <= 3){
+                and.style.animation = ("lowHP 2s infinite linear")
+            }
 
             var sverdSlag = document.createElement('img');
             sverdSlag.src = 'Bilder/sverdSlag.gif';
@@ -172,7 +196,7 @@
 
 
         function dødfallMotstander() {
-            and.style.rotate = "60deg"
+            and.style.animation = "død 1s linear forwards"
         }
 
 
@@ -200,6 +224,10 @@
         let plyHealth = 35
 
         const spanPHealt = document.getElementById("pHealthBar")
+
+        if(plyHealth <= 15){
+        karakter.style.animation =("lowHP 2s infinite linear")
+        }
 
         //bevegelse
         let h = 1
