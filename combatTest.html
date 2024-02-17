@@ -61,6 +61,15 @@
             width: 100px;
 
         }
+
+        .redZone {
+            background-image: url(Bilder/fire.gif);
+            background-size: cover;
+        }
+
+        .orangeZone {
+            background-color: orange;
+        }
     </style>
 </head>
 
@@ -85,6 +94,8 @@
 
         </div>
     </div>
+
+    <div class="redZone"></div>
 
     <script>
 
@@ -126,7 +137,6 @@
 
         const spanHealt = document.getElementById("healthBar")
 
-
         const and = document.getElementById("motstander")
 
         and.addEventListener("click", skadet)
@@ -140,15 +150,19 @@
             and.style.gridColumn = x
         }
 
-
+        function displayDamage() {
+            EmyHealth--;
+            spanHealt.innerText = EmyHealth;
+            spanHealt.style.color = "red"
+            setTimeout(sortTekst, 500)
+        }
         //hva som skjer når du skader fienden
         function skadet() {
             spillerDiv.removeChild(document.querySelector("#holdtSverd"));
             clearInterval(stopp);
             and.removeEventListener("click", skadet);
 
-            EmyHealth--;
-            healthBar.innerText = EmyHealth;
+
 
 
             var sverdSlag = document.createElement('img');
@@ -160,7 +174,9 @@
             setTimeout(fjernSverd, 1800);
             setTimeout(skapSverd, 1800);
 
-            if (EmyHealth <= 0) {
+            setTimeout(displayDamage, 1800)
+
+            if (EmyHealth == 0) {
                 clearInterval(stopp);
                 setTimeout(dødfallMotstander, 1500)
                 return;
@@ -196,10 +212,14 @@
         }
 
 
+
         //spillerens systemer
-        let plyHealth = 35
+        let plyHealth = 30
 
         const spanPHealt = document.getElementById("pHealthBar")
+
+
+
 
         //bevegelse
         let h = 1
@@ -208,22 +228,27 @@
         function BevegelseFrammover() {
             w += 1;
             spillerDiv.style.gridColumn = w;
+            checkRedZone()
         }
 
         function BevegelseOppover() {
             h -= 1;
             spillerDiv.style.gridRow = h;
+            checkRedZone()
         }
 
         function BevegelseNedover() {
             h += 1;
             spillerDiv.style.gridRow = h;
+            checkRedZone()
         }
 
         function BevegelseBakover() {
             w -= 1;
             spillerDiv.style.gridColumn = w;
+            checkRedZone()
         }
+
 
         document.addEventListener("keydown", function (event) {
             if (event.key === "ArrowRight" || event.key === "d" || event.key === "D") {
@@ -235,9 +260,6 @@
             } else if (event.key === "ArrowUp" || event.key === "w" || event.key === "W") {
                 BevegelseOppover();
             }
-
-
-
 
 
             // Setter begrensninger for hvor man kan gå.
@@ -260,11 +282,13 @@
                 h += 1;
                 spillerDiv.style.gridRow = h;
             }
+
         });
 
         //redZones
         attackOfTheDuck();
         setInterval(attackOfTheDuck, 9000)
+
 
         function attackOfTheDuck() {
             let a = Math.floor(Math.random() * 14) + 1
@@ -279,100 +303,114 @@
 
             let p = Math.floor(Math.random() * 14) + 1
             setTimeout(orangeZones, 3000)
+            setTimeout(redZones, 5000)
+            setTimeout(blackout, 8000)
 
 
-
-
-
+            //funksjonene må være inne i løkken for å få tilgang til de tilfeldige tallene
             function orangeZones() {
 
 
 
-                let red1 = document.getElementById("s-" + a)
-                red1.style.backgroundColor = "orange"
-                red1.classList.add = "redZone"
+                let orange1 = document.getElementById("s-" + a)
+                orange1.classList.add("orangeZone")
 
 
-                let red2 = document.getElementById("s-" + e)
-                red2.style.backgroundColor = "orange"
-                red2.classList.add = "redZone"
+                let orange2 = document.getElementById("s-" + e)
+                orange2.classList.add("orangeZone")
 
-                let red3 = document.getElementById("s-" + s)
-                red3.style.backgroundColor = "orange"
-                red3.classList.add = "redZone"
+                let orange3 = document.getElementById("s-" + s)
+                orange3.classList.add("orangeZone")
 
-                let red4 = document.getElementById("s-" + n)
-                red4.style.backgroundColor = "orange"
-                red4.classList.add = "redZone"
+                let orange4 = document.getElementById("s-" + n)
+                orange4.classList.add("orangeZone")
 
-                let red5 = document.getElementById("s-" + d)
-                red5.style.backgroundColor = "orange"
-                red5.classList.add = "redZone"
+                let orange5 = document.getElementById("s-" + d)
+                orange5.classList.add("orangeZone")
 
-                let red6 = document.getElementById("s-" + p)
-                red6.style.backgroundColor = "orange"
-                red6.classList.add = "redZone"
+                let orange6 = document.getElementById("s-" + p)
+                orange6.classList.add("orangeZone")
 
-                setTimeout(redZones, 2000)
+
             }
 
             function redZones() {
                 let red1 = document.getElementById("s-" + a)
-                red1.style.backgroundColor = "red"
-                red1.classList.add = "redZone"
-
+                red1.classList.add("redZone")
+                red1.classList.remove("orangeZone")
 
                 let red2 = document.getElementById("s-" + e)
-                red2.style.backgroundColor = "red"
-                red2.classList.add = "redZone"
+                red2.classList.add("redZone")
+                red2.classList.remove("orangeZone")
 
                 let red3 = document.getElementById("s-" + s)
-                red3.style.backgroundColor = "red"
-                red3.classList.add = "redZone"
+                red3.classList.add("redZone")
+                red3.classList.remove("orangeZone")
 
                 let red4 = document.getElementById("s-" + n)
-                red4.style.backgroundColor = "red"
-                red4.classList.add = "redZone"
+                red4.classList.add("redZone")
+                red4.classList.remove("orangeZone")
 
                 let red5 = document.getElementById("s-" + d)
-                red5.style.backgroundColor = "red"
-                red5.classList.add = "redZone"
+                red5.classList.add("redZone")
+                red5.classList.remove("orangeZone")
 
                 let red6 = document.getElementById("s-" + p)
-                red6.style.backgroundColor = "red"
-                red6.classList.add = "redZone"
-
-                setTimeout(blackout, 3000)
+                red6.classList.add("redZone")
+                red6.classList.remove("orangeZone")
             }
 
             function blackout() {
-                let red1 = document.getElementById("s-" + a)
-                red1.style.backgroundColor = "transparent"
-                red1.classList.add = "redZone"
 
 
-                let red2 = document.getElementById("s-" + e)
-                red2.style.backgroundColor = "transparent"
-                red2.classList.add = "redZone"
 
-                let red3 = document.getElementById("s-" + s)
-                red3.style.backgroundColor = "transparent"
-                red3.classList.add = "redZone"
+                let black1 = document.getElementById("s-" + a)
+                black1.classList.remove("redZone")
 
-                let red4 = document.getElementById("s-" + n)
-                red4.style.backgroundColor = "transparent"
-                red4.classList.add = "redZone"
 
-                let red5 = document.getElementById("s-" + d)
-                red5.style.backgroundColor = "transparent"
-                red5.classList.add = "redZone"
+                let black2 = document.getElementById("s-" + e)
+                black2.classList.remove("redZone")
 
-                let red6 = document.getElementById("s-" + p)
-                red6.style.backgroundColor = "transparent"
-                red6.classList.add = "redZone"
+
+
+                let black3 = document.getElementById("s-" + s)
+                black3.classList.remove("redZone")
+
+
+                let black4 = document.getElementById("s-" + n)
+                black4.classList.remove("redZone")
+
+
+                let black5 = document.getElementById("s-" + d)
+                black5.classList.remove("redZone")
+
+
+                let black6 = document.getElementById("s-" + p)
+                black6.classList.remove("redZone")
+
+            }
+        }
+        setInterval(checkRedZone, 1000) // redzones brenner deg, du tar 3 dmg per sekund du står der, pluss 3 hvis du går inn i en
+        //redZones skader deg
+        function checkRedZone() {
+            const playerPositionElement = document.querySelector(".r_" + h + ".c_" + w);
+
+            if (playerPositionElement.classList.contains("redZone")) {
+                damage()
             }
         }
 
+        function sortTekst() {
+            spanPHealt.style.color = "black"
+            spanHealt.style.color = "black"
+        }
+
+        function damage() {
+            plyHealth = plyHealth - 3
+            spanPHealt.innerText = plyHealth;
+            spanPHealt.style.color = "red"
+            setTimeout(sortTekst, 300)
+        }
     </script>
 </body>
 
