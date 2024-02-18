@@ -7,6 +7,11 @@
     <title>Test</title>
 
     <style>
+        body {
+            background-image: url(Bilder/arenaBackground.png);
+            background-attachment: fixed;
+            background-size: cover;
+        }
         header {
             text-align: center;
             height: 10vh;
@@ -39,7 +44,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(7, 1fr);
-            background-color: black;
+            border: 5px dotted black;
             height: 90%;
             width: 530px;
         }
@@ -139,6 +144,12 @@
             height: 80vh;
             width: 50px;
             border: 2px solid black;
+        }
+
+        #litenBrann {
+            position: absolute;
+            z-index: 3;
+            width: 50px;
         }
     </style>
 </head>
@@ -505,13 +516,23 @@
         const topPHealth = document.getElementById("top")
         const bottomPHealth = document.getElementById("bunn")
 
+        function fjernIld() {
+            bottomPHealth.removeChild(document.querySelector("#litenBrann"));
+        }
+
         function damage() {
             plyHealth = plyHealth - 3
-            console.log("du tar skade")
             z = z + 10
             topPHealth.style.height = z + "%"
             o = o - 10
             bottomPHealth.style.height = o + "%"
+
+            var brann = document.createElement('img');
+            brann.src = 'Bilder/smalerFire.gif';
+            brann.alt = "ild";
+            brann.id = "litenBrann";
+            document.getElementById("bunn").appendChild(brann);
+            setTimeout(fjernIld, 300)
 
 
             if (plyHealth < 1) {
