@@ -7,6 +7,14 @@
     <title>Test</title>
 
     <style>
+        header {
+            text-align: center;
+            height: 10vh;
+        }
+
+        footer {
+            height: 10vh;
+        }
 
         .karakter {
             height: 75px;
@@ -20,6 +28,11 @@
 
         #arena {
             display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+            flex-wrap: wrap;
+            height: 80vh;
         }
 
         .cGrid {
@@ -27,7 +40,7 @@
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(7, 1fr);
             background-color: black;
-            height: 700px;
+            height: 90%;
             width: 530px;
         }
 
@@ -51,33 +64,38 @@
 
         #Sverd {
             position: absolute;
-            height: 100px;
-            width: 100px;
+            height: 80px;
+
 
         }
 
         #holdtSverd {
 
-            height: 100px;
-            width: 100px;
+            height: 75px;
+
 
         }
-        @keyframes død{
-            100%{
+
+        @keyframes død {
+            100% {
                 transform: rotate(90deg);
             }
         }
-        @keyframes lowHP{
-            25%{
+
+        @keyframes lowHP {
+            25% {
                 box-shadow: 0 0 30px red;
             }
-            50%{
+
+            50% {
                 box-shadow: none;
             }
-            75%{
+
+            75% {
                 box-shadow: 0 0 30px red;
             }
-            100%{
+
+            100% {
                 box-shadow: none;
             }
         }
@@ -91,13 +109,52 @@
         .orangeZone {
             background-color: orange;
         }
+
+
+
+        #top {
+            width: 50px;
+            height: 0%;
+        }
+
+        #bunn {
+            width: 50px;
+            height: 100%;
+            background-color: green;
+        }
+
+        #topE {
+            width: 50px;
+            height: 0%;
+        }
+
+        #bunnE {
+            width: 50px;
+            height: 100%;
+            background-color: red;
+
+        }
+
+        .healthBars {
+            height: 80vh;
+            width: 50px;
+            border: 2px solid black;
+        }
     </style>
 </head>
 
 <body>
-    <h1><span id="healthBar">10</span></h1>
-    <h1><span id="pHealthBar">35</span></h1>
+    <header>
+        <h1>FIGHT</h1>
+        <h2><span>Rasmus</span> VS <span>And</span></h2>
+    </header>
     <div id="arena">
+        <div id="pHealthBar" class="healthBars">
+            <div id="top">
+            </div>
+            <div id="bunn">
+            </div>
+        </div>
         <div class="cGrid" id="playerGrid">
 
             <div id="spillerDiv">
@@ -114,9 +171,17 @@
             </div>
 
         </div>
+        <div id="ealthBar" class="healthBars">
+            <div id="topE">
+            </div>
+            <div id="bunnE">
+            </div>
+        </div>
     </div>
 
-    <div class="redZone"></div>
+    <footer> <!--En usynlig footer bare for å skape litt space nederst på skjermen-->
+
+    </footer>
 
     <script>
 
@@ -171,21 +236,29 @@
             and.style.gridColumn = x
         }
 
+        const enemyTopHealth = document.getElementById("topE")
+        const enemyBottomHealth = document.getElementById("bunnE")
+
+        //variabler for endringen i healthbar til fienden
+        let u = 0
+        let n = 100
+
         function displayDamage() {
             EmyHealth--;
-            spanHealt.innerText = EmyHealth;
-            spanHealt.style.color = "red"
-            setTimeout(sortTekst, 500)
+            u = u + 10
+            enemyTopHealth.style.height = u + "%"
+
+            n = n - 10
+            enemyBottomHealth.style.height = n + "%"
         }
+
         //hva som skjer når du skader fienden
         function skadet() {
             spillerDiv.removeChild(document.querySelector("#holdtSverd"));
             clearInterval(stopp);
             and.removeEventListener("click", skadet);
 
-
-
-            if(EmyHealth <= 3){
+            if (EmyHealth <= 3) {
                 and.style.animation = ("lowHP 2s infinite linear")
             }
 
@@ -200,9 +273,10 @@
 
             setTimeout(displayDamage, 1800)
 
-            if (EmyHealth == 0) {
+            if (EmyHealth < 1) {
                 clearInterval(stopp);
                 setTimeout(dødfallMotstander, 1500)
+                clearInterval(Forsvar)
                 return;
             }
 
@@ -242,6 +316,8 @@
 
         const spanPHealt = document.getElementById("pHealthBar")
 
+        const playerIcon = document.getElementById("karakter")
+
         //bevegelse
         let h = 1
         let w = 2
@@ -271,7 +347,7 @@
         }
 
 
-        document.addEventListener("keydown", function (event) {
+        const bevegelse = function (event) {
             if (event.key === "ArrowRight" || event.key === "d" || event.key === "D") {
                 BevegelseFrammover();
             } else if (event.key === "ArrowDown" || event.key === "s" || event.key === "D") {
@@ -282,33 +358,32 @@
                 BevegelseOppover();
             }
 
-
-            // Setter begrensninger for hvor man kan gå.
-            if (h === 8) {
+            if (h == 8) {
                 h -= 1;
                 spillerDiv.style.gridRow = h;
             }
 
-            if (w === 3) {
+            if (w == 3) {
                 w -= 1;
                 spillerDiv.style.gridColumn = w;
             }
 
-            if (w === 0) {
+            if (w == 0) {
                 w += 1;
                 spillerDiv.style.gridColumn = w;
             }
 
-            if (h === 0) {
+            if (h == 0) {
                 h += 1;
                 spillerDiv.style.gridRow = h;
             }
+        };
 
-        });
+        document.addEventListener("keydown", bevegelse);
 
         //redZones
         attackOfTheDuck();
-        setInterval(attackOfTheDuck, 9000)
+        let Forsvar = setInterval(attackOfTheDuck, 6000)
 
 
         function attackOfTheDuck() {
@@ -324,8 +399,10 @@
 
             let p = Math.floor(Math.random() * 14) + 1
             setTimeout(orangeZones, 3000)
-            setTimeout(redZones, 5000)
-            setTimeout(blackout, 8000)
+            setTimeout(redZones, 3500)
+            setTimeout(blackout, 6000)
+
+
 
 
             //funksjonene må være inne i løkken for å få tilgang til de tilfeldige tallene
@@ -416,21 +493,36 @@
         function checkRedZone() {
             const playerPositionElement = document.querySelector(".r_" + h + ".c_" + w);
 
-            if (playerPositionElement.classList.contains("redZone")) {
-                damage()
+            if (playerPositionElement && playerPositionElement.classList.contains("redZone")) {
+                damage();
             }
         }
 
-        function sortTekst() {
-            spanPHealt.style.color = "black"
-            spanHealt.style.color = "black"
-        }
+        //disse to variablene brukes for å øke og synke healthbaren til spilleren
+        let z = 0
+        let o = 100
+
+        const topPHealth = document.getElementById("top")
+        const bottomPHealth = document.getElementById("bunn")
 
         function damage() {
             plyHealth = plyHealth - 3
-            spanPHealt.innerText = plyHealth;
-            spanPHealt.style.color = "red"
-            setTimeout(sortTekst, 300)
+            console.log("du tar skade")
+            z = z + 10
+            topPHealth.style.height = z + "%"
+            o = o - 10
+            bottomPHealth.style.height = o + "%"
+
+
+            if (plyHealth < 1) {
+                clearInterval(Forsvar)
+                clearInterval(stopp)
+                console.log("du døde")
+
+                and.removeEventListener("click", skadet);
+                document.removeEventListener("keydown", bevegelse)
+                //fet dødsfall animasjon her Ian
+            }
         }
     </script>
 </body>
