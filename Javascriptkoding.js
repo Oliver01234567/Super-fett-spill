@@ -33,7 +33,6 @@ function SpeedIncrease() {
   }
   else {
     movePlayer = movePlayer + 2
-    console.log("maksfart er ikke nådd" + movePlayer)
   }
 }
 
@@ -178,32 +177,19 @@ function toggleFlexBox() {
   if (flexBoxContainer.style.display === 'none' || flexBoxContainer.style.display === '') {
     flexBoxContainer.style.display = 'flex';
     menyknapp.innerHTML = ("x")
+    
 
   } else {
     flexBoxContainer.style.display = 'none';
     menyknapp.innerHTML = ("Menu")
+    skinSelect.style.display ="none"
+    statsSelect.style.display ="none"
 
   }
 
 }
 
-const skinsS = document.getElementById("skins")
-const statsS = document.getElementById("stats")
 
-function backToGame() {
-
-  skinsS.style.display = "none"
-  statsS.style.display = "none"
-}
-
-//skins section
-function showSkins() {
-  skinsS.style.display = "block"
-}
-
-function showStats() {
-  statsS.style.display = "block"
-}
 
 
 // Teleportering når man går på vannet, Oliver
@@ -233,6 +219,7 @@ function resetCharacterPosition() {
   }
 }
 
+//Penger
 let money = 100;
 
 const moneyAmount = document.getElementById("moneyAmount");
@@ -269,4 +256,30 @@ function ChoosenDuck() {
 
 function ChoosenRasmus() {
   characterP.src = "Bilder/Rasmus.png"
+}
+
+const skinsS = document.getElementById("skins")
+const statsS = document.getElementById("stats")
+
+
+
+//skins section
+function showSkins() {
+  skinSelect.style.display ="block"
+  skinSelect.style.display ="flex"
+  
+  
+}
+
+function showStats() {
+  statsSelect.style.display = "block"
+ statsSelect.style.display = "flex"
+
+}
+
+function backToGame() {
+
+  skinSelect.style.display = "none"
+  statsSelect.style.display = "none"
+  
 }
