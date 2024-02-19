@@ -12,6 +12,7 @@
             background-attachment: fixed;
             background-size: cover;
         }
+
         header {
             text-align: center;
             height: 10vh;
@@ -151,6 +152,35 @@
             z-index: 3;
             width: 50px;
         }
+
+        .winScreens {
+            height: 100vh;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url(Bilder/arenaBackground.png);
+            opacity: 0;
+            z-index: -1;
+            transition: ease-in .5s;
+            color: brown;
+            font-size: 40px;
+
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #win button {
+            background-color: brown;
+            margin-top: 50px;
+            padding: 30px;
+            border-radius: 30px;
+
+        }
     </style>
 </head>
 
@@ -187,7 +217,18 @@
             </div>
             <div id="bunnE">
             </div>
+
         </div>
+    </div>
+
+    <div id="win" class="winScreens">
+        <h2>Du beseiret <span>ANDEN</span></h2>
+        <a href="index.html"><button onclick="goBack()">Gå tilbake til øya</button></a>
+    </div>
+
+    <div id="loose" class="winScreens">
+        <h2>Du ble beseiret av <span>ANDEN</span> (taper)</h2>
+        <button onclick="provIgjen()">Prøv Igjen!!!</button>
     </div>
 
     <footer> <!--En usynlig footer bare for å skape litt space nederst på skjermen-->
@@ -195,6 +236,10 @@
     </footer>
 
     <script>
+        let stopp = setInterval(move, 1000)
+        let Forsvar = setInterval(attackOfTheDuck, 6000)
+
+        
 
         //skaper divene som senere blir røde
         let nummer = 1
@@ -228,7 +273,6 @@
 
 
         //fiendens systemer
-        let stopp = setInterval(move, 1000)
 
         let EmyHealth = 10
 
@@ -287,6 +331,7 @@
             if (EmyHealth < 1) {
                 clearInterval(stopp);
                 setTimeout(dødfallMotstander, 1500)
+                setTimeout(winScreen, 2500)
                 clearInterval(Forsvar)
                 return;
             }
@@ -294,6 +339,12 @@
             setTimeout(startInterval, 2300);
         }
 
+        const winScreenen = document.getElementById("win")
+
+        function winScreen() {
+            winScreenen.style.zIndex = "9999"
+            winScreenen.style.opacity = "100%"
+        }
 
 
         function dødfallMotstander() {
@@ -394,7 +445,6 @@
 
         //redZones
         attackOfTheDuck();
-        let Forsvar = setInterval(attackOfTheDuck, 6000)
 
 
         function attackOfTheDuck() {
@@ -409,6 +459,12 @@
             let d = Math.floor(Math.random() * 14) + 1
 
             let p = Math.floor(Math.random() * 14) + 1
+
+            let k = Math.floor(Math.random() * 14) + 1
+
+            let f = Math.floor(Math.random() * 14) + 1
+
+            let h = Math.floor(Math.random() * 14) + 1
             setTimeout(orangeZones, 3000)
             setTimeout(redZones, 3500)
             setTimeout(blackout, 6000)
@@ -440,10 +496,20 @@
                 let orange6 = document.getElementById("s-" + p)
                 orange6.classList.add("orangeZone")
 
+                let orange7 = document.getElementById("s-" + k)
+                orange7.classList.add("orangeZone")
+
+                let orange8 = document.getElementById("s-" + f)
+                orange8.classList.add("orangeZone")
+
+                let orange9 = document.getElementById("s-" + h)
+                orange9.classList.add("orangeZone")
+
 
             }
 
             function redZones() {
+                console.log("ja")
                 let red1 = document.getElementById("s-" + a)
                 red1.classList.add("redZone")
                 red1.classList.remove("orangeZone")
@@ -467,6 +533,18 @@
                 let red6 = document.getElementById("s-" + p)
                 red6.classList.add("redZone")
                 red6.classList.remove("orangeZone")
+
+                let red7 = document.getElementById("s-" + k)
+                red7.classList.add("redZone")
+                red7.classList.remove("orangeZone")
+
+                let red8 = document.getElementById("s-" + f)
+                red8.classList.add("redZone")
+                red8.classList.remove("orangeZone")
+
+                let red9 = document.getElementById("s-" + h)
+                red9.classList.add("redZone")
+                red9.classList.remove("orangeZone")
             }
 
             function blackout() {
@@ -497,6 +575,15 @@
                 let black6 = document.getElementById("s-" + p)
                 black6.classList.remove("redZone")
 
+                let black7 = document.getElementById("s-" + k)
+                black7.classList.remove("redZone")
+
+                let black8 = document.getElementById("s-" + f)
+                black8.classList.remove("redZone")
+
+                let black9 = document.getElementById("s-" + h)
+                black9.classList.remove("redZone")
+
             }
         }
         setInterval(checkRedZone, 1000) // redzones brenner deg, du tar 3 dmg per sekund du står der, pluss 3 hvis du går inn i en
@@ -520,6 +607,13 @@
             bottomPHealth.removeChild(document.querySelector("#litenBrann"));
         }
 
+        const deathScreenen = document.getElementById("loose")
+
+        function deathScreen() {
+            deathScreenen.style.zIndex = "9999"
+            deathScreenen.style.opacity = "100%"
+        }
+
         function damage() {
             plyHealth = plyHealth - 3
             z = z + 10
@@ -538,7 +632,7 @@
             if (plyHealth < 1) {
                 clearInterval(Forsvar)
                 clearInterval(stopp)
-                console.log("du døde")
+                setTimeout(deathScreen, 2500)
 
                 and.removeEventListener("click", skadet);
                 document.removeEventListener("keydown", bevegelse)
