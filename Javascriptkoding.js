@@ -13,36 +13,6 @@ var movement = {
   "s": false,
 };
 
-/* funskjon for busk og tre
-function generateTreesAndBushes() {
-  var map = document.getElementById('øy');
-  var mapWidth = map.offsetWidth;
-  var mapHeight = map.offsetHeight;
-  
-  for (var i = 0; i < 20; i++) {
-      // randomly velger tre eller busk
-      var elementType = Math.random() < 0.5 ? 'tre' : 'busk';
-      
-      // Create element
-      var element = document.createElement('div');
-      element.classList.add(elementType);
-      
-      // Random posisjon
-      var xPos = Math.random() * (mapWidth - 50); // subtracting width of element
-      var yPos = Math.random() * (mapHeight - 50); // subtracting height of element
-      element.style.left = xPos + 'px';
-      element.style.top = yPos + 'px';
-      
-      // Random størrelse
-      var sizeVariation = Math.random() * 0.5 + 0.5; // range: 0.5 to 1
-      element.style.width = (sizeVariation * (elementType === 'tre' ? 20 : 30)) + 'px';
-      element.style.height = (sizeVariation * (elementType === 'tre' ? 40 : 20)) + 'px';
-      
-      map.appendChild(element);
-  }
-} */
-
-
 //Variabel for movement
 let movePlayer = 4
 
