@@ -11,6 +11,11 @@ var movement = {
   "d": false,
   "w": false,
   "s": false,
+  "A": false,
+  "D": false,
+  "W": false,
+  "S": false,
+
 };
 
 //Variabel for movement
@@ -44,24 +49,24 @@ function move() {
   var currentLeft = parseInt(character.style.left) || 0;
   var currentTop = parseInt(character.style.top) || 0;
 
-  if (movement.ArrowLeft || movement.a) {
+  if (movement.ArrowLeft || movement.a || movement.A) {
     character.style.left = (currentLeft - movePlayer) + "px";
     character.style.transform = "scaleX(-1)"
     checkCharacterPosition();
     checkForChests()
   }
-  if (movement.ArrowRight || movement.d) {
+  if (movement.ArrowRight || movement.d || movement.D) {
     character.style.left = (currentLeft + movePlayer) + "px";
     character.style.transform = "scaleX(1)"
     checkCharacterPosition();
     checkForChests()
   }
-  if (movement.ArrowUp || movement.w) {
+  if (movement.ArrowUp || movement.w || movement.W) {
     character.style.top = (currentTop - movePlayer) + "px";
     checkCharacterPosition();
     checkForChests()
   }
-  if (movement.ArrowDown || movement.s) {
+  if (movement.ArrowDown || movement.s || movement.S) {
     character.style.top = (currentTop + movePlayer) + "px";
     checkCharacterPosition();
     checkForChests()
