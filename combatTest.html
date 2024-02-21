@@ -7,6 +7,12 @@
     <title>Test</title>
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             background-image: url(Bilder/arenaBackground.png);
             background-attachment: fixed;
@@ -16,6 +22,15 @@
         header {
             text-align: center;
             height: 10vh;
+            color: brown;
+            margin-top: 20px;
+        }
+
+        
+
+        header p {
+            font-size: 25px;
+
         }
 
         footer {
@@ -145,6 +160,7 @@
             height: 80vh;
             width: 50px;
             border: 2px solid black;
+            overflow: hidden;
         }
 
         #litenBrann {
@@ -174,7 +190,7 @@
             align-items: center;
         }
 
-        #win button {
+        .winScreens button {
             background-color: brown;
             margin-top: 50px;
             padding: 30px;
@@ -187,8 +203,9 @@
 <body>
     <header>
         <h1>FIGHT</h1>
-        <h2><span>Rasmus</span> VS <span>And</span></h2>
+        <p><span>Rasmus</span> VS <span>And</span></p>
     </header>
+    <a href="index.html"><button onclick="goBack()">Gå tilbake til øya</button></a>
     <div id="arena">
         <div id="pHealthBar" class="healthBars">
             <div id="top">
@@ -222,24 +239,37 @@
     </div>
 
     <div id="win" class="winScreens">
-        <h2>Du beseiret <span>ANDEN</span></h2>
+        <h2>Du beseiret <span class="EnemyName">ANDEN</span></h2>
         <a href="index.html"><button onclick="goBack()">Gå tilbake til øya</button></a>
     </div>
 
     <div id="loose" class="winScreens">
-        <h2>Du ble beseiret av <span>ANDEN</span> (taper)</h2>
+        <h2>Du ble beseiret av <span class="EnemyName">ANDEN</span> (taper)</h2>
         <button onclick="provIgjen()">Prøv Igjen!!!</button>
     </div>
 
-    <footer> <!--En usynlig footer bare for å skape litt space nederst på skjermen-->
-
-    </footer>
 
     <script>
+        //henter skins fra andre html dokumenter
+        choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
+
+        const playerIcon = document.getElementById("karakter")
+
+        if(choosenSkin == 0) {
+            playerIcon.src = "Bilder/Rasmus.png"
+        }
+
+        if(choosenSkin == 1) {
+            playerIcon.src = "Bilder/playerIcon1.png"
+        }
+
+
+
+
         let stopp = setInterval(move, 1000)
         let Forsvar = setInterval(attackOfTheDuck, 6000)
 
-        
+
 
         //skaper divene som senere blir røde
         let nummer = 1
@@ -309,7 +339,7 @@
 
         //hva som skjer når du skader fienden
         function skadet() {
-            spillerDiv.removeChild(document.querySelector("#holdtSverd"));
+            player.removeChild(document.querySelector("#holdtSverd"));
             clearInterval(stopp);
             and.removeEventListener("click", skadet);
 
@@ -344,6 +374,10 @@
         function winScreen() {
             winScreenen.style.zIndex = "9999"
             winScreenen.style.opacity = "100%"
+            clearInterval(Forsvar)
+            clearInterval(stopp)
+            and.removeEventListener("click", skadet);
+            document.removeEventListener("keydown", bevegelse)
         }
 
 
@@ -371,6 +405,12 @@
             and.addEventListener("click", skadet)
         }
 
+        function startAttack() {
+            attackOfTheDuck()
+            Forsvar = setInterval(attackOfTheDuck, 6000)
+            document.addEventListener("keydown", bevegelse)
+        }
+
 
 
         //spillerens systemer
@@ -378,7 +418,7 @@
 
         const spanPHealt = document.getElementById("pHealthBar")
 
-        const playerIcon = document.getElementById("karakter")
+        
 
         //bevegelse
         let h = 1
@@ -386,25 +426,25 @@
 
         function BevegelseFrammover() {
             w += 1;
-            spillerDiv.style.gridColumn = w;
+            player.style.gridColumn = w;
             checkRedZone()
         }
 
         function BevegelseOppover() {
             h -= 1;
-            spillerDiv.style.gridRow = h;
+            player.style.gridRow = h;
             checkRedZone()
         }
 
         function BevegelseNedover() {
             h += 1;
-            spillerDiv.style.gridRow = h;
+            player.style.gridRow = h;
             checkRedZone()
         }
 
         function BevegelseBakover() {
             w -= 1;
-            spillerDiv.style.gridColumn = w;
+            player.style.gridColumn = w;
             checkRedZone()
         }
 
@@ -422,22 +462,22 @@
 
             if (h == 8) {
                 h -= 1;
-                spillerDiv.style.gridRow = h;
+                player.style.gridRow = h;
             }
 
             if (w == 3) {
                 w -= 1;
-                spillerDiv.style.gridColumn = w;
+                player.style.gridColumn = w;
             }
 
             if (w == 0) {
                 w += 1;
-                spillerDiv.style.gridColumn = w;
+                player.style.gridColumn = w;
             }
 
             if (h == 0) {
                 h += 1;
-                spillerDiv.style.gridRow = h;
+                player.style.gridRow = h;
             }
         };
 
@@ -509,7 +549,6 @@
             }
 
             function redZones() {
-                console.log("ja")
                 let red1 = document.getElementById("s-" + a)
                 red1.classList.add("redZone")
                 red1.classList.remove("orangeZone")
@@ -612,6 +651,48 @@
         function deathScreen() {
             deathScreenen.style.zIndex = "9999"
             deathScreenen.style.opacity = "100%"
+            clearInterval(Forsvar)
+            clearInterval(stopp)
+            and.removeEventListener("click", skadet);
+            document.removeEventListener("keydown", bevegelse)
+        }
+
+
+        //prøv igjen
+        function provIgjen() {
+            resetHealth()
+            setTimeout(startInterval, 1000);
+            removeScreens()
+            setTimeout(startAttack, 1000)
+        }
+
+
+
+        function removeScreens() {
+            deathScreenen.style.zIndex = "-1"
+            deathScreenen.style.opacity = "0%"
+
+            winScreenen.style.zIndex = "-1"
+            winScreenen.style.opacity = "0%"
+        }
+
+        function resetHealth() {
+            plyHealth = 30
+            EmyHealth = 10
+
+            //fiende healthbar
+            u = 0
+            n = 100
+            enemyTopHealth.style.height = u + "%"
+            enemyBottomHealth.style.height = n + "%"
+
+            //din healthBar
+            z = 0
+            o = 100
+            topPHealth.style.height = z + "%"
+            bottomPHealth.style.height = o + "%"
+
+
         }
 
         function damage() {
@@ -636,9 +717,18 @@
 
                 and.removeEventListener("click", skadet);
                 document.removeEventListener("keydown", bevegelse)
-                //fet dødsfall animasjon her Ian
+                //fet dødsfall animasjon her
             }
         }
+
+        setInterval(consoleLog, 5000)
+
+        function consoleLog() {
+            console.log("p:" + plyHealth)
+            console.log("e:" + EmyHealth)
+        }
+
+
     </script>
 </body>
 

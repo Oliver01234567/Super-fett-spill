@@ -1,6 +1,31 @@
 //interne notater:
 //Husk å markere alt i js og css slik at man enklere kan se hva som er hva
 
+//variabel for skins
+const characterP = document.querySelector("#character img")
+
+let choosenSkin = 0
+choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
+
+
+
+if (choosenSkin == 0) {
+  characterP.src = "Bilder/Rasmus.png"
+}
+
+if (choosenSkin == 1) {
+  characterP.src = "Bilder/playerIcon1.png"
+}
+
+let opponent = 0
+
+function fightRasmus() {
+  opponent = 1
+  localStorage.setItem("opponent", opponent);
+
+}
+
+
 //Bevegelse 
 var movement = {
   "ArrowLeft": false,
@@ -83,7 +108,7 @@ document.addEventListener("keyup", function (event) {
   movement[event.key] = false;
 });
 
-move(); 
+move();
 
 
 //Chest
@@ -182,13 +207,13 @@ function toggleFlexBox() {
   if (flexBoxContainer.style.display === 'none' || flexBoxContainer.style.display === '') {
     flexBoxContainer.style.display = 'flex';
     menyknapp.innerHTML = ("x")
-    
+
 
   } else {
     flexBoxContainer.style.display = 'none';
     menyknapp.innerHTML = ("Menu")
-    skinSelect.style.display ="none"
-    statsSelect.style.display ="none"
+    skinSelect.style.display = "none"
+    statsSelect.style.display = "none"
 
   }
 
@@ -253,14 +278,19 @@ function freeMoney() {
 
 
 //skins section
-const characterP = document.querySelector("#character img")
+
 
 function ChoosenDuck() {
   characterP.src = "Bilder/playerIcon1.png"
+  choosenSkin = 1
+  localStorage.setItem("choosenSkin", choosenSkin);
+
 }
 
 function ChoosenRasmus() {
   characterP.src = "Bilder/Rasmus.png"
+  choosenSkin = 0
+  localStorage.setItem("choosenSkin", choosenSkin);
 }
 
 const skinsS = document.getElementById("skins")
@@ -270,15 +300,15 @@ const statsS = document.getElementById("stats")
 
 //skins section
 function showSkins() {
-  skinSelect.style.display ="block"
-  skinSelect.style.display ="flex"
-  
-  
+  skinSelect.style.display = "block"
+  skinSelect.style.display = "flex"
+
+
 }
 
 function showStats() {
   statsSelect.style.display = "block"
- statsSelect.style.display = "flex"
+  statsSelect.style.display = "flex"
 
 }
 
@@ -286,5 +316,5 @@ function backToGame() {
 
   skinSelect.style.display = "none"
   statsSelect.style.display = "none"
-  
+
 }
