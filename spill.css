@@ -30,23 +30,24 @@ body {
 }
 
 #øy {
-    background-color: yellowgreen; 
+    background-color: yellowgreen;
     height: 75vh;
     width: 75%;
     position: relative;
-    border-radius: 10px; 
-    overflow: hidden; 
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .strand {
-    background: linear-gradient(to bottom, #e0cd62 35%, rgb(0, 255, 255) 65%); /* strand gradient */
+    background: linear-gradient(to bottom, #e0cd62 35%, rgb(0, 255, 255) 65%);
+    /* strand gradient */
     height: 80px;
     position: absolute;
-    bottom: 0; 
-    width: 100%; 
+    bottom: 0;
+    width: 100%;
 }
 
-img .tre{
+img .tre {
     position: relative;
     z-index: 2;
 }
@@ -136,7 +137,27 @@ img .tre{
     padding: 50px;
     background-color: white;
     display: inline-block;
+    position: fixed;
 
+}
+
+.npc {
+    padding: 30px;
+}
+
+.npc img {
+    width: 60px;
+    height: 60px;
+}
+
+#enemy0 {
+    left: 500px;
+    top: 200px;
+}
+
+#enemy1 {
+    left: 200px;
+    top: 30px;
 }
 
 
@@ -245,7 +266,8 @@ img .tre{
 #skins {
     display: none;
 }
-#skinSelect{
+
+#skinSelect {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -259,9 +281,10 @@ img .tre{
     border: 5px solid black;
     z-index: 10;
     display: none;
-    
+
 }
-#skinNav{
+
+#skinNav {
     background-color: brown;
     border: 2px solid black;
     width: 100%;
@@ -274,7 +297,8 @@ img .tre{
     position: fixed;
     top: 0;
 }
-.skinButtons{
+
+.skinButtons {
     width: 200px;
     height: 120px;
     top: 50%;
@@ -286,7 +310,8 @@ img .tre{
 #stats {
     display: none;
 }
-#statsSelect{
+
+#statsSelect {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -300,9 +325,10 @@ img .tre{
     border: 5px solid black;
     z-index: 10;
     display: none;
-    
+
 }
-#statsNav{
+
+#statsNav {
     background-color: brown;
     border: 2px solid black;
     width: 100%;
@@ -315,7 +341,8 @@ img .tre{
     position: fixed;
     top: 0;
 }
-.statsButtons{
+
+.statsButtons {
     width: 200px;
     height: 120px;
     top: 50%;

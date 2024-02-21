@@ -203,7 +203,7 @@
 <body>
     <header>
         <h1>FIGHT</h1>
-        <p><span>Rasmus</span> VS <span>And</span></p>
+        <p><span class="playerName">Rasmus</span> VS <span class="EnemyName">And</span></p>
     </header>
     <a href="index.html"><button onclick="goBack()">Gå tilbake til øya</button></a>
     <div id="arena">
@@ -225,7 +225,7 @@
         <div class="cGrid">
 
             <div id="motstander">
-                <img src="Bilder/playerIcon1.png" alt="motstander" class="karakter">
+                <img src="Bilder/playerIcon1.png" alt="motstander" class="karakter" id="motstanderIcon">
             </div>
 
         </div>
@@ -254,16 +254,35 @@
         choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
 
         const playerIcon = document.getElementById("karakter")
+        const name = document.getElementsByClassName("playerName")
 
         if(choosenSkin == 0) {
             playerIcon.src = "Bilder/Rasmus.png"
+            name.innerText = "Rasmus"
         }
 
         if(choosenSkin == 1) {
             playerIcon.src = "Bilder/playerIcon1.png"
+            name.innerText = "Anden"
         }
 
 
+
+        //henter hvilken fiende du vil kjempe mot
+        opponent = parseInt(localStorage.getItem("opponent")) || 0
+
+        const motstanderIcon = document.getElementById("motstanderIcon")
+        const enemyName = document.getElementsByClassName("EnemyName")
+
+        if(opponent == 0) {
+            motstanderIcon.src = "Bilder/playerIcon1.png"
+            enemyName.innerText = "Anden"
+        }
+
+        if(opponent == 1) {
+            motstanderIcon.src = "Bilder/Jonas.png"
+            enemyName.innerText = "Jonas"
+        }
 
 
         let stopp = setInterval(move, 1000)
