@@ -229,6 +229,7 @@ function toggleFlexBox() {
   if (flexBoxContainer.style.display === 'none' || flexBoxContainer.style.display === '') {
     flexBoxContainer.style.display = 'flex';
     menyknapp.innerHTML = ("x")
+    
 
 
   } else {

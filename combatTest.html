@@ -195,6 +195,7 @@
             margin-top: 50px;
             padding: 30px;
             border-radius: 30px;
+            cursor: pointer;
 
         }
     </style>
@@ -203,7 +204,7 @@
 <body>
     <header>
         <h1>FIGHT</h1>
-        <p><span class="playerName">Rasmus</span> VS <span class="EnemyName">And</span></p>
+        <p><span id="playerName">Rasmus</span> VS <span id="EnemyName">And</span></p>
     </header>
     <a href="index.html"><button onclick="goBack()">Gå tilbake til øya</button></a>
     <div id="arena">
@@ -239,12 +240,12 @@
     </div>
 
     <div id="win" class="winScreens">
-        <h2>Du beseiret <span class="EnemyName">ANDEN</span></h2>
+        <h2>Du beseiret <span id="EnemyName2">ANDEN</span></h2>
         <a href="index.html"><button onclick="goBack()">Gå tilbake til øya</button></a>
     </div>
 
     <div id="loose" class="winScreens">
-        <h2>Du ble beseiret av <span class="EnemyName">ANDEN</span> (taper)</h2>
+        <h2>Du ble beseiret av <span id="EnemyName3">ANDEN</span> (taper)</h2>
         <button onclick="provIgjen()">Prøv Igjen!!!</button>
     </div>
 
@@ -254,7 +255,7 @@
         choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
 
         const playerIcon = document.getElementById("karakter")
-        const name = document.getElementsByClassName("playerName")
+        const name = document.getElementById("playerName")
 
         if(choosenSkin == 0) {
             playerIcon.src = "Bilder/Rasmus.png"
@@ -272,16 +273,22 @@
         opponent = parseInt(localStorage.getItem("opponent")) || 0
 
         const motstanderIcon = document.getElementById("motstanderIcon")
-        const enemyName = document.getElementsByClassName("EnemyName")
+        const enemyName = document.getElementById("EnemyName")
+        const enemyName2 = document.getElementById("EnemyName2")
+        const enemyName3 = document.getElementById("EnemyName3")
 
         if(opponent == 0) {
             motstanderIcon.src = "Bilder/playerIcon1.png"
             enemyName.innerText = "Anden"
+            enemyName2.innerText = "Anden"
+            enemyName3.innerText = "Anden"
         }
 
         if(opponent == 1) {
             motstanderIcon.src = "Bilder/Jonas.png"
             enemyName.innerText = "Jonas"
+            enemyName2.innerText = "Jonas"
+            enemyName3.innerText = "Jonas"
         }
 
 
@@ -471,7 +478,7 @@
         const bevegelse = function (event) {
             if (event.key === "ArrowRight" || event.key === "d" || event.key === "D") {
                 BevegelseFrammover();
-            } else if (event.key === "ArrowDown" || event.key === "s" || event.key === "D") {
+            } else if (event.key === "ArrowDown" || event.key === "s" || event.key === "S") {
                 BevegelseNedover();
             } else if (event.key === "ArrowLeft" || event.key === "a" || event.key === "A") {
                 BevegelseBakover();
@@ -533,9 +540,6 @@
 
             //funksjonene må være inne i løkken for å få tilgang til de tilfeldige tallene
             function orangeZones() {
-
-
-
                 let orange1 = document.getElementById("s-" + a)
                 orange1.classList.add("orangeZone")
 
@@ -563,9 +567,9 @@
 
                 let orange9 = document.getElementById("s-" + h)
                 orange9.classList.add("orangeZone")
-
-
             }
+
+
 
             function redZones() {
                 let red1 = document.getElementById("s-" + a)
@@ -605,10 +609,9 @@
                 red9.classList.remove("orangeZone")
             }
 
+
+
             function blackout() {
-
-
-
                 let black1 = document.getElementById("s-" + a)
                 black1.classList.remove("redZone")
 
