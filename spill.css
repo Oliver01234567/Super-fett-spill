@@ -30,23 +30,24 @@ body {
 }
 
 #øy {
-    background-color: yellowgreen; 
+    background-color: yellowgreen;
     height: 75vh;
     width: 75%;
     position: relative;
-    border-radius: 10px; 
-    overflow: hidden; 
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .strand {
-    background: linear-gradient(to bottom, #e0cd62 35%, rgb(0, 255, 255) 65%); /* strand gradient */
+    background: linear-gradient(to bottom, #e0cd62 35%, rgb(0, 255, 255) 65%);
+    /* strand gradient */
     height: 80px;
     position: absolute;
-    bottom: 0; 
-    width: 100%; 
+    bottom: 0;
+    width: 100%;
 }
 
-img .tre{
+img .tre {
     position: relative;
     z-index: 2;
 }
@@ -87,7 +88,7 @@ img .tre{
     flex-wrap: wrap;
     width: 800px;
     height: 500px;
-    background-color: white;
+    background-color: wheat;
 }
 
 .menyoverskrift {
@@ -104,6 +105,7 @@ img .tre{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    cursor: pointer;
 }
 
 .wrapper1,
@@ -126,6 +128,7 @@ img .tre{
     font-size: 30px;
     margin: 20px;
     background-color: brown;
+    cursor: pointer;
 }
 
 
@@ -136,7 +139,28 @@ img .tre{
     padding: 50px;
     background-color: white;
     display: inline-block;
+    position: fixed;
+    cursor: pointer;
 
+}
+
+.npc {
+    padding: 30px;
+}
+
+.npc img {
+    width: 60px;
+    height: 60px;
+}
+
+#enemy0 {
+    left: 500px;
+    top: 200px;
+}
+
+#enemy1 {
+    left: 200px;
+    top: 30px;
 }
 
 
@@ -245,7 +269,8 @@ img .tre{
 #skins {
     display: none;
 }
-#skinSelect{
+
+.select {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -259,9 +284,10 @@ img .tre{
     border: 5px solid black;
     z-index: 10;
     display: none;
-    
+
 }
-#skinNav{
+
+.nav {
     background-color: brown;
     border: 2px solid black;
     width: 100%;
@@ -274,35 +300,23 @@ img .tre{
     position: fixed;
     top: 0;
 }
-.skinButtons{
+
+.Mbuttons {
     width: 200px;
     height: 120px;
     top: 50%;
     background-color: brown;
     font-size: 45px;
+    cursor: pointer;
 }
 
 /*Stats*/
 #stats {
     display: none;
 }
-#statsSelect{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 800px;
-    height: 500px;
-    background-color: wheat;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border: 5px solid black;
-    z-index: 10;
-    display: none;
-    
-}
-#statsNav{
+
+
+.nav {
     background-color: brown;
     border: 2px solid black;
     width: 100%;
@@ -315,10 +329,4 @@ img .tre{
     position: fixed;
     top: 0;
 }
-.statsButtons{
-    width: 200px;
-    height: 120px;
-    top: 50%;
-    background-color: brown;
-    font-size: 45px;
-}
+

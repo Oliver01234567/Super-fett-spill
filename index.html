@@ -11,13 +11,20 @@
 
 <body>
     <main id="øy">
+    
+
         <div class="strand"></div>
 
-        <div class="tre"><img src="Bilder/skog.png" alt=""></div>
+        <!--<div class="tre"><img src="Bilder/skog.png" alt=""></div>-->
     
         <div id="character"><img src="Bilder/Rasmus.png" alt="character"></div>
 
         <div id="Chest1" class="InteractiveMaterial Chest">Chest</div>
+
+        <div id="enemy0" class="InteractiveMaterial npc"> <img src="Bilder/playerIcon1.png" alt="anden"></div>
+
+        <div id="enemy1" class="InteractiveMaterial npc"><img src="Bilder/Jonas.png" alt="Jonas"></div>
+
 
 
         <div id="skins" class="sections">
@@ -36,6 +43,8 @@
         </div>
         <button id="freeMoneyButton">+</button>
     </div>
+    <div id="figherKnapp"><a href="combatTest.html">Fight</a></div>
+    
 
     <button id="menyknapp" onclick="toggleFlexBox()">Menu</button>
     <div id="flexBoxContainer">
@@ -56,23 +65,25 @@
             </div>
         </div>
     </div>
-    <div id="skinSelect">
-        <nav id="skinNav">
+
+
+    <div id="skinSelect" class="select">
+        <nav id="skinNav" class="nav">
             <p>Velg ditt skin!</p>
         </nav>
         <div id="skinButtons">           
-                <button class="skinButtons" onclick="ChoosenDuck()">And</button>
-                <Button class="skinButtons" onclick="ChoosenRasmus()">Rasmus</Button>
-                <button class="skinButtons" onclick=" backToGame()">Tilbake</button>
+                <button class="Mbuttons" onclick="ChoosenDuck()">And</button>
+                <Button class="Mbuttons" onclick="ChoosenRasmus()">Rasmus</Button>
+                <button class="Mbuttons" onclick=" backToGame()">Tilbake</button>
         </div>
     </div>
-    <div id="statsSelect">
-        <nav id="statsNav">
+    <div id="statsSelect" class="select">
+        <nav id="statsNav" class="nav">
             <p>Oppgrader characteren!</p>
         </nav>
         <div id="statsButtons">           
-                <button class="statsButtons" onclick="SpeedIncrease()" id="speedButton">Øk farten</button>
-                <button class="statsButtons" onclick=" backToGame()">Tilbake</button>
+                <button class="Mbuttons" onclick="SpeedIncrease()" id="speedButton">Øk farten</button>
+                <button class="Mbuttons" onclick=" backToGame()">Tilbake</button>
         </div>
     </div>
 
