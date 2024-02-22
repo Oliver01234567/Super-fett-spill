@@ -341,3 +341,73 @@ function backToGame() {
   statsSelect.style.display = "none"
 
 }
+
+const npcDialog = document.getElementById("npc-dialog");
+const npcMessage = document.getElementById("npc-message");
+const npcYesBtn = document.getElementById("npc-yes");
+const npcNoBtn = document.getElementById("npc-no");
+
+npc.addEventListener("click", () => {
+  showNPCDialog("Hi there! Would you like to talk?");
+});
+
+function showNPCDialog(message) {
+  console.log("showNPCDialog called");
+
+  npcMessage.textContent = message;
+  npcDialog.style.display = "block";
+  npcYesBtn.style.display = "block"; 
+  npcNoBtn.style.display = "block"; 
+
+  console.log("showNPCDialog completed");
+}
+
+function hideNPCDialog() {
+  console.log("hideNPCDialog called");
+
+  setTimeout(function () {
+    npcDialog.style.display = "none";
+    npcYesBtn.style.display = "none"; 
+    npcNoBtn.style.display = "none";
+
+    console.log("hideNPCDialog completed");
+  }, 1); 
+}
+
+function handleNPCResponse(response) {
+  console.log("handleNPCResponse triggered with response:", response);
+
+  if (response) {
+    console.log("Player said 'Yes'");
+    hideNPCDialog(); 
+
+    setTimeout(function () {
+      showNPCDialog("Great! Would you like to buy a randomized skin box for 1000 money?");
+      npcYesBtn.style.display = "Purchase"; 
+      npcNoBtn.textContent = "Cancel"; 
+    }, 2);
+  } else {
+    console.log("Player said 'No'");
+    hideNPCDialog();
+  }
+}
+
+npcYesBtn.addEventListener("click", () => {
+  showNPCDialog("Great! Please confirm your purchase.");
+  npcYesBtn.style.display = "none"; 
+  npcNoBtn.textContent = "Cancel"; 
+});
+
+npcNoBtn.addEventListener("click", () => {
+  hideNPCDialog();
+});
+
+// function buySkinBox() {
+  // Logic to deduct money and grant a random skin
+  // Update the money variable and call updateMoneyAmount() accordingly
+  // You can use setTimeout or other logic to simulate a delay if needed
+//  money -= 1000;
+//  updateMoneyAmount();
+//  showNPCDialog("Congratulations! You got a new skin!");
+//  npcYesBtn.style.display = "block"; 
+//}
