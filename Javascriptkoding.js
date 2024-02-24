@@ -267,8 +267,8 @@ function resetCharacterPosition() {
 
   // Endre antall pixler for å endre hvor man blir teleportert
   if (onWater) {
-    character.style.left = "500px";
-    character.style.top = "500px";
+    character.style.left = "1px";
+    character.style.top = "1px";
   }
 }
 

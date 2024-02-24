@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test</title>¨
+    <link rel="stylesheet" href="Combat.css">
+</head>
+
+<body>
+    <header>
+        <h1>FIGHT</h1>
+        <p><span id="playerName">Rasmus</span> VS <span id="EnemyName">And</span></p>
+    </header>
+    <a href="index.html"><button onclick="goBack()">Gå tilbake til øya</button></a>
+    <div id="arena">
+        <div id="pHealthBar" class="healthBars">
+            <div id="top">
+            </div>
+            <div id="bunn">
+            </div>
+        </div>
+        <div class="cGrid" id="playerGrid">
+
+            <div id="spillerDiv">
+                <img src="Bilder/Rasmus.png" alt="Din fyr" class="karakter" id="karakter">
+            </div>
+
+        </div>
+
+
+        <div class="cGrid">
+
+            <div id="motstander">
+                <img src="Bilder/playerIcon1.png" alt="motstander" class="karakter" id="motstanderIcon">
+            </div>
+
+        </div>
+        <div id="ealthBar" class="healthBars">
+            <div id="topE">
+            </div>
+            <div id="bunnE">
+            </div>
+
+        </div>
+    </div>
+
+    <div id="win" class="winScreens">
+        <h2>Du beseiret <span id="EnemyName2">ANDEN</span></h2>
+        <a href="index.html"><button onclick="goBack()">Gå tilbake til øya</button></a>
+    </div>
+
+    <div id="loose" class="winScreens">
+        <h2>Du ble beseiret av <span id="EnemyName3">ANDEN</span> (taper)</h2>
+        <button onclick="provIgjen()">Prøv Igjen!!!</button>
+    </div>
+
+
+    <script src="Combat.js">
+        
+    </script>
+</body>
+
+</html>
