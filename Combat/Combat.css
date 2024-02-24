@@ -5,10 +5,17 @@
             box-sizing: border-box;
         }
 
-        body {
-            background-image: url(../Bilder/arenaBackground.png);
+        #body {
             background-attachment: fixed;
             background-size: cover;
+        }
+
+        .img1 {
+            background-image: url(../Bilder/arenaBackground.png);
+        }
+
+        .img2 {
+            background-image: url(../Bilder/arena2background22.jpg);
         }
 
         header {

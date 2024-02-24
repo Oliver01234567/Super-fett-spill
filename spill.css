@@ -148,7 +148,7 @@ img .tre {
     padding: 30px;
 }
 
-.npc img {
+.NPC img, .npc img {
     width: 60px;
     height: 60px;
 }

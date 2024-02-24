@@ -23,12 +23,15 @@ const motstanderIcon = document.getElementById("motstanderIcon")
 const enemyName = document.getElementById("EnemyName")
 const enemyName2 = document.getElementById("EnemyName2")
 const enemyName3 = document.getElementById("EnemyName3")
+const body = document.getElementById("body")
 
 if(opponent == 0) {
     motstanderIcon.src = "../Bilder/playerIcon1.png"
     enemyName.innerText = "Anden"
     enemyName2.innerText = "Anden"
     enemyName3.innerText = "Anden"
+    body.classList.add("img1")
+
 }
 
 if(opponent == 1) {
@@ -36,6 +39,7 @@ if(opponent == 1) {
     enemyName.innerText = "Jonas"
     enemyName2.innerText = "Jonas"
     enemyName3.innerText = "Jonas"
+    body.classList.add("img2")
 }
 
 
