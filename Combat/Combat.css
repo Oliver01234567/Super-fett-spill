@@ -168,6 +168,13 @@
             width: 45px;
         }
 
+        #fyrenBrenner {
+            position: absolute;
+            z-index: 3;
+            width: 45px;
+            opacity: 70%;
+        }
+
         .winScreens {
             height: 100vh;
             width: 100%;

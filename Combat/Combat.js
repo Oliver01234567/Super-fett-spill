@@ -87,7 +87,7 @@ function startGame() {
 
     const player = document.getElementById("spillerDiv")
 
-    var sverd = document.createElement('img');
+    let sverd = document.createElement('img');
     sverd.src = '../Bilder/sverd.gif';
     sverd.alt = "Sverd";
     sverd.id = "holdtSverd";
@@ -183,7 +183,7 @@ function startGame() {
     }
 
     function skapSverd() {
-        var sverd = document.createElement('img');
+        sverd = document.createElement('img');
         sverd.src = '../Bilder/sverd.gif';
         sverd.alt = "Sverd";
         sverd.id = "holdtSverd";
@@ -445,10 +445,12 @@ function startGame() {
 
     //prøv igjen
     function provIgjen() {
+        skapSverd()
         resetHealth()
-        setTimeout(startInterval, 1000);
+        setTimeout(startInterval, 1000)
         removeScreens()
         setTimeout(startAttack, 1000)
+        fjernPIld()
     }
 
 
@@ -489,8 +491,8 @@ function startGame() {
         o = o - 10
         bottomPHealth.style.height = o + "%"
 
-        var brann = document.createElement('img');
-                    brann.src = '../Bilder/smalerFire.gif';
+        let brann = document.createElement('img');
+        brann.src = '../Bilder/smalerFire.gif';
         brann.alt = "ild";
         brann.id = "litenBrann";
         document.getElementById("bunn").appendChild(brann);
@@ -501,13 +503,27 @@ function startGame() {
             clearInterval(Forsvar)
             clearInterval(stopp)
             setTimeout(deathScreen, 2500)
-
-
             and.removeEventListener("click", skadet);
             document.removeEventListener("keydown", bevegelse)
             //fet dødsfall animasjon her
         }
+
+
+        if (plyHealth == 0) {
+            player.removeChild(document.querySelector("#holdtSverd"));
+            let fyrenBrenner = document.createElement('img');
+            fyrenBrenner.src = '../Bilder/smalerFire.gif';
+            fyrenBrenner.alt = "ild";
+            fyrenBrenner.id = "fyrenBrenner";
+            player.appendChild(fyrenBrenner);
+            
+        }
     }
+
+    function fjernPIld() {
+        player.removeChild(document.querySelector("#fyrenBrenner"))
+    }
+
 
     setInterval(consoleLog, 5000)
 
@@ -517,6 +533,8 @@ function startGame() {
     }
 
 }
+
+
 //forklaringskjerm
 const explButton = document.getElementById("Next")
 const explText = document.getElementById("explainEverything")
