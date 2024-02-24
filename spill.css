@@ -30,7 +30,7 @@ body {
 }
 
 #øy {
-    background-color: yellowgreen;
+    background-color: rgb(143, 183, 63);
     height: 75vh;
     width: 75%;
     position: relative;
@@ -329,4 +329,27 @@ img .tre {
     position: fixed;
     top: 0;
 }
+
+.NPC {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background-color: #FF4500; /* Orange color for NPC, you can adjust */
+    border: 2px solid #A52A2A; /* Brown border for NPC, you can adjust */
+    border-radius: 5px;
+    cursor: pointer;
+    top: 200px; /* Adjust as needed */
+    right: 600px; /* Adjust as needed */
+  }
+
+  .dialog-box {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    padding: 10px;
+    border: 2px solid #333;
+    z-index: 10000;
+  }
 

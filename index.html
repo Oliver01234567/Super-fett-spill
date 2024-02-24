@@ -15,7 +15,7 @@
 
         <div class="strand"></div>
 
-        <!--<div class="tre"><img src="Bilder/skog.png" alt=""></div>-->
+        <div class="tre"><img style="height: 550px; width: 1050px;" src="Bilder/skog.png" alt="skog"></div>
     
         <div id="character"><img src="Bilder/Rasmus.png" alt="character"></div>
 
@@ -33,8 +33,13 @@
             <button onclick=" backToGame()">Tilbake</button>
         </div>
 
-
-       
+        <div id="npc" class="InteractiveMaterial NPC">NPC
+            <div id="npc-dialog" class="dialog-box">
+              <p id="npc-message"></p>
+              <button id="npc-yes" onclick="handleNPCResponse(true)">Yes</button>
+              <button id="npc-no" onclick="handleNPCResponse(false)">No</button>
+            </div>
+        </div>
     </main>
 
     <div class="moneyContainer">
