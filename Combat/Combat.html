@@ -24,7 +24,7 @@
         <div class="cGrid" id="playerGrid">
 
             <div id="spillerDiv">
-                <img src="Bilder/Rasmus.png" alt="Din fyr" class="karakter" id="karakter">
+                <img src="../Bilder/Rasmus.png" alt="Din fyr" class="karakter" id="karakter">
             </div>
 
         </div>
@@ -33,7 +33,7 @@
         <div class="cGrid">
 
             <div id="motstander">
-                <img src="Bilder/playerIcon1.png" alt="motstander" class="karakter" id="motstanderIcon">
+                <img src="../Bilder/playerIcon1.png" alt="motstander" class="karakter" id="motstanderIcon">
             </div>
 
         </div>
@@ -53,12 +53,34 @@
 
     <div id="loose" class="winScreens">
         <h2>Du ble beseiret av <span id="EnemyName3">ANDEN</span> (taper)</h2>
-        <button onclick="provIgjen()">Prøv Igjen!!!</button>
+        <button id="Prov">Prøv Igjen!!!</button>
     </div>
+
+    <section id="HowToPlay">
+        <h1>Hvordan du skal kjempe mot anden</h1>
+
+        <h3> Du har utfordret <span id="EnemyName4">en Motstander</span></h3>
+
+
+        <div id ="Tekst">
+            <p id="explainEverything">Du og motstanderen din er plassert i to ulike sider av arenaen
+            </p>
+
+            <p id="explainEverything2">
+                Du må bekjempe han for å få belønningen din
+            </p>
+
+            <div id="buttons">
+                <button id="Next">Neste tips</button>
+                <button id="Skip" onclick="startGame()"> Skip forklaring </button>
+            </div>
+        </div>
+
+    </section>
 
 
     <script src="Combat.js">
-        
+
     </script>
 </body>
 

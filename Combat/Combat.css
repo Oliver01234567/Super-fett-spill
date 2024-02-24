@@ -163,9 +163,9 @@
         }
 
         #litenBrann {
-            position: absolute;
+            position: relative;
             z-index: 3;
-            width: 50px;
+            width: 45px;
         }
 
         .winScreens {
@@ -174,7 +174,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            background-image: url(../Bilder/arenaBackground.png);
+            
             opacity: 0;
             z-index: -1;
             transition: ease-in .5s;
@@ -197,4 +197,52 @@
             cursor: pointer;
 
         }
+
+
+        /*How to play skjerm*/
+        #HowToPlay {
+            height: 100vh;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 99999;
+            
+
+            text-align: center;
+            color: brown;
+        }
+
+        #HowToPlay h1 {
+            margin-top: 50px;
+            font-size: 40px;
+        }
+
+        #HowToPlay h3 {
+            margin-top: 20px;
+            font-size: 35px;
+        }
+
+        #Tekst {
+            margin-top: 100px;
+        }
+
+        #buttons {
+            margin-top: 30px;
+        }
+
+        #buttons button {
+            background-color: brown;
+            padding: 20px;
+            border-radius: 50px;
+            border: none;
+            margin-left: 20px;
+            margin-right: 20px;
+            cursor: pointer;
+
+        }
     
+        #explainEverything , #explainEverything2 {
+            font-size: 30px;
+            
+        }
