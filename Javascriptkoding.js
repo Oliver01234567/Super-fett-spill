@@ -324,6 +324,12 @@ function updateMoneyAmount() {
   localStorage.setItem("money", money);
 }
 
+  function spillAvPengeLyd() {
+    var lydElement = document.getElementById('moneySound');
+    lydElement.currentTime = 0;
+    lydElement.play();
+  }
+
 function formatNumber(number) {
   if (number >= 1000000) {
     return number.toExponential(2);
@@ -338,6 +344,7 @@ freeMoneyBtn.addEventListener('click', freeMoney);
 function freeMoney() {
   money += 10000;
   updateMoneyAmount();
+  spillAvPengeLyd()
 }
 
 
