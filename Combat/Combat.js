@@ -28,6 +28,11 @@ const body = document.getElementById("body")
 const winScreenen = document.getElementById("win")
 const deathScreenen = document.getElementById("loose")
 const howto = document.getElementById("HowToPlay")
+let allText = document.querySelectorAll('p');
+let allH = document.querySelectorAll('h1')
+let allh2 = document.querySelectorAll('h2')
+let allh3 = document.querySelectorAll('h3')
+let allButton = document.querySelectorAll('Button')
 
 if (opponent == 0) {
     motstanderIcon.src = "../Bilder/playerIcon1.png"
@@ -35,11 +40,31 @@ if (opponent == 0) {
     enemyName2.innerText = "Anden"
     enemyName3.innerText = "Anden"
     enemyName4.innerText = "Anden"
+
+
     body.classList.add("img1")
     winScreenen.classList.add("img1")
     deathScreenen.classList.add("img1")
     howto.classList.add("img1")
 
+    allText.forEach(function(pElement) {
+        pElement.classList.add("colorScheme1")
+    })
+    allH.forEach(function(hElemnt) {
+        hElemnt.classList.add("colorScheme1")
+    })
+
+    allh2.forEach(function(h2Elm) {
+        h2Elm.classList.add("colorScheme1")
+    })
+
+    allh3.forEach(function(h3Elm) {
+        h3Elm.classList.add("colorScheme1")
+    })
+    
+    allButton.forEach(function(ButtonElm) {
+        ButtonElm.classList.add("colorScheme1button")
+    })
 }
 
 if (opponent == 1) {
@@ -47,11 +72,32 @@ if (opponent == 1) {
     enemyName.innerText = "Jonas"
     enemyName2.innerText = "Jonas"
     enemyName3.innerText = "Jonas"
-    enemyName4.innerText = "Anden"
+    enemyName4.innerText = "Jonas"
+
+
     body.classList.add("img2")
     winScreenen.classList.add("img2")
     deathScreenen.classList.add("img2")
     howto.classList.add("img2")
+
+    allText.forEach(function(pElement) {
+        pElement.classList.add("colorScheme2")
+    })
+    allH.forEach(function(hElemnt) {
+        hElemnt.classList.add("colorScheme2")
+    })
+
+    allh2.forEach(function(h2Elm) {
+        h2Elm.classList.add("colorScheme2")
+    })
+
+    allh3.forEach(function(h3Elm) {
+        h3Elm.classList.add("colorScheme2")
+    })
+    
+    allButton.forEach(function(ButtonElm) {
+        ButtonElm.classList.add("colorScheme2button")
+    })
 }
 const prov = document.getElementById("Prov")
 
@@ -129,6 +175,11 @@ function startGame() {
         enemyBottomHealth.style.height = n + "%"
     }
 
+
+    //spillerens helse (må være her oppe fordi den referes til i koden under)
+    let plyHealth = 30
+
+
     //hva som skjer når du skader fienden
     function skadet() {
         player.removeChild(document.querySelector("#holdtSverd"));
@@ -155,7 +206,9 @@ function startGame() {
             setTimeout(dødfallMotstander, 1500)
             setTimeout(winScreen, 2500)
             clearInterval(Forsvar)
+            plyHealth = 10000
             return;
+            
         }
 
         setTimeout(startInterval, 2300);
@@ -207,7 +260,6 @@ function startGame() {
 
 
     //spillerens systemer
-    let plyHealth = 30
 
     //bevegelse
     let h = 1
