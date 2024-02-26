@@ -82,21 +82,26 @@ function SpeedIncrease() {
     movePlayer += 2;
     money -= upgradeSpeed;
     upgradeSpeed *= 2;
-  } else {
+    speedNivå()
+  } else if (movePlayer == 10) {
     showAlert("Maksfart er nådd " , "error")
+  } else {
+    showAlert("Du har ikke nok penger" , "error")
   }
   console.log(movePlayer)
-  speedNivå()
 }
 function speedNivå(){
   if(movePlayer === 6){
     speed1.style.backgroundColor ="red"
+    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer , "success")
   }
   if(movePlayer === 8){
     speed2.style.backgroundColor ="red"
+    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer , "success")
   }
   if(movePlayer === 10){
     speed3.style.backgroundColor ="red"
+    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer , "success")
     const speedButton = document.getElementById("speedButton")
     speedButton.innerHTML = "Maksfart er nådd"
   }
