@@ -330,8 +330,35 @@ img .tre {
     position: fixed;
     top: 0;
 }
-
-/*Npc*/
+#statsButtons{
+    display: flex;
+    flex-direction: column;
+}
+#speed{
+    display: flex;
+    flex-direction: row;
+}
+#speedLevel{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    gap: 2px;
+    width: 450px;
+    height: 120px;
+}
+#speed1{
+    background-color: white;
+    grid-column: 1/2;
+}
+#speed2{
+    background-color: white;
+    grid-column: 2/3;
+}
+#speed3{
+    background-color: white;
+    grid-column: 3/4;
+}
+/* NPC */
 .NPC {
     position: fixed;
     width: 50px;
