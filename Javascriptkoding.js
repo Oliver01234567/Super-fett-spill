@@ -84,8 +84,6 @@ function SpeedIncrease() {
     upgradeSpeed *= 2;
   } else {
     showAlert("Maksfart er nådd " , "error")
-    const speedButton = document.getElementById("speedButton")
-    speedButton.innerHTML = "Maksfart er nådd"
   }
   console.log(movePlayer)
   speedNivå()
@@ -99,6 +97,8 @@ function speedNivå(){
   }
   if(movePlayer === 10){
     speed3.style.backgroundColor ="red"
+    const speedButton = document.getElementById("speedButton")
+    speedButton.innerHTML = "Maksfart er nådd"
   }
   console.log(movePlayer)
 }
