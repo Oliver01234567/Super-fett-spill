@@ -147,15 +147,10 @@ function checkForChests() {
       characterPlassering.bottom > chestPlassering.top &&
       characterPlassering.top < chestPlassering.bottom
     ) {
-      chestFound();
+      
       showChestPopup(chest);
     }
   });
-}
-
-
-function chestFound() {
-  console.log("Chest found!");
 }
 
 let currentPopup = null;
@@ -187,8 +182,6 @@ function openChest(chestId) {
     document.body.removeChild(currentPopup);
     currentPopup = null;
   }
-  
-  console.log(`Opened chest with ID: ${chestId}`);
 }
 
 function declineChest(chestId) {
@@ -196,8 +189,6 @@ function declineChest(chestId) {
     document.body.removeChild(currentPopup);
     currentPopup = null;
   }
-  
-  console.log(`Declined chest with ID: ${chestId}`);
 }
 
 function showAlert(message, type) {
