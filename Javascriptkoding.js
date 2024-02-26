@@ -77,6 +77,8 @@ let movePlayer = 4
 
 let upgradeSpeed = 1000;
 
+const speedUpg = document.getElementById("speedUpg");
+
 function SpeedIncrease() {
   if (movePlayer < 10 && money >= upgradeSpeed) {
     movePlayer += 2;
@@ -94,15 +96,18 @@ function speedNivå(){
   if(movePlayer === 6){
     speed1.style.backgroundColor ="red"
     showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer , "success")
+    speedUpg.innerText = formatNumber(upgradeSpeed);
   }
   if(movePlayer === 8){
     speed2.style.backgroundColor ="red"
     showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer , "success")
+    speedUpg.innerText = formatNumber(upgradeSpeed);
   }
   if(movePlayer === 10){
     speed3.style.backgroundColor ="red"
     showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer , "success")
     const speedButton = document.getElementById("speedButton")
+    speedUpg.innerText = formatNumber(upgradeSpeed);
     speedButton.innerHTML = "Maksfart er nådd"
   }
   console.log(movePlayer)
@@ -313,7 +318,6 @@ function resetCharacterPosition() {
 }
 
 //Penger
-
 
 const moneyBox = document.getElementById("moneyBox");
 const freeMoneyBtn = document.getElementById("freeMoneyButton");

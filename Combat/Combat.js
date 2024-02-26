@@ -47,22 +47,22 @@ if (opponent == 0) {
     deathScreenen.classList.add("img1")
     howto.classList.add("img1")
 
-    allText.forEach(function(pElement) {
+    allText.forEach(function (pElement) {
         pElement.classList.add("colorScheme1")
     })
-    allH.forEach(function(hElemnt) {
+    allH.forEach(function (hElemnt) {
         hElemnt.classList.add("colorScheme1")
     })
 
-    allh2.forEach(function(h2Elm) {
+    allh2.forEach(function (h2Elm) {
         h2Elm.classList.add("colorScheme1")
     })
 
-    allh3.forEach(function(h3Elm) {
+    allh3.forEach(function (h3Elm) {
         h3Elm.classList.add("colorScheme1")
     })
-    
-    allButton.forEach(function(ButtonElm) {
+
+    allButton.forEach(function (ButtonElm) {
         ButtonElm.classList.add("colorScheme1button")
     })
 }
@@ -80,22 +80,22 @@ if (opponent == 1) {
     deathScreenen.classList.add("img2")
     howto.classList.add("img2")
 
-    allText.forEach(function(pElement) {
+    allText.forEach(function (pElement) {
         pElement.classList.add("colorScheme2")
     })
-    allH.forEach(function(hElemnt) {
+    allH.forEach(function (hElemnt) {
         hElemnt.classList.add("colorScheme2")
     })
 
-    allh2.forEach(function(h2Elm) {
+    allh2.forEach(function (h2Elm) {
         h2Elm.classList.add("colorScheme2")
     })
 
-    allh3.forEach(function(h3Elm) {
+    allh3.forEach(function (h3Elm) {
         h3Elm.classList.add("colorScheme2")
     })
-    
-    allButton.forEach(function(ButtonElm) {
+
+    allButton.forEach(function (ButtonElm) {
         ButtonElm.classList.add("colorScheme2button")
     })
 }
@@ -201,9 +201,11 @@ function startGame() {
         clearInterval(stopp);
         and.removeEventListener("click", skadet);
 
-        if (EmyHealth <= 8) {
-            bunnE.style.animation = ("lowHP 2s infinite linear")
-        }
+        setTimeout(function () {
+            if (EmyHealth <= 3) {
+                ealthBar.style.animation = ("lowHP 2s infinite linear")
+            }
+        }, 1800)
 
         var sverdSlag = document.createElement('img');
         sverdSlag.src = '../Bilder/sverdSlag.gif';
@@ -226,7 +228,7 @@ function startGame() {
             localStorage.setItem("money", money);
             setTimeout(DuFikkPenger, 2500)
             return;
-            
+
         }
 
         setTimeout(startInterval, 2300);
@@ -245,7 +247,7 @@ function startGame() {
 
 
     function dødfallMotstander() {
-        and.style.animation = "død 1s linear forwards"
+        motstander.style.animation = "død 1s linear forwards"
     }
 
 
@@ -521,6 +523,7 @@ function startGame() {
         removeScreens()
         setTimeout(startAttack, 1000)
         fjernPIld()
+        removeAnimations()
     }
 
 
@@ -533,6 +536,12 @@ function startGame() {
         winScreenen.style.opacity = "0%"
 
         howto.style.display = "none"
+    }
+    function removeAnimations() {
+        spillerDiv.style.animation = "none"
+        motstander.style.animation = "none"
+        ealthBar.style.animation = "none"
+        pHealthBar.style.animation = "none"
     }
 
     function resetHealth() {
@@ -578,6 +587,12 @@ function startGame() {
         brann.id = "litenBrann";
         document.getElementById("bunn").appendChild(brann);
         setTimeout(fjernIld, 300)
+
+
+        if (plyHealth <= 10) {
+            pHealthBar.style.animation = ("lowHP 2s infinite linear")
+        }
+
 
 
         if (plyHealth < 1) {
