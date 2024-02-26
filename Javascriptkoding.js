@@ -330,6 +330,12 @@ function updateMoneyAmount() {
     lydElement.play();
   }
 
+  function spillAvError(){
+    var lydElement2 = document.getElementById('ErrorSound');
+    lydElement2.currentTime = 0;
+    lydElement2.play();
+  }
+
 function formatNumber(number) {
   if (number >= 1000000) {
     return number.toExponential(2);
@@ -362,6 +368,7 @@ function ChoosenDuck() {
     showAlert("Du har kjøpt anden for 1500 penger ", "success");
   } else{
     showAlert("Du har ikke nok penger for å kjøpe anden ", "error");
+    spillAvError()
   }
 }
 
@@ -376,6 +383,7 @@ function ChoosenRasmus() {
     showAlert("Du har kjøpt Rasmus for 2500 penger ", "success");
   } else{
     showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
+    spillAvError()
   }
 }
 
