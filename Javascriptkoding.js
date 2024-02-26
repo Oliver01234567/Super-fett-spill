@@ -158,8 +158,15 @@ function chestFound() {
   console.log("Chest found!");
 }
 
+let currentPopup = null;
+
 function showChestPopup(chest) {
-  var popup = document.createElement("div");
+  if (currentPopup) {
+    document.body.removeChild(currentPopup);
+    currentPopup = null;
+  }
+
+  const popup = document.createElement("div");
   popup.className = "chest-popup";
   popup.innerHTML = `
     <p>You found a chest! Do you want to open it?</p>
@@ -168,18 +175,21 @@ function showChestPopup(chest) {
   `;
 
   document.body.appendChild(popup);
+  currentPopup = popup;
 }
 
 function openChest(chestId) {
   // Add your logic for what happens when the chest is opened
   console.log(`Opened chest with ID: ${chestId}`);
-  document.body.removeChild(document.querySelector(".chest-popup"));
 }
 
 function declineChest(chestId) {
+  if (currentPopup) {
+    document.body.removeChild(currentPopup);
+    currentPopup = null;
+  }
   // Add your logic for what happens when the chest is declined
   console.log(`Declined chest with ID: ${chestId}`);
-  document.body.removeChild(document.querySelector(".chest-popup"));
 }
 
 
@@ -342,6 +352,7 @@ function backToGame() {
 
 }
 
+// Npc greier
 const npcDialog = document.getElementById("npc-dialog");
 const npcMessage = document.getElementById("npc-message");
 const npcYesBtn = document.getElementById("npc-yes");
