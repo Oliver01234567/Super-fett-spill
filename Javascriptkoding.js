@@ -318,6 +318,12 @@ function updateMoneyAmount() {
   localStorage.setItem("money", money);
 }
 
+  function spillAvPengeLyd() {
+    var lydElement = document.getElementById('moneySound');
+    lydElement.currentTime = 0;
+    lydElement.play();
+  }
+
 function formatNumber(number) {
   if (number >= 1000000) {
     return number.toExponential(2);
@@ -332,6 +338,7 @@ freeMoneyBtn.addEventListener('click', freeMoney);
 function freeMoney() {
   money += 10000;
   updateMoneyAmount();
+  spillAvPengeLyd()
 }
 
 
@@ -345,6 +352,7 @@ function ChoosenDuck() {
   if (money >= 1500){
     money -= 1500;
     updateMoneyAmount();
+    spillAvPengeLyd()
     showAlert("Du har kjøpt anden for 1500 penger ", "success");
   } else{
     showAlert("Du har ikke nok penger for å kjøpe anden ", "error");
@@ -358,6 +366,7 @@ function ChoosenRasmus() {
   if (money >= 2500){
     money -= 2500;
     updateMoneyAmount();
+    spillAvPengeLyd()
     showAlert("Du har kjøpt Rasmus for 2500 penger ", "success");
   } else{
     showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");

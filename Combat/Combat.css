@@ -130,10 +130,15 @@
                 transform: rotate(90deg);
             }
         }
+        @keyframes dødSpiller{
+            100% {
+                transform: rotate(-90deg);
+            }
+        }
 
         @keyframes lowHP {
             25% {
-                box-shadow: 0 0 30px red;
+                box-shadow: 0 0 100px red;
             }
 
             50% {
@@ -141,7 +146,7 @@
             }
 
             75% {
-                box-shadow: 0 0 30px red;
+                box-shadow: 0 0 100px red;
             }
 
             100% {
