@@ -101,6 +101,10 @@ if (opponent == 1) {
 }
 const prov = document.getElementById("Prov")
 
+//du mister penger hvis du dør
+let money = 0
+money = parseInt(localStorage.getItem("money")) || 0
+
 
 function startGame() {
     removeScreens()
@@ -142,7 +146,7 @@ function startGame() {
 
     //fiendens systemer
 
-    let EmyHealth = 10
+    let EmyHealth = 1
 
     const spanHealt = document.getElementById("healthBar")
 
@@ -181,6 +185,11 @@ function startGame() {
 
 
     //hva som skjer når du skader fienden
+    function DuFikkPenger() {
+        let tjentPenger = money + 1000;
+        showAlert("Du fikk " + tjentPenger.toFixed(0) + " penger" , "success")
+    }
+
     function skadet() {
         player.removeChild(document.querySelector("#holdtSverd"));
         clearInterval(stopp);
@@ -209,6 +218,9 @@ function startGame() {
             setTimeout(winScreen, 2500)
             clearInterval(Forsvar)
             plyHealth = 10000
+            money = money + 1000
+            localStorage.setItem("money", money);
+            setTimeout(DuFikkPenger, 2500)
             return;
 
         }
@@ -545,6 +557,17 @@ function startGame() {
 
     }
 
+    function showAlert(message, type) {
+        const alertDiv = document.createElement('div');
+        alertDiv.className = 'alert ' + type;
+        alertDiv.textContent = message;
+        document.body.appendChild(alertDiv);
+      
+        setTimeout(function () {
+            alertDiv.remove();
+        }, 2000);
+      }
+
     function damage() {
         plyHealth = plyHealth - 3
         z = z + 10
@@ -572,19 +595,17 @@ function startGame() {
             setTimeout(deathScreen, 2500)
             and.removeEventListener("click", skadet);
             document.removeEventListener("keydown", bevegelse)
-            //fet dødsfall animasjon her
-        }
-
-
-        if (plyHealth == 0) {
             player.removeChild(document.querySelector("#holdtSverd"));
             let fyrenBrenner = document.createElement('img');
             fyrenBrenner.src = '../Bilder/smalerFire.gif';
             fyrenBrenner.alt = "ild";
             fyrenBrenner.id = "fyrenBrenner";
             player.appendChild(fyrenBrenner);
-            spillerDiv.style.animation = "dødSpiller 1s linear forwards"
-
+            spillerDiv.style.animation ="dødSpiller 1s linear forwards"
+            let tapPenger = money * 0.1;
+            money = money * 0.9
+            localStorage.setItem("money", money);
+            showAlert("Du tapte " + tapPenger.toFixed(0) + " penger" , "error")
         }
     }
 
