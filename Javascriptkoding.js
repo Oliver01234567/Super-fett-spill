@@ -164,9 +164,9 @@ function showChestPopup(chest) {
   const popup = document.createElement("div");
   popup.className = "chest-popup";
   popup.innerHTML = `
-    <p>You found a chest! Do you want to open it?</p>
-    <button onclick="openChest('${chest.id}')">Open</button>
-    <button onclick="declineChest('${chest.id}')">Decline</button>
+    <p>Du fant en kiste! Vil du åpne den??</p>
+    <button onclick="openChest('${chest.id}')">Åpne</button>
+    <button onclick="declineChest('${chest.id}')">Avslå</button>
   `;
 
   document.body.appendChild(popup);
