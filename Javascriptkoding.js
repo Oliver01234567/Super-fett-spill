@@ -7,6 +7,7 @@ const characterP = document.querySelector("#character img")
 let choosenSkin = 0
 choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
 
+const moneyAmount = document.getElementById("moneyAmount");
 let money = 0
 money = parseInt(localStorage.getItem("money")) || 0
 setInterval(updateMoneyAmount, 1)
@@ -74,23 +75,17 @@ var movement = {
 //Variabel for movement
 let movePlayer = 4
 
-function checkForMove10() {
-  if (movePlayer >= 9) {
-    clearInterval(move10)
-
-    const speedButton = document.getElementById("speedButton")
-    speedButton.innerHTML = "Maksfart er nådd"
-  }
-}
+let upgradeSpeed = 1000;
 
 function SpeedIncrease() {
-
-  if (movePlayer >= 9) {
-    movePlayer = 10
-
-  }
-  else {
-    movePlayer = movePlayer + 2
+  if (movePlayer < 10 && money >= upgradeSpeed) {
+    movePlayer += 2;
+    money -= upgradeSpeed;
+    upgradeSpeed *= 2;
+  } else {
+    showAlert("Maksfart er nådd " , "error")
+    const speedButton = document.getElementById("speedButton")
+    speedButton.innerHTML = "Maksfart er nådd"
   }
   console.log(movePlayer)
   speedNivå()
@@ -108,7 +103,6 @@ function speedNivå(){
   console.log(movePlayer)
 }
 
-const move10 = setInterval(checkForMove10, 1)
 
 
 function move() {
@@ -315,7 +309,7 @@ function resetCharacterPosition() {
 
 //Penger
 
-const moneyAmount = document.getElementById("moneyAmount");
+
 const moneyBox = document.getElementById("moneyBox");
 const freeMoneyBtn = document.getElementById("freeMoneyButton");
 
