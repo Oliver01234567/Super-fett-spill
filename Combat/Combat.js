@@ -186,8 +186,8 @@ function startGame() {
         clearInterval(stopp);
         and.removeEventListener("click", skadet);
 
-        if (EmyHealth <= 3) {
-            and.style.animation = ("lowHP 2s infinite linear")
+        if (EmyHealth <= 8) {
+            bunnE.style.animation = ("lowHP 2s infinite linear")
         }
 
         var sverdSlag = document.createElement('img');
@@ -568,6 +568,7 @@ function startGame() {
             fyrenBrenner.alt = "ild";
             fyrenBrenner.id = "fyrenBrenner";
             player.appendChild(fyrenBrenner);
+            spillerDiv.style.animation ="dødSpiller 1s linear forwards"
             
         }
     }
