@@ -147,39 +147,61 @@ function checkForChests() {
       characterPlassering.bottom > chestPlassering.top &&
       characterPlassering.top < chestPlassering.bottom
     ) {
-      chestFound();
+
       showChestPopup(chest);
     }
   });
 }
 
-
-function chestFound() {
-  console.log("Chest found!");
-}
+let currentPopup = null;
 
 function showChestPopup(chest) {
-  var popup = document.createElement("div");
+  if (currentPopup) {
+    document.body.removeChild(currentPopup);
+    currentPopup = null;
+  }
+
+  const popup = document.createElement("div");
   popup.className = "chest-popup";
   popup.innerHTML = `
-    <p>You found a chest! Do you want to open it?</p>
-    <button onclick="openChest('${chest.id}')">Open</button>
-    <button onclick="declineChest('${chest.id}')">Decline</button>
+    <p>Du fant en kiste! Vil du åpne den??</p>
+    <button onclick="openChest('${chest.id}')">Åpne</button>
+    <button onclick="declineChest('${chest.id}')">Avslå</button>
   `;
 
   document.body.appendChild(popup);
+  currentPopup = popup;
 }
 
+let tilfPenger = 0;
+
 function openChest(chestId) {
-  // Add your logic for what happens when the chest is opened
-  console.log(`Opened chest with ID: ${chestId}`);
-  document.body.removeChild(document.querySelector(".chest-popup"));
+  tilfPenger = Math.floor(Math.random() * 9900) + 100;
+  showAlert("Du fant " + tilfPenger + " penger", "success");
+  money += tilfPenger;
+  updateMoneyAmount();
+  if (currentPopup) {
+    document.body.removeChild(currentPopup);
+    currentPopup = null;
+  }
 }
 
 function declineChest(chestId) {
-  // Add your logic for what happens when the chest is declined
-  console.log(`Declined chest with ID: ${chestId}`);
-  document.body.removeChild(document.querySelector(".chest-popup"));
+  if (currentPopup) {
+    document.body.removeChild(currentPopup);
+    currentPopup = null;
+  }
+}
+
+function showAlert(message, type) {
+  const alertDiv = document.createElement('div');
+  alertDiv.className = 'alert ' + type;
+  alertDiv.textContent = message;
+  document.body.appendChild(alertDiv);
+
+  setTimeout(function () {
+      alertDiv.remove();
+  }, 2000);
 }
 
 
@@ -342,6 +364,7 @@ function backToGame() {
 
 }
 
+// Npc greier
 const npcDialog = document.getElementById("npc-dialog");
 const npcMessage = document.getElementById("npc-message");
 const npcYesBtn = document.getElementById("npc-yes");
