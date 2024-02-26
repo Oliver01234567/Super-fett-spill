@@ -1,288 +1,312 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 /*font-family: "Press Start 2P", system-ui; */
-       
-       
-       
-       * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        #body {
-            background-attachment: fixed;
-            background-size: cover;
-        }
-
-        .img1 {
-            background-image: url(../Bilder/arenaBackground.png);
-        }
-
-        .img2 {
-            background-image: url(../Bilder/arena2background22.jpg);
-        }
-
-        header {
-            text-align: center;
-            height: 10vh;
-            margin-top: 20px;
-        }
-
-        .colorScheme1  {
-            color: yellow;
-            text-shadow: 0 0 3px black;
-            font-family: "Press Start 2P", system-ui;
-            
-            
-        }
-
-        .colorScheme1button {
-            color: black;
-            background-color: yellow;
-            font-family: "Press Start 2P", system-ui;
-        }
-
-        .colorScheme2  {
-            color: brown;
-            text-shadow: 0 0 3px black;
-            font-family: "Press Start 2P", system-ui;
-            
-        }
-
-        .colorScheme2button {
-            color: black;
-            background-color: brown;
-            font-family: "Press Start 2P", system-ui;
-        }
-        
-
-        header p {
-            font-size: 25px;
-
-        }
-
-        footer {
-            height: 10vh;
-        }
-
-        .karakter {
-            height: 75px;
-        }
-
-        #spillerDiv {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #arena {
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-
-            flex-wrap: wrap;
-            height: 80vh;
-        }
-
-        .cGrid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(7, 1fr);
-            border: 5px dotted black;
-            height: 90%;
-            width: 530px;
-        }
-
-        #motstander {
-            grid-row: 1;
-            grid-column: 2;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 75px;
-        }
-
-        #spillerDiv {
-            grid-row: 1;
-            grid-column: 2;
-            z-index: 1;
-        }
 
 
 
-        #Sverd {
-            position: absolute;
-            height: 80px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#body {
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.img1 {
+    background-image: url(../Bilder/arenaBackground.png);
+}
+
+.img2 {
+    background-image: url(../Bilder/arena2background22.jpg);
+}
+
+header {
+    text-align: center;
+    height: 10vh;
+    margin-top: 20px;
+}
+
+.colorScheme1 {
+    color: yellow;
+    text-shadow: 0 0 3px black;
+    font-family: "Press Start 2P", system-ui;
 
 
-        }
+}
 
-        #holdtSverd {
+.colorScheme1button {
+    color: black;
+    background-color: yellow;
+    font-family: "Press Start 2P", system-ui;
+}
 
-            height: 75px;
+.colorScheme2 {
+    color: brown;
+    text-shadow: 0 0 3px black;
+    font-family: "Press Start 2P", system-ui;
 
+}
 
-        }
-
-        @keyframes død {
-            100% {
-                transform: rotate(90deg);
-            }
-        }
-        @keyframes dødSpiller{
-            100% {
-                transform: rotate(-90deg);
-            }
-        }
-
-        @keyframes lowHP {
-            25% {
-                box-shadow: 0 0 100px red;
-            }
-
-            50% {
-                box-shadow: none;
-            }
-
-            75% {
-                box-shadow: 0 0 100px red;
-            }
-
-            100% {
-                box-shadow: none;
-            }
-        }
+.colorScheme2button {
+    color: black;
+    background-color: brown;
+    font-family: "Press Start 2P", system-ui;
+}
 
 
-        .redZone {
-            background-image: url(../Bilder/fire.gif);
-            background-size: cover;
-        }
+header p {
+    font-size: 25px;
 
-        .orangeZone {
-            background-color: orange;
-        }
+}
 
+footer {
+    height: 10vh;
+}
 
+.karakter {
+    height: 75px;
+}
 
-        #top {
-            width: 50px;
-            height: 0%;
-        }
+#spillerDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        #bunn {
-            width: 50px;
-            height: 100%;
-            background-color: green;
-        }
+#arena {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 
-        #topE {
-            width: 50px;
-            height: 0%;
-        }
+    flex-wrap: wrap;
+    height: 80vh;
+}
 
-        #bunnE {
-            width: 50px;
-            height: 100%;
-            background-color: red;
+.cGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    border: 5px dotted black;
+    height: 90%;
+    width: 530px;
+}
 
-        }
+#motstander {
+    grid-row: 1;
+    grid-column: 2;
 
-        .healthBars {
-            height: 80vh;
-            width: 50px;
-            border: 2px solid black;
-            overflow: hidden;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+}
 
-        #litenBrann {
-            position: relative;
-            z-index: 3;
-            width: 45px;
-        }
-
-        #fyrenBrenner {
-            position: absolute;
-            z-index: 3;
-            width: 45px;
-            opacity: 70%;
-        }
-
-        .winScreens {
-            height: 100vh;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            
-            opacity: 0%;
-            z-index: -1;
-            transition: ease-in .5s;
-            font-size: 25px;
-
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            align-content: center;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .winScreens button {
-            
-            margin-top: 50px;
-            padding: 30px;
-            border-radius: 30px;
-            cursor: pointer;
-
-        }
+#spillerDiv {
+    grid-row: 1;
+    grid-column: 2;
+    z-index: 1;
+}
 
 
-        /*How to play skjerm*/
-        #HowToPlay {
-            height: 100vh;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 99999;
-            
 
-            text-align: center;
-        }
+#Sverd {
+    position: absolute;
+    height: 80px;
 
-        #HowToPlay h1 {
-            margin-top: 50px;
-            font-size: 30px;
-        }
 
-        #HowToPlay h3 {
-            margin-top: 20px;
-            font-size: 25px;
-        }
+}
 
-        #Tekst {
-            margin-top: 100px;
-        }
+#holdtSverd {
 
-        #buttons {
-            margin-top: 30px;
-        }
+    height: 75px;
 
-        #buttons button {
-           
-            padding: 20px;
-            border-radius: 50px;
-            border: none;
-            margin-left: 20px;
-            margin-right: 20px;
-            cursor: pointer;
 
-        }
-    
-        #explainEverything , #explainEverything2 {
-            font-size: 20px;
-            margin-top: 30px;
-            
-        }
+}
+
+@keyframes død {
+    100% {
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes dødSpiller {
+    100% {
+        transform: rotate(-90deg);
+    }
+}
+
+@keyframes lowHP {
+    25% {
+        box-shadow: 0 0 100px red;
+    }
+
+    50% {
+        box-shadow: none;
+    }
+
+    75% {
+        box-shadow: 0 0 100px red;
+    }
+
+    100% {
+        box-shadow: none;
+    }
+}
+
+
+.redZone {
+    background-image: url(../Bilder/fire.gif);
+    background-size: cover;
+}
+
+.orangeZone {
+    background-color: orange;
+}
+
+
+
+#top {
+    width: 50px;
+    height: 0%;
+}
+
+#bunn {
+    width: 50px;
+    height: 100%;
+    background-color: green;
+}
+
+#topE {
+    width: 50px;
+    height: 0%;
+}
+
+#bunnE {
+    width: 50px;
+    height: 100%;
+    background-color: red;
+
+}
+
+.healthBars {
+    height: 80vh;
+    width: 50px;
+    border: 2px solid black;
+    overflow: hidden;
+}
+
+#litenBrann {
+    position: relative;
+    z-index: 3;
+    width: 45px;
+}
+
+#fyrenBrenner {
+    position: absolute;
+    z-index: 3;
+    width: 45px;
+    opacity: 70%;
+}
+
+.winScreens {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    opacity: 0%;
+    z-index: -1;
+    transition: ease-in .5s;
+    font-size: 25px;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.winScreens button {
+
+    margin-top: 50px;
+    padding: 30px;
+    border-radius: 30px;
+    cursor: pointer;
+
+}
+
+
+/*How to play skjerm*/
+#HowToPlay {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+
+
+    text-align: center;
+}
+
+#HowToPlay h1 {
+    margin-top: 50px;
+    font-size: 30px;
+}
+
+#HowToPlay h3 {
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+#Tekst {
+    margin-top: 100px;
+}
+
+#buttons {
+    margin-top: 30px;
+}
+
+#buttons button {
+
+    padding: 20px;
+    border-radius: 50px;
+    border: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+
+}
+
+#explainEverything,
+#explainEverything2 {
+    font-size: 20px;
+    margin-top: 30px;
+
+}
+
+/*Alerts*/
+/*Alert*/
+.alert {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+.error {
+    background-color: #f44336;
+}
+
+.success {
+    background-color: #4CAF50;
+}
