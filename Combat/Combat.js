@@ -105,7 +105,7 @@ const prov = document.getElementById("Prov")
 let money = 0
 money = parseInt(localStorage.getItem("money")) || 0
 
-function spillAvFight (){
+function spillAvFight() {
     var lydElement3 = document.getElementById('Fight');
     lydElement3.currentTime = 0;
     lydElement3.play();
@@ -187,13 +187,15 @@ function startGame() {
 
 
     //spillerens helse (må være her oppe fordi den referes til i koden under)
-    let plyHealth = 30
+    let plyHealth = parseInt(localStorage.getItem("healthIs")) || 30 
+    console.log("plyHealth er " + plyHealth)
+
 
 
     //hva som skjer når du skader fienden
     function DuFikkPenger() {
         let tjentPenger = money + 1000;
-        showAlert("Du fikk " + tjentPenger.toFixed(0) + " penger" , "success")
+        showAlert("Du fikk " + tjentPenger.toFixed(0) + " penger", "success")
     }
 
     function skadet() {
@@ -545,7 +547,7 @@ function startGame() {
     }
 
     function resetHealth() {
-        plyHealth = 30
+        plyHealth = parseInt(localStorage.getItem("healthIs")) || 0 
         EmyHealth = 10
 
         //fiende healthbar
@@ -562,23 +564,27 @@ function startGame() {
 
 
     }
+    
 
     function showAlert(message, type) {
         const alertDiv = document.createElement('div');
         alertDiv.className = 'alert ' + type;
         alertDiv.textContent = message;
         document.body.appendChild(alertDiv);
-      
+
         setTimeout(function () {
             alertDiv.remove();
         }, 2000);
-      }
+    }
+    
+    let damagePercent = (3 / plyHealth) * 100
+    console.log("damgepersent er " + damagePercent)
 
     function damage() {
         plyHealth = plyHealth - 3
-        z = z + 10
+        z = z + damagePercent
         topPHealth.style.height = z + "%"
-        o = o - 10
+        o = o - damagePercent
         bottomPHealth.style.height = o + "%"
 
         let brann = document.createElement('img');
@@ -607,11 +613,11 @@ function startGame() {
             fyrenBrenner.alt = "ild";
             fyrenBrenner.id = "fyrenBrenner";
             player.appendChild(fyrenBrenner);
-            spillerDiv.style.animation ="dødSpiller 1s linear forwards"
+            spillerDiv.style.animation = "dødSpiller 1s linear forwards"
             let tapPenger = money * 0.1;
             money = money * 0.9
             localStorage.setItem("money", money);
-            showAlert("Du tapte " + tapPenger.toFixed(0) + " penger" , "error")
+            showAlert("Du tapte " + tapPenger.toFixed(0) + " penger", "error")
         }
     }
 

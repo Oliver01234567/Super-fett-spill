@@ -86,26 +86,26 @@ function SpeedIncrease() {
     upgradeSpeed *= 2;
     speedNivå()
   } else if (movePlayer == 10) {
-    showAlert("Maksfart er nådd " , "error")
+    showAlert("Maksfart er nådd ", "error")
   } else {
-    showAlert("Du har ikke nok penger" , "error")
+    showAlert("Du har ikke nok penger", "error")
   }
   console.log(movePlayer)
 }
-function speedNivå(){
-  if(movePlayer === 6){
-    speed1.style.backgroundColor ="red"
-    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer , "success")
+function speedNivå() {
+  if (movePlayer === 6) {
+    speed1.style.backgroundColor = "red"
+    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
     speedUpg.innerText = formatNumber(upgradeSpeed);
   }
-  if(movePlayer === 8){
-    speed2.style.backgroundColor ="red"
-    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer , "success")
+  if (movePlayer === 8) {
+    speed2.style.backgroundColor = "red"
+    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
     speedUpg.innerText = formatNumber(upgradeSpeed);
   }
-  if(movePlayer === 10){
-    speed3.style.backgroundColor ="red"
-    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer , "success")
+  if (movePlayer === 10) {
+    speed3.style.backgroundColor = "red"
+    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
     const speedButton = document.getElementById("speedButton")
     speedUpg.innerText = formatNumber(upgradeSpeed);
     speedButton.innerHTML = "Maksfart er nådd"
@@ -155,6 +155,70 @@ document.addEventListener("keyup", function (event) {
 });
 
 move();
+
+// Health
+
+let plyHealth = parseInt(localStorage.getItem("healthIs")) || 30
+
+function healthLevelIndicator() {
+  if (plyHealth >= 45) {
+    plyHealth = 45
+    healthButton.removeEventListener("click", healthIncrease)
+  }
+  if (plyHealth >= 33) {
+    health1.style.backgroundColor = "red"
+  }
+  if (plyHealth >= 36) {
+    health2.style.backgroundColor = "red"
+  }
+  if (plyHealth >= 39) {
+    health3.style.backgroundColor = "red"
+  }
+  if (plyHealth >= 42) {
+    health4.style.backgroundColor = "red"
+  }
+  if (plyHealth >= 45) {
+    health5.style.backgroundColor = "red"
+  }
+
+}
+document.addEventListener('DOMContentLoaded', function () {
+  healthLevelIndicator()
+});
+
+
+healthButton.addEventListener("click", healthIncrease)
+
+function healthIncrease() {
+  plyHealth = plyHealth + 3
+  console.log("plyhealth er " + plyHealth)
+  console.log("klikk")
+
+  healthLevelIndicator()
+
+  localStorage.setItem("healthIs", plyHealth);
+  console.log(localStorage.getItem('healthIs'));
+}
+
+liv0.addEventListener("click", healthblir0)
+
+function healthblir0() {
+  plyHealth = 30
+  health1.style.backgroundColor = "white"
+  health2.style.backgroundColor = "white"
+  health3.style.backgroundColor = "white"
+  health4.style.backgroundColor = "white"
+  health5.style.backgroundColor = "white"
+  console.log("trykk " + plyHealth)
+  localStorage.setItem("healthIs", plyHealth);
+
+}
+
+
+
+
+
+
 
 
 //Chest
@@ -224,7 +288,7 @@ function showAlert(message, type) {
   document.body.appendChild(alertDiv);
 
   setTimeout(function () {
-      alertDiv.remove();
+    alertDiv.remove();
   }, 2000);
 }
 
@@ -274,7 +338,7 @@ function toggleFlexBox() {
   if (flexBoxContainer.style.display === 'none' || flexBoxContainer.style.display === '') {
     flexBoxContainer.style.display = 'flex';
     menyknapp.innerHTML = ("x")
-    
+
 
 
   } else {
@@ -327,17 +391,17 @@ function updateMoneyAmount() {
   localStorage.setItem("money", money);
 }
 
-  function spillAvPengeLyd() {
-    var lydElement = document.getElementById('moneySound');
-    lydElement.currentTime = 0;
-    lydElement.play();
-  }
+function spillAvPengeLyd() {
+  var lydElement = document.getElementById('moneySound');
+  lydElement.currentTime = 0;
+  lydElement.play();
+}
 
-  function spillAvError(){
-    var lydElement2 = document.getElementById('ErrorSound');
-    lydElement2.currentTime = 0;
-    lydElement2.play();
-  }
+function spillAvError() {
+  var lydElement2 = document.getElementById('ErrorSound');
+  lydElement2.currentTime = 0;
+  lydElement2.play();
+}
 
 function formatNumber(number) {
   if (number >= 1000000) {
@@ -364,12 +428,12 @@ function ChoosenDuck() {
   characterP.src = "Bilder/playerIcon1.png"
   choosenSkin = 1
   localStorage.setItem("choosenSkin", choosenSkin);
-  if (money >= 1500){
+  if (money >= 1500) {
     money -= 1500;
     updateMoneyAmount();
     spillAvPengeLyd()
     showAlert("Du har kjøpt anden for 1500 penger ", "success");
-  } else{
+  } else {
     showAlert("Du har ikke nok penger for å kjøpe anden ", "error");
     spillAvError()
   }
@@ -379,12 +443,12 @@ function ChoosenRasmus() {
   characterP.src = "Bilder/Rasmus.png"
   choosenSkin = 0
   localStorage.setItem("choosenSkin", choosenSkin);
-  if (money >= 2500){
+  if (money >= 2500) {
     money -= 2500;
     updateMoneyAmount();
     spillAvPengeLyd()
     showAlert("Du har kjøpt Rasmus for 2500 penger ", "success");
-  } else{
+  } else {
     showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
     spillAvError()
   }
@@ -431,8 +495,8 @@ function showNPCDialog(message) {
 
   npcMessage.textContent = message;
   npcDialog.style.display = "block";
-  npcYesBtn.style.display = "block"; 
-  npcNoBtn.style.display = "block"; 
+  npcYesBtn.style.display = "block";
+  npcNoBtn.style.display = "block";
 
   console.log("showNPCDialog completed");
 }
@@ -442,11 +506,11 @@ function hideNPCDialog() {
 
   setTimeout(function () {
     npcDialog.style.display = "none";
-    npcYesBtn.style.display = "none"; 
+    npcYesBtn.style.display = "none";
     npcNoBtn.style.display = "none";
 
     console.log("hideNPCDialog completed");
-  }, 1); 
+  }, 1);
 }
 
 function handleNPCResponse(response) {
@@ -454,12 +518,12 @@ function handleNPCResponse(response) {
 
   if (response) {
     console.log("Player said 'Yes'");
-    hideNPCDialog(); 
+    hideNPCDialog();
 
     setTimeout(function () {
       showNPCDialog("Great! Would you like to buy a randomized skin box for 1000 money?");
-      npcYesBtn.style.display = "Purchase"; 
-      npcNoBtn.textContent = "Cancel"; 
+      npcYesBtn.style.display = "Purchase";
+      npcNoBtn.textContent = "Cancel";
     }, 2);
   } else {
     console.log("Player said 'No'");
@@ -469,8 +533,8 @@ function handleNPCResponse(response) {
 
 npcYesBtn.addEventListener("click", () => {
   showNPCDialog("Great! Please confirm your purchase.");
-  npcYesBtn.style.display = "none"; 
-  npcNoBtn.textContent = "Cancel"; 
+  npcYesBtn.style.display = "none";
+  npcNoBtn.textContent = "Cancel";
 });
 
 npcNoBtn.addEventListener("click", () => {
@@ -478,9 +542,9 @@ npcNoBtn.addEventListener("click", () => {
 });
 
 // function buySkinBox() {
-  // Logic to deduct money and grant a random skin
-  // Update the money variable and call updateMoneyAmount() accordingly
-  // You can use setTimeout or other logic to simulate a delay if needed
+// Logic to deduct money and grant a random skin
+// Update the money variable and call updateMoneyAmount() accordingly
+// You can use setTimeout or other logic to simulate a delay if needed
 //  money -= 1000;
 //  updateMoneyAmount();
 //  showNPCDialog("Congratulations! You got a new skin!");
