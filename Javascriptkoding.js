@@ -92,6 +92,20 @@ function SpeedIncrease() {
   else {
     movePlayer = movePlayer + 2
   }
+  console.log(movePlayer)
+  speedNivå()
+}
+function speedNivå(){
+  if(movePlayer === 6){
+    speed1.style.backgroundColor ="red"
+  }
+  if(movePlayer === 8){
+    speed2.style.backgroundColor ="red"
+  }
+  if(movePlayer === 10){
+    speed3.style.backgroundColor ="red"
+  }
+  console.log(movePlayer)
 }
 
 const move10 = setInterval(checkForMove10, 1)
@@ -248,7 +262,6 @@ function showPopup(message) {
   }, 2000);
 }
 
-
 //meny
 
 function toggleFlexBox() {
@@ -335,13 +348,26 @@ function ChoosenDuck() {
   characterP.src = "Bilder/playerIcon1.png"
   choosenSkin = 1
   localStorage.setItem("choosenSkin", choosenSkin);
-
+  if (money >= 1500){
+    money -= 1500;
+    updateMoneyAmount();
+    showAlert("Du har kjøpt anden for 1500 penger ", "success");
+  } else{
+    showAlert("Du har ikke nok penger for å kjøpe anden ", "error");
+  }
 }
 
 function ChoosenRasmus() {
   characterP.src = "Bilder/Rasmus.png"
   choosenSkin = 0
   localStorage.setItem("choosenSkin", choosenSkin);
+  if (money >= 2500){
+    money -= 2500;
+    updateMoneyAmount();
+    showAlert("Du har kjøpt Rasmus for 2500 penger ", "success");
+  } else{
+    showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
+  }
 }
 
 const skinsS = document.getElementById("skins")
@@ -349,7 +375,7 @@ const statsS = document.getElementById("stats")
 
 
 
-//skins section
+//Menu selection
 function showSkins() {
   skinSelect.style.display = "block"
   skinSelect.style.display = "flex"
