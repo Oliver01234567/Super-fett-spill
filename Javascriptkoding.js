@@ -86,6 +86,20 @@ function SpeedIncrease() {
   else {
     movePlayer = movePlayer + 2
   }
+  console.log(movePlayer)
+  speedNivå()
+}
+function speedNivå(){
+  if(movePlayer === 6){
+    speed1.style.backgroundColor ="red"
+  }
+  if(movePlayer === 8){
+    speed2.style.backgroundColor ="red"
+  }
+  if(movePlayer === 10){
+    speed3.style.backgroundColor ="red"
+  }
+  console.log(movePlayer)
 }
 
 const move10 = setInterval(checkForMove10, 1)
