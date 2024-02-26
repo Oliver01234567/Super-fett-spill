@@ -7,6 +7,12 @@ const characterP = document.querySelector("#character img")
 let choosenSkin = 0
 choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
 
+let money = 0
+money = parseInt(localStorage.getItem("money")) || 0
+setInterval(updateMoneyAmount, 1)
+
+
+
 //Rasmus er 0
 //Anden er 1
 
@@ -295,7 +301,6 @@ function resetCharacterPosition() {
 }
 
 //Penger
-let money = 100;
 
 const moneyAmount = document.getElementById("moneyAmount");
 const moneyBox = document.getElementById("moneyBox");
@@ -303,6 +308,7 @@ const freeMoneyBtn = document.getElementById("freeMoneyButton");
 
 function updateMoneyAmount() {
   moneyAmount.innerText = formatNumber(money);
+  localStorage.setItem("money", money);
 }
 
 function formatNumber(number) {
