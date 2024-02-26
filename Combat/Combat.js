@@ -105,10 +105,16 @@ const prov = document.getElementById("Prov")
 let money = 0
 money = parseInt(localStorage.getItem("money")) || 0
 
+function spillAvFight (){
+    var lydElement3 = document.getElementById('Fight');
+    lydElement3.currentTime = 0;
+    lydElement3.play();
+}
 
 function startGame() {
     removeScreens()
     attackOfTheDuck()
+    spillAvFight()
     let stopp = setInterval(move, 1000)
     let Forsvar = setInterval(attackOfTheDuck, 6000)
     prov.addEventListener("click", provIgjen)
