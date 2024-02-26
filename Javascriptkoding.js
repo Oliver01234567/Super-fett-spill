@@ -147,7 +147,7 @@ function checkForChests() {
       characterPlassering.bottom > chestPlassering.top &&
       characterPlassering.top < chestPlassering.bottom
     ) {
-      
+
       showChestPopup(chest);
     }
   });
@@ -173,8 +173,10 @@ function showChestPopup(chest) {
   currentPopup = popup;
 }
 
+let tilfPenger = 0;
+
 function openChest(chestId) {
-  let tilfPenger = Math.floor(Math.random() * 9900) + 100;
+  tilfPenger = Math.floor(Math.random() * 9900) + 100;
   showAlert("Du fant " + tilfPenger + " penger", "success");
   money += tilfPenger;
   updateMoneyAmount();
