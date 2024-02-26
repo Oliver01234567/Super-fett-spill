@@ -227,7 +227,7 @@ function startGame() {
 
 
     function dødfallMotstander() {
-        and.style.animation = "død 1s linear forwards"
+        motstander.style.animation = "død 1s linear forwards"
     }
 
 
@@ -503,6 +503,7 @@ function startGame() {
         removeScreens()
         setTimeout(startAttack, 1000)
         fjernPIld()
+        removeAnimations()
     }
 
 
@@ -515,6 +516,11 @@ function startGame() {
         winScreenen.style.opacity = "0%"
 
         howto.style.display = "none"
+    }
+    function removeAnimations(){
+        spillerDiv.style.animation ="none"
+        motstander.style.animation ="none"
+        bunnE.style.animation ="none"
     }
 
     function resetHealth() {
