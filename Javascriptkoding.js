@@ -7,6 +7,7 @@ const characterP = document.querySelector("#character img")
 let choosenSkin = 0
 choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
 
+const moneyAmount = document.getElementById("moneyAmount");
 let money = 0
 money = parseInt(localStorage.getItem("money")) || 0
 setInterval(updateMoneyAmount, 1)
@@ -74,41 +75,39 @@ var movement = {
 //Variabel for movement
 let movePlayer = 4
 
-function checkForMove10() {
-  if (movePlayer >= 9) {
-    clearInterval(move10)
-
-    const speedButton = document.getElementById("speedButton")
-    speedButton.innerHTML = "Maksfart er nådd"
-  }
-}
+let upgradeSpeed = 1000;
 
 function SpeedIncrease() {
-
-  if (movePlayer >= 9) {
-    movePlayer = 10
-
-  }
-  else {
-    movePlayer = movePlayer + 2
+  if (movePlayer < 10 && money >= upgradeSpeed) {
+    movePlayer += 2;
+    money -= upgradeSpeed;
+    upgradeSpeed *= 2;
+    speedNivå()
+  } else if (movePlayer == 10) {
+    showAlert("Maksfart er nådd " , "error")
+  } else {
+    showAlert("Du har ikke nok penger" , "error")
   }
   console.log(movePlayer)
-  speedNivå()
 }
 function speedNivå(){
   if(movePlayer === 6){
     speed1.style.backgroundColor ="red"
+    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer , "success")
   }
   if(movePlayer === 8){
     speed2.style.backgroundColor ="red"
+    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer , "success")
   }
   if(movePlayer === 10){
     speed3.style.backgroundColor ="red"
+    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer , "success")
+    const speedButton = document.getElementById("speedButton")
+    speedButton.innerHTML = "Maksfart er nådd"
   }
   console.log(movePlayer)
 }
 
-const move10 = setInterval(checkForMove10, 1)
 
 
 function move() {
@@ -315,7 +314,7 @@ function resetCharacterPosition() {
 
 //Penger
 
-const moneyAmount = document.getElementById("moneyAmount");
+
 const moneyBox = document.getElementById("moneyBox");
 const freeMoneyBtn = document.getElementById("freeMoneyButton");
 
@@ -323,6 +322,18 @@ function updateMoneyAmount() {
   moneyAmount.innerText = formatNumber(money);
   localStorage.setItem("money", money);
 }
+
+  function spillAvPengeLyd() {
+    var lydElement = document.getElementById('moneySound');
+    lydElement.currentTime = 0;
+    lydElement.play();
+  }
+
+  function spillAvError(){
+    var lydElement2 = document.getElementById('ErrorSound');
+    lydElement2.currentTime = 0;
+    lydElement2.play();
+  }
 
 function formatNumber(number) {
   if (number >= 1000000) {
@@ -338,6 +349,7 @@ freeMoneyBtn.addEventListener('click', freeMoney);
 function freeMoney() {
   money += 10000;
   updateMoneyAmount();
+  spillAvPengeLyd()
 }
 
 
@@ -351,9 +363,11 @@ function ChoosenDuck() {
   if (money >= 1500){
     money -= 1500;
     updateMoneyAmount();
+    spillAvPengeLyd()
     showAlert("Du har kjøpt anden for 1500 penger ", "success");
   } else{
     showAlert("Du har ikke nok penger for å kjøpe anden ", "error");
+    spillAvError()
   }
 }
 
@@ -364,9 +378,11 @@ function ChoosenRasmus() {
   if (money >= 2500){
     money -= 2500;
     updateMoneyAmount();
+    spillAvPengeLyd()
     showAlert("Du har kjøpt Rasmus for 2500 penger ", "success");
   } else{
     showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
+    spillAvError()
   }
 }
 
