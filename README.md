@@ -1,1 +1,1 @@
-olav, magnus, alex b, oliver og thilde
+olav, magnus, alex b, oliver, Eline og thilde
