@@ -179,7 +179,15 @@ function showChestPopup(chest) {
 }
 
 function openChest(chestId) {
-  // Add your logic for what happens when the chest is opened
+  let tilfPenger = Math.floor(Math.random() * 9900) + 100;
+  showAlert("Du fant " + tilfPenger + " penger", "success");
+  money += tilfPenger;
+  updateMoneyAmount();
+  if (currentPopup) {
+    document.body.removeChild(currentPopup);
+    currentPopup = null;
+  }
+  
   console.log(`Opened chest with ID: ${chestId}`);
 }
 
@@ -188,8 +196,19 @@ function declineChest(chestId) {
     document.body.removeChild(currentPopup);
     currentPopup = null;
   }
-  // Add your logic for what happens when the chest is declined
+  
   console.log(`Declined chest with ID: ${chestId}`);
+}
+
+function showAlert(message, type) {
+  const alertDiv = document.createElement('div');
+  alertDiv.className = 'alert ' + type;
+  alertDiv.textContent = message;
+  document.body.appendChild(alertDiv);
+
+  setTimeout(function () {
+      alertDiv.remove();
+  }, 2000);
 }
 
 
