@@ -162,20 +162,13 @@ function healthIncrease() {
     money -= upgradeHealth;
     upgradeHealth += 2000;
     healthLevelIndicator()
+    spillAvPengeLyd()
+    localStorage.setItem("healthIs", plyHealth);
   } else if (plyHealth == 45) {
     showAlert("Makshealth er nådd ", "error")
   } else {
     showAlert("Du har ikke nok penger", "error")
   }
-  plyHealth = plyHealth + 3
-  spillAvPengeLyd()
-  console.log("plyhealth er " + plyHealth)
-  console.log("klikk")
-
-  healthLevelIndicator()
-
-  localStorage.setItem("healthIs", plyHealth);
-  console.log(localStorage.getItem('healthIs'));
 }
 
 liv0.addEventListener("click", healthblir0)
