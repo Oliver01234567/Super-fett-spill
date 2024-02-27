@@ -433,7 +433,7 @@ function ChoosenTorb() {
   characterP.src = "Bilder/Thorbjorn.png"
   choosenSkin = 0
   localStorage.setItem("choosenSkin", choosenSkin);
-  showAlert("Byttet skin til And", "success");
+  showAlert("Byttet skin til Thor Bjørn", "success");
 }
 
 chosenRasmus = 0;
