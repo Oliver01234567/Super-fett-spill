@@ -132,10 +132,23 @@ function spillAvFight() {
 }
 
 function spillAvFinalBoss() {
-    var lydElement4 = document.getElementById('bossfight');
+    let lydElement4 = document.getElementById('bossfight');
     lydElement4.currentTime = 0;
     lydElement4.play();
 }
+
+function spillAvSverdslag() {
+    let lydElement5 = document.getElementById('Sverdslag')
+    lydElement5.currentTime = 0;
+    lydElement5.play()
+}
+
+function spillAvIld() {
+    lydElement6 = document.getElementById("fireStarts")
+    lydElement6.currentTime = 0;
+    lydElement6.play()
+}
+
 function startGame() {
     removeScreens()
     attackOfTheDuck()
@@ -178,7 +191,7 @@ function startGame() {
 
     //fiendens systemer
 
-    let EmyHealth = 1
+    let EmyHealth = 10
 
     const spanHealt = document.getElementById("healthBar")
 
@@ -240,6 +253,7 @@ function startGame() {
         sverdSlag.alt = "Sverd";
         sverdSlag.id = "Sverd";
         document.getElementById("motstander").appendChild(sverdSlag);
+        spillAvSverdslag()
 
         setTimeout(fjernSverd, 1800);
         setTimeout(skapSverd, 1800);
@@ -447,6 +461,7 @@ function startGame() {
 
 
         function redZones() {
+            spillAvIld()
             let red1 = document.getElementById("s-" + a)
             red1.classList.add("redZone")
             red1.classList.remove("orangeZone")
