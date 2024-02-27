@@ -571,7 +571,7 @@ function startGame() {
         howto.style.display = "none"
     }
     function removeAnimations() {
-        spillerDiv.style.animation = "none"
+        playerIcon.style.animation = "none"
         motstander.style.animation = "none"
         ealthBar.style.animation = "none"
         pHealthBar.style.animation = "none"

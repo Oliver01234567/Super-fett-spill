@@ -6,6 +6,9 @@
     box-sizing: border-box;
 }
 
+:root {
+    --moneyBox: #D95D39;
+}
 /*Spilleren*/
 
 #character {
@@ -192,6 +195,15 @@ body {
     top: 400px;
 }
 
+#Chest2 {
+    left: 700px;
+    top: 40px;
+}
+
+.opened {
+    background-color: red;
+}
+
 /*Popup Oliver*/
 .popup {
     position: fixed;
@@ -243,7 +255,7 @@ body {
 
 .moneyBox span {
     font-size: 20px;
-    color: goldenrod;
+    color: var(--moneyBox);
     margin-right: 3px;
 }
 

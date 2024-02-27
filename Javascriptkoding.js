@@ -406,6 +406,16 @@ function healthblir0() {
 
 
 //Chest
+const chests = document.querySelectorAll('.Chest');
+  chests.forEach(chest => {
+    const chestId = chest.id;
+    if (sessionStorage.getItem(chestId) == 1) {
+      chest.classList.add('opened');
+    }
+  });
+
+
+
 function checkForChests() {
   let character = document.getElementById("character");
   let chests = document.querySelectorAll(".Chest");
@@ -433,6 +443,11 @@ function showChestPopup(chest) {
     currentPopup = null;
   }
 
+  
+  if (chest.classList.contains('opened')) {
+    return;
+  }
+
   const popup = document.createElement("div");
   popup.className = "chest-popup";
   popup.innerHTML = `
@@ -445,13 +460,19 @@ function showChestPopup(chest) {
   currentPopup = popup;
 }
 
+
 let tilfPenger = 0;
 
 function openChest(chestId) {
-  tilfPenger = Math.floor(Math.random() * 9900) + 100;
+  const chest = document.getElementById(chestId);
+
+  chest.classList.add('opened');
+  tilfPenger = Math.floor(Math.random() * 90) + 1;
   showAlert("Du fant " + tilfPenger + " penger", "success");
   money += tilfPenger;
   updateMoneyAmount();
+
+  sessionStorage.setItem(chestId, 1);
   if (currentPopup) {
     document.body.removeChild(currentPopup);
     currentPopup = null;
