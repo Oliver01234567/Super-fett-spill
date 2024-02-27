@@ -275,8 +275,8 @@ function startGame() {
 
         setTimeout(displayDamage, 1800)
 
-        if(EmyHealth == 1){
-            console.log("finish him")
+        if(EmyHealth <= 1 && EmyHealth > 0){
+            spillAvFight()
         }
 
         if (EmyHealth <= 0) {
@@ -677,8 +677,8 @@ function startGame() {
         }
 
 
-
-        if (plyHealth == 0) {
+        if (plyHealth < 1) {
+            plyHealth = 100000
             clearInterval(Forsvar)
             clearInterval(stopp)
             setTimeout(deathScreen, 2500)
