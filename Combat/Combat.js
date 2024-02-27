@@ -152,7 +152,7 @@ function startGame() {
 
     //fiendens systemer
 
-    let EmyHealth = 1
+    let EmyHealth = 10
 
     const spanHealt = document.getElementById("healthBar")
 

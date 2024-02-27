@@ -1,56 +1,10 @@
 //interne notater:
 //Husk å markere alt i js og css slik at man enklere kan se hva som er hva
 
-//variabel for skins
-const characterP = document.querySelector("#character img")
-
-let choosenSkin = 0
-choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
-
 const moneyAmount = document.getElementById("moneyAmount");
 let money = 0
 money = parseInt(localStorage.getItem("money")) || 0
 setInterval(updateMoneyAmount, 1)
-
-
-
-//Rasmus er 0
-//Anden er 1
-
-
-if (choosenSkin == 0) {
-  characterP.src = "Bilder/Rasmus.png"
-}
-
-if (choosenSkin == 1) {
-  characterP.src = "Bilder/playerIcon1.png"
-}
-
-
-//variabel for fiender
-let opponent = 0
-const enemy0 = document.getElementById("enemy0")
-enemy0.addEventListener("click", fightAnden)
-
-const enemy1 = document.getElementById("enemy1")
-enemy1.addEventListener("click", fightJonas)
-
-//de ulike fiendene
-function fightAnden() {
-  opponent = 0
-  localStorage.setItem("opponent", opponent);
-
-}
-
-function fightJonas() {
-  opponent = 1
-  localStorage.setItem("opponent", opponent)
-}
-
-
-
-//Anden er 0
-//Jonas er 1
 
 
 
@@ -203,7 +157,6 @@ document.addEventListener('DOMContentLoaded', function () {
 healthButton.addEventListener("click", healthIncrease)
 
 function healthIncrease() {
-<<<<<<< Updated upstream
   if (plyHealth < 45 && money >= upgradeHealth) {
     plyHealth += 3;
     money -= upgradeHealth;
@@ -214,14 +167,12 @@ function healthIncrease() {
   } else {
     showAlert("Du har ikke nok penger", "error")
   }
-=======
   plyHealth = plyHealth + 3
   spillAvPengeLyd()
   console.log("plyhealth er " + plyHealth)
   console.log("klikk")
 
   healthLevelIndicator()
->>>>>>> Stashed changes
 
   localStorage.setItem("healthIs", plyHealth);
   console.log(localStorage.getItem('healthIs'));
