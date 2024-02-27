@@ -440,7 +440,7 @@ chosenRasmus = 0;
 function ChoosenRasmus() {
   if (money >= 5000 && chosenRasmus == 0) {
     characterP.src = "Bilder/Rasmus.png";
-    choosenSkin = 0;
+    choosenSkin = 1;
     localStorage.setItem("choosenSkin", choosenSkin);
     money -= 5000;
     spillAvPengeLyd();
