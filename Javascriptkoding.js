@@ -486,7 +486,10 @@ function checkForChests() {
 
 let currentPopup = null;
 
+let chestCheckEnabled = true;
+
 function showChestPopup(chest) {
+  if (!chestCheckEnabled) return; // ! betyr ikke, skjekker om den ikke er true
   if (currentPopup) {
     document.body.removeChild(currentPopup);
     currentPopup = null;
@@ -537,7 +540,17 @@ function openChest(chestId) {
   }
 }
 
+function disableChests() {
+  chestCheckEnabled = false;
+  setTimeout(enableChests, 3000);
+}
+
+function enableChests() {
+  chestCheckEnabled = true;
+}
+
 function declineChest(chestId) {
+  disableChests()
   if (currentPopup) {
     document.body.removeChild(currentPopup);
     currentPopup = null;
