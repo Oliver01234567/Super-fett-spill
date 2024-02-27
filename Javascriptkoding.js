@@ -425,18 +425,18 @@ function freeMoney() {
 //skins section
 
 
-function ChoosenDuck() {
-  characterP.src = "Bilder/playerIcon1.png"
-  choosenSkin = 1
+function ChoosenTorb() {
+  characterP.src = "Bilder/Thorbjorn.png"
+  choosenSkin = 0
   localStorage.setItem("choosenSkin", choosenSkin);
-  showAlert("Byttet skin til And", "success");
+  showAlert("Byttet skin til Thor Bjørn", "success");
 }
 
 chosenRasmus = 0;
 function ChoosenRasmus() {
   if (money >= 5000 && chosenRasmus == 0) {
     characterP.src = "Bilder/Rasmus.png";
-    choosenSkin = 0;
+    choosenSkin = 1;
     localStorage.setItem("choosenSkin", choosenSkin);
     money -= 5000;
     spillAvPengeLyd();

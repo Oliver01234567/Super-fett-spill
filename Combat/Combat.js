@@ -34,12 +34,16 @@ let allh2 = document.querySelectorAll('h2')
 let allh3 = document.querySelectorAll('h3')
 let allButton = document.querySelectorAll('Button')
 
+let Anddeath = 0
+
 if (opponent == 0) {
     motstanderIcon.src = "../Bilder/playerIcon1.png"
     enemyName.innerText = "Anden"
     enemyName2.innerText = "Anden"
     enemyName3.innerText = "Anden"
     enemyName4.innerText = "Anden"
+
+
 
 
     body.classList.add("img1")
@@ -65,7 +69,12 @@ if (opponent == 0) {
     allButton.forEach(function (ButtonElm) {
         ButtonElm.classList.add("colorScheme1button")
     })
+
+    Anddeath = 1
+    console.log(Anddeath)
 }
+
+let JonasDeath = 0
 
 if (opponent == 1) {
     motstanderIcon.src = "../Bilder/Jonas.png"
@@ -98,6 +107,8 @@ if (opponent == 1) {
     allButton.forEach(function (ButtonElm) {
         ButtonElm.classList.add("colorScheme2button")
     })
+
+    JonasDeath = 1
 }
 const prov = document.getElementById("Prov")
 
@@ -152,7 +163,7 @@ function startGame() {
 
     //fiendens systemer
 
-    let EmyHealth = 10
+    let EmyHealth = 1
 
     const spanHealt = document.getElementById("healthBar")
 
@@ -229,6 +240,17 @@ function startGame() {
             money = money + 1000
             localStorage.setItem("money", money);
             setTimeout(DuFikkPenger, 2500)
+            if(Anddeath == 1) {
+                let andenDod = 2
+                localStorage.setItem("andenDod", andenDod)
+                
+            }
+
+            if(JonasDeath == 1) {
+                let jonasDod = 2
+                localStorage.setItem("jonasDod", jonasDod)
+            }
+
             return;
 
         }
@@ -547,7 +569,7 @@ function startGame() {
     }
 
     function resetHealth() {
-        plyHealth = parseInt(localStorage.getItem("healthIs")) || 0 
+        plyHealth = parseInt(localStorage.getItem("healthIs")) || 30 
         EmyHealth = 10
 
         //fiende healthbar
