@@ -11,7 +11,7 @@ choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
 
 
 if (choosenSkin == 0) {
-  characterP.src = "Bilder/Thorbjorn.png"
+  characterP.src = "Bilder/Torbjorn.png"
 }
 
 if (choosenSkin == 1) {
