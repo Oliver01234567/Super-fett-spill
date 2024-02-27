@@ -126,7 +126,7 @@ let money = 0
 money = parseInt(localStorage.getItem("money")) || 0
 
 function spillAvFight() {
-    var lydElement3 = document.getElementById('Fight');
+    let lydElement3 = document.getElementById('Fight');
     lydElement3.currentTime = 0;
     lydElement3.play();
 }
@@ -229,7 +229,7 @@ function startGame() {
             }
         }, 1800)
 
-        var sverdSlag = document.createElement('img');
+        let sverdSlag = document.createElement('img');
         sverdSlag.src = '../Bilder/sverdSlag.gif';
         sverdSlag.alt = "Sverd";
         sverdSlag.id = "Sverd";

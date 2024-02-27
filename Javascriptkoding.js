@@ -183,25 +183,25 @@ function getRandomNumber(min, max) {
 
 // randome trær
 function generateTrees(numTrees) {
-  var map = document.getElementById('øy');
-  var mapWidth = map.offsetWidth;
-  var mapHeight = map.offsetHeight;
+  let map = document.getElementById('øy');
+  let mapWidth = map.offsetWidth;
+  let mapHeight = map.offsetHeight;
 
   // definer p grønt område av map
-  var greenAreaWidth = mapWidth * 0.75;
-  var greenAreaHeight = mapHeight * 0.75;
+  let greenAreaWidth = mapWidth * 0.75;
+  let greenAreaHeight = mapHeight * 0.75;
 
-  for (var i = 0; i < numTrees; i++) {
-      var tree = document.createElement('div');
+  for (let i = 0; i < numTrees; i++) {
+      let tree = document.createElement('div');
       tree.classList.add('tree');
 
-      var img = document.createElement('img');
+      let img = document.createElement('img');
       img.src = 'Bilder/tre.png';
       img.alt = 'tree';
 
       // random posisjon
-      var xPos = getRandomNumber(0, greenAreaWidth - 30);
-      var yPos = getRandomNumber(0, greenAreaHeight - 30);
+      let xPos = getRandomNumber(0, greenAreaWidth - 30);
+      let yPos = getRandomNumber(0, greenAreaHeight - 30);
       img.style.left = xPos + 'px';
       img.style.top = yPos + 'px';
 
@@ -217,7 +217,7 @@ window.onload = function() {
 
 
 //Bevegelse 
-var movement = {
+let movement = {
   "ArrowLeft": false,
   "ArrowRight": false,
   "ArrowUp": false,
@@ -284,9 +284,9 @@ character.style.top = posisjonHoyde + "px";
 
 
 function move() {
-  var character = document.getElementById("character");
-  var currentLeft = parseInt(character.style.left) || 0;
-  var currentTop = parseInt(character.style.top) || 0;
+  let character = document.getElementById("character");
+  let currentLeft = parseInt(character.style.left) || 0;
+  let currentTop = parseInt(character.style.top) || 0;
 
   if (movement.ArrowLeft || movement.a || movement.A) {
     posisjonBredde = currentLeft - movePlayer
@@ -407,11 +407,11 @@ function healthblir0() {
 
 //Chest
 function checkForChests() {
-  var character = document.getElementById("character");
-  var chests = document.querySelectorAll(".Chest");
-  var characterPlassering = character.getBoundingClientRect();
+  let character = document.getElementById("character");
+  let chests = document.querySelectorAll(".Chest");
+  let characterPlassering = character.getBoundingClientRect();
   chests.forEach(function (chest) {
-    var chestPlassering = chest.getBoundingClientRect();
+    let chestPlassering = chest.getBoundingClientRect();
 
     if (
       characterPlassering.right > chestPlassering.left &&
@@ -485,10 +485,10 @@ function die() {
 }
 
 function checkCharacterPosition() {
-  var character = document.getElementById("character");
-  var island = document.getElementById("øy");
-  var characterPlassering = character.getBoundingClientRect();
-  var islandPlassering = island.getBoundingClientRect();
+  let character = document.getElementById("character");
+  let island = document.getElementById("øy");
+  let characterPlassering = character.getBoundingClientRect();
+  let islandPlassering = island.getBoundingClientRect();
 
   if (
     characterPlassering.right > islandPlassering.right ||
@@ -518,7 +518,7 @@ function showPopup(message) {
 
 function toggleFlexBox() {
   console.log("trykk")
-  var flexBoxContainer = document.getElementById('flexBoxContainer');
+  let flexBoxContainer = document.getElementById('flexBoxContainer');
   if (flexBoxContainer.style.display === 'none' || flexBoxContainer.style.display === '') {
     flexBoxContainer.style.display = 'flex';
     menyknapp.innerHTML = ("x")
@@ -581,13 +581,13 @@ function updateMoneyAmount() {
 }
 
 function spillAvPengeLyd() {
-  var lydElement = document.getElementById('moneySound');
+  let lydElement = document.getElementById('moneySound');
   lydElement.currentTime = 0;
   lydElement.play();
 }
 
 function spillAvError() {
-  var lydElement2 = document.getElementById('ErrorSound');
+  let lydElement2 = document.getElementById('ErrorSound');
   lydElement2.currentTime = 0;
   lydElement2.play();
 }
