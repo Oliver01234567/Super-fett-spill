@@ -43,6 +43,7 @@ let allH = document.querySelectorAll('h1')
 let allh2 = document.querySelectorAll('h2')
 let allh3 = document.querySelectorAll('h3')
 let allButton = document.querySelectorAll('Button')
+let allcGrid = document.querySelectorAll('.cGrid')
 
 let Anddeath = 0
 
@@ -79,6 +80,10 @@ if (opponent == 0) {
 
     allButton.forEach(function (ButtonElm) {
         ButtonElm.classList.add("colorScheme1button")
+    })
+
+    allcGrid.forEach(function (GridElm) {
+        GridElm.classList.add("colorScheme1border")
     })
 
     Anddeath = 1
@@ -118,6 +123,10 @@ if (opponent == 1) {
 
     allButton.forEach(function (ButtonElm) {
         ButtonElm.classList.add("colorScheme2button")
+    })
+
+    allcGrid.forEach(function (GridElm) {
+        GridElm.classList.add("colorScheme2border")
     })
 
     JonasDeath = 1

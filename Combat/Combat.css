@@ -42,6 +42,13 @@ header {
     font-family: "Press Start 2P", system-ui;
 }
 
+.colorScheme1border {
+    border: 5px dotted black;
+}
+
+
+
+
 .colorScheme2 {
     color: brown;
     text-shadow: 0 0 3px black;
@@ -53,6 +60,10 @@ header {
     color: black;
     background-color: brown;
     font-family: "Press Start 2P", system-ui;
+}
+
+.colorScheme2border {
+    border: 5px dotted gray;
 }
 
 
@@ -88,7 +99,6 @@ footer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(7, 1fr);
-    border: 5px dotted black;
     height: 90%;
     width: 530px;
 }
