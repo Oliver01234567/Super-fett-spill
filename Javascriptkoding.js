@@ -38,6 +38,87 @@ if (choosenSkin == 2) {
   jonasSkin.style.backgroundColor = "red"
 }
 
+const andSkin = document.getElementById("andSkin") 
+if(choosenSkin == 3) {
+  characterP.src = "Bilder/playerIcon1.png"
+  andSkin.style.backgroundColor = "red"
+}
+
+//skins section
+
+
+function ChoosenTorb() {
+  characterP.src = "Bilder/Torbjorn.png"
+  choosenSkin = 0
+  localStorage.setItem("choosenSkin", choosenSkin);
+  rasmusSkin.style.backgroundColor = "brown"
+  jonasSkin.style.backgroundColor = "brown"
+  torbSkin.style.backgroundColor = "red"
+  andSkin.style.backgroundColor = "brown"
+
+  showAlert("Byttet skin til Thor Bjørn", "success");
+}
+
+
+let chosenRasmus = 0;
+
+chosenRasmus = localStorage.getItem("chosenRasmus", chosenRasmus) || 0
+
+
+function ChoosenRasmus() {
+  if (money >= 5000 && chosenRasmus == 0) {
+    characterP.src = "Bilder/Rasmus.png";
+    choosenSkin = 1;
+    localStorage.setItem("choosenSkin", choosenSkin);
+    money -= 5000;
+    spillAvPengeLyd();
+    showAlert("Du har kjøpt Rasmus for 5000 penger", "success")
+    chosenRasmus = 10;
+    localStorage.setItem("chosenRasmus", chosenRasmus)
+    rasmusSkin.innerText = "Rasmus";
+    rasmusSkin.style.backgroundColor = "red"
+    jonasSkin.style.backgroundColor = "brown"
+    torbSkin.style.backgroundColor = "brown"
+    andSkin.style.backgroundColor = "brown"
+  } else if (chosenRasmus == 10) {
+    rasmusSkin.innerText = "Rasmus";
+    characterP.src = "Bilder/Rasmus.png";
+    choosenSkin = 1;
+    localStorage.setItem("choosenSkin", choosenSkin);
+    rasmusSkin.style.backgroundColor = "red"
+    jonasSkin.style.backgroundColor = "brown"
+    torbSkin.style.backgroundColor = "brown"
+    andSkin.style.backgroundColor = "brown"
+    showAlert("Byttet skin til Rasmus", "success")
+  } else {
+    showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
+    spillAvError()
+  }
+}
+
+function ChoosenJonas() {
+  characterP.src = "Bilder/Jonas.png"
+  choosenSkin = 2
+  localStorage.setItem("choosenSkin", choosenSkin);
+  rasmusSkin.style.backgroundColor = "brown"
+  jonasSkin.style.backgroundColor = "red"
+  torbSkin.style.backgroundColor = "brown"
+  andSkin.style.backgroundColor = "brown"
+  showAlert("Byttet skin til Jonas", "success");
+}
+
+function ChoosenAnd() {
+  characterP.src = "Bilder/playerIcon1.png"
+  choosenSkin = 3
+  localStorage.setItem("choosenSkin", choosenSkin);
+  rasmusSkin.style.backgroundColor = "brown"
+  jonasSkin.style.backgroundColor = "brown"
+  torbSkin.style.backgroundColor = "brown"
+  andSkin.style.backgroundColor = "red"
+  showAlert("Byttet skin til Anden", "success");
+
+}
+
 
 //variabel for fiender
 let opponent = 0
@@ -62,28 +143,33 @@ function fightJonas() {
 //skjekker om en fiende er beseiret
 const island = document.getElementById("øy")
 
+
+
 let andenDod = 0
 andenDod = localStorage.getItem("andenDod")
+andSkin.addEventListener("click", ikkeTilgangSkin)
 
 if (andenDod == 2) {
     //island.removeChild(document.querySelector("#enemy0"));
+    andSkin.addEventListener("click", ChoosenAnd) 
+    andSkin.removeEventListener("click", ikkeTilgangSkin)
+    andSkin.innerText = "Anden"
 }
 
 let jonasDod = 0
 jonasDod = localStorage.getItem("jonasDod")
-const jonasSkinKnapp = document.getElementById("jonasSkin")
-jonasSkinKnapp.addEventListener("click", ikkeDreptJonas)
+jonasSkin.addEventListener("click", ikkeTilgangSkin)
 
-function ikkeDreptJonas() {
+function ikkeTilgangSkin() {
   showAlert("Du har ikke tilgang på dette skinnet ennå", "error");
 
 }
 
 if (jonasDod == 2) {
     //island.removeChild(document.querySelector("#enemy1"));
-    jonasSkinKnapp.addEventListener("click", ChoosenJonas) 
-    jonasSkinKnapp.removeEventListener("click", ikkeDreptJonas)
-    jonasSkinKnapp.innerText = "Jonas"
+    jonasSkin.addEventListener("click", ChoosenJonas) 
+    jonasSkin.removeEventListener("click", ikkeTilgangSkin)
+    jonasSkin.innerText = "Jonas"
 }
 
 
@@ -523,65 +609,6 @@ function freeMoney() {
   spillAvPengeLyd()
 }
 
-
-//skins section
-
-
-function ChoosenTorb() {
-  characterP.src = "Bilder/Torbjorn.png"
-  choosenSkin = 0
-  localStorage.setItem("choosenSkin", choosenSkin);
-  rasmusSkin.style.backgroundColor = "brown"
-  jonasSkin.style.backgroundColor = "brown"
-  torbSkin.style.backgroundColor = "red"
-
-  showAlert("Byttet skin til Thor Bjørn", "success");
-}
-
-
-let chosenRasmus = 0;
-
-chosenRasmus = localStorage.getItem("chosenRasmus", chosenRasmus) || 0
-
-
-function ChoosenRasmus() {
-  if (money >= 5000 && chosenRasmus == 0) {
-    characterP.src = "Bilder/Rasmus.png";
-    choosenSkin = 1;
-    localStorage.setItem("choosenSkin", choosenSkin);
-    money -= 5000;
-    spillAvPengeLyd();
-    showAlert("Du har kjøpt Rasmus for 5000 penger", "success")
-    chosenRasmus = 10;
-    localStorage.setItem("chosenRasmus", chosenRasmus)
-    rasmusSkin.innerText = "Rasmus";
-    rasmusSkin.style.backgroundColor = "red"
-    jonasSkin.style.backgroundColor = "brown"
-    torbSkin.style.backgroundColor = "brown"
-  } else if (chosenRasmus == 10) {
-    rasmusSkin.innerText = "Rasmus";
-    characterP.src = "Bilder/Rasmus.png";
-    choosenSkin = 1;
-    localStorage.setItem("choosenSkin", choosenSkin);
-    rasmusSkin.style.backgroundColor = "red"
-    jonasSkin.style.backgroundColor = "brown"
-    torbSkin.style.backgroundColor = "brown"
-    showAlert("Byttet skin til Rasmus", "success")
-  } else {
-    showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
-    spillAvError()
-  }
-}
-
-function ChoosenJonas() {
-  characterP.src = "Bilder/Jonas.png"
-  choosenSkin = 2
-  localStorage.setItem("choosenSkin", choosenSkin);
-  rasmusSkin.style.backgroundColor = "brown"
-  jonasSkin.style.backgroundColor = "red"
-  torbSkin.style.backgroundColor = "brown"
-  showAlert("Byttet skin til Jonas", "success");
-}
 
 const skinsS = document.getElementById("skins")
 const statsS = document.getElementById("stats")
