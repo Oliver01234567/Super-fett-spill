@@ -396,17 +396,24 @@ function ChoosenDuck() {
   characterP.src = "Bilder/playerIcon1.png"
   choosenSkin = 1
   localStorage.setItem("choosenSkin", choosenSkin);
+  showAlert("Byttet skin til And", "success");
 }
 
+chosenRasmus = 0;
 function ChoosenRasmus() {
-  characterP.src = "Bilder/Rasmus.png"
-  choosenSkin = 0
-  localStorage.setItem("choosenSkin", choosenSkin);
-  if (money >= 2500) {
-    money -= 2500;
-    updateMoneyAmount();
-    spillAvPengeLyd()
-    showAlert("Du har kjøpt Rasmus for 2500 penger ", "success");
+  if (money >= 5000 && chosenRasmus == 0) {
+    characterP.src = "Bilder/Rasmus.png";
+    choosenSkin = 0;
+    localStorage.setItem("choosenSkin", choosenSkin);
+    money -= 5000;
+    spillAvPengeLyd();
+    showAlert("Du har kjøpt Rasmus for 5000 penger", "success")
+    chosenRasmus = 10;
+  } else if (chosenRasmus == 10) {
+    characterP.src = "Bilder/Rasmus.png";
+    choosenSkin = 0;
+    localStorage.setItem("choosenSkin", choosenSkin);
+    showAlert("Byttet skin til Rasmus", "success")
   } else {
     showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
     spillAvError()
