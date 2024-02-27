@@ -6,7 +6,7 @@ let money = 0
 money = parseInt(localStorage.getItem("money")) || 0
 setInterval(updateMoneyAmount, 1)
 
-// funskjon til random numre
+/* funskjon til random numre
 function getRandomNumber(min, max) {
   return Math.random() * (max - min) + min;
 }
@@ -39,6 +39,45 @@ function generateTrees(numTrees) {
 // Generere random tre når siden loader
 window.onload = function() {
   generateTrees(20); 
+};*/
+
+// funksjon random numre
+function getRandomNumber(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+// randome trær
+function generateTrees(numTrees) {
+  var map = document.getElementById('øy');
+  var mapWidth = map.offsetWidth;
+  var mapHeight = map.offsetHeight;
+
+  // definer p grønt område av map
+  var greenAreaWidth = mapWidth * 0.75;
+  var greenAreaHeight = mapHeight * 0.75;
+
+  for (var i = 0; i < numTrees; i++) {
+      var tree = document.createElement('div');
+      tree.classList.add('tree');
+
+      var img = document.createElement('img');
+      img.src = 'Bilder/tre.png';
+      img.alt = 'tree';
+
+      // random posisjon
+      var xPos = getRandomNumber(0, greenAreaWidth - 30);
+      var yPos = getRandomNumber(0, greenAreaHeight - 30);
+      img.style.left = xPos + 'px';
+      img.style.top = yPos + 'px';
+
+      tree.appendChild(img);
+      map.appendChild(tree);
+  }
+}
+
+// random tre nr siden loader
+window.onload = function() {
+  generateTrees(20);
 };
 
 
