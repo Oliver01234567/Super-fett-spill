@@ -203,7 +203,6 @@ document.addEventListener('DOMContentLoaded', function () {
 healthButton.addEventListener("click", healthIncrease)
 
 function healthIncrease() {
-<<<<<<< Updated upstream
   if (plyHealth < 45 && money >= upgradeHealth) {
     plyHealth += 3;
     money -= upgradeHealth;
@@ -214,14 +213,12 @@ function healthIncrease() {
   } else {
     showAlert("Du har ikke nok penger", "error")
   }
-=======
   plyHealth = plyHealth + 3
   spillAvPengeLyd()
   console.log("plyhealth er " + plyHealth)
   console.log("klikk")
 
   healthLevelIndicator()
->>>>>>> Stashed changes
 
   localStorage.setItem("healthIs", plyHealth);
   console.log(localStorage.getItem('healthIs'));
