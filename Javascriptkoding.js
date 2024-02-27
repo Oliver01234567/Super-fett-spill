@@ -160,25 +160,37 @@ move();
 
 let plyHealth = parseInt(localStorage.getItem("healthIs")) || 30
 
+let upgradeHealth = 1000;
+
+const healthUpg = document.getElementById("healthUpg");
+
 function healthLevelIndicator() {
-  if (plyHealth >= 45) {
-    plyHealth = 45
-    healthButton.removeEventListener("click", healthIncrease)
-  }
   if (plyHealth >= 33) {
     health1.style.backgroundColor = "red"
+    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny fart: " + plyHealth, "success")
+    healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 36) {
     health2.style.backgroundColor = "red"
+    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny fart: " + plyHealth, "success")
+    healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 39) {
     health3.style.backgroundColor = "red"
+    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny fart: " + plyHealth, "success")
+    healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 42) {
     health4.style.backgroundColor = "red"
+    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny fart: " + plyHealth, "success")
+    healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 45) {
     health5.style.backgroundColor = "red"
+    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny fart: " + plyHealth, "success")
+    const healthButton = document.getElementById("healthButton")
+    healthUpg.innerText = formatNumber(upgradeHealth);
+    healthButton.innerHTML = "Maksfart er nådd"
   }
 
 }
@@ -190,11 +202,16 @@ document.addEventListener('DOMContentLoaded', function () {
 healthButton.addEventListener("click", healthIncrease)
 
 function healthIncrease() {
-  plyHealth = plyHealth + 3
-  console.log("plyhealth er " + plyHealth)
-  console.log("klikk")
-
-  healthLevelIndicator()
+  if (plyHealth < 45 && money >= upgradeHealth) {
+    plyHealth += 3;
+    money -= upgradeHealth;
+    upgradeHealth += 2000;
+    healthLevelIndicator()
+  } else if (plyHealth == 45) {
+    showAlert("Makshealth er nådd ", "error")
+  } else {
+    showAlert("Du har ikke nok penger", "error")
+  }
 
   localStorage.setItem("healthIs", plyHealth);
   console.log(localStorage.getItem('healthIs'));
