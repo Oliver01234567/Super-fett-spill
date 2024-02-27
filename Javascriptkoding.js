@@ -21,15 +21,15 @@ choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
 
 const torbSkin = document.getElementById("torbSkin")
 if (choosenSkin == 0) {
-    characterP.src = "Bilder/Torbjorn.png"
-    torbSkin.style.backgroundColor = "red"
+  characterP.src = "Bilder/Torbjorn.png"
+  torbSkin.style.backgroundColor = "red"
 }
 
 const rasmusSkin = document.getElementById("rasmusSkin")
 if (choosenSkin == 1) {
-    characterP.src = "Bilder/Rasmus.png"
-    rasmusSkin.innerText = "Rasmus";
-    rasmusSkin.style.backgroundColor = "red"
+  characterP.src = "Bilder/Rasmus.png"
+  rasmusSkin.innerText = "Rasmus";
+  rasmusSkin.style.backgroundColor = "red"
 }
 
 const jonasSkin = document.getElementById("jonasSkin")
@@ -38,8 +38,8 @@ if (choosenSkin == 2) {
   jonasSkin.style.backgroundColor = "red"
 }
 
-const andSkin = document.getElementById("andSkin") 
-if(choosenSkin == 3) {
+const andSkin = document.getElementById("andSkin")
+if (choosenSkin == 3) {
   characterP.src = "Bilder/playerIcon1.png"
   andSkin.style.backgroundColor = "red"
 }
@@ -130,14 +130,14 @@ enemy1.addEventListener("click", fightJonas)
 
 //de ulike fiendene
 function fightAnden() {
-    opponent = 0
-    localStorage.setItem("opponent", opponent);
+  opponent = 0
+  localStorage.setItem("opponent", opponent);
 
 }
 
 function fightJonas() {
-    opponent = 1
-    localStorage.setItem("opponent", opponent)
+  opponent = 1
+  localStorage.setItem("opponent", opponent)
 }
 
 //skjekker om en fiende er beseiret
@@ -150,10 +150,10 @@ andenDod = localStorage.getItem("andenDod")
 andSkin.addEventListener("click", ikkeTilgangSkin)
 
 if (andenDod == 2) {
-    //island.removeChild(document.querySelector("#enemy0"));
-    andSkin.addEventListener("click", ChoosenAnd) 
-    andSkin.removeEventListener("click", ikkeTilgangSkin)
-    andSkin.innerText = "Anden"
+  //island.removeChild(document.querySelector("#enemy0"));
+  andSkin.addEventListener("click", ChoosenAnd)
+  andSkin.removeEventListener("click", ikkeTilgangSkin)
+  andSkin.innerText = "Anden"
 }
 
 let jonasDod = 0
@@ -166,10 +166,10 @@ function ikkeTilgangSkin() {
 }
 
 if (jonasDod == 2) {
-    //island.removeChild(document.querySelector("#enemy1"));
-    jonasSkin.addEventListener("click", ChoosenJonas) 
-    jonasSkin.removeEventListener("click", ikkeTilgangSkin)
-    jonasSkin.innerText = "Jonas"
+  //island.removeChild(document.querySelector("#enemy1"));
+  jonasSkin.addEventListener("click", ChoosenJonas)
+  jonasSkin.removeEventListener("click", ikkeTilgangSkin)
+  jonasSkin.innerText = "Jonas"
 }
 
 
@@ -192,26 +192,26 @@ function generateTrees(numTrees) {
   let greenAreaHeight = mapHeight * 0.75;
 
   for (let i = 0; i < numTrees; i++) {
-      let tree = document.createElement('div');
-      tree.classList.add('tree');
+    let tree = document.createElement('div');
+    tree.classList.add('tree');
 
-      let img = document.createElement('img');
-      img.src = 'Bilder/tre.png';
-      img.alt = 'tree';
+    let img = document.createElement('img');
+    img.src = 'Bilder/tre.png';
+    img.alt = 'tree';
 
-      // random posisjon
-      let xPos = getRandomNumber(0, greenAreaWidth - 30);
-      let yPos = getRandomNumber(0, greenAreaHeight - 30);
-      img.style.left = xPos + 'px';
-      img.style.top = yPos + 'px';
+    // random posisjon
+    let xPos = getRandomNumber(0, greenAreaWidth - 30);
+    let yPos = getRandomNumber(0, greenAreaHeight - 30);
+    img.style.left = xPos + 'px';
+    img.style.top = yPos + 'px';
 
-      tree.appendChild(img);
-      map.appendChild(tree);
+    tree.appendChild(img);
+    map.appendChild(tree);
   }
 }
 
 // random tre når siden loader
-window.onload = function() {
+window.onload = function () {
   generateTrees(20);
 };
 
@@ -406,13 +406,15 @@ function healthblir0() {
 
 
 //Chest
+
+
 const chests = document.querySelectorAll('.Chest');
-  chests.forEach(chest => {
-    const chestId = chest.id;
-    if (sessionStorage.getItem(chestId) == 1) {
-      chest.classList.add('opened');
-    }
-  });
+chests.forEach(chest => {
+  const chestId = chest.id;
+  if (sessionStorage.getItem(chestId) == 1) {
+    chest.classList.add('opened');
+  }
+});
 
 
 
@@ -443,7 +445,7 @@ function showChestPopup(chest) {
     currentPopup = null;
   }
 
-  
+
   if (chest.classList.contains('opened')) {
     return;
   }
@@ -462,6 +464,15 @@ function showChestPopup(chest) {
 
 
 let tilfPenger = 0;
+
+setInterval(checkOpenChests, 100)
+function checkOpenChests() {
+  const openedChests = document.querySelectorAll(".opened img")
+  openedChests.forEach(chest => {
+    chest.src = "Bilder/openedChest.webp";
+  })
+  
+}
 
 function openChest(chestId) {
   const chest = document.getElementById(chestId);
@@ -725,5 +736,5 @@ npcNoBtn.addEventListener("click", () => {
 //  money -= 1000;
 //  updateMoneyAmount();
 //  showNPCDialog("Congratulations! You got a new skin!");
-//  npcYesBtn.style.display = "block"; 
+//  npcYesBtn.style.display = "block";
 //}
