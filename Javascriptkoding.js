@@ -465,7 +465,7 @@ function freeMoney() {
 
 
 function ChoosenTorb() {
-  characterP.src = "Bilder/Thorbjorn.png"
+  characterP.src = "Bilder/Torbjorn.png"
   choosenSkin = 0
   localStorage.setItem("choosenSkin", choosenSkin);
   showAlert("Byttet skin til Thor Bjørn", "success");
@@ -481,6 +481,8 @@ function ChoosenRasmus() {
     spillAvPengeLyd();
     showAlert("Du har kjøpt Rasmus for 5000 penger", "success")
     chosenRasmus = 10;
+    const rasmusSkin = document.getElementById("rasmusSkin")
+    rasmusSkin.innerText = "Rasmus";
   } else if (chosenRasmus == 10) {
     characterP.src = "Bilder/Rasmus.png";
     choosenSkin = 0;
