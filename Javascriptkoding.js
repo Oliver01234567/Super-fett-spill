@@ -6,6 +6,81 @@ let money = 0
 money = parseInt(localStorage.getItem("money")) || 0
 setInterval(updateMoneyAmount, 1)
 
+
+const characterP = document.querySelector("#character img")
+
+let choosenSkin = 0
+choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
+
+
+
+
+//Thorbjorn er 0
+//Anden er 1
+//Jonas(skin) er 2
+
+
+if (choosenSkin == 0) {
+    characterP.src = "Bilder/Torbjorn.png"
+}
+
+if (choosenSkin == 1) {
+    characterP.src = "Bilder/Rasmus.png"
+}
+
+if (choosenSkin == 2) {
+  characterP.src = "Bilder/Jonas.png"
+}
+
+
+//variabel for fiender
+let opponent = 0
+const enemy0 = document.getElementById("enemy0")
+enemy0.addEventListener("click", fightAnden)
+
+const enemy1 = document.getElementById("enemy1")
+enemy1.addEventListener("click", fightJonas)
+
+//de ulike fiendene
+function fightAnden() {
+    opponent = 0
+    localStorage.setItem("opponent", opponent);
+
+}
+
+function fightJonas() {
+    opponent = 1
+    localStorage.setItem("opponent", opponent)
+}
+
+//skjekker om en fiende er beseiret
+const island = document.getElementById("øy")
+
+let andenDod = 0
+andenDod = localStorage.getItem("andenDod")
+
+if (andenDod == 2) {
+    //island.removeChild(document.querySelector("#enemy0"));
+}
+
+let jonasDod = 0
+jonasDod = localStorage.getItem("jonasDod")
+const jonasSkinKnapp = document.getElementById("jonasSkin")
+jonasSkinKnapp.addEventListener("click", ikkeDreptJonas)
+
+function ikkeDreptJonas() {
+  showAlert("Du har ikke tilgang på dette skinnet ennå", "error");
+
+}
+
+if (jonasDod == 2) {
+    //island.removeChild(document.querySelector("#enemy1"));
+    jonasSkinKnapp.addEventListener("click", ChoosenJonas) 
+    jonasSkinKnapp.removeEventListener("click", ikkeDreptJonas)
+    jonasSkinKnapp.innerText = "Jonas"
+}
+
+
 /* funskjon til random numre
 function getRandomNumber(min, max) {
   return Math.random() * (max - min) + min;
@@ -506,6 +581,13 @@ function ChoosenRasmus() {
     showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
     spillAvError()
   }
+}
+
+function ChoosenJonas() {
+  characterP.src = "Bilder/Jonas.png"
+  choosenSkin = 2
+  localStorage.setItem("choosenSkin", choosenSkin);
+  showAlert("Byttet skin til Jonas", "success");
 }
 
 const skinsS = document.getElementById("skins")

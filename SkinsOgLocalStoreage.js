@@ -11,11 +11,11 @@ choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
 
 
 if (choosenSkin == 0) {
-  characterP.src = "Bilder/Torbjorn.png"
+    characterP.src = "Bilder/Torbjorn.png"
 }
 
 if (choosenSkin == 1) {
-  characterP.src = "Bilder/Rasmus.png"
+    characterP.src = "Bilder/Rasmus.png"
 }
 
 
@@ -29,28 +29,30 @@ enemy1.addEventListener("click", fightJonas)
 
 //de ulike fiendene
 function fightAnden() {
-  opponent = 0
-  localStorage.setItem("opponent", opponent);
+    opponent = 0
+    localStorage.setItem("opponent", opponent);
 
 }
 
 function fightJonas() {
-  opponent = 1
-  localStorage.setItem("opponent", opponent)
+    opponent = 1
+    localStorage.setItem("opponent", opponent)
 }
 
 //skjekker om en fiende er beseiret
 const island = document.getElementById("øy")
 
 let andenDod = 0
-//andenDod = localStorage.getItem("andenDod")
+andenDod = localStorage.getItem("andenDod")
 
-if(andenDod == 2) {
-    island.removeChild(document.querySelector("#enemy0"));
+if (andenDod == 2) {
+    //island.removeChild(document.querySelector("#enemy0"));
 }
 
 let jonasDod = 0
-//jonasDod = localStorage.getItem("jonasDod")
-if(jonasDod == 2) {
-    island.removeChild(document.querySelector("#enemy1"));
+jonasDod = localStorage.getItem("jonasDod")
+
+if (jonasDod == 2) {
+    //island.removeChild(document.querySelector("#enemy1"));
+    
 }

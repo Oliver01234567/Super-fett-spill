@@ -315,6 +315,11 @@ body {
     cursor: pointer;
 }
 
+.Mbuttons span {
+    font-size: 15px;
+    margin: 0;
+}
+
 /*Stats*/
 #stats {
     display: none;

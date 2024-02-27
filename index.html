@@ -77,8 +77,18 @@
             <p>Velg ditt skin!</p>
         </nav>
         <div id="skinButtons">
-            <button class="Mbuttons" onclick="ChoosenTorb()">Thor Bjørn</button>
-            <Button class="Mbuttons" id="rasmusSkin" onclick="ChoosenRasmus()">Rasmus<br>Koster: 5000</Button>
+            <button class="Mbuttons" onclick="ChoosenTorb()">
+                Thor Bjørn
+            </button>
+
+            <Button class="Mbuttons" id="rasmusSkin" onclick="ChoosenRasmus()">
+                Rasmus<br> <span> Koster: 5000</span>
+            </Button>
+
+            <button class="Mbuttons" id="jonasSkin"> 
+                Jonas <br> <span>Beseir Jonas</span>
+            </button>
+
             <button class="Mbuttons" onclick="backToGame()">Tilbake</button>
         </div>
     </div>
@@ -116,7 +126,6 @@
     <audio id="ErrorSound" src="lyd/Error.m4a"></audio>
 
     <script src="Javascriptkoding.js"></script>
-    <script src="SkinsOgLocalStoreage.js"></script>
 </body>
 
 </html>
