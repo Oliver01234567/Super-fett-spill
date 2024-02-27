@@ -159,29 +159,19 @@ const healthUpg = document.getElementById("healthUpg");
 function healthLevelIndicator() {
   if (plyHealth >= 33) {
     health1.style.backgroundColor = "green"
-    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny health: " + plyHealth, "success")
-    healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 36) {
     health2.style.backgroundColor = "green"
-    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny health: " + plyHealth, "success")
-    healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 39) {
     health3.style.backgroundColor = "green"
-    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny health: " + plyHealth, "success")
-    healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 42) {
     health4.style.backgroundColor = "green"
-    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny health: " + plyHealth, "success")
-    healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 45) {
     health5.style.backgroundColor = "green"
-    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny health: " + plyHealth, "success")
     const healthButton = document.getElementById("healthButton")
-    healthUpg.innerText = formatNumber(upgradeHealth);
     healthButton.innerHTML = "Maks health er nådd"
   }
 
@@ -199,20 +189,15 @@ function healthIncrease() {
     money -= upgradeHealth;
     upgradeHealth += 2000;
     healthLevelIndicator()
+    spillAvPengeLyd()
+    localStorage.setItem("healthIs", plyHealth);
+    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny health: " + plyHealth, "success")
+    healthUpg.innerText = formatNumber(upgradeHealth);
   } else if (plyHealth == 45) {
     showAlert("Makshealth er nådd ", "error")
   } else {
     showAlert("Du har ikke nok penger", "error")
   }
-  plyHealth = plyHealth + 3
-  spillAvPengeLyd()
-  console.log("plyhealth er " + plyHealth)
-  console.log("klikk")
-
-  healthLevelIndicator()
-
-  localStorage.setItem("healthIs", plyHealth);
-  console.log(localStorage.getItem('healthIs'));
 }
 
 liv0.addEventListener("click", healthblir0)
@@ -448,17 +433,24 @@ function ChoosenDuck() {
   characterP.src = "Bilder/playerIcon1.png"
   choosenSkin = 1
   localStorage.setItem("choosenSkin", choosenSkin);
+  showAlert("Byttet skin til And", "success");
 }
 
+chosenRasmus = 0;
 function ChoosenRasmus() {
-  characterP.src = "Bilder/Rasmus.png"
-  choosenSkin = 0
-  localStorage.setItem("choosenSkin", choosenSkin);
-  if (money >= 2500) {
-    money -= 2500;
-    updateMoneyAmount();
-    spillAvPengeLyd()
-    showAlert("Du har kjøpt Rasmus for 2500 penger ", "success");
+  if (money >= 5000 && chosenRasmus == 0) {
+    characterP.src = "Bilder/Rasmus.png";
+    choosenSkin = 0;
+    localStorage.setItem("choosenSkin", choosenSkin);
+    money -= 5000;
+    spillAvPengeLyd();
+    showAlert("Du har kjøpt Rasmus for 5000 penger", "success")
+    chosenRasmus = 10;
+  } else if (chosenRasmus == 10) {
+    characterP.src = "Bilder/Rasmus.png";
+    choosenSkin = 0;
+    localStorage.setItem("choosenSkin", choosenSkin);
+    showAlert("Byttet skin til Rasmus", "success")
   } else {
     showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
     spillAvError()
