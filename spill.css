@@ -45,10 +45,14 @@ body {
     overflow: hidden;
 }
 
+.tree{
+    position: absolute;
+}
+
 .tree img {
     position: absolute;
-    width: 30px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
+    width: 70px;
+    height: auto; 
 }
 
 .strand {

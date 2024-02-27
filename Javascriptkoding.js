@@ -6,12 +6,12 @@ let money = 0
 money = parseInt(localStorage.getItem("money")) || 0
 setInterval(updateMoneyAmount, 1)
 
-// Function to generate random number within a range
+// funskjon til random numre
 function getRandomNumber(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-// Function to generate trees with random positions
+// Funksjon til tre med random posisjon 
 function generateTrees(numTrees) {
   var map = document.getElementById('øy');
   var mapWidth = map.offsetWidth;
@@ -25,9 +25,9 @@ function generateTrees(numTrees) {
       img.src = 'Bilder/tre.png';
       img.alt = 'tree';
 
-      // Generate random position for the tree
-      var xPos = getRandomNumber(0, mapWidth - 30); // Random x position within the map width
-      var yPos = getRandomNumber(0, mapHeight - 30); // Random y position within the map height
+      // generere random posisjon for tre
+      var xPos = getRandomNumber(0, mapWidth - 30); 
+      var yPos = getRandomNumber(0, mapHeight - 30); 
       img.style.left = xPos + 'px';
       img.style.top = yPos + 'px';
 
@@ -36,10 +36,11 @@ function generateTrees(numTrees) {
   }
 }
 
-// Generate trees when the page loads
+// Generere random tre når siden loader
 window.onload = function() {
-  generateTrees(10); // Change the number as desired
+  generateTrees(20); 
 };
+
 
 //Bevegelse 
 var movement = {
