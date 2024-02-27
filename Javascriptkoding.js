@@ -398,12 +398,59 @@ function healthblir0() {
 
 }
 
+// damage
+let playerDamage = parseInt(localStorage.getItem("damageIs")) || 1
+damageButton.addEventListener("click", damageIncrease)
+
+function damageIndicator() {
+  if (playerDamage >= 1.25) {
+    damage1.style.backgroundColor = "red";
+  } else {
+    damage1.style.backgroundColor = "white";
+  }
+  if (playerDamage >= 1.5) {
+    damage2.style.backgroundColor = "red";
+  } else {
+    damage2.style.backgroundColor = "white";
+  }
+  if (playerDamage >= 1.75) {
+    damage3.style.backgroundColor = "red";
+  } else {
+    damage3.style.backgroundColor = "white";
+  }
+  if (playerDamage >= 2) {
+    damage.removeEventListener("click", damageIncrease);
+    damage4.style.backgroundColor = "red";
+  } else {
+    damage4.style.backgroundColor = "white";
+  }
+}
+
+function damageIncrease(){
+  playerDamage = playerDamage + 0.25
+  localStorage.setItem("damageIs", playerDamage);
+  console.log("damage er", playerDamage)
+  damageIndicator()
+  console.log(localStorage.getItem('damageIs'));
+}
 
 
+damageer0.addEventListener("click", damageReset)
+function damageReset(){
+    playerDamage = 1
+    damage1.style.backgroundColor ="white"
+    damage2.style.backgroundColor ="white"
+    damage3.style.backgroundColor ="white"
+    damage4.style.backgroundColor ="white"
+    console.log("damage trykk")
+    localStorage.setItem("damageIs", playerDamage);
+}
 
-
-
-
+document.addEventListener('DOMContentLoaded', function () {
+  playerDamage = parseFloat(localStorage.getItem("damageIs")) || 1; // Oppdater playerDamage fra LocalStorage
+  damageIndicator();
+  console.log(localStorage.getItem('damageIs'));
+});
 
 //Chest
 
