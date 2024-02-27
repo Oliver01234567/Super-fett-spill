@@ -407,9 +407,9 @@ function freeMoney() {
 //skins section
 
 
-function ChoosenDuck() {
-  characterP.src = "Bilder/playerIcon1.png"
-  choosenSkin = 1
+function ChoosenTorb() {
+  characterP.src = "Bilder/Thorbjorn.png"
+  choosenSkin = 0
   localStorage.setItem("choosenSkin", choosenSkin);
 }
 

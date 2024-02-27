@@ -6,16 +6,16 @@ choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
 
 
 
-//Rasmus er 0
+//Thorbjorn er 0
 //Anden er 1
 
 
 if (choosenSkin == 0) {
-  characterP.src = "Bilder/Rasmus.png"
+  characterP.src = "Bilder/Thorbjorn.png"
 }
 
 if (choosenSkin == 1) {
-  characterP.src = "Bilder/playerIcon1.png"
+  characterP.src = "Bilder/Rasmus.png"
 }
 
 
@@ -37,4 +37,20 @@ function fightAnden() {
 function fightJonas() {
   opponent = 1
   localStorage.setItem("opponent", opponent)
+}
+
+//skjekker om en fiende er beseiret
+const island = document.getElementById("øy")
+
+let andenDod = 0
+andenDod = localStorage.getItem("andenDod")
+
+if(andenDod == 2) {
+    island.removeChild(document.querySelector("#enemy0"));
+}
+
+let jonasDod = 0
+jonasDod = localStorage.getItem("jonasDod")
+if(jonasDod == 2) {
+    island.removeChild(document.querySelector("#enemy1"));
 }
