@@ -150,7 +150,7 @@ andenDod = sessionStorage.getItem("andenDod")
 andSkin.addEventListener("click", ikkeTilgangSkin)
 
 if (andenDod == 2) {
-  //island.removeChild(document.querySelector("#enemy0"));
+  island.removeChild(document.querySelector("#enemy0"));
   andSkin.addEventListener("click", ChoosenAnd)
   andSkin.removeEventListener("click", ikkeTilgangSkin)
   andSkin.innerText = "Anden"
@@ -166,7 +166,7 @@ function ikkeTilgangSkin() {
 }
 
 if (jonasDod == 2) {
-  //island.removeChild(document.querySelector("#enemy1"));
+  island.removeChild(document.querySelector("#enemy1"));
   jonasSkin.addEventListener("click", ChoosenJonas)
   jonasSkin.removeEventListener("click", ikkeTilgangSkin)
   jonasSkin.innerText = "Jonas"
