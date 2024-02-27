@@ -186,7 +186,7 @@ function healthLevelIndicator() {
     healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 45) {
-    health5.style.backgroundColor = "red"
+    health5.style.backgroundColor = "green"
     showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny fart: " + plyHealth, "success")
     const healthButton = document.getElementById("healthButton")
     healthUpg.innerText = formatNumber(upgradeHealth);
@@ -445,15 +445,6 @@ function ChoosenDuck() {
   characterP.src = "Bilder/playerIcon1.png"
   choosenSkin = 1
   localStorage.setItem("choosenSkin", choosenSkin);
-  if (money >= 1500) {
-    money -= 1500;
-    updateMoneyAmount();
-    spillAvPengeLyd()
-    showAlert("Du har kjøpt anden for 1500 penger ", "success");
-  } else {
-    showAlert("Du har ikke nok penger for å kjøpe anden ", "error");
-    spillAvError()
-  }
 }
 
 function ChoosenRasmus() {
