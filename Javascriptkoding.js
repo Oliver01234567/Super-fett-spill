@@ -81,42 +81,84 @@ if (jonasDod == 2) {
 }
 
 
-/* funskjon til random numre
-function getRandomNumber(min, max) {
-  return Math.random() * (max - min) + min;
+
+const characterP = document.querySelector("#character img")
+
+let choosenSkin = 0
+choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
+
+
+
+
+//Thorbjorn er 0
+//Anden er 1
+//Jonas(skin) er 2
+
+
+if (choosenSkin == 0) {
+    characterP.src = "Bilder/Torbjorn.png"
 }
 
-// Funksjon til tre med random posisjon 
-function generateTrees(numTrees) {
-  var map = document.getElementById('øy');
-  var mapWidth = map.offsetWidth;
-  var mapHeight = map.offsetHeight;
-
-  for (var i = 0; i < numTrees; i++) {
-      var tree = document.createElement('div');
-      tree.classList.add('tree');
-
-      var img = document.createElement('img');
-      img.src = 'Bilder/tre.png';
-      img.alt = 'tree';
-
-      // generere random posisjon for tre
-      var xPos = getRandomNumber(0, mapWidth - 30); 
-      var yPos = getRandomNumber(0, mapHeight - 30); 
-      img.style.left = xPos + 'px';
-      img.style.top = yPos + 'px';
-
-      tree.appendChild(img);
-      map.appendChild(tree);
-  }
+if (choosenSkin == 1) {
+    characterP.src = "Bilder/Rasmus.png"
 }
 
-// Generere random tre når siden loader
-window.onload = function() {
-  generateTrees(20); 
-};*/
+if (choosenSkin == 2) {
+  characterP.src = "Bilder/Jonas.png"
+}
 
-// funksjon random numre
+
+//variabel for fiender
+let opponent = 0
+const enemy0 = document.getElementById("enemy0")
+enemy0.addEventListener("click", fightAnden)
+
+const enemy1 = document.getElementById("enemy1")
+enemy1.addEventListener("click", fightJonas)
+
+//de ulike fiendene
+function fightAnden() {
+    opponent = 0
+    localStorage.setItem("opponent", opponent);
+
+}
+
+function fightJonas() {
+    opponent = 1
+    localStorage.setItem("opponent", opponent)
+}
+
+//skjekker om en fiende er beseiret
+const island = document.getElementById("øy")
+
+let andenDod = 0
+andenDod = localStorage.getItem("andenDod")
+
+if (andenDod == 2) {
+    //island.removeChild(document.querySelector("#enemy0"));
+}
+
+let jonasDod = 0
+jonasDod = localStorage.getItem("jonasDod")
+const jonasSkinKnapp = document.getElementById("jonasSkin")
+jonasSkinKnapp.addEventListener("click", ikkeDreptJonas)
+
+function ikkeDreptJonas() {
+  showAlert("Du har ikke tilgang på dette skinnet ennå", "error");
+
+}
+
+if (jonasDod == 2) {
+    //island.removeChild(document.querySelector("#enemy1"));
+    jonasSkinKnapp.addEventListener("click", ChoosenJonas) 
+    jonasSkinKnapp.removeEventListener("click", ikkeDreptJonas)
+    jonasSkinKnapp.innerText = "Jonas"
+}
+
+
+
+
+//funksjon random numre
 function getRandomNumber(min, max) {
   return Math.random() * (max - min) + min;
 }
@@ -150,7 +192,7 @@ function generateTrees(numTrees) {
   }
 }
 
-// random tre nr siden loader
+// random tre når siden loader
 window.onload = function() {
   generateTrees(20);
 };
