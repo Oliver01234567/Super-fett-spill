@@ -274,7 +274,7 @@ function showAlert(message, type) {
 //Hav
 function die() {
   console.log("du døde")
-  showPopup("Du kan ikke forlatte øya, GÅ TILBAKE")
+  showPopup("Du drukna, suger å suge")
   resetCharacterPosition();
 }
 
@@ -350,6 +350,11 @@ function resetCharacterPosition() {
   const character = document.getElementById("character");
   const island = document.getElementById("øy");
   const onWater = isCharacterOnWater(character, island);
+  let tapPenger = money * 0.1;
+  money = money * 0.9
+  localStorage.setItem("money", money);
+  showAlert("Du tapte " + tapPenger.toFixed(0) + " penger", "error")
+
 
 
   // Endre antall pixler for å endre hvor man blir teleportert
