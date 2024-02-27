@@ -426,7 +426,7 @@ function freeMoney() {
 
 
 function ChoosenTorb() {
-  characterP.src = "Bilder/Thorbjorn.png"
+  characterP.src = "Bilder/Torbjorn.png"
   choosenSkin = 0
   localStorage.setItem("choosenSkin", choosenSkin);
   showAlert("Byttet skin til Thor Bjørn", "success");
