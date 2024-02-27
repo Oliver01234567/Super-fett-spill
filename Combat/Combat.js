@@ -1,5 +1,5 @@
 //henter skins fra andre html dokumenter
-choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
+choosenSkin = parseInt(sessionStorage.getItem("choosenSkin")) || 0
 
 const playerIcon = document.getElementById("karakter")
 const name = document.getElementById("playerName")
@@ -25,13 +25,14 @@ if(choosenSkin == 3) {
 }
 
 //henter hvilken fiende du vil kjempe mot
-opponent = parseInt(localStorage.getItem("opponent")) || 0
+opponent = parseInt(sessionStorage.getItem("opponent")) || 0
 
 const motstanderIcon = document.getElementById("motstanderIcon")
 const enemyName = document.getElementById("EnemyName")
 const enemyName2 = document.getElementById("EnemyName2")
 const enemyName3 = document.getElementById("EnemyName3")
 const enemyName4 = document.getElementById("EnemyName4")
+const enemyName6 = document.getElementById("EnemyName6")
 
 const body = document.getElementById("body")
 const winScreenen = document.getElementById("win")
@@ -51,6 +52,7 @@ if (opponent == 0) {
     enemyName2.innerText = "Anden"
     enemyName3.innerText = "Anden"
     enemyName4.innerText = "Anden"
+    enemyName6.innerText = "Anden"
 
 
 
@@ -91,6 +93,7 @@ if (opponent == 1) {
     enemyName2.innerText = "Jonas"
     enemyName3.innerText = "Jonas"
     enemyName4.innerText = "Jonas"
+    enemyName6.innerText = "Jonas"
 
 
     body.classList.add("img2")
@@ -123,7 +126,7 @@ const prov = document.getElementById("Prov")
 
 //du mister penger hvis du dør
 let money = 0
-money = parseInt(localStorage.getItem("money")) || 0
+money = parseInt(sessionStorage.getItem("money")) || 0
 
 function spillAvFight() {
     let lydElement3 = document.getElementById('Fight');
@@ -214,7 +217,7 @@ function startGame() {
     //variabler for endringen i healthbar til fienden
     let u = 0
     let n = 100
-    let playerDamage = parseFloat(localStorage.getItem("damageIs")) || 1;
+    let playerDamage = parseFloat(sessionStorage.getItem("damageIs")) || 1;
     let playerDamagePercentage = (playerDamage/10)*100
 
 
@@ -229,7 +232,7 @@ function startGame() {
 
 
     //spillerens helse (må være her oppe fordi den referes til i koden under)
-    let plyHealth = parseInt(localStorage.getItem("healthIs")) || 30 
+    let plyHealth = parseInt(sessionStorage.getItem("healthIs")) || 30 
     console.log("plyHealth er " + plyHealth)
 
 
@@ -270,17 +273,17 @@ function startGame() {
             clearInterval(Forsvar)
             plyHealth = 10000
             money = money + 1000
-            localStorage.setItem("money", money);
+            sessionStorage.setItem("money", money);
             setTimeout(DuFikkPenger, 2500)
             if(Anddeath == 1) {
                 let andenDod = 2
-                localStorage.setItem("andenDod", andenDod)
+                sessionStorage.setItem("andenDod", andenDod)
                 
             }
 
             if(JonasDeath == 1) {
                 let jonasDod = 2
-                localStorage.setItem("jonasDod", jonasDod)
+                sessionStorage.setItem("jonasDod", jonasDod)
             }
 
             return;
@@ -602,7 +605,7 @@ function startGame() {
     }
 
     function resetHealth() {
-        plyHealth = parseInt(localStorage.getItem("healthIs")) || 30 
+        plyHealth = parseInt(sessionStorage.getItem("healthIs")) || 30 
         EmyHealth = 10
 
         //fiende healthbar
@@ -671,7 +674,7 @@ function startGame() {
             playerIcon.style.animation = "dødSpiller 1s linear forwards"
             let tapPenger = money * 0.1;
             money = money * 0.9
-            localStorage.setItem("money", money);
+            sessionStorage.setItem("money", money);
             showAlert("Du tapte " + tapPenger.toFixed(0) + " penger", "error")
         }
     }

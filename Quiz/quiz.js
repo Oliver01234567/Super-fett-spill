@@ -17,7 +17,7 @@ function hente_resultater() {
                 if (svar4.checked == true) {
                     alert("Riktig")
                     let quiz1Seier = 1
-                    localStorage.setItem("quiz1Seier", quiz1Seier)
+                    sessionStorage.setItem("quiz1Seier", quiz1Seier)
                 } else {
                     alert("wrong")
                 }

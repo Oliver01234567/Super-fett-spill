@@ -4,13 +4,13 @@
 const moneyAmount = document.getElementById("moneyAmount");
 let money = 0
 money = parseInt(localStorage.getItem("money")) || 0
-setInterval(updateMoneyAmount, 1)
+setInterval(updateMoneyAmount, 100)
 
 
 const characterP = document.querySelector("#character img")
 
 let choosenSkin = 0
-choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
+choosenSkin = parseInt(sessionStorage.getItem("choosenSkin")) || 0
 
 
 
@@ -50,7 +50,7 @@ if (choosenSkin == 3) {
 function ChoosenTorb() {
   characterP.src = "Bilder/Torbjorn.png"
   choosenSkin = 0
-  localStorage.setItem("choosenSkin", choosenSkin);
+  sessionStorage.setItem("choosenSkin", choosenSkin);
   rasmusSkin.style.backgroundColor = "brown"
   jonasSkin.style.backgroundColor = "brown"
   torbSkin.style.backgroundColor = "red"
@@ -62,19 +62,19 @@ function ChoosenTorb() {
 
 let chosenRasmus = 0;
 
-chosenRasmus = localStorage.getItem("chosenRasmus", chosenRasmus) || 0
+chosenRasmus = sessionStorage.getItem("chosenRasmus", chosenRasmus) || 0
 
 
 function ChoosenRasmus() {
   if (money >= 5000 && chosenRasmus == 0) {
     characterP.src = "Bilder/Rasmus.png";
     choosenSkin = 1;
-    localStorage.setItem("choosenSkin", choosenSkin);
+    sessionStorage.setItem("choosenSkin", choosenSkin);
     money -= 5000;
     spillAvPengeLyd();
     showAlert("Du har kjøpt Rasmus for 5000 penger", "success")
     chosenRasmus = 10;
-    localStorage.setItem("chosenRasmus", chosenRasmus)
+    sessionStorage.setItem("chosenRasmus", chosenRasmus)
     rasmusSkin.innerText = "Rasmus";
     rasmusSkin.style.backgroundColor = "red"
     jonasSkin.style.backgroundColor = "brown"
@@ -84,7 +84,7 @@ function ChoosenRasmus() {
     rasmusSkin.innerText = "Rasmus";
     characterP.src = "Bilder/Rasmus.png";
     choosenSkin = 1;
-    localStorage.setItem("choosenSkin", choosenSkin);
+    sessionStorage.setItem("choosenSkin", choosenSkin);
     rasmusSkin.style.backgroundColor = "red"
     jonasSkin.style.backgroundColor = "brown"
     torbSkin.style.backgroundColor = "brown"
@@ -99,7 +99,7 @@ function ChoosenRasmus() {
 function ChoosenJonas() {
   characterP.src = "Bilder/Jonas.png"
   choosenSkin = 2
-  localStorage.setItem("choosenSkin", choosenSkin);
+  sessionStorage.setItem("choosenSkin", choosenSkin);
   rasmusSkin.style.backgroundColor = "brown"
   jonasSkin.style.backgroundColor = "red"
   torbSkin.style.backgroundColor = "brown"
@@ -110,7 +110,7 @@ function ChoosenJonas() {
 function ChoosenAnd() {
   characterP.src = "Bilder/playerIcon1.png"
   choosenSkin = 3
-  localStorage.setItem("choosenSkin", choosenSkin);
+  sessionStorage.setItem("choosenSkin", choosenSkin);
   rasmusSkin.style.backgroundColor = "brown"
   jonasSkin.style.backgroundColor = "brown"
   torbSkin.style.backgroundColor = "brown"
@@ -131,13 +131,13 @@ enemy1.addEventListener("click", fightJonas)
 //de ulike fiendene
 function fightAnden() {
   opponent = 0
-  localStorage.setItem("opponent", opponent);
+  sessionStorage.setItem("opponent", opponent);
 
 }
 
 function fightJonas() {
   opponent = 1
-  localStorage.setItem("opponent", opponent)
+  sessionStorage.setItem("opponent", opponent)
 }
 
 //skjekker om en fiende er beseiret
@@ -146,7 +146,7 @@ const island = document.getElementById("øy")
 
 
 let andenDod = 0
-andenDod = localStorage.getItem("andenDod")
+andenDod = sessionStorage.getItem("andenDod")
 andSkin.addEventListener("click", ikkeTilgangSkin)
 
 if (andenDod == 2) {
@@ -157,7 +157,7 @@ if (andenDod == 2) {
 }
 
 let jonasDod = 0
-jonasDod = localStorage.getItem("jonasDod")
+jonasDod = sessionStorage.getItem("jonasDod")
 jonasSkin.addEventListener("click", ikkeTilgangSkin)
 
 function ikkeTilgangSkin() {
@@ -277,8 +277,8 @@ function speedNivå() {
 
 let posisjonHoyde = 1
 let posisjonBredde = 1
-posisjonHoyde = localStorage.getItem("posisjonHoyde") || 1
-posisjonBredde = localStorage.getItem("posisjonBredde") || 1
+posisjonHoyde = sessionStorage.getItem("posisjonHoyde") || 1
+posisjonBredde = sessionStorage.getItem("posisjonBredde") || 1
 character.style.left = posisjonBredde + "px";
 character.style.top = posisjonHoyde + "px";
 
@@ -290,7 +290,7 @@ function move() {
 
   if (movement.ArrowLeft || movement.a || movement.A) {
     posisjonBredde = currentLeft - movePlayer
-    localStorage.setItem("posisjonBredde", posisjonBredde)
+    sessionStorage.setItem("posisjonBredde", posisjonBredde)
     character.style.left = posisjonBredde + "px";
     character.style.transform = "scaleX(-1)"
     checkCharacterPosition();
@@ -298,7 +298,7 @@ function move() {
   }
   if (movement.ArrowRight || movement.d || movement.D) {
     posisjonBredde = currentLeft + movePlayer
-    localStorage.setItem("posisjonBredde", posisjonBredde)
+    sessionStorage.setItem("posisjonBredde", posisjonBredde)
     character.style.left = posisjonBredde + "px";
     character.style.transform = "scaleX(1)"
     checkCharacterPosition();
@@ -306,14 +306,14 @@ function move() {
   }
   if (movement.ArrowUp || movement.w || movement.W) {
     posisjonHoyde = currentTop - movePlayer
-    localStorage.setItem("posisjonHoyde", posisjonHoyde)
+    sessionStorage.setItem("posisjonHoyde", posisjonHoyde)
     character.style.top = posisjonHoyde + "px";
     checkCharacterPosition();
     checkForChests()
   }
   if (movement.ArrowDown || movement.s || movement.S) {
     posisjonHoyde = currentTop + movePlayer
-    localStorage.setItem("posisjonHoyde", posisjonHoyde)
+    sessionStorage.setItem("posisjonHoyde", posisjonHoyde)
     character.style.top = posisjonHoyde + "px";
     checkCharacterPosition();
     checkForChests()
@@ -334,7 +334,7 @@ move();
 
 // Health
 
-let plyHealth = parseInt(localStorage.getItem("healthIs")) || 30
+let plyHealth = parseInt(sessionStorage.getItem("healthIs")) || 30
 
 let upgradeHealth = 1000;
 
@@ -374,7 +374,7 @@ function healthIncrease() {
     upgradeHealth += 2000;
     healthLevelIndicator()
     spillAvPengeLyd()
-    localStorage.setItem("healthIs", plyHealth);
+    sessionStorage.setItem("healthIs", plyHealth);
     showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny health: " + plyHealth, "success")
     healthUpg.innerText = formatNumber(upgradeHealth);
   } else if (plyHealth == 45) {
@@ -394,12 +394,12 @@ function healthblir0() {
   health4.style.backgroundColor = "white"
   health5.style.backgroundColor = "white"
   console.log("trykk " + plyHealth)
-  localStorage.setItem("healthIs", plyHealth);
+  sessionStorage.setItem("healthIs", plyHealth);
 
 }
 
 // damage
-let playerDamage = parseInt(localStorage.getItem("damageIs")) || 1
+let playerDamage = parseInt(sessionStorage.getItem("damageIs")) || 1
 damageButton.addEventListener("click", damageIncrease)
 
 function damageIndicator() {
@@ -428,10 +428,10 @@ function damageIndicator() {
 
 function damageIncrease(){
   playerDamage = playerDamage + 0.25
-  localStorage.setItem("damageIs", playerDamage);
+  sessionStorage.setItem("damageIs", playerDamage);
   console.log("damage er", playerDamage)
   damageIndicator()
-  console.log(localStorage.getItem('damageIs'));
+  console.log(sessionStorage.getItem('damageIs'));
 }
 
 
@@ -443,13 +443,13 @@ function damageReset(){
     damage3.style.backgroundColor ="white"
     damage4.style.backgroundColor ="white"
     console.log("damage trykk")
-    localStorage.setItem("damageIs", playerDamage);
+    sessionStorage.setItem("damageIs", playerDamage);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  playerDamage = parseFloat(localStorage.getItem("damageIs")) || 1; // Oppdater playerDamage fra LocalStorage
+  playerDamage = parseFloat(sessionStorage.getItem("damageIs")) || 1; // Oppdater playerDamage fra sessionStorage
   damageIndicator();
-  console.log(localStorage.getItem('damageIs'));
+  console.log(sessionStorage.getItem('damageIs'));
 });
 
 //Chest
@@ -650,7 +650,7 @@ function resetCharacterPosition() {
   const onWater = isCharacterOnWater(character, island);
   let tapPenger = money * 0.1;
   money = money * 0.9
-  localStorage.setItem("money", money);
+  sessionStorage.setItem("money", money);
   showAlert("Du tapte " + tapPenger.toFixed(0) + " penger", "error")
 
 
