@@ -122,10 +122,16 @@ function spillAvFight() {
     lydElement3.play();
 }
 
+function spillAvFinalBoss() {
+    var lydElement4 = document.getElementById('bossfight');
+    lydElement4.currentTime = 0;
+    lydElement4.play();
+}
 function startGame() {
     removeScreens()
     attackOfTheDuck()
     spillAvFight()
+    spillAvFinalBoss()
     let stopp = setInterval(move, 1000)
     let Forsvar = setInterval(attackOfTheDuck, 6000)
     prov.addEventListener("click", provIgjen)
