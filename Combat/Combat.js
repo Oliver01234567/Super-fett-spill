@@ -14,6 +14,15 @@ if (choosenSkin == 1) {
     name.innerText = "Rasmus"
 }
 
+if (choosenSkin == 2) {
+  playerIcon.src = "../Bilder/Jonas.png"
+  name.innerText = "Jonas"
+}
+ 
+if(choosenSkin == 3) {
+  playerIcon.src = "../Bilder/playerIcon1.png"
+  name.innerText = "Anden"
+}
 
 //henter hvilken fiende du vil kjempe mot
 opponent = parseInt(localStorage.getItem("opponent")) || 0
@@ -261,7 +270,7 @@ function startGame() {
 
 
     function winScreen() {
-        winScreenen.style.zIndex = "9999"
+        winScreenen.style.zIndex = "10"
         winScreenen.style.opacity = "100%"
         clearInterval(Forsvar)
         clearInterval(stopp)
@@ -635,7 +644,7 @@ function startGame() {
             fyrenBrenner.alt = "ild";
             fyrenBrenner.id = "fyrenBrenner";
             player.appendChild(fyrenBrenner);
-            spillerDiv.style.animation = "dødSpiller 1s linear forwards"
+            playerIcon.style.animation = "dødSpiller 1s linear forwards"
             let tapPenger = money * 0.1;
             money = money * 0.9
             localStorage.setItem("money", money);
