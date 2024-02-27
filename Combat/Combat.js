@@ -214,13 +214,16 @@ function startGame() {
     //variabler for endringen i healthbar til fienden
     let u = 0
     let n = 100
+    let playerDamage = parseFloat(localStorage.getItem("damageIs")) || 1;
+    let playerDamagePercentage = (playerDamage/10)*100
+
+
 
     function displayDamage() {
-        EmyHealth--;
-        u = u + 10
+        EmyHealth = EmyHealth-playerDamage;
+        u = u + playerDamagePercentage
         enemyTopHealth.style.height = u + "%"
-
-        n = n - 10
+        n = n - playerDamagePercentage
         enemyBottomHealth.style.height = n + "%"
     }
 

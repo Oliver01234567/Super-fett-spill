@@ -414,6 +414,34 @@ body {
 #liv0{
     background-color: brown;
 }
+/* Damage */
+#damage{
+    display: flex;
+    flex-direction: row;
+}
+#damageLevel{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    gap: 2px;
+    width: 450px;
+    height: 80px;
+}
+#damage1{   
+    grid-column: 1/2;
+}
+#damage2{   
+    grid-column: 2/3;
+}
+#damage3{
+    grid-column: 3/4;
+}
+#damage4{
+    grid-column: 4/5;
+}
+#damageer0{
+    background-color: brown;
+}
 /* NPC */
 .NPC {
     position: fixed;
