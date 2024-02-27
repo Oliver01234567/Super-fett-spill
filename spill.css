@@ -337,6 +337,14 @@ body {
 #stats {
     display: none;
 }
+.Sbuttons{
+    width: 200px;
+    height: 80px;
+    top: 50%;
+    background-color: brown;
+    font-size: 35px;
+    cursor: pointer;
+}
 
 
 .nav {
@@ -372,7 +380,7 @@ body {
     grid-template-rows: 1fr;
     gap: 2px;
     width: 450px;
-    height: 120px;
+    height: 80px;
 }
 #speed1{   
     grid-column: 1/2;
@@ -394,7 +402,7 @@ body {
     grid-template-rows: 1fr;
     gap: 2px;
     width: 450px;
-    height: 120px;
+    height: 80px;
 }
 #health1{
     grid-column: 1/2;
