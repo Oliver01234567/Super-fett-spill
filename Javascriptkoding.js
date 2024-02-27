@@ -16,20 +16,26 @@ choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
 
 
 //Thorbjorn er 0
-//Anden er 1
+//Ramus er 1
 //Jonas(skin) er 2
 
-
+const torbSkin = document.getElementById("torbSkin")
 if (choosenSkin == 0) {
     characterP.src = "Bilder/Torbjorn.png"
+    torbSkin.style.backgroundColor = "red"
 }
 
+const rasmusSkin = document.getElementById("rasmusSkin")
 if (choosenSkin == 1) {
     characterP.src = "Bilder/Rasmus.png"
+    rasmusSkin.innerText = "Rasmus";
+    rasmusSkin.style.backgroundColor = "red"
 }
 
+const jonasSkin = document.getElementById("jonasSkin")
 if (choosenSkin == 2) {
   characterP.src = "Bilder/Jonas.png"
+  jonasSkin.style.backgroundColor = "red"
 }
 
 
@@ -80,80 +86,6 @@ if (jonasDod == 2) {
     jonasSkinKnapp.innerText = "Jonas"
 }
 
-
-
-const characterP = document.querySelector("#character img")
-
-let choosenSkin = 0
-choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
-
-
-
-
-//Thorbjorn er 0
-//Anden er 1
-//Jonas(skin) er 2
-
-
-if (choosenSkin == 0) {
-    characterP.src = "Bilder/Torbjorn.png"
-}
-
-if (choosenSkin == 1) {
-    characterP.src = "Bilder/Rasmus.png"
-}
-
-if (choosenSkin == 2) {
-  characterP.src = "Bilder/Jonas.png"
-}
-
-
-//variabel for fiender
-let opponent = 0
-const enemy0 = document.getElementById("enemy0")
-enemy0.addEventListener("click", fightAnden)
-
-const enemy1 = document.getElementById("enemy1")
-enemy1.addEventListener("click", fightJonas)
-
-//de ulike fiendene
-function fightAnden() {
-    opponent = 0
-    localStorage.setItem("opponent", opponent);
-
-}
-
-function fightJonas() {
-    opponent = 1
-    localStorage.setItem("opponent", opponent)
-}
-
-//skjekker om en fiende er beseiret
-const island = document.getElementById("øy")
-
-let andenDod = 0
-andenDod = localStorage.getItem("andenDod")
-
-if (andenDod == 2) {
-    //island.removeChild(document.querySelector("#enemy0"));
-}
-
-let jonasDod = 0
-jonasDod = localStorage.getItem("jonasDod")
-const jonasSkinKnapp = document.getElementById("jonasSkin")
-jonasSkinKnapp.addEventListener("click", ikkeDreptJonas)
-
-function ikkeDreptJonas() {
-  showAlert("Du har ikke tilgang på dette skinnet ennå", "error");
-
-}
-
-if (jonasDod == 2) {
-    //island.removeChild(document.querySelector("#enemy1"));
-    jonasSkinKnapp.addEventListener("click", ChoosenJonas) 
-    jonasSkinKnapp.removeEventListener("click", ikkeDreptJonas)
-    jonasSkinKnapp.innerText = "Jonas"
-}
 
 
 
@@ -599,10 +531,19 @@ function ChoosenTorb() {
   characterP.src = "Bilder/Torbjorn.png"
   choosenSkin = 0
   localStorage.setItem("choosenSkin", choosenSkin);
+  rasmusSkin.style.backgroundColor = "brown"
+  jonasSkin.style.backgroundColor = "brown"
+  torbSkin.style.backgroundColor = "red"
+
   showAlert("Byttet skin til Thor Bjørn", "success");
 }
 
-chosenRasmus = 0;
+
+let chosenRasmus = 0;
+
+chosenRasmus = localStorage.getItem("chosenRasmus", chosenRasmus) || 0
+
+
 function ChoosenRasmus() {
   if (money >= 5000 && chosenRasmus == 0) {
     characterP.src = "Bilder/Rasmus.png";
@@ -612,12 +553,19 @@ function ChoosenRasmus() {
     spillAvPengeLyd();
     showAlert("Du har kjøpt Rasmus for 5000 penger", "success")
     chosenRasmus = 10;
-    const rasmusSkin = document.getElementById("rasmusSkin")
+    localStorage.setItem("chosenRasmus", chosenRasmus)
     rasmusSkin.innerText = "Rasmus";
+    rasmusSkin.style.backgroundColor = "red"
+    jonasSkin.style.backgroundColor = "brown"
+    torbSkin.style.backgroundColor = "brown"
   } else if (chosenRasmus == 10) {
+    rasmusSkin.innerText = "Rasmus";
     characterP.src = "Bilder/Rasmus.png";
-    choosenSkin = 0;
+    choosenSkin = 1;
     localStorage.setItem("choosenSkin", choosenSkin);
+    rasmusSkin.style.backgroundColor = "red"
+    jonasSkin.style.backgroundColor = "brown"
+    torbSkin.style.backgroundColor = "brown"
     showAlert("Byttet skin til Rasmus", "success")
   } else {
     showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
@@ -629,6 +577,9 @@ function ChoosenJonas() {
   characterP.src = "Bilder/Jonas.png"
   choosenSkin = 2
   localStorage.setItem("choosenSkin", choosenSkin);
+  rasmusSkin.style.backgroundColor = "brown"
+  jonasSkin.style.backgroundColor = "red"
+  torbSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Jonas", "success");
 }
 
