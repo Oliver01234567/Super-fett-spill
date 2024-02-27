@@ -11,12 +11,12 @@
 
 <body>
     <main id="øy">
-    
+
 
         <div class="strand"></div>
 
-        <div class="tre"><img style="height: 550px; width: 1050px;" src="Bilder/skog.png" alt="skog"></div>
-    
+        
+
         <div id="character"><img src="Bilder/Rasmus.png" alt="character"></div>
 
         <div id="Chest1" class="InteractiveMaterial Chest">Chest</div>
@@ -25,19 +25,27 @@
 
         <div id="enemy1" class="InteractiveMaterial npc"><img src="Bilder/Jonas.png" alt="Jonas"></div>
 
+        <div id="tree1" class="tree"><img src="Bilder/tre.png" alt="tree"></div>
 
-
+<<<<<<< HEAD
         <div id="skins" class="sections">
             <button onclick="ChoosenDuck()">And</button>
-            <Button onclick="ChoosenRasmus()">Rasmus</Button>
+            <Button onclick="ChoosenRasmus()">Rasmus<br>Koster: 5000</Button>
             <button onclick=" backToGame()">Tilbake</button>
         </div>
+=======
+        <!--<div id="tree2" class="tree"><img src="Bilder/tre.png" alt="tree"></div>-->
+
+    <!-- Add more tree divs as needed -->
+
+    
+>>>>>>> eaf94fb9024f5d9b0b57c53dc5ea357930b5f5dc
 
         <div id="npc" class="InteractiveMaterial NPC">NPC
             <div id="npc-dialog" class="dialog-box">
-              <p id="npc-message"></p>
-              <button id="npc-yes" onclick="handleNPCResponse(true)">Yes</button>
-              <button id="npc-no" onclick="handleNPCResponse(false)">No</button>
+                <p id="npc-message"></p>
+                <button id="npc-yes" onclick="handleNPCResponse(true)">Yes</button>
+                <button id="npc-no" onclick="handleNPCResponse(false)">No</button>
             </div>
         </div>
     </main>
@@ -49,7 +57,7 @@
         <button id="freeMoneyButton">+</button>
     </div>
     <div id="figherKnapp"><a href="Combat/Combat.html">Fight</a></div>
-    
+
 
     <button id="menyknapp" onclick="toggleFlexBox()">Menu</button>
     <div id="flexBoxContainer">
@@ -76,10 +84,10 @@
         <nav id="skinNav" class="nav">
             <p>Velg ditt skin!</p>
         </nav>
-        <div id="skinButtons">           
-                <button class="Mbuttons" onclick="ChoosenDuck()">And</button>
-                <Button class="Mbuttons" onclick="ChoosenRasmus()">Rasmus</Button>
-                <button class="Mbuttons" onclick=" backToGame()">Tilbake</button>
+        <div id="skinButtons">
+            <button class="Mbuttons" onclick="ChoosenDuck()">And</button>
+            <Button class="Mbuttons" onclick="ChoosenRasmus()">Rasmus<br>Koster: 5000</Button>
+            <button class="Mbuttons" onclick=" backToGame()">Tilbake</button>
         </div>
     </div>
     <div id="statsSelect" class="select">
@@ -87,34 +95,37 @@
             <p>Oppgrader characteren!</p>
         </nav>
         <div id="statsButtons">
-            <div id="speed">           
-                <button class="Mbuttons" onclick="SpeedIncrease()" id="speedButton">Øk farten<br>Koster:<span id="speedUpg">1000</span></button>
+            <div id="speed">
+                <button class="Mbuttons" onclick="SpeedIncrease()" id="speedButton">Øk farten<br>Koster:<span
+                        id="speedUpg">1000</span></button>
                 <div id="speedLevel">
                     <div id="speed1" class="LevelIndicater"></div>
                     <div id="speed2" class="LevelIndicater"></div>
                     <div id="speed3" class="LevelIndicater"></div>
                 </div>
+            </div>
+            <div id="health">
+                <button id="liv0">reset liv</button>
+                <button class="Mbuttons" id="healthButton">Øk health<br>Koster:<span id="healthUpg">1000</span></button>
+                <div id="healthLevel">
+                    <div id="health1" class="LevelIndicater"></div>
+                    <div id="health2" class="LevelIndicater"></div>
+                    <div id="health3" class="LevelIndicater"></div>
+                    <div id="health4" class="LevelIndicater"></div>
+                    <div id="health5" class="LevelIndicater"></div>
                 </div>
-                <div id="health">
-                    <button id="liv0">reset liv</button>          
-                    <button class="Mbuttons" id="healthButton">Øk health<br>Koster:<span id="healthUpg">1000</span></button>
-                    <div id="healthLevel">
-                        <div id="health1" class="LevelIndicater"></div>
-                        <div id="health2" class="LevelIndicater"></div>
-                        <div id="health3" class="LevelIndicater"></div>
-                        <div id="health4" class="LevelIndicater"></div>
-                        <div id="health5" class="LevelIndicater"></div>
-                    </div>
-                    </div>
-                <button class="Mbuttons" onclick=" backToGame()">Tilbake</button>
+            </div>
+            <button class="Mbuttons" onclick=" backToGame()">Tilbake</button>
         </div>
     </div>
 
     <audio id="moneySound" src="lyd/kaching.m4a" type="audio/m4a">
     </audio>
     <audio id="ErrorSound" src="lyd/Error.m4a"></audio>
-    
+
     <script src="Javascriptkoding.js"></script>
+    <script src="SkinsOgLocalStoreage.js"></script>
 </body>
 
 </html>
+

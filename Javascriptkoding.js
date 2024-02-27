@@ -1,58 +1,45 @@
 //interne notater:
 //Husk å markere alt i js og css slik at man enklere kan se hva som er hva
 
-//variabel for skins
-const characterP = document.querySelector("#character img")
-
-let choosenSkin = 0
-choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
-
 const moneyAmount = document.getElementById("moneyAmount");
 let money = 0
 money = parseInt(localStorage.getItem("money")) || 0
 setInterval(updateMoneyAmount, 1)
 
-
-
-//Rasmus er 0
-//Anden er 1
-
-
-if (choosenSkin == 0) {
-  characterP.src = "Bilder/Rasmus.png"
+// funskjon til random numre
+function getRandomNumber(min, max) {
+  return Math.random() * (max - min) + min;
 }
 
-if (choosenSkin == 1) {
-  characterP.src = "Bilder/playerIcon1.png"
+// Funksjon til tre med random posisjon 
+function generateTrees(numTrees) {
+  var map = document.getElementById('øy');
+  var mapWidth = map.offsetWidth;
+  var mapHeight = map.offsetHeight;
+
+  for (var i = 0; i < numTrees; i++) {
+      var tree = document.createElement('div');
+      tree.classList.add('tree');
+
+      var img = document.createElement('img');
+      img.src = 'Bilder/tre.png';
+      img.alt = 'tree';
+
+      // generere random posisjon for tre
+      var xPos = getRandomNumber(0, mapWidth - 30); 
+      var yPos = getRandomNumber(0, mapHeight - 30); 
+      img.style.left = xPos + 'px';
+      img.style.top = yPos + 'px';
+
+      tree.appendChild(img);
+      map.appendChild(tree);
+  }
 }
 
-
-//variabel for fiender
-let opponent = 0
-const enemy0 = document.getElementById("enemy0")
-enemy0.addEventListener("click", fightAnden)
-
-const enemy1 = document.getElementById("enemy1")
-enemy1.addEventListener("click", fightJonas)
-
-//de ulike fiendene
-function fightAnden() {
-  opponent = 0
-  localStorage.setItem("opponent", opponent);
-
-}
-
-function fightJonas() {
-  opponent = 1
-  localStorage.setItem("opponent", opponent)
-}
-
-
-
-//Anden er 0
-//Jonas er 1
-
-
+// Generere random tre når siden loader
+window.onload = function() {
+  generateTrees(20); 
+};
 
 
 //Bevegelse 
@@ -168,30 +155,20 @@ const healthUpg = document.getElementById("healthUpg");
 function healthLevelIndicator() {
   if (plyHealth >= 33) {
     health1.style.backgroundColor = "green"
-    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny fart: " + plyHealth, "success")
-    healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 36) {
     health2.style.backgroundColor = "green"
-    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny fart: " + plyHealth, "success")
-    healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 39) {
     health3.style.backgroundColor = "green"
-    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny fart: " + plyHealth, "success")
-    healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 42) {
     health4.style.backgroundColor = "green"
-    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny fart: " + plyHealth, "success")
-    healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 45) {
     health5.style.backgroundColor = "green"
-    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny fart: " + plyHealth, "success")
     const healthButton = document.getElementById("healthButton")
-    healthUpg.innerText = formatNumber(upgradeHealth);
-    healthButton.innerHTML = "Maksfart er nådd"
+    healthButton.innerHTML = "Maks health er nådd"
   }
 
 }
@@ -208,20 +185,15 @@ function healthIncrease() {
     money -= upgradeHealth;
     upgradeHealth += 2000;
     healthLevelIndicator()
+    spillAvPengeLyd()
+    localStorage.setItem("healthIs", plyHealth);
+    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny health: " + plyHealth, "success")
+    healthUpg.innerText = formatNumber(upgradeHealth);
   } else if (plyHealth == 45) {
     showAlert("Makshealth er nådd ", "error")
   } else {
     showAlert("Du har ikke nok penger", "error")
   }
-  plyHealth = plyHealth + 3
-  spillAvPengeLyd()
-  console.log("plyhealth er " + plyHealth)
-  console.log("klikk")
-
-  healthLevelIndicator()
-
-  localStorage.setItem("healthIs", plyHealth);
-  console.log(localStorage.getItem('healthIs'));
 }
 
 liv0.addEventListener("click", healthblir0)
@@ -320,7 +292,7 @@ function showAlert(message, type) {
 //Hav
 function die() {
   console.log("du døde")
-  showPopup("Du kan ikke forlatte øya, GÅ TILBAKE")
+  showPopup("Du drukna, suger å suge")
   resetCharacterPosition();
 }
 
@@ -396,6 +368,11 @@ function resetCharacterPosition() {
   const character = document.getElementById("character");
   const island = document.getElementById("øy");
   const onWater = isCharacterOnWater(character, island);
+  let tapPenger = money * 0.1;
+  money = money * 0.9
+  localStorage.setItem("money", money);
+  showAlert("Du tapte " + tapPenger.toFixed(0) + " penger", "error")
+
 
 
   // Endre antall pixler for å endre hvor man blir teleportert
@@ -448,21 +425,28 @@ function freeMoney() {
 //skins section
 
 
-function ChoosenDuck() {
-  characterP.src = "Bilder/playerIcon1.png"
-  choosenSkin = 1
-  localStorage.setItem("choosenSkin", choosenSkin);
-}
-
-function ChoosenRasmus() {
-  characterP.src = "Bilder/Rasmus.png"
+function ChoosenTorb() {
+  characterP.src = "Bilder/Thorbjorn.png"
   choosenSkin = 0
   localStorage.setItem("choosenSkin", choosenSkin);
-  if (money >= 2500) {
-    money -= 2500;
-    updateMoneyAmount();
-    spillAvPengeLyd()
-    showAlert("Du har kjøpt Rasmus for 2500 penger ", "success");
+  showAlert("Byttet skin til Thor Bjørn", "success");
+}
+
+chosenRasmus = 0;
+function ChoosenRasmus() {
+  if (money >= 5000 && chosenRasmus == 0) {
+    characterP.src = "Bilder/Rasmus.png";
+    choosenSkin = 1;
+    localStorage.setItem("choosenSkin", choosenSkin);
+    money -= 5000;
+    spillAvPengeLyd();
+    showAlert("Du har kjøpt Rasmus for 5000 penger", "success")
+    chosenRasmus = 10;
+  } else if (chosenRasmus == 10) {
+    characterP.src = "Bilder/Rasmus.png";
+    choosenSkin = 0;
+    localStorage.setItem("choosenSkin", choosenSkin);
+    showAlert("Byttet skin til Rasmus", "success")
   } else {
     showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
     spillAvError()
