@@ -279,7 +279,7 @@ function startGame() {
             console.log("finish him")
         }
 
-        if (EmyHealth <= 0) {
+        if (EmyHealth == 0) {
             clearInterval(stopp);
             setTimeout(dødfallMotstander, 1500)
             setTimeout(winScreen, 2500)
