@@ -644,11 +644,11 @@ function startGame() {
         }, 2000);
     }
     
-    let damagePercent = (3 / plyHealth) * 100
+    let damagePercent = (5 / plyHealth) * 100
     console.log("damgepersent er " + damagePercent)
 
     function damage() {
-        plyHealth = plyHealth - 3
+        plyHealth = plyHealth - 5
         z = z + damagePercent
         topPHealth.style.height = z + "%"
         o = o - damagePercent
