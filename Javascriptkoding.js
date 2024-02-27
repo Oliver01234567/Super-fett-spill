@@ -122,29 +122,19 @@ const healthUpg = document.getElementById("healthUpg");
 function healthLevelIndicator() {
   if (plyHealth >= 33) {
     health1.style.backgroundColor = "green"
-    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny health: " + plyHealth, "success")
-    healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 36) {
     health2.style.backgroundColor = "green"
-    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny health: " + plyHealth, "success")
-    healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 39) {
     health3.style.backgroundColor = "green"
-    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny health: " + plyHealth, "success")
-    healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 42) {
     health4.style.backgroundColor = "green"
-    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny health: " + plyHealth, "success")
-    healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 45) {
     health5.style.backgroundColor = "green"
-    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny health: " + plyHealth, "success")
     const healthButton = document.getElementById("healthButton")
-    healthUpg.innerText = formatNumber(upgradeHealth);
     healthButton.innerHTML = "Maks health er nådd"
   }
 
@@ -164,6 +154,8 @@ function healthIncrease() {
     healthLevelIndicator()
     spillAvPengeLyd()
     localStorage.setItem("healthIs", plyHealth);
+    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny health: " + plyHealth, "success")
+    healthUpg.innerText = formatNumber(upgradeHealth);
   } else if (plyHealth == 45) {
     showAlert("Makshealth er nådd ", "error")
   } else {
