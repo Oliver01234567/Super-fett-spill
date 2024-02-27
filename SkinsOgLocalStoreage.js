@@ -43,14 +43,14 @@ function fightJonas() {
 const island = document.getElementById("øy")
 
 let andenDod = 0
-andenDod = localStorage.getItem("andenDod")
+//andenDod = localStorage.getItem("andenDod")
 
 if(andenDod == 2) {
     island.removeChild(document.querySelector("#enemy0"));
 }
 
 let jonasDod = 0
-jonasDod = localStorage.getItem("jonasDod")
+//jonasDod = localStorage.getItem("jonasDod")
 if(jonasDod == 2) {
     island.removeChild(document.querySelector("#enemy1"));
 }

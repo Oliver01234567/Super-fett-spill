@@ -5,13 +5,13 @@ const playerIcon = document.getElementById("karakter")
 const name = document.getElementById("playerName")
 
 if (choosenSkin == 0) {
-    playerIcon.src = "../Bilder/Rasmus.png"
-    name.innerText = "Rasmus"
+    playerIcon.src = "../Bilder/Torbjorn.png"
+    name.innerText = "Thor Bjørn"
 }
 
 if (choosenSkin == 1) {
-    playerIcon.src = "../Bilder/playerIcon1.png"
-    name.innerText = "Anden"
+    playerIcon.src = "../Bilder/Rasmus.png"
+    name.innerText = "Rasmus"
 }
 
 
