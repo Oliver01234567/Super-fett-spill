@@ -275,7 +275,11 @@ function startGame() {
 
         setTimeout(displayDamage, 1800)
 
-        if (EmyHealth < 1) {
+        if(EmyHealth == 1){
+            console.log("finish him")
+        }
+
+        if (EmyHealth <= 0) {
             clearInterval(stopp);
             setTimeout(dødfallMotstander, 1500)
             setTimeout(winScreen, 2500)
@@ -575,12 +579,14 @@ function startGame() {
 
 
     function deathScreen() {
+        console.log("what")
         deathScreenen.style.zIndex = "9999"
         deathScreenen.style.opacity = "100%"
         clearInterval(Forsvar)
         clearInterval(stopp)
         and.removeEventListener("click", skadet);
         document.removeEventListener("keydown", bevegelse)
+        removeHoldtSverd()
     }
 
 
@@ -588,9 +594,13 @@ function startGame() {
     function provIgjen() {
         skapSverd()
         resetHealth()
-        setTimeout(startInterval, 1000)
         removeScreens()
-        setTimeout(startAttack, 1000)
+
+        setTimeout(function() {
+            startInterval()
+            startAttack()
+        }, 1000)
+
         fjernPIld()
         removeAnimations()
     }
@@ -668,13 +678,13 @@ function startGame() {
 
 
 
-        if (plyHealth < 1) {
+        if (plyHealth == 0) {
             clearInterval(Forsvar)
             clearInterval(stopp)
             setTimeout(deathScreen, 2500)
             and.removeEventListener("click", skadet);
             document.removeEventListener("keydown", bevegelse)
-            player.removeChild(document.querySelector("#holdtSverd"));
+            removeHoldtSverd();
             let fyrenBrenner = document.createElement('img');
             fyrenBrenner.src = '../Bilder/smalerFire.gif';
             fyrenBrenner.alt = "ild";
@@ -688,10 +698,19 @@ function startGame() {
         }
     }
 
-    function fjernPIld() {
-        player.removeChild(document.querySelector("#fyrenBrenner"))
+    function removeHoldtSverd() {
+        const holdtSverdElements = document.querySelectorAll("#holdtSverd");
+        holdtSverdElements.forEach(element => {
+            element.parentNode.removeChild(element);
+        });
     }
-
+    
+    function fjernPIld() {
+        const playerIldElements = document.querySelectorAll("#fyrenBrenner");
+        playerIldElements.forEach(element => {
+            element.parentNode.removeChild(element);
+        });
+    }
 
     setInterval(consoleLog, 5000)
 
