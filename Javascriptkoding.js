@@ -94,17 +94,17 @@ function SpeedIncrease() {
 }
 function speedNivå() {
   if (movePlayer === 6) {
-    speed1.style.backgroundColor = "red"
+    speed1.style.backgroundColor = "blue"
     showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
     speedUpg.innerText = formatNumber(upgradeSpeed);
   }
   if (movePlayer === 8) {
-    speed2.style.backgroundColor = "red"
+    speed2.style.backgroundColor = "blue"
     showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
     speedUpg.innerText = formatNumber(upgradeSpeed);
   }
   if (movePlayer === 10) {
-    speed3.style.backgroundColor = "red"
+    speed3.style.backgroundColor = "blue"
     showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
     const speedButton = document.getElementById("speedButton")
     speedUpg.innerText = formatNumber(upgradeSpeed);
@@ -166,22 +166,22 @@ const healthUpg = document.getElementById("healthUpg");
 
 function healthLevelIndicator() {
   if (plyHealth >= 33) {
-    health1.style.backgroundColor = "red"
+    health1.style.backgroundColor = "green"
     showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny fart: " + plyHealth, "success")
     healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 36) {
-    health2.style.backgroundColor = "red"
+    health2.style.backgroundColor = "green"
     showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny fart: " + plyHealth, "success")
     healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 39) {
-    health3.style.backgroundColor = "red"
+    health3.style.backgroundColor = "green"
     showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny fart: " + plyHealth, "success")
     healthUpg.innerText = formatNumber(upgradeHealth);
   }
   if (plyHealth >= 42) {
-    health4.style.backgroundColor = "red"
+    health4.style.backgroundColor = "green"
     showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny fart: " + plyHealth, "success")
     healthUpg.innerText = formatNumber(upgradeHealth);
   }
