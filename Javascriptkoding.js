@@ -6,7 +6,44 @@ let money = 0
 money = parseInt(localStorage.getItem("money")) || 0
 setInterval(updateMoneyAmount, 1)
 
+// Function to generate random number within a range
+function getRandomNumber(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
+// Function to generate trees with random positions and smaller size
+function generateTrees(numTrees) {
+  var map = document.getElementById('øy');
+  var mapWidth = map.offsetWidth;
+  var mapHeight = map.offsetHeight;
+
+  for (var i = 0; i < numTrees; i++) {
+      var tree = document.createElement('div');
+      tree.classList.add('tree');
+
+      var img = document.createElement('img');
+      img.src = 'Bilder/tre.png';
+      img.alt = 'tree';
+
+      // Generate random position for the tree
+      var xPos = getRandomNumber(0, mapWidth - 30); // Random x position within the map width
+      var yPos = getRandomNumber(0, mapHeight - 60); // Random y position within the map height
+      img.style.left = xPos + 'px';
+      img.style.top = yPos + 'px';
+
+      // Set smaller size for the tree
+      img.style.width = '30px';
+      img.style.height = 'auto';
+
+      tree.appendChild(img);
+      map.appendChild(tree);
+  }
+}
+
+// Generate trees when the page loads
+window.onload = function() {
+  generateTrees(10); // Change the number as desired
+};
 
 
 //Bevegelse 
