@@ -446,6 +446,8 @@ function ChoosenRasmus() {
     spillAvPengeLyd();
     showAlert("Du har kjøpt Rasmus for 5000 penger", "success")
     chosenRasmus = 10;
+    const rasmusSkin = document.getElementById("rasmusSkin")
+    rasmusSkin.innerText = "Rasmus";
   } else if (chosenRasmus == 10) {
     characterP.src = "Bilder/Rasmus.png";
     choosenSkin = 0;
