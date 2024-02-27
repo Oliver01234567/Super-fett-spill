@@ -101,6 +101,12 @@ function speedNivå() {
   console.log(movePlayer)
 }
 
+let posisjonHoyde = 1
+let posisjonBredde = 1
+posisjonHoyde = localStorage.getItem("posisjonHoyde") || 1
+posisjonBredde = localStorage.getItem("posisjonBredde") || 1
+character.style.left = posisjonBredde + "px";
+character.style.top = posisjonHoyde + "px";
 
 
 function move() {
@@ -109,24 +115,32 @@ function move() {
   var currentTop = parseInt(character.style.top) || 0;
 
   if (movement.ArrowLeft || movement.a || movement.A) {
-    character.style.left = (currentLeft - movePlayer) + "px";
+    posisjonBredde = currentLeft - movePlayer
+    localStorage.setItem("posisjonBredde", posisjonBredde)
+    character.style.left = posisjonBredde + "px";
     character.style.transform = "scaleX(-1)"
     checkCharacterPosition();
     checkForChests()
   }
   if (movement.ArrowRight || movement.d || movement.D) {
-    character.style.left = (currentLeft + movePlayer) + "px";
+    posisjonBredde = currentLeft + movePlayer
+    localStorage.setItem("posisjonBredde", posisjonBredde)
+    character.style.left = posisjonBredde + "px";
     character.style.transform = "scaleX(1)"
     checkCharacterPosition();
     checkForChests()
   }
   if (movement.ArrowUp || movement.w || movement.W) {
-    character.style.top = (currentTop - movePlayer) + "px";
+    posisjonHoyde = currentTop - movePlayer
+    localStorage.setItem("posisjonHoyde", posisjonHoyde)
+    character.style.top = posisjonHoyde + "px";
     checkCharacterPosition();
     checkForChests()
   }
   if (movement.ArrowDown || movement.s || movement.S) {
-    character.style.top = (currentTop + movePlayer) + "px";
+    posisjonHoyde = currentTop + movePlayer
+    localStorage.setItem("posisjonHoyde", posisjonHoyde)
+    character.style.top = posisjonHoyde + "px";
     checkCharacterPosition();
     checkForChests()
   }
