@@ -449,3 +449,6 @@ body {
     background-color: #4CAF50;
 }
 
+a {
+    text-decoration: none;
+}
