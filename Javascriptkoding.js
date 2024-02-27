@@ -6,67 +6,202 @@ let money = 0
 money = parseInt(localStorage.getItem("money")) || 0
 setInterval(updateMoneyAmount, 1)
 
-/* funskjon til random numre
-function getRandomNumber(min, max) {
-  return Math.random() * (max - min) + min;
+
+const characterP = document.querySelector("#character img")
+
+let choosenSkin = 0
+choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
+
+
+
+
+//Thorbjorn er 0
+//Ramus er 1
+//Jonas(skin) er 2
+
+const torbSkin = document.getElementById("torbSkin")
+if (choosenSkin == 0) {
+    characterP.src = "Bilder/Torbjorn.png"
+    torbSkin.style.backgroundColor = "red"
 }
 
-// Funksjon til tre med random posisjon 
-function generateTrees(numTrees) {
-  var map = document.getElementById('øy');
-  var mapWidth = map.offsetWidth;
-  var mapHeight = map.offsetHeight;
+const rasmusSkin = document.getElementById("rasmusSkin")
+if (choosenSkin == 1) {
+    characterP.src = "Bilder/Rasmus.png"
+    rasmusSkin.innerText = "Rasmus";
+    rasmusSkin.style.backgroundColor = "red"
+}
 
-  for (var i = 0; i < numTrees; i++) {
-      var tree = document.createElement('div');
-      tree.classList.add('tree');
+const jonasSkin = document.getElementById("jonasSkin")
+if (choosenSkin == 2) {
+  characterP.src = "Bilder/Jonas.png"
+  jonasSkin.style.backgroundColor = "red"
+}
 
-      var img = document.createElement('img');
-      img.src = 'Bilder/tre.png';
-      img.alt = 'tree';
+const andSkin = document.getElementById("andSkin") 
+if(choosenSkin == 3) {
+  characterP.src = "Bilder/playerIcon1.png"
+  andSkin.style.backgroundColor = "red"
+}
 
-      // generere random posisjon for tre
-      var xPos = getRandomNumber(0, mapWidth - 30); 
-      var yPos = getRandomNumber(0, mapHeight - 30); 
-      img.style.left = xPos + 'px';
-      img.style.top = yPos + 'px';
+//skins section
 
-      tree.appendChild(img);
-      map.appendChild(tree);
+
+function ChoosenTorb() {
+  characterP.src = "Bilder/Torbjorn.png"
+  choosenSkin = 0
+  localStorage.setItem("choosenSkin", choosenSkin);
+  rasmusSkin.style.backgroundColor = "brown"
+  jonasSkin.style.backgroundColor = "brown"
+  torbSkin.style.backgroundColor = "red"
+  andSkin.style.backgroundColor = "brown"
+
+  showAlert("Byttet skin til Thor Bjørn", "success");
+}
+
+
+let chosenRasmus = 0;
+
+chosenRasmus = localStorage.getItem("chosenRasmus", chosenRasmus) || 0
+
+
+function ChoosenRasmus() {
+  if (money >= 5000 && chosenRasmus == 0) {
+    characterP.src = "Bilder/Rasmus.png";
+    choosenSkin = 1;
+    localStorage.setItem("choosenSkin", choosenSkin);
+    money -= 5000;
+    spillAvPengeLyd();
+    showAlert("Du har kjøpt Rasmus for 5000 penger", "success")
+    chosenRasmus = 10;
+    localStorage.setItem("chosenRasmus", chosenRasmus)
+    rasmusSkin.innerText = "Rasmus";
+    rasmusSkin.style.backgroundColor = "red"
+    jonasSkin.style.backgroundColor = "brown"
+    torbSkin.style.backgroundColor = "brown"
+    andSkin.style.backgroundColor = "brown"
+  } else if (chosenRasmus == 10) {
+    rasmusSkin.innerText = "Rasmus";
+    characterP.src = "Bilder/Rasmus.png";
+    choosenSkin = 1;
+    localStorage.setItem("choosenSkin", choosenSkin);
+    rasmusSkin.style.backgroundColor = "red"
+    jonasSkin.style.backgroundColor = "brown"
+    torbSkin.style.backgroundColor = "brown"
+    andSkin.style.backgroundColor = "brown"
+    showAlert("Byttet skin til Rasmus", "success")
+  } else {
+    showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
+    spillAvError()
   }
 }
 
-// Generere random tre når siden loader
-window.onload = function() {
-  generateTrees(20); 
-};*/
+function ChoosenJonas() {
+  characterP.src = "Bilder/Jonas.png"
+  choosenSkin = 2
+  localStorage.setItem("choosenSkin", choosenSkin);
+  rasmusSkin.style.backgroundColor = "brown"
+  jonasSkin.style.backgroundColor = "red"
+  torbSkin.style.backgroundColor = "brown"
+  andSkin.style.backgroundColor = "brown"
+  showAlert("Byttet skin til Jonas", "success");
+}
 
-// funksjon random numre
+function ChoosenAnd() {
+  characterP.src = "Bilder/playerIcon1.png"
+  choosenSkin = 3
+  localStorage.setItem("choosenSkin", choosenSkin);
+  rasmusSkin.style.backgroundColor = "brown"
+  jonasSkin.style.backgroundColor = "brown"
+  torbSkin.style.backgroundColor = "brown"
+  andSkin.style.backgroundColor = "red"
+  showAlert("Byttet skin til Anden", "success");
+
+}
+
+
+//variabel for fiender
+let opponent = 0
+const enemy0 = document.getElementById("enemy0")
+enemy0.addEventListener("click", fightAnden)
+
+const enemy1 = document.getElementById("enemy1")
+enemy1.addEventListener("click", fightJonas)
+
+//de ulike fiendene
+function fightAnden() {
+    opponent = 0
+    localStorage.setItem("opponent", opponent);
+
+}
+
+function fightJonas() {
+    opponent = 1
+    localStorage.setItem("opponent", opponent)
+}
+
+//skjekker om en fiende er beseiret
+const island = document.getElementById("øy")
+
+
+
+let andenDod = 0
+andenDod = localStorage.getItem("andenDod")
+andSkin.addEventListener("click", ikkeTilgangSkin)
+
+if (andenDod == 2) {
+    //island.removeChild(document.querySelector("#enemy0"));
+    andSkin.addEventListener("click", ChoosenAnd) 
+    andSkin.removeEventListener("click", ikkeTilgangSkin)
+    andSkin.innerText = "Anden"
+}
+
+let jonasDod = 0
+jonasDod = localStorage.getItem("jonasDod")
+jonasSkin.addEventListener("click", ikkeTilgangSkin)
+
+function ikkeTilgangSkin() {
+  showAlert("Du har ikke tilgang på dette skinnet ennå", "error");
+
+}
+
+if (jonasDod == 2) {
+    //island.removeChild(document.querySelector("#enemy1"));
+    jonasSkin.addEventListener("click", ChoosenJonas) 
+    jonasSkin.removeEventListener("click", ikkeTilgangSkin)
+    jonasSkin.innerText = "Jonas"
+}
+
+
+
+
+
+//funksjon random numre
 function getRandomNumber(min, max) {
   return Math.random() * (max - min) + min;
 }
 
 // randome trær
 function generateTrees(numTrees) {
-  var map = document.getElementById('øy');
-  var mapWidth = map.offsetWidth;
-  var mapHeight = map.offsetHeight;
+  let map = document.getElementById('øy');
+  let mapWidth = map.offsetWidth;
+  let mapHeight = map.offsetHeight;
 
   // definer p grønt område av map
-  var greenAreaWidth = mapWidth * 0.75;
-  var greenAreaHeight = mapHeight * 0.75;
+  let greenAreaWidth = mapWidth * 0.75;
+  let greenAreaHeight = mapHeight * 0.75;
 
-  for (var i = 0; i < numTrees; i++) {
-      var tree = document.createElement('div');
+  for (let i = 0; i < numTrees; i++) {
+      let tree = document.createElement('div');
       tree.classList.add('tree');
 
-      var img = document.createElement('img');
+      let img = document.createElement('img');
       img.src = 'Bilder/tre.png';
       img.alt = 'tree';
 
       // random posisjon
-      var xPos = getRandomNumber(0, greenAreaWidth - 30);
-      var yPos = getRandomNumber(0, greenAreaHeight - 30);
+      let xPos = getRandomNumber(0, greenAreaWidth - 30);
+      let yPos = getRandomNumber(0, greenAreaHeight - 30);
       img.style.left = xPos + 'px';
       img.style.top = yPos + 'px';
 
@@ -75,14 +210,14 @@ function generateTrees(numTrees) {
   }
 }
 
-// random tre nr siden loader
+// random tre når siden loader
 window.onload = function() {
   generateTrees(20);
 };
 
 
 //Bevegelse 
-var movement = {
+let movement = {
   "ArrowLeft": false,
   "ArrowRight": false,
   "ArrowUp": false,
@@ -140,32 +275,46 @@ function speedNivå() {
   console.log(movePlayer)
 }
 
+let posisjonHoyde = 1
+let posisjonBredde = 1
+posisjonHoyde = localStorage.getItem("posisjonHoyde") || 1
+posisjonBredde = localStorage.getItem("posisjonBredde") || 1
+character.style.left = posisjonBredde + "px";
+character.style.top = posisjonHoyde + "px";
 
 
 function move() {
-  var character = document.getElementById("character");
-  var currentLeft = parseInt(character.style.left) || 0;
-  var currentTop = parseInt(character.style.top) || 0;
+  let character = document.getElementById("character");
+  let currentLeft = parseInt(character.style.left) || 0;
+  let currentTop = parseInt(character.style.top) || 0;
 
   if (movement.ArrowLeft || movement.a || movement.A) {
-    character.style.left = (currentLeft - movePlayer) + "px";
+    posisjonBredde = currentLeft - movePlayer
+    localStorage.setItem("posisjonBredde", posisjonBredde)
+    character.style.left = posisjonBredde + "px";
     character.style.transform = "scaleX(-1)"
     checkCharacterPosition();
     checkForChests()
   }
   if (movement.ArrowRight || movement.d || movement.D) {
-    character.style.left = (currentLeft + movePlayer) + "px";
+    posisjonBredde = currentLeft + movePlayer
+    localStorage.setItem("posisjonBredde", posisjonBredde)
+    character.style.left = posisjonBredde + "px";
     character.style.transform = "scaleX(1)"
     checkCharacterPosition();
     checkForChests()
   }
   if (movement.ArrowUp || movement.w || movement.W) {
-    character.style.top = (currentTop - movePlayer) + "px";
+    posisjonHoyde = currentTop - movePlayer
+    localStorage.setItem("posisjonHoyde", posisjonHoyde)
+    character.style.top = posisjonHoyde + "px";
     checkCharacterPosition();
     checkForChests()
   }
   if (movement.ArrowDown || movement.s || movement.S) {
-    character.style.top = (currentTop + movePlayer) + "px";
+    posisjonHoyde = currentTop + movePlayer
+    localStorage.setItem("posisjonHoyde", posisjonHoyde)
+    character.style.top = posisjonHoyde + "px";
     checkCharacterPosition();
     checkForChests()
   }
@@ -258,11 +407,11 @@ function healthblir0() {
 
 //Chest
 function checkForChests() {
-  var character = document.getElementById("character");
-  var chests = document.querySelectorAll(".Chest");
-  var characterPlassering = character.getBoundingClientRect();
+  let character = document.getElementById("character");
+  let chests = document.querySelectorAll(".Chest");
+  let characterPlassering = character.getBoundingClientRect();
   chests.forEach(function (chest) {
-    var chestPlassering = chest.getBoundingClientRect();
+    let chestPlassering = chest.getBoundingClientRect();
 
     if (
       characterPlassering.right > chestPlassering.left &&
@@ -336,10 +485,10 @@ function die() {
 }
 
 function checkCharacterPosition() {
-  var character = document.getElementById("character");
-  var island = document.getElementById("øy");
-  var characterPlassering = character.getBoundingClientRect();
-  var islandPlassering = island.getBoundingClientRect();
+  let character = document.getElementById("character");
+  let island = document.getElementById("øy");
+  let characterPlassering = character.getBoundingClientRect();
+  let islandPlassering = island.getBoundingClientRect();
 
   if (
     characterPlassering.right > islandPlassering.right ||
@@ -369,7 +518,7 @@ function showPopup(message) {
 
 function toggleFlexBox() {
   console.log("trykk")
-  var flexBoxContainer = document.getElementById('flexBoxContainer');
+  let flexBoxContainer = document.getElementById('flexBoxContainer');
   if (flexBoxContainer.style.display === 'none' || flexBoxContainer.style.display === '') {
     flexBoxContainer.style.display = 'flex';
     menyknapp.innerHTML = ("x")
@@ -432,13 +581,13 @@ function updateMoneyAmount() {
 }
 
 function spillAvPengeLyd() {
-  var lydElement = document.getElementById('moneySound');
+  let lydElement = document.getElementById('moneySound');
   lydElement.currentTime = 0;
   lydElement.play();
 }
 
 function spillAvError() {
-  var lydElement2 = document.getElementById('ErrorSound');
+  let lydElement2 = document.getElementById('ErrorSound');
   lydElement2.currentTime = 0;
   lydElement2.play();
 }
@@ -460,39 +609,6 @@ function freeMoney() {
   spillAvPengeLyd()
 }
 
-
-//skins section
-
-
-function ChoosenTorb() {
-  characterP.src = "Bilder/Torbjorn.png"
-  choosenSkin = 0
-  localStorage.setItem("choosenSkin", choosenSkin);
-  showAlert("Byttet skin til Thor Bjørn", "success");
-}
-
-chosenRasmus = 0;
-function ChoosenRasmus() {
-  if (money >= 5000 && chosenRasmus == 0) {
-    characterP.src = "Bilder/Rasmus.png";
-    choosenSkin = 1;
-    localStorage.setItem("choosenSkin", choosenSkin);
-    money -= 5000;
-    spillAvPengeLyd();
-    showAlert("Du har kjøpt Rasmus for 5000 penger", "success")
-    chosenRasmus = 10;
-    const rasmusSkin = document.getElementById("rasmusSkin")
-    rasmusSkin.innerText = "Rasmus";
-  } else if (chosenRasmus == 10) {
-    characterP.src = "Bilder/Rasmus.png";
-    choosenSkin = 0;
-    localStorage.setItem("choosenSkin", choosenSkin);
-    showAlert("Byttet skin til Rasmus", "success")
-  } else {
-    showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
-    spillAvError()
-  }
-}
 
 const skinsS = document.getElementById("skins")
 const statsS = document.getElementById("stats")

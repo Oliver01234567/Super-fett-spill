@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+body {
+    background-image: url("../Bilder/quiz_bakrunn.png");
+    display: flex;
+    justify-content: space-between;
+}
+
+.quiz_overskrifter {
+    font-family: "Press Start 2P", system-ui;
+    color:#a96a0b;
+    width: 5px;
+    font-size: 20px;
+    margin-left: 160px;
+    line-height: 45px;
+    text-shadow: 3px 3px 3px black;
+}
+
+#bakrundsfarge_og_slikt {
+    background-color: #957d38;
+    margin: -8px;
+    padding: 20px;
+    color: white;
+}
+
+#bakrundsfarge_og_slikt h3 {
+    font-size: 25px;
+
+}

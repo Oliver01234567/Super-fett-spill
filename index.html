@@ -27,12 +27,6 @@
 
         <div id="tree1" class="tree"><img src="Bilder/tre.png" alt="tree"></div>
 
-        <!--<div id="tree2" class="tree"><img src="Bilder/tre.png" alt="tree"></div>-->
-
-    <!-- Add more tree divs as needed -->
-
-    
-
         <div id="npc" class="InteractiveMaterial NPC">NPC
             <div id="npc-dialog" class="dialog-box">
                 <p id="npc-message"></p>
@@ -77,8 +71,22 @@
             <p>Velg ditt skin!</p>
         </nav>
         <div id="skinButtons">
-            <button class="Mbuttons" onclick="ChoosenTorb()">Thor Bjørn</button>
-            <Button class="Mbuttons" id="rasmusSkin" onclick="ChoosenRasmus()">Rasmus<br>Koster: 5000</Button>
+            <button class="Mbuttons" id="torbSkin" onclick="ChoosenTorb()">
+                Thor Bjørn
+            </button>
+
+            <Button class="Mbuttons" id="rasmusSkin" onclick="ChoosenRasmus()">
+                Rasmus<br> <span> Koster: 5000</span>
+            </Button>
+
+            <button class="Mbuttons" id="jonasSkin"> 
+                Jonas <br> <span>Beseir Jonas</span>
+            </button>
+
+            <button class="Mbuttons" id="andSkin">
+                Anden <br> <span>Beseir Anden</span>
+            </button>
+
             <button class="Mbuttons" onclick="backToGame()">Tilbake</button>
         </div>
     </div>
@@ -116,7 +124,6 @@
     <audio id="ErrorSound" src="lyd/Error.m4a"></audio>
 
     <script src="Javascriptkoding.js"></script>
-    <script src="SkinsOgLocalStoreage.js"></script>
 </body>
 
 </html>

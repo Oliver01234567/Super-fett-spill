@@ -1,3 +1,4 @@
+
 /* Minimal reset: */
 * {
     margin: 0;
@@ -173,7 +174,6 @@ body {
 
 .Chest {
     position: fixed;
-    z-index: 1;
     width: 50px;
     height: 40px;
     background-color: #8B4513;
@@ -316,6 +316,11 @@ body {
     cursor: pointer;
 }
 
+.Mbuttons span {
+    font-size: 15px;
+    margin: 0;
+}
+
 /*Stats*/
 #stats {
     display: none;
@@ -402,12 +407,12 @@ body {
     position: fixed;
     width: 50px;
     height: 50px;
-    background-color: #FF4500; /* Orange color for NPC, you can adjust */
-    border: 2px solid #A52A2A; /* Brown border for NPC, you can adjust */
+    background-color: #FF4500; 
+    border: 2px solid #A52A2A; 
     border-radius: 5px;
     cursor: pointer;
-    top: 200px; /* Adjust as needed */
-    right: 600px; /* Adjust as needed */
+    top: 200px; 
+    right: 600px; 
   }
 
   .dialog-box {

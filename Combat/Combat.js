@@ -14,6 +14,15 @@ if (choosenSkin == 1) {
     name.innerText = "Rasmus"
 }
 
+if (choosenSkin == 2) {
+  playerIcon.src = "../Bilder/Jonas.png"
+  name.innerText = "Jonas"
+}
+ 
+if(choosenSkin == 3) {
+  playerIcon.src = "../Bilder/playerIcon1.png"
+  name.innerText = "Anden"
+}
 
 //henter hvilken fiende du vil kjempe mot
 opponent = parseInt(localStorage.getItem("opponent")) || 0
@@ -117,7 +126,7 @@ let money = 0
 money = parseInt(localStorage.getItem("money")) || 0
 
 function spillAvFight() {
-    var lydElement3 = document.getElementById('Fight');
+    let lydElement3 = document.getElementById('Fight');
     lydElement3.currentTime = 0;
     lydElement3.play();
 }
@@ -226,7 +235,7 @@ function startGame() {
             }
         }, 1800)
 
-        var sverdSlag = document.createElement('img');
+        let sverdSlag = document.createElement('img');
         sverdSlag.src = '../Bilder/sverdSlag.gif';
         sverdSlag.alt = "Sverd";
         sverdSlag.id = "Sverd";
@@ -267,7 +276,7 @@ function startGame() {
 
 
     function winScreen() {
-        winScreenen.style.zIndex = "9999"
+        winScreenen.style.zIndex = "10"
         winScreenen.style.opacity = "100%"
         clearInterval(Forsvar)
         clearInterval(stopp)
@@ -641,7 +650,7 @@ function startGame() {
             fyrenBrenner.alt = "ild";
             fyrenBrenner.id = "fyrenBrenner";
             player.appendChild(fyrenBrenner);
-            spillerDiv.style.animation = "dødSpiller 1s linear forwards"
+            playerIcon.style.animation = "dødSpiller 1s linear forwards"
             let tapPenger = money * 0.1;
             money = money * 0.9
             localStorage.setItem("money", money);
