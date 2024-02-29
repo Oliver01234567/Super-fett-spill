@@ -189,7 +189,7 @@ function generateTrees(numTrees) {
   let mapWidth = map.offsetWidth;
   let mapHeight = map.offsetHeight;
 
-  // definer p grønt område av map
+  // definer pÅ grønt område av map
   let greenAreaWidth = mapWidth * 0.75;
   let greenAreaHeight = mapHeight * 0.75;
 
@@ -202,11 +202,13 @@ function generateTrees(numTrees) {
     img.alt = 'tree';
 
     // random posisjon
-    let xPos = getRandomNumber(0, greenAreaWidth - 30);
-    let yPos = getRandomNumber(0, greenAreaHeight - 30);
+    // let xPos = getRandomNumber(0, greenAreaWidth - 30);
+    // let yPos = getRandomNumber(0, greenAreaHeight - 30);
+    let xPos = ( (i+1) * 53773) % (greenAreaWidth - 30);
+    let yPos = ( (i+1) * 767765) % (greenAreaHeight - 30);
     img.style.left = xPos + 'px';
     img.style.top = yPos + 'px';
-
+  
     tree.appendChild(img);
     map.appendChild(tree);
   }
