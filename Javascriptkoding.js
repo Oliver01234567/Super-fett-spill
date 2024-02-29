@@ -442,6 +442,19 @@ posisjonBredde = sessionStorage.getItem("posisjonBredde") || 1
 character.style.left = posisjonBredde + "px";
 character.style.top = posisjonHoyde + "px";
 
+function updateScreenPositionLeft() {
+  scrollBy(-movePlayer, 0)
+}
+function updateScreenPositionRight() {
+  scrollBy(movePlayer, 0)
+}
+function updateScreenPositionTop() {
+  scrollBy(0, -movePlayer)
+}
+function updateScreenPositionDown() {
+  scrollBy(0, movePlayer)
+}
+
 
 function move() {
   let character = document.getElementById("character");
@@ -456,6 +469,7 @@ function move() {
     checkCharacterPosition();
     checkForChests()
     checkForEnemy()
+    updateScreenPositionLeft()
   }
   if (movement.ArrowRight || movement.d || movement.D) {
     posisjonBredde = currentLeft + movePlayer
@@ -465,6 +479,7 @@ function move() {
     checkCharacterPosition();
     checkForChests()
     checkForEnemy()
+    updateScreenPositionRight()
   }
   if (movement.ArrowUp || movement.w || movement.W) {
     posisjonHoyde = currentTop - movePlayer
@@ -473,6 +488,7 @@ function move() {
     checkCharacterPosition();
     checkForChests()
     checkForEnemy()
+    updateScreenPositionTop()
   }
   if (movement.ArrowDown || movement.s || movement.S) {
     posisjonHoyde = currentTop + movePlayer
@@ -481,6 +497,7 @@ function move() {
     checkCharacterPosition();
     checkForChests()
     checkForEnemy()
+    updateScreenPositionDown()
   }
 
   requestAnimationFrame(move);
