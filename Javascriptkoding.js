@@ -204,8 +204,8 @@ function generateTrees(numTrees) {
     // random posisjon
     // let xPos = getRandomNumber(0, greenAreaWidth - 30);
     // let yPos = getRandomNumber(0, greenAreaHeight - 30);
-    let xPos = ( (i+1) * 53773) % (greenAreaWidth - 30);
-    let yPos = ( (i+1) * 767765) % (greenAreaHeight - 30);
+    let xPos = ( (i+1) * 345676667) % (greenAreaWidth - 30);
+    let yPos = ( (i+1) * 34567) % (greenAreaHeight - 30);
     img.style.left = xPos + 'px';
     img.style.top = yPos + 'px';
   
