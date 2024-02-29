@@ -515,7 +515,7 @@ function damageIndicator() {
   }
 }
 
-function damageIncrease(){
+function damageIncrease() {
   if (playerDamage < 2 && money >= upgradeDmg) {
     playerDamage += 0.25;
     money -= upgradeDmg;
@@ -534,14 +534,14 @@ function damageIncrease(){
 
 
 damageer0.addEventListener("click", damageReset)
-function damageReset(){
-    playerDamage = 1
-    damage1.style.backgroundColor ="white"
-    damage2.style.backgroundColor ="white"
-    damage3.style.backgroundColor ="white"
-    damage4.style.backgroundColor ="white"
-    console.log("damage trykk")
-    sessionStorage.setItem("damageIs", playerDamage);
+function damageReset() {
+  playerDamage = 1
+  damage1.style.backgroundColor = "white"
+  damage2.style.backgroundColor = "white"
+  damage3.style.backgroundColor = "white"
+  damage4.style.backgroundColor = "white"
+  console.log("damage trykk")
+  sessionStorage.setItem("damageIs", playerDamage);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -619,7 +619,7 @@ function checkOpenChests() {
   openedChests.forEach(chest => {
     chest.src = "Bilder/openedChest.webp";
   })
-  
+
 }
 
 
@@ -848,6 +848,9 @@ function showNPCDialog(message) {
   npcYesBtn.style.display = "block";
   npcNoBtn.style.display = "block";
 
+  npcYesBtn.textContent = "Yes";
+  npcNoBtn.textContent = "No";
+
   console.log("showNPCDialog completed");
 }
 
@@ -872,8 +875,8 @@ function handleNPCResponse(response) {
 
     setTimeout(function () {
       showNPCDialog("Great! Would you like to buy a randomized skin box for 1000 money?");
-      npcYesBtn.style.display = "Purchase";
-      npcNoBtn.textContent = "Cancel";
+      npcYesBtn.textContent = "Purchase";
+      npcNoBtn.textContent = "Decline";
     }, 2);
   } else {
     console.log("Player said 'No'");
@@ -881,22 +884,14 @@ function handleNPCResponse(response) {
   }
 }
 
-npcYesBtn.addEventListener("click", () => {
-  showNPCDialog("Great! Please confirm your purchase.");
-  npcYesBtn.style.display = "none";
-  npcNoBtn.textContent = "Cancel";
-});
-
 npcNoBtn.addEventListener("click", () => {
   hideNPCDialog();
 });
 
-// function buySkinBox() {
-// Logic to deduct money and grant a random skin
-// Update the money variable and call updateMoneyAmount() accordingly
-// You can use setTimeout or other logic to simulate a delay if needed
-//  money -= 1000;
-//  updateMoneyAmount();
-//  showNPCDialog("Congratulations! You got a new skin!");
-//  npcYesBtn.style.display = "block";
-//}
+function buySkinBox() {
+  //Logic to deduct money and grant a random skin
+  // You can use setTimeout or other logic to simulate a delay if needed
+  money -= 1000;
+  showAlert("Congratulations! You got the skin " );
+  npcYesBtn.style.display = "block";
+}

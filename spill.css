@@ -459,7 +459,7 @@ body {
     right: 600px; 
   }
 
-  .dialog-box {
+.dialog-box {
     display: none;
     position: absolute;
     top: 50%;
