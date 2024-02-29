@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quiz</title>
+
+        <link rel="stylesheet" href="quiz.css">
+        <script src="quiz.js"></script>
+    </head>
+
+    <body id="quiz_4">
+        <header class="quiz_overskrifter">
+            <h1 >Biologi quiz</h1>
+
+        </header>
+
+        <div id="bio_quiz">
+            <h3>Har mennesker og Fugler likt anntall hjertekammer?</h3>
+            <div>
+                <input  type="checkbox" id="riktig_svar1" name="checkbox1">
+                <label for="checkbox1"  >Riktig!</label>
+                <input type="checkbox" name="checkbox2">
+                <label for="checkbox2">Galt?</label>
+                
+            </div>
+
+            <h3>Hvor mange hjertekammer har amfibier?</h3>
+            <div>
+                <input type="checkbox" name="checkbox4">
+                <label for="checkbox4">2</label>
+                <input type="checkbox" id="riktig_svar2" name="checkbox5">
+                <label for="checkbox5" >3</label>
+                <input type="checkbox" name="checkbox6">
+                <label for="checkbox6">3.5</label>
+            </div>
+
+            <h3>Er krepsdyr ledddyr?</h3>
+            <div>
+                <input type="checkbox" id="riktig_svar3" name="checkbox7">
+                <label for="checkbox7">Ja</label>
+                <input type="checkbox"  name="checkbox8">
+                <label for="checkbox8" >Nei</label>
+                <input type="checkbox" name="checkbox9">
+                <label for="checkbox9">Noen</label>
+            </div>
+
+            <h3>I hvilket system har nyrene sin viktigste jobb?</h3>
+            <div>
+                <input type="checkbox" name="checkbox10">
+                <label for="checkbox10">Sirkulasjonssystemet</label>
+                <input type="checkbox" id="riktig_svar4" name="checkbox11">
+                <label for="checkbox11">Ekskresjonsystemet</label>
+                <input type="checkbox" name="checkbox12">
+                <label for="checkbox12" >fordøyelsessystemet</label>
+            </div>
+
+            <button type="button" onclick="hente_resultater()" id="quiz_4_knapp" >Resultat</button>
+        </div>
+        
+    </body>
+</html>

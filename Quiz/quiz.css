@@ -1,6 +1,7 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-
+/** Quiz 1 **/
 
 #quiz_1 {
     background-image: url("../Bilder/quiz_bakrunn.png");
@@ -25,10 +26,29 @@
     color: white;
 }
 
+#bakrundsfarge_og_slikt div {
+    margin: 40px 0;
+}
+
 #bakrundsfarge_og_slikt h3 {
     font-size: 25px;
-
 }
+
+#bakrundsfarge_og_slikt input {
+    margin-left: 20px;
+}
+
+#quiz_knapp {
+    background-color: #806c31;
+    border: #594a21 solid 2px;
+    border-radius: 30px;
+    padding: 10px 15px;
+    margin-left: 20px;
+    font-size: 15px;
+    color: white ;
+}
+
+/** Quiz 2 **/
 
 #quiz_2 {
     background-image: url("../Bilder/quiz_bakrunn_2.png");
@@ -44,7 +64,6 @@
     color:#dd6700;
     font-size: 20px;
     margin: 20px 40px;
-    line-height: 45px;
     text-shadow: -3px -2px 3px black;
 }
 
@@ -62,5 +81,111 @@
 
 #rettellergalt_quiz input {
     margin-left: 20px;
+}
+
+#quiz_2_knapp {
+    background-color: #dd6700;
+    border: #982e04 solid 2px;
+    border-radius: 30px;
+    padding: 10px 15px;
+    margin-left: 20px;
+    font-size: 15px;
+    color: white ;
+}
+
+/** Quiz 3 **/
+
+#quiz_3 {
+    background-image: url("../Bilder/quiz_3_bakrunn.jpeg");
+    display: flex;
+    justify-content: space-between;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: -50px;
+}
+
+.quiz_overskrifter_3 {
+    font-family: "Press Start 2P", system-ui;
+    color:#cc6a8f;
+    font-size: 20px;
+    margin: 12px 30px;
+    text-shadow: 3px 3px 3px black;
+}
+
+#engelsk_quiz {
+    background-color: #cc6a8f;
+    border: solid 4px #e29bad;
+    margin: -8px;
+    padding: 20px;
+    color: white;
+}
+
+#engelsk_quiz div {
+    margin: 40px 0;
+}
+
+#engelsk_quiz h3 {
+    font-size: 25px;
+}
+
+#engelsk_quiz input {
+    margin-left: 20px;
+}
+
+#quiz_3_knapp {
+    background-color: #e19bad;
+    border: #cc6a8f ;
+    border-radius: 30px;
+    padding: 10px 15px;
+    margin-left: 20px;
+    font-size: 15px;
+    color: white ;
+}
+
+/** Quiz 4 **/
+
+#quiz_4 {
+    background-image: url("../Bilder/quiz_bakrunn.png");
+    display: flex;
+    justify-content: space-between;
+}
+
+.quiz_overskrifter {
+    font-family: "Press Start 2P", system-ui;
+    color:#a96a0b;
+    width: 5px;
+    font-size: 20px;
+    margin-left: 160px;
+    line-height: 45px;
+    text-shadow: 3px 3px 3px black;
+}
+
+#bio_quiz {
+    background-color: #957d38;
+    margin: -8px;
+    padding: 20px;
+    color: white;
+}
+
+#bio_quiz div {
+    margin: 40px 0;
+}
+
+#bio_quiz h3 {
+    font-size: 25px;
+}
+
+#bio_quiz input {
+    margin-left: 20px;
+}
+
+#quiz_4_knapp {
+    background-color: #806c31;
+    border: #594a21 solid 2px;
+    border-radius: 30px;
+    padding: 10px 15px;
+    margin-left: 20px;
+    font-size: 15px;
+    color: white ;
 }
 
