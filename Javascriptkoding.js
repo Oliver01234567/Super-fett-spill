@@ -52,25 +52,25 @@ if (choosenSkin == 3) {
 const monkeSkin = document.getElementById("monkeSkin")
 if (choosenSkin == 4) {
   characterP.src = "Bilder/monke.jpeg"
-  andSkin.style.backgroundColor = "red"
+  monkeSkin.style.backgroundColor = "red"
 }
 
 const pandaSkin = document.getElementById("pandaSkin")
 if (choosenSkin == 5) {
   characterP.src = "Bilder/panda.png"
-  andSkin.style.backgroundColor = "red"
+  pandaSkin.style.backgroundColor = "red"
 }
 
 const langbeinSkin = document.getElementById("langbeinSkin")
 if (choosenSkin == 6) {
   characterP.src = "Bilder/angel.jpeg"
-  andSkin.style.backgroundColor = "red"
+  langbeinSkin.style.backgroundColor = "red"
 }
 
 const peterSkin = document.getElementById("peterSkin")
 if (choosenSkin == 7) {
   characterP.src = "Bilder/peter.png"
-  andSkin.style.backgroundColor = "red"
+  peterSkin.style.backgroundColor = "red"
 }
 
 //skins section
