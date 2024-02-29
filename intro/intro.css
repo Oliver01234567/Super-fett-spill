@@ -19,3 +19,23 @@
     margin: 40px;
     text-align: center;
 }
+#SpillForklaring{
+    background-color: transparent;
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    top: 600px;
+    left: 1500px;
+    animation: Forklareranimasjon 3s linear forwards;
+}
+#Forklarer{
+    position: relative;
+    left: -30px;
+    top: -40px;
+}
+@keyframes Forklareranimasjon{
+    100%{
+        left: 620px;
+        top: 330px;
+    }
+}
