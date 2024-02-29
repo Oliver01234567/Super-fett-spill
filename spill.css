@@ -12,7 +12,7 @@
 /*Spilleren*/
 
 #character {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 60px;
@@ -37,8 +37,8 @@ body {
 
 #øy {
     background-color: rgb(143, 183, 63);
-    height: 600px;
-    width: 1000px;
+    height: 5000px;
+    width: 5000px;
     position: relative;
     border-radius: 10px;
     overflow: hidden;
@@ -149,7 +149,7 @@ body {
 .InteractiveMaterial {
     padding: 50px;
     display: inline-block;
-    position: fixed;
+    position: absolute;
     cursor: pointer;
 
 }
@@ -177,7 +177,7 @@ body {
 /*Chests*/
 
 .Chest {
-    position: fixed;
+    position: absolute;
     width: 50px;
     height: 50px;
     border-radius: 5px;
@@ -450,7 +450,7 @@ body {
 }
 /* NPC */
 .NPC {
-    position: fixed;
+    position: absolute;
     width: 50px;
     height: 50px;
     background-color: #FF4500; 
