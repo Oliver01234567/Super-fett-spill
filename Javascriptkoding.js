@@ -250,7 +250,7 @@ function generateTrees(numTrees) {
   let mapWidth = map.offsetWidth;
   let mapHeight = map.offsetHeight;
 
-  // definer p grønt område av map
+  // definer pÅ grønt område av map
   let greenAreaWidth = mapWidth * 0.75;
   let greenAreaHeight = mapHeight * 0.75;
 
@@ -263,11 +263,13 @@ function generateTrees(numTrees) {
     img.alt = 'tree';
 
     // random posisjon
-    let xPos = getRandomNumber(0, greenAreaWidth - 30);
-    let yPos = getRandomNumber(0, greenAreaHeight - 30);
+    // let xPos = getRandomNumber(0, greenAreaWidth - 30);
+    // let yPos = getRandomNumber(0, greenAreaHeight - 30);
+    let xPos = ( (i+1) * 53773) % (greenAreaWidth - 30);
+    let yPos = ( (i+1) * 767765) % (greenAreaHeight - 30);
     img.style.left = xPos + 'px';
     img.style.top = yPos + 'px';
-
+  
     tree.appendChild(img);
     map.appendChild(tree);
   }
@@ -442,10 +444,10 @@ function healthIncrease() {
     healthLevelIndicator()
     spillAvPengeLyd()
     sessionStorage.setItem("healthIs", plyHealth);
-    showAlert("Health oppgradert for " + upgradeHealth + " penger. Ny health: " + plyHealth, "success")
+    showAlert("Liv oppgradert for " + upgradeHealth + " penger. Ny liv: " + plyHealth, "success")
     healthUpg.innerText = formatNumber(upgradeHealth);
   } else if (plyHealth == 45) {
-    showAlert("Makshealth er nådd ", "error")
+    showAlert("Maks liv er nådd ", "error")
   } else {
     showAlert("Du har ikke nok penger", "error")
   }
@@ -469,6 +471,9 @@ function healthblir0() {
 let playerDamage = parseInt(sessionStorage.getItem("damageIs")) || 1
 damageButton.addEventListener("click", damageIncrease)
 
+let upgradeDmg = 1000;
+const dmgUpg = document.getElementById("dmgUpg");
+
 function damageIndicator() {
   if (playerDamage >= 1.25) {
     damage1.style.backgroundColor = "red";
@@ -488,17 +493,28 @@ function damageIndicator() {
   if (playerDamage >= 2) {
     damage.removeEventListener("click", damageIncrease);
     damage4.style.backgroundColor = "red";
+    const healthButton = document.getElementById("damageButton")
+    healthButton.innerHTML = "Maks skade er nådd"
   } else {
     damage4.style.backgroundColor = "white";
   }
 }
 
 function damageIncrease(){
-  playerDamage = playerDamage + 0.25
-  sessionStorage.setItem("damageIs", playerDamage);
-  console.log("damage er", playerDamage)
-  damageIndicator()
-  console.log(sessionStorage.getItem('damageIs'));
+  if (playerDamage < 2 && money >= upgradeDmg) {
+    playerDamage += 0.25;
+    money -= upgradeDmg;
+    upgradeDmg *= 2;
+    damageIndicator();
+    spillAvPengeLyd();
+    sessionStorage.setItem("damageIs", playerDamage);
+    showAlert("Skade oppgradert for " + upgradeHealth + " penger. Ny skade: " + playerDamage, "success")
+    dmgUpg.innerText = formatNumber(upgradeDmg);
+  } else if (playerDamage == 2) {
+    showAlert("Maks skade er nådd ", "error")
+  } else {
+    showAlert("Du har ikke nok penger", "error")
+  }
 }
 
 
