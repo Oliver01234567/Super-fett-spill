@@ -122,6 +122,7 @@ function ChoosenAnd() {
 
 //fiender
 //oppdager fiender
+let fiende = 0
 let enemyCheckEnabled = true;
 function checkForEnemy() {
   let character = document.getElementById("character");
@@ -136,7 +137,10 @@ function checkForEnemy() {
       characterPlassering.bottom > enemyPlassering.top &&
       characterPlassering.top < enemyPlassering.bottom
     ) {
+      fiende = enemy.id
+      console.log(enemy.id)
       showEnemyPopup(enemy); // Pass enemy reference to showEnemyPopup
+
     }
   });
 }
@@ -161,6 +165,17 @@ function showEnemyPopup(enemy) {
 
   document.body.appendChild(Epopup);
   currentEPopup = Epopup;
+}
+
+function utfordreFiende() {
+  if(fiende == "enemy0") {
+    fightAnden()
+  }
+
+  if(fiende == "enemy1") {
+    fightJonas()
+  }
+
 }
 
 function declineEnemy(enemyid) {
