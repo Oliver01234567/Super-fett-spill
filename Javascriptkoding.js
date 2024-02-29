@@ -49,6 +49,30 @@ if (choosenSkin == 3) {
   andSkin.style.backgroundColor = "red"
 }
 
+const monkeSkin = document.getElementById("monkeSkin")
+if (choosenSkin == 4) {
+  characterP.src = "Bilder/monke.jpeg"
+  andSkin.style.backgroundColor = "red"
+}
+
+const pandaSkin = document.getElementById("pandaSkin")
+if (choosenSkin == 5) {
+  characterP.src = "Bilder/panda.png"
+  andSkin.style.backgroundColor = "red"
+}
+
+const langbeinSkin = document.getElementById("langbeinSkin")
+if (choosenSkin == 6) {
+  characterP.src = "Bilder/angel.jpeg"
+  andSkin.style.backgroundColor = "red"
+}
+
+const peterSkin = document.getElementById("peterSkin")
+if (choosenSkin == 7) {
+  characterP.src = "Bilder/peter.png"
+  andSkin.style.backgroundColor = "red"
+}
+
 //skins section
 function ChoosenTorb() {
   characterP.src = "Bilder/Torbjorn.png"
@@ -88,7 +112,7 @@ function ChoosenRasmus() {
     monkeSkin.style.backgroundColor = "brown";
     pandaSkin.style.backgroundColor = "brown";
     langbeinSkin.style.backgroundColor = "brown";
-  peterSkin.style.backgroundColor = "brown";
+    peterSkin.style.backgroundColor = "brown";
   } else if (chosenRasmus == 10) {
     rasmusSkin.innerText = "Rasmus";
     characterP.src = "Bilder/Rasmus.png";
