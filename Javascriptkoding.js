@@ -202,6 +202,7 @@ function chosenPeter() {
 
 //fiender
 //oppdager fiender
+let fiende = 0
 let enemyCheckEnabled = true;
 function checkForEnemy() {
   let character = document.getElementById("character");
@@ -216,7 +217,10 @@ function checkForEnemy() {
       characterPlassering.bottom > enemyPlassering.top &&
       characterPlassering.top < enemyPlassering.bottom
     ) {
+      fiende = enemy.id
+      console.log(enemy.id)
       showEnemyPopup(enemy); // Pass enemy reference to showEnemyPopup
+
     }
   });
 }
@@ -241,6 +245,17 @@ function showEnemyPopup(enemy) {
 
   document.body.appendChild(Epopup);
   currentEPopup = Epopup;
+}
+
+function utfordreFiende() {
+  if(fiende == "enemy0") {
+    fightAnden()
+  }
+
+  if(fiende == "enemy1") {
+    fightJonas()
+  }
+
 }
 
 function declineEnemy(enemyid) {
@@ -345,8 +360,8 @@ function generateTrees(numTrees) {
     // random posisjon
     // let xPos = getRandomNumber(0, greenAreaWidth - 30);
     // let yPos = getRandomNumber(0, greenAreaHeight - 30);
-    let xPos = ( (i+1) * 53773) % (greenAreaWidth - 30);
-    let yPos = ( (i+1) * 767765) % (greenAreaHeight - 30);
+    let xPos = ( (i+1) * 345676667) % (greenAreaWidth - 30);
+    let yPos = ( (i+1) * 34567) % (greenAreaHeight - 30);
     img.style.left = xPos + 'px';
     img.style.top = yPos + 'px';
   
