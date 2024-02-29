@@ -132,12 +132,14 @@ enemy1.addEventListener("click", fightJonas)
 function fightAnden() {
   opponent = 0
   sessionStorage.setItem("opponent", opponent);
+  window.location.href = 'Combat/Combat.html';
 
 }
 
 function fightJonas() {
   opponent = 1
   sessionStorage.setItem("opponent", opponent)
+  window.location.href = 'Combat/Combat.html';
 }
 
 //skjekker om en fiende er beseiret
