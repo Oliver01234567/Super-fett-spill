@@ -18,6 +18,11 @@ choosenSkin = parseInt(sessionStorage.getItem("choosenSkin")) || 0
 //Thorbjorn er 0
 //Ramus er 1
 //Jonas(skin) er 2
+//And er 3
+//Monke er 4
+//Panda er 5
+//Langbein er 6
+//Peter Griffin er 7
 
 const torbSkin = document.getElementById("torbSkin")
 if (choosenSkin == 0) {
@@ -45,25 +50,25 @@ if (choosenSkin == 3) {
 }
 
 //skins section
-
-
 function ChoosenTorb() {
   characterP.src = "Bilder/Torbjorn.png"
   choosenSkin = 0
   sessionStorage.setItem("choosenSkin", choosenSkin);
-  rasmusSkin.style.backgroundColor = "brown"
-  jonasSkin.style.backgroundColor = "brown"
-  torbSkin.style.backgroundColor = "red"
-  andSkin.style.backgroundColor = "brown"
+  rasmusSkin.style.backgroundColor = "brown";
+  jonasSkin.style.backgroundColor = "brown";
+  torbSkin.style.backgroundColor = "red";
+  andSkin.style.backgroundColor = "brown";
+  monkeSkin.style.backgroundColor = "brown";
+  pandaSkin.style.backgroundColor = "brown";
+  langbeinSkin.style.backgroundColor = "brown";
+  peterSkin.style.backgroundColor = "brown";
 
   showAlert("Byttet skin til Thor Bjørn", "success");
 }
 
-
 let chosenRasmus = 0;
 
 chosenRasmus = sessionStorage.getItem("chosenRasmus", chosenRasmus) || 0
-
 
 function ChoosenRasmus() {
   if (money >= 5000 && chosenRasmus == 0) {
@@ -76,19 +81,27 @@ function ChoosenRasmus() {
     chosenRasmus = 10;
     sessionStorage.setItem("chosenRasmus", chosenRasmus)
     rasmusSkin.innerText = "Rasmus";
-    rasmusSkin.style.backgroundColor = "red"
-    jonasSkin.style.backgroundColor = "brown"
-    torbSkin.style.backgroundColor = "brown"
-    andSkin.style.backgroundColor = "brown"
+    rasmusSkin.style.backgroundColor = "red";
+    jonasSkin.style.backgroundColor = "brown";
+    torbSkin.style.backgroundColor = "brown";
+    andSkin.style.backgroundColor = "brown";
+    monkeSkin.style.backgroundColor = "brown";
+    pandaSkin.style.backgroundColor = "brown";
+    langbeinSkin.style.backgroundColor = "brown";
+  peterSkin.style.backgroundColor = "brown";
   } else if (chosenRasmus == 10) {
     rasmusSkin.innerText = "Rasmus";
     characterP.src = "Bilder/Rasmus.png";
     choosenSkin = 1;
     sessionStorage.setItem("choosenSkin", choosenSkin);
-    rasmusSkin.style.backgroundColor = "red"
-    jonasSkin.style.backgroundColor = "brown"
-    torbSkin.style.backgroundColor = "brown"
-    andSkin.style.backgroundColor = "brown"
+    rasmusSkin.style.backgroundColor = "red";
+    jonasSkin.style.backgroundColor = "brown";
+    torbSkin.style.backgroundColor = "brown";
+    andSkin.style.backgroundColor = "brown";
+    monkeSkin.style.backgroundColor = "brown";
+    pandaSkin.style.backgroundColor = "brown";
+    langbeinSkin.style.backgroundColor = "brown";
+    peterSkin.style.backgroundColor = "brown";
     showAlert("Byttet skin til Rasmus", "success")
   } else {
     showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
@@ -100,10 +113,14 @@ function ChoosenJonas() {
   characterP.src = "Bilder/Jonas.png"
   choosenSkin = 2
   sessionStorage.setItem("choosenSkin", choosenSkin);
-  rasmusSkin.style.backgroundColor = "brown"
-  jonasSkin.style.backgroundColor = "red"
-  torbSkin.style.backgroundColor = "brown"
-  andSkin.style.backgroundColor = "brown"
+  rasmusSkin.style.backgroundColor = "brown";
+  jonasSkin.style.backgroundColor = "red";
+  torbSkin.style.backgroundColor = "brown";
+  andSkin.style.backgroundColor = "brown";
+  monkeSkin.style.backgroundColor = "brown";
+  pandaSkin.style.backgroundColor = "brown";
+  langbeinSkin.style.backgroundColor = "brown";
+  peterSkin.style.backgroundColor = "brown";
   showAlert("Byttet skin til Jonas", "success");
 }
 
@@ -111,12 +128,75 @@ function ChoosenAnd() {
   characterP.src = "Bilder/playerIcon1.png"
   choosenSkin = 3
   sessionStorage.setItem("choosenSkin", choosenSkin);
-  rasmusSkin.style.backgroundColor = "brown"
-  jonasSkin.style.backgroundColor = "brown"
-  torbSkin.style.backgroundColor = "brown"
-  andSkin.style.backgroundColor = "red"
+  rasmusSkin.style.backgroundColor = "brown";
+  jonasSkin.style.backgroundColor = "brown";
+  torbSkin.style.backgroundColor = "brown";
+  andSkin.style.backgroundColor = "red";
+  monkeSkin.style.backgroundColor = "brown";
+  pandaSkin.style.backgroundColor = "brown";
+  langbeinSkin.style.backgroundColor = "brown";
+  peterSkin.style.backgroundColor = "brown";
   showAlert("Byttet skin til Anden", "success");
+}
 
+function chosenMonke() {
+  characterP.src = "Bilder/monke.jpeg";
+  choosenSkin = 4;
+  sessionStorage.setItem("choosenSkin", choosenSkin);
+  rasmusSkin.style.backgroundColor = "brown";
+  jonasSkin.style.backgroundColor = "brown";
+  torbSkin.style.backgroundColor = "brown";
+  andSkin.style.backgroundColor = "brown";
+  monkeSkin.style.backgroundColor = "red";
+  pandaSkin.style.backgroundColor = "brown";
+  langbeinSkin.style.backgroundColor = "brown";
+  peterSkin.style.backgroundColor = "brown";
+  showAlert("Byttet skin til Monke", "success");
+}
+
+function chosenPanda() {
+  characterP.src = "Bilder/panda.png";
+  choosenSkin = 5;
+  sessionStorage.setItem("choosenSkin", choosenSkin);
+  rasmusSkin.style.backgroundColor = "brown";
+  jonasSkin.style.backgroundColor = "brown";
+  torbSkin.style.backgroundColor = "brown";
+  andSkin.style.backgroundColor = "brown";
+  monkeSkin.style.backgroundColor = "brown";
+  pandaSkin.style.backgroundColor = "red";
+  langbeinSkin.style.backgroundColor = "brown";
+  peterSkin.style.backgroundColor = "brown";
+  showAlert("Byttet skin til Panda", "success");
+}
+
+function chosenLangbein() {
+  characterP.src = "Bilder/angel.jpeg";
+  choosenSkin = 6;
+  sessionStorage.setItem("choosenSkin", choosenSkin);
+  rasmusSkin.style.backgroundColor = "brown";
+  jonasSkin.style.backgroundColor = "brown";
+  torbSkin.style.backgroundColor = "brown";
+  andSkin.style.backgroundColor = "brown";
+  monkeSkin.style.backgroundColor = "brown";
+  pandaSkin.style.backgroundColor = "brown";
+  langbeinSkin.style.backgroundColor = "red";
+  peterSkin.style.backgroundColor = "brown";
+  showAlert("Byttet skin til Langbein", "success");
+}
+
+function chosenPeter() {
+  characterP.src = "Bilder/peter.png";
+  choosenSkin = 7;
+  sessionStorage.setItem("choosenSkin", choosenSkin);
+  rasmusSkin.style.backgroundColor = "brown";
+  jonasSkin.style.backgroundColor = "brown";
+  torbSkin.style.backgroundColor = "brown";
+  andSkin.style.backgroundColor = "brown";
+  monkeSkin.style.backgroundColor = "brown";
+  pandaSkin.style.backgroundColor = "brown";
+  langbeinSkin.style.backgroundColor = "brown";
+  peterSkin.style.backgroundColor = "red";
+  showAlert("Byttet skin til Peter Griffin", "success");
 }
 
 
