@@ -15,13 +15,33 @@ if (choosenSkin == 1) {
 }
 
 if (choosenSkin == 2) {
-  playerIcon.src = "../Bilder/Jonas.png"
-  name.innerText = "Jonas"
+    playerIcon.src = "../Bilder/Jonas.png"
+    name.innerText = "Jonas"
 }
- 
-if(choosenSkin == 3) {
-  playerIcon.src = "../Bilder/playerIcon1.png"
-  name.innerText = "Anden"
+
+if (choosenSkin == 3) {
+    playerIcon.src = "../Bilder/playerIcon1.png"
+    name.innerText = "Anden"
+}
+
+if (choosenSkin == 4) {
+    playerIcon.src = "../Bilder/monke.jpeg"
+    name.innerText = "Monke"
+}
+
+if (choosenSkin == 5) {
+    playerIcon.src = "../Bilder/panda.png"
+    name.innerText = "Panda"
+}
+
+if (choosenSkin == 6) {
+    playerIcon.src = "../Bilder/angel.jpeg"
+    name.innerText = "Langbein"
+}
+
+if (choosenSkin == 7) {
+    playerIcon.src = "../Bilder/peter.png"
+    name.innerText = "Peter Griffin"
 }
 
 //henter hvilken fiende du vil kjempe mot
@@ -233,12 +253,12 @@ function startGame() {
     let u = 0
     let n = 100
     let playerDamage = parseFloat(sessionStorage.getItem("damageIs")) || 1;
-    let playerDamagePercentage = (playerDamage/10)*100
+    let playerDamagePercentage = (playerDamage / 10) * 100
 
 
 
     function displayDamage() {
-        EmyHealth = EmyHealth-playerDamage;
+        EmyHealth = EmyHealth - playerDamage;
         u = u + playerDamagePercentage
         enemyTopHealth.style.height = u + "%"
         n = n - playerDamagePercentage
@@ -247,7 +267,7 @@ function startGame() {
 
 
     //spillerens helse (må være her oppe fordi den referes til i koden under)
-    let plyHealth = parseInt(sessionStorage.getItem("healthIs")) || 30 
+    let plyHealth = parseInt(sessionStorage.getItem("healthIs")) || 30
     console.log("plyHealth er " + plyHealth)
 
 
@@ -281,7 +301,7 @@ function startGame() {
 
         setTimeout(displayDamage, 1800)
 
-        if(EmyHealth <= 1 && EmyHealth > 0){
+        if (EmyHealth <= 1 && EmyHealth > 0) {
             setTimeout(spillAvFinishHim, 1800)
         }
 
@@ -294,13 +314,13 @@ function startGame() {
             money = money + 1000
             sessionStorage.setItem("money", money);
             setTimeout(DuFikkPenger, 2500)
-            if(Anddeath == 1) {
+            if (Anddeath == 1) {
                 let andenDod = 2
                 sessionStorage.setItem("andenDod", andenDod)
-                
+
             }
 
-            if(JonasDeath == 1) {
+            if (JonasDeath == 1) {
                 let jonasDod = 2
                 sessionStorage.setItem("jonasDod", jonasDod)
             }
@@ -602,7 +622,7 @@ function startGame() {
         resetHealth()
         removeScreens()
 
-        setTimeout(function() {
+        setTimeout(function () {
             startInterval()
             startAttack()
         }, 1000)
@@ -630,7 +650,7 @@ function startGame() {
     }
 
     function resetHealth() {
-        plyHealth = parseInt(sessionStorage.getItem("healthIs")) || 30 
+        plyHealth = parseInt(sessionStorage.getItem("healthIs")) || 30
         EmyHealth = 10
 
         //fiende healthbar
@@ -647,7 +667,7 @@ function startGame() {
 
 
     }
-    
+
 
     function showAlert(message, type) {
         const alertDiv = document.createElement('div');
@@ -659,7 +679,7 @@ function startGame() {
             alertDiv.remove();
         }, 2000);
     }
-    
+
     let damagePercent = (5 / plyHealth) * 100
     console.log("damgepersent er " + damagePercent)
 
@@ -710,7 +730,7 @@ function startGame() {
             element.parentNode.removeChild(element);
         });
     }
-    
+
     function fjernPIld() {
         const playerIldElements = document.querySelectorAll("#fyrenBrenner");
         playerIldElements.forEach(element => {
