@@ -145,23 +145,23 @@
 /** Quiz 4 **/
 
 #quiz_4 {
-    background-image: url("../Bilder/quiz_bakrunn.png");
+    background-image: url("../Bilder/quiz_4_bakrunn.png");
+    background-position: -40px;
     display: flex;
     justify-content: space-between;
 }
 
-.quiz_overskrifter {
+.quiz_overskrifter_4 {
     font-family: "Press Start 2P", system-ui;
-    color:#a96a0b;
-    width: 5px;
+    color:#92ac54;
     font-size: 20px;
-    margin-left: 160px;
-    line-height: 45px;
+    margin: 20px 30px;
     text-shadow: 3px 3px 3px black;
 }
 
 #bio_quiz {
-    background-color: #957d38;
+    background-color: #84964a;
+    border: solid 4px #707f47;
     margin: -8px;
     padding: 20px;
     color: white;
@@ -180,8 +180,8 @@
 }
 
 #quiz_4_knapp {
-    background-color: #806c31;
-    border: #594a21 solid 2px;
+    background-color: #38593e;
+    border: #1f3121 solid 2px;
     border-radius: 30px;
     padding: 10px 15px;
     margin-left: 20px;
