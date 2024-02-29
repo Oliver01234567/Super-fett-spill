@@ -42,6 +42,8 @@ body {
     position: relative;
     border-radius: 10px;
     overflow: hidden;
+    margin: 500px;
+    margin-right: 500px;
 }
 
 .tree{
