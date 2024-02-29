@@ -149,6 +149,12 @@ function spillAvFinalBoss() {
     lydElement4.play();
 }
 
+function spillAvFinishHim() {
+    let lydElement7 = document.getElementById('finisher');
+    lydElement7.currentTime = 0;
+    lydElement7.play();
+}
+
 function spillAvSverdslag() {
     let lydElement5 = document.getElementById('Sverdslag')
     lydElement5.currentTime = 0;
@@ -276,7 +282,7 @@ function startGame() {
         setTimeout(displayDamage, 1800)
 
         if(EmyHealth <= 1 && EmyHealth > 0){
-            spillAvFight()
+            setTimeout(spillAvFinishHim, 1800)
         }
 
         if (EmyHealth <= 0) {
