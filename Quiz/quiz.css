@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 
-body {
+
+#quiz_1 {
     background-image: url("../Bilder/quiz_bakrunn.png");
     display: flex;
     justify-content: space-between;
@@ -28,3 +29,38 @@ body {
     font-size: 25px;
 
 }
+
+#quiz_2 {
+    background-image: url("../Bilder/quiz_bakrunn_2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: -50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.quiz_overskrifter_2 {
+    font-family: "Press Start 2P", system-ui;
+    color:#dd6700;
+    font-size: 20px;
+    margin: 20px 40px;
+    line-height: 45px;
+    text-shadow: -3px -2px 3px black;
+}
+
+#rettellergalt_quiz {
+    background-color: #bf4110;
+    border: #982e04 4px solid;
+    margin: -8px;
+    padding: 20px;
+    color: white;
+}
+
+#rettellergalt_quiz div {
+    margin: 40px 0;
+}
+
+#rettellergalt_quiz input {
+    margin-left: 20px;
+}
+
