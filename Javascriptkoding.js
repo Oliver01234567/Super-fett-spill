@@ -232,7 +232,6 @@ function chosenPeter() {
 let fiende = 0
 let enemyCheckEnabled = true;
 function checkForEnemy() {
-  let character = document.getElementById("character");
   let enemies = document.querySelectorAll(".enemy");
   let characterPlassering = character.getBoundingClientRect();
   enemies.forEach(function (enemy) {
@@ -507,7 +506,6 @@ function updateScreenPositionDown() {
 
 
 function move() {
-  let character = document.getElementById("character");
   let currentLeft = parseInt(character.style.left) || 0;
   let currentTop = parseInt(character.style.top) || 0;
 
@@ -519,7 +517,7 @@ function move() {
     checkCharacterPosition();
     checkForChests()
     checkForEnemy()
-    updateScreenPositionLeft()
+updateScreenPositionLeft()
   }
   if (movement.ArrowRight || movement.d || movement.D) {
     posisjonBredde = currentLeft + movePlayer
@@ -529,7 +527,7 @@ function move() {
     checkCharacterPosition();
     checkForChests()
     checkForEnemy()
-    updateScreenPositionRight()
+updateScreenPositionRight()
   }
   if (movement.ArrowUp || movement.w || movement.W) {
     posisjonHoyde = currentTop - movePlayer
@@ -538,7 +536,7 @@ function move() {
     checkCharacterPosition();
     checkForChests()
     checkForEnemy()
-    updateScreenPositionTop()
+updateScreenPositionTop()
   }
   if (movement.ArrowDown || movement.s || movement.S) {
     posisjonHoyde = currentTop + movePlayer
@@ -547,7 +545,7 @@ function move() {
     checkCharacterPosition();
     checkForChests()
     checkForEnemy()
-    updateScreenPositionDown()
+updateScreenPositionDown()
   }
 
   requestAnimationFrame(move);
@@ -711,7 +709,6 @@ chests.forEach(chest => {
 
 
 function checkForChests() {
-  let character = document.getElementById("character");
   let chests = document.querySelectorAll(".Chest");
   let characterPlassering = character.getBoundingClientRect();
   chests.forEach(function (chest) {
@@ -821,12 +818,16 @@ function showAlert(message, type) {
 //Hav
 function die() {
   console.log("du døde")
+  let tapPenger = money * 0.1;
+  money = money * 0.9
+  sessionStorage.setItem("money", money);
+  showAlert("Du tapte " + tapPenger.toFixed(0) + " penger", "error")
+
   showPopup("Du drukna, suger å suge")
   resetCharacterPosition();
 }
 
 function checkCharacterPosition() {
-  let character = document.getElementById("character");
   let island = document.getElementById("øy");
   let characterPlassering = character.getBoundingClientRect();
   let islandPlassering = island.getBoundingClientRect();
@@ -894,21 +895,17 @@ function isCharacterOnWater(character, island) {
 }
 
 function resetCharacterPosition() {
-  const character = document.getElementById("character");
   const island = document.getElementById("øy");
   const onWater = isCharacterOnWater(character, island);
-  let tapPenger = money * 0.1;
-  money = money * 0.9
-  sessionStorage.setItem("money", money);
-  showAlert("Du tapte " + tapPenger.toFixed(0) + " penger", "error")
-
 
 
   // Endre antall pixler for å endre hvor man blir teleportert
   if (onWater) {
-    character.style.left = "1px";
-    character.style.top = "1px";
+    character.style.left = "350px";
+    character.style.top = "350px";
   }
+
+  //scrollInto function
 }
 
 //Penger

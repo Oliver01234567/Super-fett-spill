@@ -10,37 +10,38 @@
 </head>
 
 <body>
-    <main id="øy">
+            <main id="øy">
 
 
-        <div class="strand"></div>
+            <div class="strand"></div>
 
-        
+            <div id="character"><img src="Bilder/Torbjorn.png" alt="character"></div>
 
-        <div id="character"><img src="Bilder/Torbjorn.png" alt="character"></div>
+            <div id="Chest1" class="InteractiveMaterial Chest"><img src="Bilder/closedChest.webp" alt="Chest"></div>
 
-        <div id="Chest1" class="InteractiveMaterial Chest"><img src="Bilder/closedChest.webp" alt="Chest"></div>
+            <div id="Chest2" class="InteractiveMaterial Chest"><img src="Bilder/closedChest.webp" alt="Chest"></div>
 
-        <div id="Chest2" class="InteractiveMaterial Chest"><img src="Bilder/closedChest.webp" alt="Chest"></div>
+            <div id="enemy0" class="InteractiveMaterial enemy"> <img src="Bilder/playerIcon1.png" alt="anden"></div>
 
-        <div id="enemy0" class="InteractiveMaterial enemy"> <img src="Bilder/playerIcon1.png" alt="anden"></div>
+            <div id="enemy1" class="InteractiveMaterial enemy"><img src="Bilder/Jonas.png" alt="Jonas"></div>
 
-        <div id="enemy1" class="InteractiveMaterial enemy"><img src="Bilder/Jonas.png" alt="Jonas"></div>
+            <div id="tree1" class="tree"><img src="Bilder/tre.png" alt="tree"></div>
 
-       <div id="tree1" class="tree"><img src="Bilder/tre.png" alt="tree"></div>
+<a href="#character" style="padding: 300px;">Character</a>
 
-       <a href="#character" style="padding: 300px;">Character</a>
 
-      
 
-        <div id="npc" class="InteractiveMaterial NPC">NPC
-            <div id="npc-dialog" class="dialog-box">
-                <p id="npc-message"></p>
-                <button id="npc-yes" onclick="handleNPCResponse(true)">Yes</button>
-                <button id="npc-no" onclick="handleNPCResponse(false)">No</button>
+            <div id="npc" class="InteractiveMaterial NPC">NPC
+                <div id="npc-dialog" class="dialog-box">
+                    <p id="npc-message"></p>
+                    <button id="npc-yes" onclick="handleNPCResponse(true)">Yes</button>
+                    <button id="npc-no" onclick="handleNPCResponse(false)">No</button>
+                </div>
             </div>
-        </div>
-    </main>
+        </main>
+
+        <secton id="blank"></secton>
+    </div>
 
     <div class="moneyContainer">
         <div class="moneyBox">
@@ -84,7 +85,7 @@
                 Rasmus<br> <span> Koster: 5000</span>
             </Button>
 
-            <button class="Mbuttons" id="jonasSkin"> 
+            <button class="Mbuttons" id="jonasSkin">
                 Jonas <br> <span>Beseir Jonas</span>
             </button>
 
@@ -124,29 +125,29 @@
                     <div id="speed2" class="LevelIndicater"></div>
                     <div id="speed3" class="LevelIndicater"></div>
                 </div>
+            </div>
+            <div id="health">
+                <button id="liv0">reset liv</button>
+                <button class="Sbuttons" id="healthButton">Øk health<br>Koster:<span id="healthUpg">1000</span></button>
+                <div id="healthLevel">
+                    <div id="health1" class="LevelIndicater"></div>
+                    <div id="health2" class="LevelIndicater"></div>
+                    <div id="health3" class="LevelIndicater"></div>
+                    <div id="health4" class="LevelIndicater"></div>
+                    <div id="health5" class="LevelIndicater"></div>
                 </div>
-                <div id="health">
-                    <button id="liv0">reset liv</button>          
-                    <button class="Sbuttons" id="healthButton">Øk health<br>Koster:<span id="healthUpg">1000</span></button>
-                    <div id="healthLevel">
-                        <div id="health1" class="LevelIndicater"></div>
-                        <div id="health2" class="LevelIndicater"></div>
-                        <div id="health3" class="LevelIndicater"></div>
-                        <div id="health4" class="LevelIndicater"></div>
-                        <div id="health5" class="LevelIndicater"></div>
-                    </div>
-                    </div>
-                    <div id="damage">
-                        <button id="damageer0">reset damage</button>           
-                        <button class="Sbuttons" id="damageButton">Øk skade<br>Koster:<span id="dmgUpg">1000</span></button>
-                        <div id="damageLevel">
-                            <div id="damage1" class="LevelIndicater"></div>
-                            <div id="damage2" class="LevelIndicater"></div>
-                            <div id="damage3" class="LevelIndicater"></div>
-                            <div id="damage4" class="LevelIndicater"></div>
-                        </div>
-                        </div>
-                <button class="Sbuttons" onclick=" backToGame()">Tilbake</button>
+            </div>
+            <div id="damage">
+                <button id="damageer0">reset damage</button>
+                <button class="Sbuttons" id="damageButton">Øk skade<br>Koster:<span id="dmgUpg">1000</span></button>
+                <div id="damageLevel">
+                    <div id="damage1" class="LevelIndicater"></div>
+                    <div id="damage2" class="LevelIndicater"></div>
+                    <div id="damage3" class="LevelIndicater"></div>
+                    <div id="damage4" class="LevelIndicater"></div>
+                </div>
+            </div>
+            <button class="Sbuttons" onclick=" backToGame()">Tilbake</button>
         </div>
     </div>
 
@@ -158,4 +159,3 @@
 </body>
 
 </html>
-
