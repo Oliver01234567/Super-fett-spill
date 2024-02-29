@@ -1,6 +1,9 @@
 //interne notater:
 //Husk å markere alt i js og css slik at man enklere kan se hva som er hva
 
+//Fjerner scrolling fra siden
+//document.body.style.overflow = "hidden";
+
 const moneyAmount = document.getElementById("moneyAmount");
 let money = 0
 money = parseInt(localStorage.getItem("money")) || 0
