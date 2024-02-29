@@ -244,19 +244,6 @@ function checkForEnemy() {
       fiende = enemy.id
 
       showEnemyPopup(enemy);
-
-      const enemyName = document.getElementById("enemyName")
-      if (fiende == null) {
-      return;
-    } else {
-      if (fiende == "enemy0") {
-        enemyName.innerText = "Anden"
-      }
-
-      if (fiende == "enemy1") {
-        enemyName.innerText = "Jonas"
-      }
-    }
   
   }
   });
@@ -280,8 +267,24 @@ function showEnemyPopup(enemy) {
     <button onclick="declineEnemy()">Avslå</button>
   `;
 
+  
+
+
   document.body.appendChild(Epopup);
   currentEPopup = Epopup;
+
+  const enemyName = document.getElementById("enemyName")
+      if (currentEPopup != Epopup) {
+      return;
+    } else {
+      if (fiende == "enemy0") {
+        enemyName.innerText = "Anden"
+      }
+
+      if (fiende == "enemy1") {
+        enemyName.innerText = "Jonas"
+      }
+    }
 }
 
 setInterval(consoleLog, 2000)
