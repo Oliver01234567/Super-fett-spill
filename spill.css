@@ -154,11 +154,11 @@ body {
 
 }
 
-.npc {
+.enemy {
     padding: 30px;
 }
 
-.NPC img, .npc img {
+.NPC img, .enemy img {
     width: 60px;
     height: 60px;
 }
@@ -214,7 +214,7 @@ body {
     z-index: 10000;
 }
 
-.chest-popup {
+.chest-popup, .enemy-popup {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -226,7 +226,7 @@ body {
     text-align: center;
 }
 
-.chest-popup button {
+.chest-popup button, .enemy-popup button {
     margin: 10px;
     padding: 5px 10px;
     cursor: pointer;
@@ -461,7 +461,7 @@ body {
     right: 600px; 
   }
 
-  .dialog-box {
+.dialog-box {
     display: none;
     position: absolute;
     top: 50%;

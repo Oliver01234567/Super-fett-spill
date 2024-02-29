@@ -120,7 +120,83 @@ function ChoosenAnd() {
 }
 
 
-//variabel for fiender
+//fiender
+//oppdager fiender
+let fiende = 0
+let enemyCheckEnabled = true;
+function checkForEnemy() {
+  let character = document.getElementById("character");
+  let enemies = document.querySelectorAll(".enemy");
+  let characterPlassering = character.getBoundingClientRect();
+  enemies.forEach(function (enemy) {
+    let enemyPlassering = enemy.getBoundingClientRect();
+
+    if (
+      characterPlassering.right > enemyPlassering.left &&
+      characterPlassering.left < enemyPlassering.right &&
+      characterPlassering.bottom > enemyPlassering.top &&
+      characterPlassering.top < enemyPlassering.bottom
+    ) {
+      fiende = enemy.id
+      console.log(enemy.id)
+      showEnemyPopup(enemy); // Pass enemy reference to showEnemyPopup
+
+    }
+  });
+}
+
+let currentEPopup = null;
+
+
+function showEnemyPopup(enemy) {
+  if (!enemyCheckEnabled) return;
+  if (currentEPopup) {
+    document.body.removeChild(currentEPopup);
+    currentEPopup = null;
+  }
+
+  const Epopup = document.createElement("div");
+  Epopup.className = "enemy-popup";
+  Epopup.innerHTML = `
+    <p>Du møtte en fiende!! Vil du utfordre han til Holmgang og få alle pengene hans??</p>
+    <button onclick="utfordreFiende()">Utfordre</button>
+    <button onclick="declineEnemy()">Avslå</button>
+  `;
+
+  document.body.appendChild(Epopup);
+  currentEPopup = Epopup;
+}
+
+function utfordreFiende() {
+  if(fiende == "enemy0") {
+    fightAnden()
+  }
+
+  if(fiende == "enemy1") {
+    fightJonas()
+  }
+
+}
+
+function declineEnemy(enemyid) {
+  disableEnemies()
+  if (currentEPopup) {
+    document.body.removeChild(currentEPopup);
+    currentEPopup = null;
+  }
+}
+
+function disableEnemies() {
+  enemyCheckEnabled = false;
+  setTimeout(enableEnemy, 3000);
+}
+
+function enableEnemy() {
+  enemyCheckEnabled = true;
+}
+
+
+  //variabler
 let opponent = 0
 const enemy0 = document.getElementById("enemy0")
 enemy0.addEventListener("click", fightAnden)
@@ -142,10 +218,10 @@ function fightJonas() {
   window.location.href = 'Combat/Combat.html';
 }
 
+
+
 //skjekker om en fiende er beseiret
 const island = document.getElementById("øy")
-
-
 
 let andenDod = 0
 andenDod = sessionStorage.getItem("andenDod")
@@ -299,6 +375,7 @@ function move() {
     character.style.transform = "scaleX(-1)"
     checkCharacterPosition();
     checkForChests()
+    checkForEnemy()
   }
   if (movement.ArrowRight || movement.d || movement.D) {
     posisjonBredde = currentLeft + movePlayer
@@ -307,6 +384,7 @@ function move() {
     character.style.transform = "scaleX(1)"
     checkCharacterPosition();
     checkForChests()
+    checkForEnemy()
   }
   if (movement.ArrowUp || movement.w || movement.W) {
     posisjonHoyde = currentTop - movePlayer
@@ -314,6 +392,7 @@ function move() {
     character.style.top = posisjonHoyde + "px";
     checkCharacterPosition();
     checkForChests()
+    checkForEnemy()
   }
   if (movement.ArrowDown || movement.s || movement.S) {
     posisjonHoyde = currentTop + movePlayer
@@ -321,6 +400,7 @@ function move() {
     character.style.top = posisjonHoyde + "px";
     checkCharacterPosition();
     checkForChests()
+    checkForEnemy()
   }
 
   requestAnimationFrame(move);
@@ -435,7 +515,7 @@ function damageIndicator() {
   }
 }
 
-function damageIncrease(){
+function damageIncrease() {
   if (playerDamage < 2 && money >= upgradeDmg) {
     playerDamage += 0.25;
     money -= upgradeDmg;
@@ -454,14 +534,14 @@ function damageIncrease(){
 
 
 damageer0.addEventListener("click", damageReset)
-function damageReset(){
-    playerDamage = 1
-    damage1.style.backgroundColor ="white"
-    damage2.style.backgroundColor ="white"
-    damage3.style.backgroundColor ="white"
-    damage4.style.backgroundColor ="white"
-    console.log("damage trykk")
-    sessionStorage.setItem("damageIs", playerDamage);
+function damageReset() {
+  playerDamage = 1
+  damage1.style.backgroundColor = "white"
+  damage2.style.backgroundColor = "white"
+  damage3.style.backgroundColor = "white"
+  damage4.style.backgroundColor = "white"
+  console.log("damage trykk")
+  sessionStorage.setItem("damageIs", playerDamage);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -539,10 +619,14 @@ function checkOpenChests() {
   openedChests.forEach(chest => {
     chest.src = "Bilder/openedChest.webp";
   })
-  
+
 }
 
+
+
+
 function openChest(chestId) {
+
   const chest = document.getElementById(chestId);
 
   chest.classList.add('opened');
@@ -764,6 +848,9 @@ function showNPCDialog(message) {
   npcYesBtn.style.display = "block";
   npcNoBtn.style.display = "block";
 
+  npcYesBtn.textContent = "Yes";
+  npcNoBtn.textContent = "No";
+
   console.log("showNPCDialog completed");
 }
 
@@ -788,8 +875,8 @@ function handleNPCResponse(response) {
 
     setTimeout(function () {
       showNPCDialog("Great! Would you like to buy a randomized skin box for 1000 money?");
-      npcYesBtn.style.display = "Purchase";
-      npcNoBtn.textContent = "Cancel";
+      npcYesBtn.textContent = "Purchase";
+      npcNoBtn.textContent = "Decline";
     }, 2);
   } else {
     console.log("Player said 'No'");
@@ -797,22 +884,14 @@ function handleNPCResponse(response) {
   }
 }
 
-npcYesBtn.addEventListener("click", () => {
-  showNPCDialog("Great! Please confirm your purchase.");
-  npcYesBtn.style.display = "none";
-  npcNoBtn.textContent = "Cancel";
-});
-
 npcNoBtn.addEventListener("click", () => {
   hideNPCDialog();
 });
 
-// function buySkinBox() {
-// Logic to deduct money and grant a random skin
-// Update the money variable and call updateMoneyAmount() accordingly
-// You can use setTimeout or other logic to simulate a delay if needed
-//  money -= 1000;
-//  updateMoneyAmount();
-//  showNPCDialog("Congratulations! You got a new skin!");
-//  npcYesBtn.style.display = "block";
-//}
+function buySkinBox() {
+  //Logic to deduct money and grant a random skin
+  // You can use setTimeout or other logic to simulate a delay if needed
+  money -= 1000;
+  showAlert("Congratulations! You got the skin " );
+  npcYesBtn.style.display = "block";
+}
