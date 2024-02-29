@@ -242,10 +242,23 @@ function checkForEnemy() {
       characterPlassering.top < enemyPlassering.bottom
     ) {
       fiende = enemy.id
-      console.log(enemy.id)
-      showEnemyPopup(enemy); // Pass enemy reference to showEnemyPopup
 
+      showEnemyPopup(enemy);
+
+      const enemyName = document.getElementById("enemyName")
+      if (fiende == null) {
+      return;
+    } else {
+      if (fiende == "enemy0") {
+        enemyName.innerText = "Anden"
+      }
+
+      if (fiende == "enemy1") {
+        enemyName.innerText = "Jonas"
+      }
     }
+  
+  }
   });
 }
 
@@ -262,7 +275,7 @@ function showEnemyPopup(enemy) {
   const Epopup = document.createElement("div");
   Epopup.className = "enemy-popup";
   Epopup.innerHTML = `
-    <p>Du møtte en fiende!! Vil du utfordre han til Holmgang og få alle pengene hans??</p>
+    <p>Du møtte <span id = "enemyName"> en fiende </span>!! Vil du utfordre han til Holmgang og få alle pengene hans??</p>
     <button onclick="utfordreFiende()">Utfordre</button>
     <button onclick="declineEnemy()">Avslå</button>
   `;
@@ -271,22 +284,29 @@ function showEnemyPopup(enemy) {
   currentEPopup = Epopup;
 }
 
+setInterval(consoleLog, 2000)
+function consoleLog() {
+  console.log(fiende)
+}
+
 function utfordreFiende() {
-  if(fiende == "enemy0") {
+  if (fiende == "enemy0") {
     fightAnden()
   }
 
-  if(fiende == "enemy1") {
+  if (fiende == "enemy1") {
     fightJonas()
   }
 
 }
+
 
 function declineEnemy(enemyid) {
   disableEnemies()
   if (currentEPopup) {
     document.body.removeChild(currentEPopup);
     currentEPopup = null;
+    fiende = null
   }
 }
 
@@ -300,7 +320,7 @@ function enableEnemy() {
 }
 
 
-  //variabler
+//variabler
 let opponent = 0
 const enemy0 = document.getElementById("enemy0")
 enemy0.addEventListener("click", fightAnden)
@@ -384,11 +404,11 @@ function generateTrees(numTrees) {
     // random posisjon
     // let xPos = getRandomNumber(0, greenAreaWidth - 30);
     // let yPos = getRandomNumber(0, greenAreaHeight - 30);
-    let xPos = ( (i+1) * 345676667) % (greenAreaWidth - 30);
-    let yPos = ( (i+1) * 34567) % (greenAreaHeight - 30);
+    let xPos = ((i + 1) * 345676667) % (greenAreaWidth - 30);
+    let yPos = ((i + 1) * 34567) % (greenAreaHeight - 30);
     img.style.left = xPos + 'px';
     img.style.top = yPos + 'px';
-  
+
     tree.appendChild(img);
     map.appendChild(tree);
   }
@@ -996,6 +1016,6 @@ function buySkinBox() {
   //Logic to deduct money and grant a random skin
   // You can use setTimeout or other logic to simulate a delay if needed
   money -= 1000;
-  showAlert("Congratulations! You got the skin " );
+  showAlert("Congratulations! You got the skin ");
   npcYesBtn.style.display = "block";
 }
