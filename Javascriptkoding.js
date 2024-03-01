@@ -330,7 +330,7 @@ function showEnemyPopup(enemy) {
   Epopup.className = "enemy-popup";
   Epopup.innerHTML = `
     <p> <span id="enemyOrNot"> Du møtte </span> <span id = "enemyName"> en fiende </span>!! <span id="npcChallenge"> Vil du utfordre han til Holmgang og få alle pengene hans?? </span> </p>
-    <button onclick="utfordreFiende()">Utfordre</button>
+    <button onclick="utfordreFiende()"><span id="godtaOrUtfordre">Utfordre</span></button>
     <button onclick="declineEnemy()">Avslå</button>
   `;
 
@@ -343,6 +343,7 @@ function showEnemyPopup(enemy) {
   const enemyName = document.getElementById("enemyName")
   const npcChallenge = document.getElementById("npcChallenge")
   const enemyOrNot = document.getElementById("enemyOrNot")
+  const godtaOrUtfordre = document.getElementById("godtaOrUtfordre")
   if (currentEPopup != Epopup) {
     return;
   } else {
@@ -358,6 +359,7 @@ function showEnemyPopup(enemy) {
       enemyName.innerText = "Birk"
       npcChallenge.innerText = "Hvis du løser denne quizen får du masse penger"
       enemyOrNot.innerText = "Hei jeg heter "
+      godtaOrUtfordre.innerText = "Godta"
     }
   }
 }
@@ -458,7 +460,7 @@ if (jonasDod == 2) {
 birkSkin.addEventListener("click", ikkeTilgangSkin)
 
 if(birkUnlocked == 1) {
-  island.removeChild(document.querySelector("birk"))
+  island.removeChild(document.querySelector("#birk"));
   birkSkin.removeEventListener("click", ikkeTilgangSkin)
   birkSkin.addEventListener("click", ChoosenBirk)
   birkSkin.innerText = "Birk"
