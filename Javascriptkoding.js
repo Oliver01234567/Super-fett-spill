@@ -2,7 +2,7 @@
 //Husk å markere alt i js og css slik at man enklere kan se hva som er hva
 
 //Fjerner scrolling fra siden
-document.body.style.overflow = "hidden";
+//document.body.style.overflow = "hidden";
 
 const moneyAmount = document.getElementById("moneyAmount");
 let money = 0
