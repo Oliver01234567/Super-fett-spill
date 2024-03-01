@@ -18,6 +18,7 @@ function hente_resultater() {
                     alert("Riktig")
                     let quiz1Seier = 1
                     sessionStorage.setItem("quiz1Seier", quiz1Seier)
+                    window.location.href = '../Index.html';
                 } else {
                     alert("wrong")
                 }

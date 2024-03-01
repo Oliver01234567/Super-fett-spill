@@ -17,6 +17,21 @@ choosenSkin = parseInt(sessionStorage.getItem("choosenSkin")) || 0
 
 
 
+//Quiz seiere
+let quiz1Seier = 0
+quiz1Seier = sessionStorage.getItem("quiz1Seier") || 0
+
+if(quiz1Seier == 1) {
+  quiz1Seier = 2 
+  sessionStorage.setItem("quiz1Seier", 2)
+  let tjentMoney = 2000
+  money = money + tjentMoney
+  showAlert("Du fikk " + tjentMoney.toFixed(0) + " penger av Quizen", "success")
+
+}
+
+
+
 
 //Thorbjorn er 0
 //Ramus er 1
