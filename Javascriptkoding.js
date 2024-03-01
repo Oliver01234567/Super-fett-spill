@@ -246,8 +246,8 @@ function checkForEnemy() {
       fiende = enemy.id
 
       showEnemyPopup(enemy);
-  
-  }
+
+    }
   });
 }
 
@@ -269,24 +269,24 @@ function showEnemyPopup(enemy) {
     <button onclick="declineEnemy()">Avslå</button>
   `;
 
-  
+
 
 
   document.body.appendChild(Epopup);
   currentEPopup = Epopup;
 
   const enemyName = document.getElementById("enemyName")
-      if (currentEPopup != Epopup) {
-      return;
-    } else {
-      if (fiende == "enemy0") {
-        enemyName.innerText = "Anden"
-      }
-
-      if (fiende == "enemy1") {
-        enemyName.innerText = "Jonas"
-      }
+  if (currentEPopup != Epopup) {
+    return;
+  } else {
+    if (fiende == "enemy0") {
+      enemyName.innerText = "Anden"
     }
+
+    if (fiende == "enemy1") {
+      enemyName.innerText = "Jonas"
+    }
+  }
 }
 
 setInterval(consoleLog, 2000)
@@ -517,7 +517,7 @@ function move() {
     checkCharacterPosition();
     checkForChests()
     checkForEnemy()
-updateScreenPositionLeft()
+    updateScreenPositionLeft()
   }
   if (movement.ArrowRight || movement.d || movement.D) {
     posisjonBredde = currentLeft + movePlayer
@@ -527,7 +527,7 @@ updateScreenPositionLeft()
     checkCharacterPosition();
     checkForChests()
     checkForEnemy()
-updateScreenPositionRight()
+    updateScreenPositionRight()
   }
   if (movement.ArrowUp || movement.w || movement.W) {
     posisjonHoyde = currentTop - movePlayer
@@ -536,7 +536,7 @@ updateScreenPositionRight()
     checkCharacterPosition();
     checkForChests()
     checkForEnemy()
-updateScreenPositionTop()
+    updateScreenPositionTop()
   }
   if (movement.ArrowDown || movement.s || movement.S) {
     posisjonHoyde = currentTop + movePlayer
@@ -545,7 +545,7 @@ updateScreenPositionTop()
     checkCharacterPosition();
     checkForChests()
     checkForEnemy()
-updateScreenPositionDown()
+    updateScreenPositionDown()
   }
 
   requestAnimationFrame(move);
@@ -730,6 +730,8 @@ let currentPopup = null;
 
 let chestCheckEnabled = true;
 
+const challenge = document.getElementById("challenge")
+
 function showChestPopup(chest) {
   if (!chestCheckEnabled) return; // ! betyr ikke, skjekker om den ikke er true
   if (currentPopup) {
@@ -742,16 +744,34 @@ function showChestPopup(chest) {
     return;
   }
 
+  let chestsId = chest.id
+
   const popup = document.createElement("div");
   popup.className = "chest-popup";
   popup.innerHTML = `
-    <p>Du fant en kiste! Vil du åpne den??</p>
+    <p>Du fant en kiste! <span id="challenge"> Vil du Åpne den???</span></p>
     <button onclick="openChest('${chest.id}')">Åpne</button>
     <button onclick="declineChest('${chest.id}')">Avslå</button>
   `;
 
+  
+
+
   document.body.appendChild(popup);
   currentPopup = popup;
+
+  const challenge = document.getElementById("challenge")
+      if (currentPopup != popup) {
+      return;
+    } else {
+      if (chestsId == "Chest1") {
+        challenge.innerText = "For å åpne den må du løse en quiz"
+      }
+
+      if (chestsId == "Chest2") {
+        challenge.innerText = "For å åpne den må du løse en quiz"
+      }
+    }
 }
 
 
@@ -766,23 +786,25 @@ function checkOpenChests() {
 
 }
 
-
-
-
 function openChest(chestId) {
 
   const chest = document.getElementById(chestId);
 
   chest.classList.add('opened');
-  tilfPenger = Math.floor(Math.random() * 90) + 1;
-  showAlert("Du fant " + tilfPenger + " penger", "success");
-  money += tilfPenger;
-  updateMoneyAmount();
+
 
   sessionStorage.setItem(chestId, 1);
   if (currentPopup) {
     document.body.removeChild(currentPopup);
     currentPopup = null;
+  }
+
+  if (chestId == "Chest1") {
+    window.location.href = 'Quiz/js_quiz.html';
+  }
+
+  if (chestId == "Chest2") {
+    window.location.href = 'Quiz/quiz_2.html';
   }
 }
 
