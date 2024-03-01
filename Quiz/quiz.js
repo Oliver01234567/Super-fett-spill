@@ -1,8 +1,11 @@
 let money = 0
 money = parseInt(localStorage.getItem("money")) || 0
 
-quiz_poeng = 0
+let opponent = 0
+opponent = parseInt(sessionStorage.getItem("opponent")) || 0
 
+quiz_poeng = 0
+let quiz1Seier = 0
 
 
 function hente_resultater() {
@@ -18,8 +21,16 @@ function hente_resultater() {
                 if (svar4.checked == true) {
                     alert("Riktig")
 
-                    let quiz1Seier = 1
-                    localStorage.setItem("quiz1Seier", quiz1Seier)
+                    if(opponent != 19) {
+                        quiz1Seier = 1
+                        localStorage.setItem("quiz1Seier", quiz1Seier)
+                    }
+                    
+                    if(opponent == 19) {
+                        quiz1Seier = 3
+                        localStorage.setItem("quiz1Seier", quiz1Seier)
+                    }
+                    
                     window.location.href = '../Index.html';
                 } else {
                     alert("wrong")

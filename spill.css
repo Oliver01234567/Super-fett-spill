@@ -29,8 +29,19 @@
 
 /*Øya og havet*/
 
+#space {
+    display: grid;
+    grid-template-rows: 5000px;
+    grid-template-rows: 5000px;
+    gap: 40px;
+
+}
+
 #blank {
+    grid-column: 2;
     height: 5000px;
+    width: 300px;
+    margin-right: 500px;
 }
 
 
@@ -41,6 +52,7 @@ body {
 
 
 #øy {
+    grid-column: 1;
     background-color: rgb(143, 183, 63);
     height: 5000px;
     width: 5000px;
@@ -48,7 +60,6 @@ body {
     border-radius: 10px;
     overflow: hidden;
     margin: 500px;
-    margin-right: 500px;
 }
 
 .tree{
@@ -161,11 +172,11 @@ body {
 
 }
 
-.enemy {
+.npc {
     padding: 30px;
 }
 
-.NPC img, .enemy img {
+.NPC img, .npc img {
     width: 60px;
     height: 60px;
 }

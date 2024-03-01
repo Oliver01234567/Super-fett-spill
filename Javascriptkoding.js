@@ -21,8 +21,8 @@ choosenSkin = parseInt(sessionStorage.getItem("choosenSkin")) || 0
 let quiz1Seier = 0
 quiz1Seier = localStorage.getItem("quiz1Seier") || 0
 
-if(quiz1Seier == 1) {
-  quiz1Seier = 2 
+if (quiz1Seier == 1) {
+  quiz1Seier = 2
   localStorage.setItem("quiz1Seier", 2)
   let tjentMoney = 2000
   money = money + tjentMoney
@@ -30,6 +30,24 @@ if(quiz1Seier == 1) {
 
 }
 
+let birkUnlocked = 0
+birkUnlocked = sessionStorage.getItem("birkUnlocked") || 0
+
+if (quiz1Seier == 3) {
+  quiz1Seier = 2
+  localStorage.setItem("quiz1Seier", 2)
+
+  birkUnlocked = 1
+  sessionStorage.setItem("birkUnlocked", 1)
+  let tjentMoney = 4000
+  money = money + tjentMoney
+  showAlert("Birk er stolt av deg, han gir deg " + tjentMoney.toFixed(0) + " penger", "success")
+  setTimeout(birkIsUnlocked, 2100)
+}
+
+function birkIsUnlocked() {
+  showAlert("Birk er nå tilgjengelig som et Skin", "success")
+}
 
 
 
@@ -41,6 +59,7 @@ if(quiz1Seier == 1) {
 //Panda er 5
 //Langbein er 6
 //Peter Griffin er 7
+//Birk er 8
 
 const torbSkin = document.getElementById("torbSkin")
 if (choosenSkin == 0) {
@@ -91,6 +110,13 @@ if (choosenSkin == 7) {
   peterSkin.style.backgroundColor = "red"
 }
 
+if (choosenSkin == 8) {
+  characterP.src = "Bilder/Birk.png"
+  birkSkin.style.backgroundColor = "red"
+}
+
+
+
 //skins section
 function ChoosenTorb() {
   characterP.src = "Bilder/Torbjorn.png"
@@ -104,6 +130,7 @@ function ChoosenTorb() {
   pandaSkin.style.backgroundColor = "brown";
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "brown";
+  birkSkin.style.backgroundColor = "brown"
 
   showAlert("Byttet skin til Thor Bjørn", "success");
 }
@@ -131,6 +158,7 @@ function ChoosenRasmus() {
     pandaSkin.style.backgroundColor = "brown";
     langbeinSkin.style.backgroundColor = "brown";
     peterSkin.style.backgroundColor = "brown";
+    birkSkin.style.backgroundColor = "brown"
   } else if (chosenRasmus == 10) {
     rasmusSkin.innerText = "Rasmus";
     characterP.src = "Bilder/Rasmus.png";
@@ -144,6 +172,7 @@ function ChoosenRasmus() {
     pandaSkin.style.backgroundColor = "brown";
     langbeinSkin.style.backgroundColor = "brown";
     peterSkin.style.backgroundColor = "brown";
+    birkSkin.style.backgroundColor = "brown"
     showAlert("Byttet skin til Rasmus", "success")
   } else {
     showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
@@ -163,6 +192,7 @@ function ChoosenJonas() {
   pandaSkin.style.backgroundColor = "brown";
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "brown";
+  birkSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Jonas", "success");
 }
 
@@ -178,6 +208,7 @@ function ChoosenAnd() {
   pandaSkin.style.backgroundColor = "brown";
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "brown";
+  birkSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Anden", "success");
 }
 
@@ -193,6 +224,7 @@ function chosenMonke() {
   pandaSkin.style.backgroundColor = "brown";
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "brown";
+  birkSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Monke", "success");
 }
 
@@ -208,6 +240,7 @@ function chosenPanda() {
   pandaSkin.style.backgroundColor = "red";
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "brown";
+  birkSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Panda", "success");
 }
 
@@ -223,6 +256,7 @@ function chosenLangbein() {
   pandaSkin.style.backgroundColor = "brown";
   langbeinSkin.style.backgroundColor = "red";
   peterSkin.style.backgroundColor = "brown";
+  birkSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Langbein", "success");
 }
 
@@ -238,25 +272,41 @@ function chosenPeter() {
   pandaSkin.style.backgroundColor = "brown";
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "red";
+  birkSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Peter Griffin", "success");
 }
 
+function ChoosenBirk() {
+  characterP.src = "Bilder/Birk.png"
+  choosenSkin = 8
+  sessionStorage.setItem("choosenSkin", choosenSkin);
+  rasmusSkin.style.backgroundColor = "brown";
+  jonasSkin.style.backgroundColor = "brown";
+  torbSkin.style.backgroundColor = "brown";
+  andSkin.style.backgroundColor = "brown";
+  monkeSkin.style.backgroundColor = "brown";
+  pandaSkin.style.backgroundColor = "brown";
+  langbeinSkin.style.backgroundColor = "brown";
+  peterSkin.style.backgroundColor = "brown";
+  birkSkin.style.backgroundColor = "red"
+  showAlert("Byttet skin til Birk", "success");
+}
 
 //fiender
 //oppdager fiender
 let fiende = 0
 let enemyCheckEnabled = true;
-function checkForEnemy() {
-  let enemies = document.querySelectorAll(".enemy");
+function checkForNPC() {
+  let npcs = document.querySelectorAll(".npc");
   let characterPlassering = character.getBoundingClientRect();
-  enemies.forEach(function (enemy) {
-    let enemyPlassering = enemy.getBoundingClientRect();
+  npcs.forEach(function (enemy) {
+    let npcPlassering = enemy.getBoundingClientRect();
 
     if (
-      characterPlassering.right > enemyPlassering.left &&
-      characterPlassering.left < enemyPlassering.right &&
-      characterPlassering.bottom > enemyPlassering.top &&
-      characterPlassering.top < enemyPlassering.bottom
+      characterPlassering.right > npcPlassering.left &&
+      characterPlassering.left < npcPlassering.right &&
+      characterPlassering.bottom > npcPlassering.top &&
+      characterPlassering.top < npcPlassering.bottom
     ) {
       fiende = enemy.id
 
@@ -279,7 +329,7 @@ function showEnemyPopup(enemy) {
   const Epopup = document.createElement("div");
   Epopup.className = "enemy-popup";
   Epopup.innerHTML = `
-    <p>Du møtte <span id = "enemyName"> en fiende </span>!! Vil du utfordre han til Holmgang og få alle pengene hans??</p>
+    <p> <span id="enemyOrNot"> Du møtte </span> <span id = "enemyName"> en fiende </span>!! <span id="npcChallenge"> Vil du utfordre han til Holmgang og få alle pengene hans?? </span> </p>
     <button onclick="utfordreFiende()">Utfordre</button>
     <button onclick="declineEnemy()">Avslå</button>
   `;
@@ -291,6 +341,8 @@ function showEnemyPopup(enemy) {
   currentEPopup = Epopup;
 
   const enemyName = document.getElementById("enemyName")
+  const npcChallenge = document.getElementById("npcChallenge")
+  const enemyOrNot = document.getElementById("enemyOrNot")
   if (currentEPopup != Epopup) {
     return;
   } else {
@@ -300,6 +352,12 @@ function showEnemyPopup(enemy) {
 
     if (fiende == "enemy1") {
       enemyName.innerText = "Jonas"
+    }
+
+    if (fiende == "birk") {
+      enemyName.innerText = "Birk"
+      npcChallenge.innerText = "Hvis du løser denne quizen får du masse penger"
+      enemyOrNot.innerText = "Hei jeg heter "
     }
   }
 }
@@ -316,6 +374,12 @@ function utfordreFiende() {
 
   if (fiende == "enemy1") {
     fightJonas()
+  }
+
+  if (fiende == "birk") {
+    opponent = 19
+    sessionStorage.setItem("opponent", 19)
+    window.location.href = 'Quiz/quiz_3.html';
   }
 
 }
@@ -342,11 +406,7 @@ function enableEnemy() {
 
 //variabler
 let opponent = 0
-const enemy0 = document.getElementById("enemy0")
-enemy0.addEventListener("click", fightAnden)
 
-const enemy1 = document.getElementById("enemy1")
-enemy1.addEventListener("click", fightJonas)
 
 //de ulike fiendene
 function fightAnden() {
@@ -392,6 +452,16 @@ if (jonasDod == 2) {
   jonasSkin.addEventListener("click", ChoosenJonas)
   jonasSkin.removeEventListener("click", ikkeTilgangSkin)
   jonasSkin.innerText = "Jonas"
+}
+
+
+birkSkin.addEventListener("click", ikkeTilgangSkin)
+
+if(birkUnlocked == 1) {
+  island.removeChild(document.querySelector("birk"))
+  birkSkin.removeEventListener("click", ikkeTilgangSkin)
+  birkSkin.addEventListener("click", ChoosenBirk)
+  birkSkin.innerText = "Birk"
 }
 
 
@@ -531,7 +601,7 @@ function move() {
     character.style.transform = "scaleX(-1)"
     checkCharacterPosition();
     checkForChests()
-    checkForEnemy()
+    checkForNPC()
     updateScreenPositionLeft()
   }
   if (movement.ArrowRight || movement.d || movement.D) {
@@ -541,7 +611,7 @@ function move() {
     character.style.transform = "scaleX(1)"
     checkCharacterPosition();
     checkForChests()
-    checkForEnemy()
+    checkForNPC()
     updateScreenPositionRight()
   }
   if (movement.ArrowUp || movement.w || movement.W) {
@@ -550,7 +620,7 @@ function move() {
     character.style.top = posisjonHoyde + "px";
     checkCharacterPosition();
     checkForChests()
-    checkForEnemy()
+    checkForNPC()
     updateScreenPositionTop()
   }
   if (movement.ArrowDown || movement.s || movement.S) {
@@ -559,7 +629,7 @@ function move() {
     character.style.top = posisjonHoyde + "px";
     checkCharacterPosition();
     checkForChests()
-    checkForEnemy()
+    checkForNPC()
     updateScreenPositionDown()
   }
 
@@ -769,24 +839,24 @@ function showChestPopup(chest) {
     <button onclick="declineChest('${chest.id}')">Avslå</button>
   `;
 
-  
+
 
 
   document.body.appendChild(popup);
   currentPopup = popup;
 
   const challenge = document.getElementById("challenge")
-      if (currentPopup != popup) {
-      return;
-    } else {
-      if (chestsId == "Chest1") {
-        challenge.innerText = "For å åpne den må du løse en quiz"
-      }
-
-      if (chestsId == "Chest2") {
-        challenge.innerText = "For å åpne den må du løse en quiz"
-      }
+  if (currentPopup != popup) {
+    return;
+  } else {
+    if (chestsId == "Chest1") {
+      challenge.innerText = "For å åpne den må du løse en quiz"
     }
+
+    if (chestsId == "Chest2") {
+      challenge.innerText = "For å åpne den må du løse en quiz"
+    }
+  }
 }
 
 
