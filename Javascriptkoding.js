@@ -685,7 +685,7 @@ let movement = {
 };
 
 //Variabel for movement
-let movePlayer = 4
+let movePlayer = sessionStorage.getItem("movePlayer") || 4
 
 let upgradeSpeed = 1000;
 
@@ -694,6 +694,7 @@ const speedUpg = document.getElementById("speedUpg");
 function SpeedIncrease() {
   if (movePlayer < 10 && money >= upgradeSpeed) {
     movePlayer += 2;
+    sessionStorage.setItem("movePlayer", movePlayer)
     money -= upgradeSpeed;
     upgradeSpeed *= 2;
     speedNivå()
