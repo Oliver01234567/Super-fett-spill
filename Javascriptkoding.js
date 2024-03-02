@@ -1,6 +1,23 @@
 //interne notater:
 //Husk å markere alt i js og css slik at man enklere kan se hva som er hva
 
+//Chests
+let nummer = 1
+for (let i = 1; i < 60; i++) {
+  const creChest = document.createElement("div")
+        // square.innerHTML = nummer
+        creChest.id = "Chest" + nummer
+        nummer++
+
+        creChest.classList.add("InteractiveMaterial")
+        creChest.classList.add("Chest")
+        
+
+        document.getElementById("øy").appendChild(creChest)
+}
+
+
+
 //Fjerner scrolling fra siden
 //document.body.style.overflow = "hidden";
 
@@ -24,7 +41,7 @@ quiz1Seier = localStorage.getItem("quiz1Seier") || 0
 if (quiz1Seier == 1) {
   quiz1Seier = 2
   localStorage.setItem("quiz1Seier", 2)
-  let tjentMoney = 2000
+  let tjentMoney = 5000
   money = money + tjentMoney
   showAlert("Du fikk " + tjentMoney.toFixed(0) + " penger av Quizen", "success")
 
@@ -49,6 +66,16 @@ function birkIsUnlocked() {
   showAlert("Birk er nå tilgjengelig som et Skin", "success")
 }
 
+
+let getMoney = localStorage.getItem("getMoney") || 0
+if (getMoney != 0) {
+  getMoney = 0
+  localStorage.setItem("getMoney", 0)
+
+  let tjentMoney = 1000
+  money = money + tjentMoney
+  showAlert("Du fant " + tjentMoney.toFixed(0) + " penger", "success")
+}
 
 
 //Thorbjorn er 0
@@ -970,6 +997,7 @@ function showChestPopup(chest) {
   if (currentPopup != popup) {
     return;
   } else {
+
     if (chestsId == "Chest1") {
       challenge.innerText = "For å åpne den må du løse en quiz"
     }
@@ -1005,6 +1033,10 @@ function openChest(chestId) {
     currentPopup = null;
   }
 
+  if(chestId != "Chest1" && chestId != "Chest2") {
+    window.location.href = 'Chests/ChestOpen.html'
+  }
+
   if (chestId == "Chest1") {
     window.location.href = 'Quiz/js_quiz.html';
   }
@@ -1013,6 +1045,7 @@ function openChest(chestId) {
     window.location.href = 'Quiz/quiz_2.html';
   }
 }
+
 
 function disableChests() {
   chestCheckEnabled = false;
