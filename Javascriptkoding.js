@@ -60,6 +60,7 @@ function birkIsUnlocked() {
 //Langbein er 6
 //Peter Griffin er 7
 //Birk er 8
+//Kasper er 9
 
 const torbSkin = document.getElementById("torbSkin")
 if (choosenSkin == 0) {
@@ -115,6 +116,12 @@ if (choosenSkin == 8) {
   birkSkin.style.backgroundColor = "red"
 }
 
+const kasperSkin = document.getElementById("kasperSkin")
+if (choosenSkin == 9) {
+  characterP.src = "Bilder/kasper.png"
+  kasperSkin.style.backgroundColor = "red"
+}
+
 
 
 //skins section
@@ -131,6 +138,7 @@ function ChoosenTorb() {
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "brown";
   birkSkin.style.backgroundColor = "brown"
+  kasperSkin.style.backgroundColor = "brown"
 
   showAlert("Byttet skin til Thor Bjørn", "success");
 }
@@ -159,6 +167,7 @@ function ChoosenRasmus() {
     langbeinSkin.style.backgroundColor = "brown";
     peterSkin.style.backgroundColor = "brown";
     birkSkin.style.backgroundColor = "brown"
+    kasperSkin.style.backgroundColor = "brown"
   } else if (chosenRasmus == 10) {
     rasmusSkin.innerText = "Rasmus";
     characterP.src = "Bilder/Rasmus.png";
@@ -173,6 +182,7 @@ function ChoosenRasmus() {
     langbeinSkin.style.backgroundColor = "brown";
     peterSkin.style.backgroundColor = "brown";
     birkSkin.style.backgroundColor = "brown"
+    kasperSkin.style.backgroundColor = "brown"
     showAlert("Byttet skin til Rasmus", "success")
   } else {
     showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
@@ -193,6 +203,7 @@ function ChoosenJonas() {
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "brown";
   birkSkin.style.backgroundColor = "brown"
+  kasperSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Jonas", "success");
 }
 
@@ -209,6 +220,7 @@ function ChoosenAnd() {
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "brown";
   birkSkin.style.backgroundColor = "brown"
+  kasperSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Anden", "success");
 }
 
@@ -225,6 +237,7 @@ function chosenMonke() {
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "brown";
   birkSkin.style.backgroundColor = "brown"
+  kasperSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Monke", "success");
 }
 
@@ -241,6 +254,7 @@ function chosenPanda() {
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "brown";
   birkSkin.style.backgroundColor = "brown"
+  kasperSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Panda", "success");
 }
 
@@ -257,6 +271,7 @@ function chosenLangbein() {
   langbeinSkin.style.backgroundColor = "red";
   peterSkin.style.backgroundColor = "brown";
   birkSkin.style.backgroundColor = "brown"
+  kasperSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Langbein", "success");
 }
 
@@ -273,6 +288,7 @@ function chosenPeter() {
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "red";
   birkSkin.style.backgroundColor = "brown"
+  kasperSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Peter Griffin", "success");
 }
 
@@ -289,7 +305,25 @@ function ChoosenBirk() {
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "brown";
   birkSkin.style.backgroundColor = "red"
+  kasperSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Birk", "success");
+}
+
+function choosenKasper() {
+characterP.src = "Bilder/kasper.png"
+  choosenSkin = 9
+  sessionStorage.setItem("choosenSkin", choosenSkin);
+  rasmusSkin.style.backgroundColor = "brown";
+  jonasSkin.style.backgroundColor = "brown";
+  torbSkin.style.backgroundColor = "brown";
+  andSkin.style.backgroundColor = "brown";
+  monkeSkin.style.backgroundColor = "brown";
+  pandaSkin.style.backgroundColor = "brown";
+  langbeinSkin.style.backgroundColor = "brown";
+  peterSkin.style.backgroundColor = "brown";
+  birkSkin.style.backgroundColor = "brown"
+  kasperSkin.style.backgroundColor = "red"
+  showAlert("Byttet skin til Kasper", "success");
 }
 
 //fiender
@@ -359,6 +393,11 @@ function showEnemyPopup(enemy) {
       enemyOrNot.innerText = "Hei Jeg heter Birk!! Vil du snakke litt??"
       godtaOrUtfordre.innerText = "Ja, gjerne"
     }
+
+    if (fiende == "kasper") {
+      enemyOrNot.innerText ="Du møtte Kasper!! Vil du utfordre han til Holmgang og få alle pengene hans??"
+
+    }
   }
 }
 
@@ -376,12 +415,18 @@ function utfordreFiende() {
     fightJonas()
   }
 
+  if(fiende == "kasper") {
+    fightKasper()
+  } 
+
   if (fiende == "birk") {
     godtaOrUtfordre.removeEventListener("click", utfordreFiende)
     godtaOrUtfordre.addEventListener("click", birkSinQuiz)
     enemyOrNot.innerText = "Kan du svare på quizen min?? Du får en stor belønning"
     godtaOrUtfordre.innerText = "Godta"
   }
+
+  
 
 }
 
@@ -427,6 +472,12 @@ function fightAnden() {
 
 function fightJonas() {
   opponent = 1
+  sessionStorage.setItem("opponent", opponent)
+  window.location.href = 'Combat/Combat.html';
+}
+
+function fightKasper() {
+  opponent = 2
   sessionStorage.setItem("opponent", opponent)
   window.location.href = 'Combat/Combat.html';
 }
@@ -483,6 +534,29 @@ if (jonasDod == 2) {
 
 function jonasUnlocked() {
   showAlert("Jonas er nå låst opp som et skin", "success");
+}
+
+
+let kasperDod = 0
+kasperDod = sessionStorage.getItem("kasperDod") || 0
+kasperSkin.addEventListener("click", ikkeTilgangSkin)
+
+let firstTimeKasper = sessionStorage.getItem("firstTimeKasper") || 0
+
+if (kasperDod == 2) {
+  if (firstTimeKasper == 1) {
+    setTimeout(kasperUnlocked, 2500)
+    firstTimeKasper = 2
+    sessionStorage.setItem("firstTimeKasper", firstTimeKasper)
+  }
+  island.removeChild(document.querySelector("#kasper"));
+  kasperSkin.addEventListener("click", choosenKasper)
+  kasperSkin.removeEventListener("click", ikkeTilgangSkin)
+  kasperSkin.innerText = "Kasper"
+}
+
+function kasperUnlocked() {
+  showAlert("Kasper er nå låst opp som et skin", "success");
 }
 
 

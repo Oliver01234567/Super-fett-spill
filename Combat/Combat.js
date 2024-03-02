@@ -49,6 +49,11 @@ if(choosenSkin == 8) {
     name.innerText = "Birk"
 }
 
+if(choosenSkin == 9) {
+    playerIcon.src = "../Bilder/kasper.png"
+    name.innerText = "Kasper"
+}
+
 //henter hvilken fiende du vil kjempe mot
 opponent = parseInt(sessionStorage.getItem("opponent")) || 0
 
@@ -155,6 +160,48 @@ if (opponent == 1) {
 
     JonasDeath = 1
 }
+
+    let KasperDeath = 0
+if(opponent == 2) {
+    motstanderIcon.src = "../Bilder/kasper.png"
+    enemyName.innerText = "Kasper"
+    enemyName2.innerText = "Kasper"
+    enemyName3.innerText = "Kasper"
+    enemyName4.innerText = "Kasper"
+
+
+    body.classList.add("img3")
+    winScreenen.classList.add("img3")
+    deathScreenen.classList.add("img3")
+    howto.classList.add("img3")
+
+    allText.forEach(function (pElement) {
+        pElement.classList.add("colorScheme3")
+    })
+    allH.forEach(function (hElemnt) {
+        hElemnt.classList.add("colorScheme3")
+    })
+
+    allh2.forEach(function (h2Elm) {
+        h2Elm.classList.add("colorScheme3")
+    })
+
+    allh3.forEach(function (h3Elm) {
+        h3Elm.classList.add("colorScheme3")
+    })
+
+    allButton.forEach(function (ButtonElm) {
+        ButtonElm.classList.add("colorScheme3button")
+    })
+
+    allcGrid.forEach(function (GridElm) {
+        GridElm.classList.add("colorScheme3border")
+    })
+
+    KasperDeath = 1
+}
+
+
 const prov = document.getElementById("Prov")
 
 //du mister penger hvis du dør
@@ -330,6 +377,15 @@ function startGame() {
                 sessionStorage.setItem("firstTimeJonas", firstTimeJonas)
                 
             }
+
+            if(KasperDeath == 1) {
+                let kasperDod = 2
+                sessionStorage.setItem("kasperDod", kasperDod)
+
+                let firstTimeKasper = 1
+                sessionStorage.setItem("firstTimeKasper", firstTimeKasper)
+            }
+            
 
             return;
 
