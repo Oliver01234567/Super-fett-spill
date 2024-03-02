@@ -3,17 +3,26 @@
 
 //Chests
 let nummer = 1
-for (let i = 1; i < 60; i++) {
+for (let i = 1; i < 30; i++) {
   const creChest = document.createElement("div")
-        // square.innerHTML = nummer
-        creChest.id = "Chest" + nummer
-        nummer++
+  // square.innerHTML = nummer
+  creChest.id = "Chest" + nummer
+  
 
-        creChest.classList.add("InteractiveMaterial")
-        creChest.classList.add("Chest")
-        
+  creChest.classList.add("InteractiveMaterial")
+  creChest.classList.add("Chest")
 
-        document.getElementById("øy").appendChild(creChest)
+
+  document.getElementById("øy").appendChild(creChest)
+
+
+
+  const creChestImg = document.createElement("img")
+  creChestImg.src = "Bilder/closedChest.webp"
+  creChestImg.alt = "Chest"
+  document.getElementById("Chest" + nummer).appendChild(creChestImg)
+
+  nummer++
 }
 
 
@@ -337,7 +346,7 @@ function ChoosenBirk() {
 }
 
 function choosenKasper() {
-characterP.src = "Bilder/kasper.png"
+  characterP.src = "Bilder/kasper.png"
   choosenSkin = 9
   sessionStorage.setItem("choosenSkin", choosenSkin);
   rasmusSkin.style.backgroundColor = "brown";
@@ -422,7 +431,7 @@ function showEnemyPopup(enemy) {
     }
 
     if (fiende == "kasper") {
-      enemyOrNot.innerText ="Du møtte Kasper!! Vil du utfordre han til Holmgang og få alle pengene hans??"
+      enemyOrNot.innerText = "Du møtte Kasper!! Vil du utfordre han til Holmgang og få alle pengene hans??"
 
     }
   }
@@ -442,9 +451,9 @@ function utfordreFiende() {
     fightJonas()
   }
 
-  if(fiende == "kasper") {
+  if (fiende == "kasper") {
     fightKasper()
-  } 
+  }
 
   if (fiende == "birk") {
     godtaOrUtfordre.removeEventListener("click", utfordreFiende)
@@ -453,7 +462,7 @@ function utfordreFiende() {
     godtaOrUtfordre.innerText = "Godta"
   }
 
-  
+
 
 }
 
@@ -1033,7 +1042,7 @@ function openChest(chestId) {
     currentPopup = null;
   }
 
-  if(chestId != "Chest1" && chestId != "Chest2") {
+  if (chestId != "Chest1" && chestId != "Chest2") {
     window.location.href = 'Chests/ChestOpen.html'
   }
 
