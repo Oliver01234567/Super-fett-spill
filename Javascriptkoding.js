@@ -433,11 +433,22 @@ let andenDod = 0
 andenDod = sessionStorage.getItem("andenDod")
 andSkin.addEventListener("click", ikkeTilgangSkin)
 
+let firstTimeAnd = sessionStorage.getItem("firstTimeAnd") || 0
+
 if (andenDod == 2) {
+  if(firstTimeAnd == 1) {
+    setTimeout(andUnlocked, 2500)
+    firstTimeAnd = 2
+    sessionStorage.setItem("firstTimeAnd", firstTimeAnd)
+  }
   island.removeChild(document.querySelector("#enemy0"));
   andSkin.addEventListener("click", ChoosenAnd)
   andSkin.removeEventListener("click", ikkeTilgangSkin)
   andSkin.innerText = "Anden"
+}
+
+function andUnlocked() {
+  showAlert("Anden er nå låst opp som et skin", "success");
 }
 
 let jonasDod = 0
@@ -449,24 +460,51 @@ function ikkeTilgangSkin() {
 
 }
 
+let firstTimeJonas = sessionStorage.getItem("firstTimeJonas") || 0
+
 if (jonasDod == 2) {
+  if(firstTimeJonas == 1) {
+    setTimeout(jonasUnlocked, 2500)
+    firstTimeJonas = 2
+    sessionStorage.setItem("firstTimeJonas", firstTimeJonas)
+  }
   island.removeChild(document.querySelector("#enemy1"));
   jonasSkin.addEventListener("click", ChoosenJonas)
   jonasSkin.removeEventListener("click", ikkeTilgangSkin)
   jonasSkin.innerText = "Jonas"
 }
 
+function jonasUnlocked() {
+  showAlert("Jonas er nå låst opp som et skin", "success");
+}
+
 
 birkSkin.addEventListener("click", ikkeTilgangSkin)
 
-if(birkUnlocked == 1) {
+if (birkUnlocked == 1) {
   island.removeChild(document.querySelector("#birk"));
   birkSkin.removeEventListener("click", ikkeTilgangSkin)
   birkSkin.addEventListener("click", ChoosenBirk)
   birkSkin.innerText = "Birk"
 }
 
+//du har vunnet en fight i combat.js
+let combatSeier = 0
+combatSeier = sessionStorage.getItem("combatSeier") || 0
 
+if (combatSeier == 1) {
+  combatSeier = 2
+  sessionStorage.setItem("combatSeier", combatSeier)
+
+  money = money + 5000
+  localStorage.setItem("money", money);
+  let tjentPenger = money + 5000;
+  showAlert("Du fikk " + tjentPenger.toFixed(0) + " penger", "success")
+}
+
+function DuFikkPenger() {
+  
+}
 
 
 
