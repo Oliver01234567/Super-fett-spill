@@ -329,8 +329,8 @@ function showEnemyPopup(enemy) {
   const Epopup = document.createElement("div");
   Epopup.className = "enemy-popup";
   Epopup.innerHTML = `
-    <p> <span id="enemyOrNot"> Du møtte </span> <span id = "enemyName"> en fiende </span>!! <span id="npcChallenge"> Vil du utfordre han til Holmgang og få alle pengene hans?? </span> </p>
-    <button onclick="utfordreFiende()"><span id="godtaOrUtfordre">Utfordre</span></button>
+    <p> <span id="enemyOrNot"> Du møtte en fiende!! Vil du utfordre han til Holmgang og få alle pengene hans?? </span> </p>
+    <button id = "godtaOrUtfordre">Utfordre</button>
     <button onclick="declineEnemy()">Avslå</button>
   `;
 
@@ -340,26 +340,24 @@ function showEnemyPopup(enemy) {
   document.body.appendChild(Epopup);
   currentEPopup = Epopup;
 
-  const enemyName = document.getElementById("enemyName")
-  const npcChallenge = document.getElementById("npcChallenge")
+
   const enemyOrNot = document.getElementById("enemyOrNot")
   const godtaOrUtfordre = document.getElementById("godtaOrUtfordre")
   if (currentEPopup != Epopup) {
     return;
   } else {
+    godtaOrUtfordre.addEventListener("click", utfordreFiende)
     if (fiende == "enemy0") {
-      enemyName.innerText = "Anden"
+      enemyOrNot.innerText = "Du møtte Anden!! Vil du utfordre han til Holmgang og få alle pengene hans??"
     }
 
     if (fiende == "enemy1") {
-      enemyName.innerText = "Jonas"
+      enemyOrNot.innerText = "Du møtte Jonas!! Vil du utfordre han til Holmgang og få alle pengene hans??"
     }
 
     if (fiende == "birk") {
-      enemyName.innerText = "Birk"
-      npcChallenge.innerText = "Hvis du løser denne quizen får du masse penger"
-      enemyOrNot.innerText = "Hei jeg heter "
-      godtaOrUtfordre.innerText = "Godta"
+      enemyOrNot.innerText = "Hei Jeg heter Birk!! Vil du snakke litt??"
+      godtaOrUtfordre.innerText = "Ja, gjerne"
     }
   }
 }
@@ -379,11 +377,20 @@ function utfordreFiende() {
   }
 
   if (fiende == "birk") {
-    opponent = 19
-    sessionStorage.setItem("opponent", 19)
-    window.location.href = 'Quiz/quiz_3.html';
+    godtaOrUtfordre.removeEventListener("click", utfordreFiende)
+    godtaOrUtfordre.addEventListener("click", birkSinQuiz)
+    enemyOrNot.innerText = "Kan du svare på quizen min?? Du får en stor belønning"
+    godtaOrUtfordre.innerText = "Godta"
   }
 
+}
+
+function birkSinQuiz() {
+  godtaOrUtfordre.addEventListener("click", utfordreFiende)
+  godtaOrUtfordre.removeEventListener("click", birkSinQuiz)
+  opponent = 19
+  sessionStorage.setItem("opponent", 19)
+  window.location.href = 'Quiz/quiz_3.html';
 }
 
 
@@ -436,7 +443,7 @@ andSkin.addEventListener("click", ikkeTilgangSkin)
 let firstTimeAnd = sessionStorage.getItem("firstTimeAnd") || 0
 
 if (andenDod == 2) {
-  if(firstTimeAnd == 1) {
+  if (firstTimeAnd == 1) {
     setTimeout(andUnlocked, 2500)
     firstTimeAnd = 2
     sessionStorage.setItem("firstTimeAnd", firstTimeAnd)
@@ -463,7 +470,7 @@ function ikkeTilgangSkin() {
 let firstTimeJonas = sessionStorage.getItem("firstTimeJonas") || 0
 
 if (jonasDod == 2) {
-  if(firstTimeJonas == 1) {
+  if (firstTimeJonas == 1) {
     setTimeout(jonasUnlocked, 2500)
     firstTimeJonas = 2
     sessionStorage.setItem("firstTimeJonas", firstTimeJonas)
@@ -503,7 +510,7 @@ if (combatSeier == 1) {
 }
 
 function DuFikkPenger() {
-  
+
 }
 
 

@@ -168,7 +168,6 @@ body {
     padding: 50px;
     display: inline-block;
     position: absolute;
-    cursor: pointer;
 
 }
 
@@ -189,6 +188,11 @@ body {
 #enemy1 {
     left: 200px;
     top: 30px;
+}
+
+#birk {
+    left: 500px;
+    top: 4000px;
 }
 
 
