@@ -102,6 +102,7 @@ if (getMoney != 0) {
 //Pete Davidson er 12
 //Skrue er 13
 //The Rock er 14
+//Stewie er 15
 
 const torbSkin = document.getElementById("torbSkin")
 if (choosenSkin == 0) {
@@ -191,6 +192,12 @@ const rockSKin = document.getElementById("rockSKin")
 if (choosenSkin == 14) {
   characterP.src = "Bilder/The-Rock.png"
   rockSKin.style.backgroundColor = "red"
+}
+
+const stewieSkin = document.getElementById("stewieSkin")
+if(choosenSkin == 15) {
+  characterP.src = "Bilder/Stewie.webp"
+  stewieSkin.style.backgroundColor = "red"
 }
 
 
@@ -363,8 +370,65 @@ function choosenRock() {
 
   } else if (chosenRock == 10) {
     rockSKin.innerText = "The Rock";
-    characterP.src = "Bilder/skrueMcDuck.png";
+    characterP.src = "Bilder/The-Rock.png";
     choosenSkin = 14;
+    sessionStorage.setItem("choosenSkin", choosenSkin);
+    rasmusSkin.style.backgroundColor = "brown";
+    jonasSkin.style.backgroundColor = "brown";
+    torbSkin.style.backgroundColor = "brown";
+    andSkin.style.backgroundColor = "brown";
+    monkeSkin.style.backgroundColor = "brown";
+    pandaSkin.style.backgroundColor = "brown";
+    langbeinSkin.style.backgroundColor = "brown";
+    peterSkin.style.backgroundColor = "brown";
+    birkSkin.style.backgroundColor = "brown"
+    kasperSkin.style.backgroundColor = "brown"
+    elonSkin.style.backgroundColor = "brown"
+    marioSkin.style.backgroundColor = "brown"
+    peteSkin.style.backgroundColor = "brown"
+    skrueSkin.style.backgroundColor = "brown"
+    //tom rom
+    showAlert("Byttet skin til Dwanye The Rock Johnson", "success")
+  } else {
+    showAlert("Du har ikke nok penger for å kjøpe Dwanye The Rock Johnson ", "error");
+    spillAvError()
+  }
+}
+
+
+let chosenStewie = 0;
+
+function choosenStewie() {
+  if (money >= 3000 && chosenStewie == 0) {
+    characterP.src = "Bilder/Stewie.webp";
+    choosenSkin = 15;
+    sessionStorage.setItem("choosenSkin", choosenSkin);
+    money -= 3000;
+    spillAvPengeLyd();
+    showAlert("Du har kjøpt Stewie Griffin for 3000 penger", "success")
+    chosenStewie = 10;
+    sessionStorage.setItem("chosenStewie", chosenStewie)
+    stewieSkin.innerText = "Stewie Griffin";
+    rasmusSkin.style.backgroundColor = "brown";
+    jonasSkin.style.backgroundColor = "brown";
+    torbSkin.style.backgroundColor = "brown";
+    andSkin.style.backgroundColor = "brown";
+    monkeSkin.style.backgroundColor = "brown";
+    pandaSkin.style.backgroundColor = "brown";
+    langbeinSkin.style.backgroundColor = "brown";
+    peterSkin.style.backgroundColor = "brown";
+    birkSkin.style.backgroundColor = "brown"
+    kasperSkin.style.backgroundColor = "brown"
+    elonSkin.style.backgroundColor = "brown"
+    marioSkin.style.backgroundColor = "brown"
+    peteSkin.style.backgroundColor = "brown"
+    skrueSkin.style.backgroundColor = "brown"
+    //tom rom
+
+  } else if (chosenRock == 10) {
+    rockSKin.innerText = "The Rock";
+    characterP.src = "Bilder/Stewie.webp";
+    choosenSkin = 15;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     rasmusSkin.style.backgroundColor = "brown";
     jonasSkin.style.backgroundColor = "brown";
@@ -382,9 +446,9 @@ function choosenRock() {
     skrueSkin.style.backgroundColor = "brown"
     rockSKin.style.backgroundColor = "red"
     //tom rom
-    showAlert("Byttet skin til Dwanye The Rock Johnson", "success")
+    showAlert("Byttet skin til Stewie Griffin", "success")
   } else {
-    showAlert("Du har ikke nok penger for å kjøpe Dwanye The Rock Johnson ", "error");
+    showAlert("Du har ikke nok penger for å kjøpe Stewie Griffin ", "error");
     spillAvError()
   }
 }
