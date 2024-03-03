@@ -97,6 +97,9 @@ if (getMoney != 0) {
 //Peter Griffin er 7
 //Birk er 8
 //Kasper er 9
+//elon musk er 10
+//mario er 11
+//Pete Davidson er 12
 
 const torbSkin = document.getElementById("torbSkin")
 if (choosenSkin == 0) {
@@ -164,6 +167,20 @@ if (choosenSkin == 10) {
   elonSkin.style.backgroundColor = "red"
 }
 
+const marioSkin = document.getElementById("MarioSkin")
+if (choosenSkin == 11) {
+  characterP.src = "Bilder/mario.png"
+  marioSkin.style.backgroundColor = "red"
+}
+
+const peteSkin = document.getElementById("peteSkin")
+if (choosenSkin == 12) {
+  characterP.src = "Bilder/peteD.png"
+  peteSkin.style.backgroundColor = "red"
+}
+
+
+
 
 
 //skins section
@@ -182,6 +199,8 @@ function ChoosenTorb() {
   birkSkin.style.backgroundColor = "brown"
   kasperSkin.style.backgroundColor = "brown"
   elonSkin.style.backgroundColor = "brown"
+  marioSkin.style.backgroundColor = "brown"
+  peteSkin.style.backgroundColor = "brown"
 
   showAlert("Byttet skin til Thor Bjørn", "success");
 }
@@ -212,6 +231,8 @@ function ChoosenRasmus() {
     birkSkin.style.backgroundColor = "brown"
     kasperSkin.style.backgroundColor = "brown"
     elonSkin.style.backgroundColor = "brown"
+    marioSkin.style.backgroundColor = "brown"
+    peteSkin.style.backgroundColor = "brown"
   } else if (chosenRasmus == 10) {
     rasmusSkin.innerText = "Rasmus";
     characterP.src = "Bilder/Rasmus.png";
@@ -228,6 +249,8 @@ function ChoosenRasmus() {
     birkSkin.style.backgroundColor = "brown"
     kasperSkin.style.backgroundColor = "brown"
     elonSkin.style.backgroundColor = "brown"
+    marioSkin.style.backgroundColor = "brown"
+    peteSkin.style.backgroundColor = "brown"
     showAlert("Byttet skin til Rasmus", "success")
   } else {
     showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
@@ -250,6 +273,8 @@ function ChoosenJonas() {
   birkSkin.style.backgroundColor = "brown"
   kasperSkin.style.backgroundColor = "brown"
   elonSkin.style.backgroundColor = "brown"
+  marioSkin.style.backgroundColor = "brown"
+  peteSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Jonas", "success");
 }
 
@@ -268,6 +293,8 @@ function ChoosenAnd() {
   birkSkin.style.backgroundColor = "brown"
   kasperSkin.style.backgroundColor = "brown"
   elonSkin.style.backgroundColor = "brown"
+  marioSkin.style.backgroundColor = "brown"
+  peteSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Anden", "success");
 }
 
@@ -286,6 +313,8 @@ function chosenMonke() {
   birkSkin.style.backgroundColor = "brown"
   kasperSkin.style.backgroundColor = "brown"
   elonSkin.style.backgroundColor = "brown"
+  marioSkin.style.backgroundColor = "brown"
+  peteSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Monke", "success");
 }
 
@@ -304,6 +333,8 @@ function chosenPanda() {
   birkSkin.style.backgroundColor = "brown"
   kasperSkin.style.backgroundColor = "brown"
   elonSkin.style.backgroundColor = "brown"
+  marioSkin.style.backgroundColor = "brown"
+  peteSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Panda", "success");
 }
 
@@ -322,6 +353,8 @@ function chosenLangbein() {
   birkSkin.style.backgroundColor = "brown"
   kasperSkin.style.backgroundColor = "brown"
   elonSkin.style.backgroundColor = "brown"
+  marioSkin.style.backgroundColor = "brown"
+  peteSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Langbein", "success");
 }
 
@@ -340,6 +373,8 @@ function chosenPeter() {
   birkSkin.style.backgroundColor = "brown"
   kasperSkin.style.backgroundColor = "brown"
   elonSkin.style.backgroundColor = "brown"
+  marioSkin.style.backgroundColor = "brown"
+  peteSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Peter Griffin", "success");
 }
 
@@ -358,6 +393,8 @@ function ChoosenBirk() {
   birkSkin.style.backgroundColor = "red"
   kasperSkin.style.backgroundColor = "brown"
   elonSkin.style.backgroundColor = "brown"
+  marioSkin.style.backgroundColor = "brown"
+  peteSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Birk", "success");
 }
 
@@ -376,6 +413,8 @@ function choosenKasper() {
   birkSkin.style.backgroundColor = "brown"
   kasperSkin.style.backgroundColor = "red"
   elonSkin.style.backgroundColor = "brown"
+  marioSkin.style.backgroundColor = "brown"
+  peteSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Kasper", "success");
 }
 
@@ -394,8 +433,50 @@ function choosenElon() {
   birkSkin.style.backgroundColor = "brown"
   kasperSkin.style.backgroundColor = "brown"
   elonSkin.style.backgroundColor = "red"
+  marioSkin.style.backgroundColor = "brown"
+  peteSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Elon Musk", "success");
 }
+
+function choosenMario() {
+  characterP.src = "Bilder/elon.png"
+  choosenSkin = 11
+  sessionStorage.setItem("choosenSkin", choosenSkin);
+  rasmusSkin.style.backgroundColor = "brown";
+  jonasSkin.style.backgroundColor = "brown";
+  torbSkin.style.backgroundColor = "brown";
+  andSkin.style.backgroundColor = "brown";
+  monkeSkin.style.backgroundColor = "brown";
+  pandaSkin.style.backgroundColor = "brown";
+  langbeinSkin.style.backgroundColor = "brown";
+  peterSkin.style.backgroundColor = "brown";
+  birkSkin.style.backgroundColor = "brown"
+  kasperSkin.style.backgroundColor = "brown"
+  elonSkin.style.backgroundColor = "brown"
+  marioSkin.style.backgroundColor = "red"
+  showAlert("Byttet skin til Mario", "success");
+}
+
+function choosenPete() {
+  characterP.src = "Bilder/peteD.png"
+  choosenSkin = 12
+  sessionStorage.setItem("choosenSkin", choosenSkin);
+  rasmusSkin.style.backgroundColor = "brown";
+  jonasSkin.style.backgroundColor = "brown";
+  torbSkin.style.backgroundColor = "brown";
+  andSkin.style.backgroundColor = "brown";
+  monkeSkin.style.backgroundColor = "brown";
+  pandaSkin.style.backgroundColor = "brown";
+  langbeinSkin.style.backgroundColor = "brown";
+  peterSkin.style.backgroundColor = "brown";
+  birkSkin.style.backgroundColor = "brown"
+  kasperSkin.style.backgroundColor = "brown"
+  elonSkin.style.backgroundColor = "brown"
+  marioSkin.style.backgroundColor = "brown"
+  peteSkin.style.backgroundColor = "red"
+  showAlert("Byttet skin til Pete Davidson", "success");
+}
+
 
 //fiender
 //oppdager fiender
@@ -452,11 +533,11 @@ function showEnemyPopup(enemy) {
     return;
   } else {
     godtaOrUtfordre.addEventListener("click", utfordreFiende)
-    if (fiende == "enemy0") {
+    if (fiende == "anden") {
       enemyOrNot.innerText = "Du møtte Anden!! Vil du utfordre han til Holmgang og få alle pengene hans??"
     }
 
-    if (fiende == "enemy1") {
+    if (fiende == "jonas") {
       enemyOrNot.innerText = "Du møtte Jonas!! Vil du utfordre han til Holmgang og få alle pengene hans??"
     }
 
@@ -473,6 +554,14 @@ function showEnemyPopup(enemy) {
     if (fiende == "Elon") {
       enemyOrNot.innerText = "Du møtte Elon Musk!! Vil du utfordre han til Holmgang og få alle pengene hans??"
     }
+
+    if (fiende == "mario") {
+      enemyOrNot.innerText = "Du møtte Mario!! Vil du utfordre han til Holmgang og få alle pengene hans??"
+    }
+
+    if (fiende == "pete") {
+      enemyOrNot.innerText = "Du møtte Pete Davidson!! Vil du utfordre han til Holmgang og få alle pengene hans??"
+    }
   }
 }
 
@@ -482,11 +571,11 @@ function consoleLog() {
 }
 
 function utfordreFiende() {
-  if (fiende == "enemy0") {
+  if (fiende == "anden") {
     fightAnden()
   }
 
-  if (fiende == "enemy1") {
+  if (fiende == "jonas") {
     fightJonas()
   }
 
@@ -496,6 +585,14 @@ function utfordreFiende() {
 
   if(fiende == "Elon") {
     fightElonMusk()
+  }
+
+  if(fiende == "mario") {
+    fightMario()
+  }
+
+  if (fiende == "pete") {
+    fightPeteDavidson()
   }
 
   if (fiende == "birk") {
@@ -567,13 +664,25 @@ function fightElonMusk() {
   window.location.href = 'Combat/Combat.html';
 }
 
+function fightMario() {
+  opponent = 4
+  sessionStorage.setItem("opponent", opponent)
+  window.location.href = 'Combat/Combat.html';
+}
+
+function fightPeteDavidson() {
+  opponent = 5
+  sessionStorage.setItem("opponent", opponent)
+  window.location.href = 'Combat/Combat.html';
+}
+
 
 
 //skjekker om en fiende er beseiret
 const island = document.getElementById("øy")
 
 let andenDod = 0
-andenDod = sessionStorage.getItem("andenDod")
+andenDod = sessionStorage.getItem("andenDod") || 0
 andSkin.addEventListener("click", ikkeTilgangSkin)
 
 let firstTimeAnd = sessionStorage.getItem("firstTimeAnd") || 0
@@ -584,7 +693,7 @@ if (andenDod == 2) {
     firstTimeAnd = 2
     sessionStorage.setItem("firstTimeAnd", firstTimeAnd)
   }
-  island.removeChild(document.querySelector("#enemy0"));
+  island.removeChild(document.querySelector("#anden"));
   andSkin.addEventListener("click", ChoosenAnd)
   andSkin.removeEventListener("click", ikkeTilgangSkin)
   andSkin.innerText = "Anden"
@@ -594,8 +703,11 @@ function andUnlocked() {
   showAlert("Anden er nå låst opp som et skin", "success");
 }
 
+
+
+
 let jonasDod = 0
-jonasDod = sessionStorage.getItem("jonasDod")
+jonasDod = sessionStorage.getItem("jonasDod") || 0
 jonasSkin.addEventListener("click", ikkeTilgangSkin)
 
 function ikkeTilgangSkin() {
@@ -611,7 +723,7 @@ if (jonasDod == 2) {
     firstTimeJonas = 2
     sessionStorage.setItem("firstTimeJonas", firstTimeJonas)
   }
-  island.removeChild(document.querySelector("#enemy1"));
+  island.removeChild(document.querySelector("#jonas"));
   jonasSkin.addEventListener("click", ChoosenJonas)
   jonasSkin.removeEventListener("click", ikkeTilgangSkin)
   jonasSkin.innerText = "Jonas"
@@ -644,6 +756,8 @@ function kasperUnlocked() {
   showAlert("Kasper er nå låst opp som et skin", "success");
 }
 
+
+
 let elonDod = 0
 elonDod = sessionStorage.getItem("elonDod") || 0
 elonSkin.addEventListener("click", ikkeTilgangSkin)
@@ -666,6 +780,55 @@ function elonUnlocked() {
   showAlert("Elon Musk er nå låst opp som et skin", "success");
 }
 
+
+let marioDod = 0
+marioDod = sessionStorage.getItem("marioDod") || 0
+marioSkin.addEventListener("click", ikkeTilgangSkin)
+
+let firstTimeMario = sessionStorage.getItem("firstTimeMario") || 0
+
+if (marioDod == 2) {
+  if (firstTimeMario == 1) {
+    setTimeout(marioUnlocked, 2500)
+    firstTimeMario = 2
+    sessionStorage.setItem("firstTimeMario", firstTimeMario)
+  }
+  island.removeChild(document.querySelector("#mario"));
+  marioSkin.addEventListener("click", choosenMario)
+  marioSkin.removeEventListener("click", ikkeTilgangSkin)
+  marioSkin.innerText = "Mario"
+}
+
+function marioUnlocked() {
+  showAlert("Mario er nå låst opp som et skin", "success");
+}
+
+
+let peteDod = 0
+peteDod = sessionStorage.getItem("peteDod") || 0
+peteSkin.addEventListener("click", ikkeTilgangSkin)
+
+let firstTimePete = sessionStorage.getItem("firstTimePete") || 0
+
+if (peteDod == 2) {
+  if (firstTimePete == 1) {
+    setTimeout(peteUnlocked, 2500)
+    firstTimePete = 2
+    sessionStorage.setItem("firstTimePete", firstTimePete)
+  }
+  island.removeChild(document.querySelector("#pete"));
+  peteSkin.addEventListener("click", choosenPete)
+  peteSkin.removeEventListener("click", ikkeTilgangSkin)
+  peteSkin.innerText = "Pete"
+}
+
+function peteUnlocked() {
+  showAlert("Pete Davidson er nå låst opp som et skin", "success");
+}
+
+
+
+
 birkSkin.addEventListener("click", ikkeTilgangSkin)
 
 if (birkUnlocked == 1) {
@@ -685,12 +848,9 @@ if (combatSeier == 1) {
 
   money = money + 5000
   localStorage.setItem("money", money);
-  let tjentPenger = money + 5000;
+  let tjentPenger = 5000;
   showAlert("Du fikk " + tjentPenger.toFixed(0) + " penger", "success")
-}
-
-function DuFikkPenger() {
-
+  updateMoneyAmount();
 }
 
 

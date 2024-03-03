@@ -163,6 +163,8 @@ body {
 
 
 
+
+
 /*Alt materiale som spilleren skal interaktere med*/
 .InteractiveMaterial {
     padding: 50px;
@@ -180,12 +182,12 @@ body {
     height: 60px;
 }
 
-#enemy0 {
+#anden {
     left: 500px;
     top: 200px;
 }
 
-#enemy1 {
+#jonas {
     left: 200px;
     top: 30px;
 }
@@ -198,6 +200,11 @@ body {
 #birk {
     left: 500px;
     top: 4000px;
+}
+
+#Elon {
+    left: 1743px;
+    top: 3467px;;
 }
 
 
@@ -482,18 +489,37 @@ body {
     font-size: 45px;
     margin-bottom: 15px;
     padding: 10px;
-    position: fixed;
     top: 0;
 }
 
+#skinButtons {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+#skinSelect {
+    height: auto;
+    width: 1000px;
+}
+
 .Mbuttons {
-    width: 190px;
-    height: 120px;
-    top: 50%;
+    width: 150px;
+    height: 100px;
     background-color: brown;
-    font-size: 35px;
+    font-size: 27px;
     cursor: pointer;
 }
+
+#backToGameDiv {
+    
+    margin-bottom: 10px;
+    background-color: black;
+
+    display: flex;
+    align-items: center;
+}
+
 
 .Mbuttons span {
     font-size: 15px;
@@ -519,19 +545,6 @@ body {
 }
 
 
-.nav {
-    background-color: brown;
-    border: 2px solid black;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 45px;
-    margin-bottom: 15px;
-    padding: 10px;
-    position: fixed;
-    top: 0;
-}
 #statsButtons{
     display: flex;
     flex-direction: column;

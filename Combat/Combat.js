@@ -59,6 +59,11 @@ if (choosenSkin == 10) {
     name.innerText = "Elon Musk"
 }
 
+if (choosenSkin == 11) {
+    playerIcon.src = "../Bilder/mario.png"
+    name.innerText = "Mario"
+}
+
 //henter hvilken fiende du vil kjempe mot
 opponent = parseInt(sessionStorage.getItem("opponent")) || 0
 
@@ -80,7 +85,9 @@ let allh3 = document.querySelectorAll('h3')
 let allButton = document.querySelectorAll('Button')
 let allcGrid = document.querySelectorAll('.cGrid')
 
-let Anddeath = 0
+let andDeath = 0
+
+let peteDeath = 0
 
 if (opponent == 0) {
     motstanderIcon.src = "../Bilder/playerIcon1.png"
@@ -89,10 +96,22 @@ if (opponent == 0) {
     enemyName3.innerText = "Anden"
     enemyName4.innerText = "Anden"
 
+    andDeath = 1
+}
 
+if (opponent == 5) {
+    motstanderIcon.src = "../Bilder/peteD.png"
+    motstanderIcon.style.transform = "scaleX(-1)"
+    enemyName.innerText = "Pete Davidson"
+    enemyName2.innerText = "Pete Davidson"
+    enemyName3.innerText = "Pete Davidson"
+    enemyName4.innerText = "Pete Davidson"
 
+    peteDeath = 1
+}
 
-
+if (opponent == 0 || opponent == 5) {
+    
     body.classList.add("img1")
     winScreenen.classList.add("img1")
     deathScreenen.classList.add("img1")
@@ -121,11 +140,10 @@ if (opponent == 0) {
         GridElm.classList.add("colorScheme1border")
     })
 
-    Anddeath = 1
-    console.log(Anddeath)
 }
 
-let JonasDeath = 0
+let jonasDeath = 0
+let marioDeath = 0
 
 if (opponent == 1) {
     motstanderIcon.src = "../Bilder/Jonas.png"
@@ -134,6 +152,21 @@ if (opponent == 1) {
     enemyName3.innerText = "Jonas"
     enemyName4.innerText = "Jonas"
 
+    jonasDeath = 1
+}
+
+if(opponent == 4) {
+    motstanderIcon.src = "../Bilder/Mario.png"
+    motstanderIcon.style.transform = "scaleX(-1)"
+    enemyName.innerText = "Mario"
+    enemyName2.innerText = "Mario"
+    enemyName3.innerText = "Mario"
+    enemyName4.innerText = "Mario"
+
+    marioDeath = 1
+}
+
+if (opponent == 1 || opponent == 4) {
 
     body.classList.add("img2")
     winScreenen.classList.add("img2")
@@ -162,8 +195,6 @@ if (opponent == 1) {
     allcGrid.forEach(function (GridElm) {
         GridElm.classList.add("colorScheme2border")
     })
-
-    JonasDeath = 1
 }
 
 let kasperDeath = 0
@@ -378,7 +409,7 @@ function startGame() {
             plyHealth = 10000
             let combatSeier = 1
             sessionStorage.setItem("combatSeier", combatSeier)
-            if (Anddeath == 1) {
+            if (andDeath == 1) {
                 let andenDod = 2
                 sessionStorage.setItem("andenDod", andenDod)
 
@@ -387,7 +418,7 @@ function startGame() {
 
             }
 
-            if (JonasDeath == 1) {
+            if (jonasDeath == 1) {
                 let jonasDod = 2
                 sessionStorage.setItem("jonasDod", jonasDod)
 
@@ -410,6 +441,22 @@ function startGame() {
 
                 let firstTimeElon = 1
                 sessionStorage.setItem("firstTimeElon", firstTimeElon)
+            }
+
+            if(marioDeath == 1) {
+                let marioDod = 2
+                sessionStorage.setItem("marioDod", marioDod)
+
+                let firstTimeMario = 1
+                sessionStorage.setItem("firstTimeMario", firstTimeMario)
+            }
+
+            if(peteDeath == 1) {
+                let peteDod = 2
+                sessionStorage.setItem("peteDod", peteDod)
+
+                let firstTimePete = 1
+                sessionStorage.setItem("firstTimePete", firstTimePete)
             }
 
 
