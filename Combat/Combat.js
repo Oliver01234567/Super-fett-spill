@@ -64,6 +64,7 @@ if (choosenSkin == 11) {
     name.innerText = "Mario"
 }
 
+
 //henter hvilken fiende du vil kjempe mot
 opponent = parseInt(sessionStorage.getItem("opponent")) || 0
 
