@@ -15,7 +15,7 @@ const characterP = document.querySelector("#character img")
 let choosenSkin = 0
 choosenSkin = parseInt(sessionStorage.getItem("choosenSkin")) || 0
 
-
+hideSpinningWheel();
 
 //Quiz seiere
 let quiz1Seier = 0
@@ -459,7 +459,7 @@ if (jonasDod == 2) {
 
 birkSkin.addEventListener("click", ikkeTilgangSkin)
 
-if(birkUnlocked == 1) {
+if (birkUnlocked == 1) {
   island.removeChild(document.querySelector("#birk"));
   birkSkin.removeEventListener("click", ikkeTilgangSkin)
   birkSkin.addEventListener("click", ChoosenBirk)
@@ -1084,6 +1084,8 @@ function backToGame() {
 }
 
 // Npc greier
+
+
 const npcDialog = document.getElementById("npc-dialog");
 const npcMessage = document.getElementById("npc-message");
 const npcYesBtn = document.getElementById("npc-yes");
@@ -1128,8 +1130,10 @@ function handleNPCResponse(response) {
 
     setTimeout(function () {
       showNPCDialog("Great! Would you like to buy a randomized skin box for 1000 money?");
-      npcYesBtn.textContent = "Purchase";
+      npcYesBtn.textContent = "Sure";
       npcNoBtn.textContent = "Decline";
+
+      npcYesBtn.addEventListener("click", handlePurchase);
     }, 2);
   } else {
     console.log("Player said 'No'");
@@ -1141,10 +1145,90 @@ npcNoBtn.addEventListener("click", () => {
   hideNPCDialog();
 });
 
-function buySkinBox() {
+function handlePurchase() {
+  console.log("Player wants to purchase");
+  hideNPCDialog();
+
+  setTimeout(function () {
+    showNPCDialog("Great! Please confirm your purchase.");
+    // Update buttons for the confirmation dialog
+    npcYesBtn.textContent = "Confirm";
+    npcNoBtn.textContent = "Cancel";
+
+    // Add event listener for the "Confirm" button
+    npcYesBtn.addEventListener("click", buyRandomSkin);
+  }, 2);
+}
+
+function buyRandomSkin() {
+  console.log("kjører funksjonen")
   //Logic to deduct money and grant a random skin
-  // You can use setTimeout or other logic to simulate a delay if needed
-  money -= 1000;
-  showAlert("Congratulations! You got the skin ");
-  npcYesBtn.style.display = "block";
+  const cost = 1000;
+  if (money >= cost) {
+    money -= cost;
+    console.log("nok penger")
+
+    // Simulate a spinning animation for skin selection
+    simulateSpinningAnimation();
+
+    // You can use setTimeout or other logic to simulate a delay if needed
+    setTimeout(function () {
+      // Select a random skin
+      const randomSkin = getRandomSkin();
+
+      // Perform actions after the spinning animation (e.g., show skin, update UI)
+      showAlert(`Congratulations! You got the skin ${randomSkin.name}` , "success");
+      hideSpinningWheel();
+      npcYesBtn.style.display = "block";
+    }, 2000); // Adjust the delay time as needed
+  } else {
+    showAlert("Not enough money to buy a skin box", "error");
+    spillAvError();
+  }
+}
+
+function getSkinBoxSpinner() {
+  return document.getElementById('skinBoxSpinner');
+}
+
+function simulateSpinningAnimation() {
+  const spinner = document.getElementById('skinBoxSpinner');
+  const randomDuration = Math.random() * (2.5 - 1.5) + 0.5;
+  spinner.style.display = 'block'; // Show the spinner before animation
+  spinner.style.animation = `spin ${randomDuration}s linear infinite`; // Start the animation
+  const arrow = document.createElement('div');
+  arrow.classList.add('arrow-down');
+  document.body.appendChild(arrow);
+}
+
+function hideSpinningWheel() {
+  const spinner = document.getElementById('skinBoxSpinner');
+  spinner.style.display = 'none'; // Hide the spinner
+  spinner.style.animation = ''; // Stop the animation
+  const arrow = document.querySelector('.arrow-down');
+    if (arrow) {
+        arrow.remove();
+    }
+}
+
+function getRandomSkin() {
+  // Assume you have an array of skins with their respective chances
+  const skins = [
+    { name: 'Monke', chance: 0.15 },
+    { name: 'Panda', chance: 0.3 },
+    { name: 'Langbein', chance: 0.05 },
+    { name: 'Peter', chance: 0.5 },
+  ];
+
+  // Logic to select a random skin based on chances
+  const random = Math.random();
+  let cumulativeProbability = 0;
+
+  for (const skin of skins) {
+    cumulativeProbability += skin.chance;
+
+    if (random <= cumulativeProbability) {
+      return skin;
+    }
+  }
 }
