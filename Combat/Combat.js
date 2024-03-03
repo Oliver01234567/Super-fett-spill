@@ -64,6 +64,30 @@ if (choosenSkin == 11) {
     name.innerText = "Mario"
 }
 
+if (choosenSkin == 12) {
+    playerIcon.src = "../Bilder/peteD.png"
+    name.innerText = "Pete Davidson"
+}
+
+if (choosenSkin == 13) {
+    playerIcon.src = "../Bilder/skrueMcDuck.png"
+    name.innerText = "Skrue McDuck"
+}
+
+if (choosenSkin == 14) {
+    playerIcon.src = "../Bilder/The-Rock.png"
+    name.innerText = "Dwanye The Rock Johnson"
+}
+
+if (choosenSkin == 15) {
+    playerIcon.src = "../Bilder/Stewie.png"
+    name.innerText = "Stewie Griffin"
+}
+
+if (choosenSkin == 16) {
+    playerIcon.src = "../Bilder/SId.png"
+    name.innerText = "Sid Fra Istid"
+}
 
 //henter hvilken fiende du vil kjempe mot
 opponent = parseInt(sessionStorage.getItem("opponent")) || 0

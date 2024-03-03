@@ -103,6 +103,7 @@ if (getMoney != 0) {
 //Skrue er 13
 //The Rock er 14
 //Stewie er 15
+//Sid er 16
 
 const torbSkin = document.getElementById("torbSkin")
 if (choosenSkin == 0) {
@@ -195,9 +196,15 @@ if (choosenSkin == 14) {
 }
 
 const stewieSkin = document.getElementById("stewieSkin")
-if(choosenSkin == 15) {
-  characterP.src = "Bilder/Stewie.webp"
+if (choosenSkin == 15) {
+  characterP.src = "Bilder/Stewie.png"
   stewieSkin.style.backgroundColor = "red"
+}
+
+const sidSkin = document.getElementById("sidSkin")
+if (choosenSkin == 16) {
+  characterP.src = "Bilder/SId.png"
+  sidSkin.style.backgroundColor = "red"
 }
 
 
@@ -222,13 +229,20 @@ function ChoosenTorb() {
   marioSkin.style.backgroundColor = "brown"
   peteSkin.style.backgroundColor = "brown"
   skrueSkin.style.backgroundColor = "brown"
+  sidSkin.style.backgroundColor = "brown"
+  stewieSkin.style.backgroundColor = "brown"
+  rockSKin.style.backgroundColor = "brown"
 
   showAlert("Byttet skin til Thor Bjørn", "success");
 }
 
 let chosenRasmus = 0;
 
-chosenRasmus = sessionStorage.getItem("chosenRasmus", chosenRasmus) || 0
+chosenRasmus = sessionStorage.getItem("chosenRasmus") || 0
+
+if (chosenRasmus == 10) {
+  rasmusSkin.innerText = "Rasmus";
+}
 
 function choosenRasmus() {
   if (money >= 5000 && chosenRasmus == 0) {
@@ -255,6 +269,9 @@ function choosenRasmus() {
     marioSkin.style.backgroundColor = "brown"
     peteSkin.style.backgroundColor = "brown"
     skrueSkin.style.backgroundColor = "brown"
+    sidSkin.style.backgroundColor = "brown"
+    stewieSkin.style.backgroundColor = "brown"
+    rockSKin.style.backgroundColor = "brown"
   } else if (chosenRasmus == 10) {
     rasmusSkin.innerText = "Rasmus";
     characterP.src = "Bilder/Rasmus.png";
@@ -274,6 +291,9 @@ function choosenRasmus() {
     marioSkin.style.backgroundColor = "brown"
     peteSkin.style.backgroundColor = "brown"
     skrueSkin.style.backgroundColor = "brown"
+    sidSkin.style.backgroundColor = "brown"
+    stewieSkin.style.backgroundColor = "brown"
+    rockSKin.style.backgroundColor = "brown"
     showAlert("Byttet skin til Rasmus", "success")
   } else {
     showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
@@ -283,7 +303,11 @@ function choosenRasmus() {
 
 let chosenSkrue = 0;
 
-chosenSkrue = sessionStorage.getItem("chosenSkrue", chosenSkrue) || 0
+chosenSkrue = sessionStorage.getItem("chosenSkrue") || 0
+
+if (chosenSkrue == 10) {
+  skrueSkin.innerText = "Skrue McDuck";
+}
 
 function choosenSkrue() {
   if (money >= 2000 && chosenSkrue == 0) {
@@ -310,7 +334,9 @@ function choosenSkrue() {
     marioSkin.style.backgroundColor = "brown"
     peteSkin.style.backgroundColor = "brown"
     skrueSkin.style.backgroundColor = "red"
-    //tom rom
+    sidSkin.style.backgroundColor = "brown"
+    stewieSkin.style.backgroundColor = "brown"
+    rockSKin.style.backgroundColor = "brown"
 
   } else if (chosenSkrue == 10) {
     skrueSkin.innerText = "Skrue McDuck";
@@ -331,7 +357,9 @@ function choosenSkrue() {
     marioSkin.style.backgroundColor = "brown"
     peteSkin.style.backgroundColor = "brown"
     skrueSkin.style.backgroundColor = "red"
-    //tom rom
+    sidSkin.style.backgroundColor = "brown"
+    stewieSkin.style.backgroundColor = "brown"
+    rockSKin.style.backgroundColor = "brown"
     showAlert("Byttet skin til Skrue McDuck", "success")
   } else {
     showAlert("Du har ikke nok penger for å kjøpe Skrue McDuck ", "error");
@@ -340,6 +368,12 @@ function choosenSkrue() {
 }
 
 let chosenRock = 0;
+
+chosenRock = sessionStorage.getItem("chosenRock") || 0
+
+if (chosenRock == 10) {
+  rockSKin.innerText = "The Rock";
+}
 
 function choosenRock() {
   if (money >= 1000 && chosenRock == 0) {
@@ -366,7 +400,9 @@ function choosenRock() {
     marioSkin.style.backgroundColor = "brown"
     peteSkin.style.backgroundColor = "brown"
     skrueSkin.style.backgroundColor = "brown"
-    //tom rom
+    sidSkin.style.backgroundColor = "brown"
+    stewieSkin.style.backgroundColor = "brown"
+    rockSKin.style.backgroundColor = "red"
 
   } else if (chosenRock == 10) {
     rockSKin.innerText = "The Rock";
@@ -387,7 +423,9 @@ function choosenRock() {
     marioSkin.style.backgroundColor = "brown"
     peteSkin.style.backgroundColor = "brown"
     skrueSkin.style.backgroundColor = "brown"
-    //tom rom
+    sidSkin.style.backgroundColor = "brown"
+    stewieSkin.style.backgroundColor = "brown"
+    rockSKin.style.backgroundColor = "red"
     showAlert("Byttet skin til Dwanye The Rock Johnson", "success")
   } else {
     showAlert("Du har ikke nok penger for å kjøpe Dwanye The Rock Johnson ", "error");
@@ -398,9 +436,15 @@ function choosenRock() {
 
 let chosenStewie = 0;
 
+chosenStewie = sessionStorage.getItem("chosenStewie") || 0
+
+if (chosenStewie == 10) {
+  stewieSkin.innerText = "Stewie Griffin";
+}
+
 function choosenStewie() {
   if (money >= 3000 && chosenStewie == 0) {
-    characterP.src = "Bilder/Stewie.webp";
+    characterP.src = "Bilder/Stewie.png";
     choosenSkin = 15;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     money -= 3000;
@@ -423,11 +467,13 @@ function choosenStewie() {
     marioSkin.style.backgroundColor = "brown"
     peteSkin.style.backgroundColor = "brown"
     skrueSkin.style.backgroundColor = "brown"
-    //tom rom
+    sidSkin.style.backgroundColor = "brown"
+    stewieSkin.style.backgroundColor = "red"
+    rockSKin.style.backgroundColor = "brown"
 
-  } else if (chosenRock == 10) {
-    rockSKin.innerText = "The Rock";
-    characterP.src = "Bilder/Stewie.webp";
+  } else if (chosenStewie == 10) {
+    stewieSkin.innerText = "Stewie Griffin";
+    characterP.src = "Bilder/Stewie.png";
     choosenSkin = 15;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     rasmusSkin.style.backgroundColor = "brown";
@@ -444,9 +490,76 @@ function choosenStewie() {
     marioSkin.style.backgroundColor = "brown"
     peteSkin.style.backgroundColor = "brown"
     skrueSkin.style.backgroundColor = "brown"
-    rockSKin.style.backgroundColor = "red"
-    //tom rom
+    sidSkin.style.backgroundColor = "brown"
+    stewieSkin.style.backgroundColor = "red"
+    rockSKin.style.backgroundColor = "brown"
     showAlert("Byttet skin til Stewie Griffin", "success")
+  } else {
+    showAlert("Du har ikke nok penger for å kjøpe Stewie Griffin ", "error");
+    spillAvError()
+  }
+}
+
+let chosenSid = 0;
+
+chosenSid = sessionStorage.getItem("chosenSid") || 0
+
+if (chosenSid == 10) {
+  sidSkin.innerText = "Sid Fra Istid";
+}
+
+function choosenSid() {
+  if (money >= 1000 && chosenSid == 0) {
+    characterP.src = "Bilder/SId.png";
+    choosenSkin = 16;
+    sessionStorage.setItem("choosenSkin", choosenSkin);
+    money -= 1000;
+    spillAvPengeLyd();
+    showAlert("Du har kjøpt Sid Fra Istid for 3000 penger", "success")
+    chosenSid = 10;
+    sessionStorage.setItem("chosenSid", chosenSid)
+    sidSkin.innerText = "Sid Fra Istid";
+    rasmusSkin.style.backgroundColor = "brown";
+    jonasSkin.style.backgroundColor = "brown";
+    torbSkin.style.backgroundColor = "brown";
+    andSkin.style.backgroundColor = "brown";
+    monkeSkin.style.backgroundColor = "brown";
+    pandaSkin.style.backgroundColor = "brown";
+    langbeinSkin.style.backgroundColor = "brown";
+    peterSkin.style.backgroundColor = "brown";
+    birkSkin.style.backgroundColor = "brown"
+    kasperSkin.style.backgroundColor = "brown"
+    elonSkin.style.backgroundColor = "brown"
+    marioSkin.style.backgroundColor = "brown"
+    peteSkin.style.backgroundColor = "brown"
+    skrueSkin.style.backgroundColor = "brown"
+    sidSkin.style.backgroundColor = "red"
+    stewieSkin.style.backgroundColor = "brown"
+    rockSKin.style.backgroundColor = "brown"
+
+  } else if (chosenSid == 10) {
+    sidSkin.innerText = "Sid Fra Istid";
+    characterP.src = "Bilder/SId.png";
+    choosenSkin = 16;
+    sessionStorage.setItem("choosenSkin", choosenSkin);
+    rasmusSkin.style.backgroundColor = "brown";
+    jonasSkin.style.backgroundColor = "brown";
+    torbSkin.style.backgroundColor = "brown";
+    andSkin.style.backgroundColor = "brown";
+    monkeSkin.style.backgroundColor = "brown";
+    pandaSkin.style.backgroundColor = "brown";
+    langbeinSkin.style.backgroundColor = "brown";
+    peterSkin.style.backgroundColor = "brown";
+    birkSkin.style.backgroundColor = "brown"
+    kasperSkin.style.backgroundColor = "brown"
+    elonSkin.style.backgroundColor = "brown"
+    marioSkin.style.backgroundColor = "brown"
+    peteSkin.style.backgroundColor = "brown"
+    skrueSkin.style.backgroundColor = "brown"
+    sidSkin.style.backgroundColor = "red"
+    stewieSkin.style.backgroundColor = "brown"
+    rockSKin.style.backgroundColor = "brown"
+    showAlert("Byttet skin til Sid Fra Istid", "success")
   } else {
     showAlert("Du har ikke nok penger for å kjøpe Stewie Griffin ", "error");
     spillAvError()
@@ -471,7 +584,9 @@ function ChoosenJonas() {
   marioSkin.style.backgroundColor = "brown"
   peteSkin.style.backgroundColor = "brown"
   skrueSkin.style.backgroundColor = "brown"
-  //tom rom
+  sidSkin.style.backgroundColor = "brown"
+  stewieSkin.style.backgroundColor = "brown"
+  rockSKin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Jonas", "success");
 }
 
@@ -493,7 +608,9 @@ function ChoosenAnd() {
   marioSkin.style.backgroundColor = "brown"
   peteSkin.style.backgroundColor = "brown"
   skrueSkin.style.backgroundColor = "brown"
-  //tom rom
+  sidSkin.style.backgroundColor = "brown"
+  stewieSkin.style.backgroundColor = "brown"
+  rockSKin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Anden", "success");
 }
 
@@ -515,7 +632,9 @@ function chosenMonke() {
   marioSkin.style.backgroundColor = "brown"
   peteSkin.style.backgroundColor = "brown"
   skrueSkin.style.backgroundColor = "brown"
-  //tom rom
+  sidSkin.style.backgroundColor = "brown"
+  stewieSkin.style.backgroundColor = "brown"
+  rockSKin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Monke", "success");
 }
 
@@ -537,7 +656,9 @@ function chosenPanda() {
   marioSkin.style.backgroundColor = "brown"
   peteSkin.style.backgroundColor = "brown"
   skrueSkin.style.backgroundColor = "brown"
-  //tom rom
+  sidSkin.style.backgroundColor = "brown"
+  stewieSkin.style.backgroundColor = "brown"
+  rockSKin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Panda", "success");
 }
 
@@ -559,7 +680,9 @@ function chosenLangbein() {
   marioSkin.style.backgroundColor = "brown"
   peteSkin.style.backgroundColor = "brown"
   skrueSkin.style.backgroundColor = "brown"
-  //tom rom
+  sidSkin.style.backgroundColor = "brown"
+  stewieSkin.style.backgroundColor = "brown"
+  rockSKin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Langbein", "success");
 }
 
@@ -581,7 +704,9 @@ function chosenPeter() {
   marioSkin.style.backgroundColor = "brown"
   peteSkin.style.backgroundColor = "brown"
   skrueSkin.style.backgroundColor = "brown"
-  //tom rom
+  sidSkin.style.backgroundColor = "brown"
+  stewieSkin.style.backgroundColor = "brown"
+  rockSKin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Peter Griffin", "success");
 }
 
@@ -603,7 +728,9 @@ function ChoosenBirk() {
   marioSkin.style.backgroundColor = "brown"
   peteSkin.style.backgroundColor = "brown"
   skrueSkin.style.backgroundColor = "brown"
-  //tom rom
+  sidSkin.style.backgroundColor = "brown"
+  stewieSkin.style.backgroundColor = "brown"
+  rockSKin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Birk", "success");
 }
 
@@ -625,7 +752,9 @@ function choosenKasper() {
   marioSkin.style.backgroundColor = "brown"
   peteSkin.style.backgroundColor = "brown"
   skrueSkin.style.backgroundColor = "brown"
-  //tom rom
+  sidSkin.style.backgroundColor = "brown"
+  stewieSkin.style.backgroundColor = "brown"
+  rockSKin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Kasper", "success");
 }
 
@@ -647,7 +776,9 @@ function choosenElon() {
   marioSkin.style.backgroundColor = "brown"
   peteSkin.style.backgroundColor = "brown"
   skrueSkin.style.backgroundColor = "brown"
-  //tom rom
+  sidSkin.style.backgroundColor = "brown"
+  stewieSkin.style.backgroundColor = "brown"
+  rockSKin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Elon Musk", "success");
 }
 
@@ -668,7 +799,9 @@ function choosenMario() {
   elonSkin.style.backgroundColor = "brown"
   marioSkin.style.backgroundColor = "red"
   skrueSkin.style.backgroundColor = "brown"
-  //tom rom
+  sidSkin.style.backgroundColor = "brown"
+  stewieSkin.style.backgroundColor = "brown"
+  rockSKin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Mario", "success");
 }
 
@@ -690,7 +823,9 @@ function choosenPete() {
   marioSkin.style.backgroundColor = "brown"
   peteSkin.style.backgroundColor = "red"
   skrueSkin.style.backgroundColor = "brown"
-  //tom rom
+  sidSkin.style.backgroundColor = "brown"
+  stewieSkin.style.backgroundColor = "brown"
+  rockSKin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Pete Davidson", "success");
 }
 
