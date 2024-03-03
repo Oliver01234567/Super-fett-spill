@@ -44,14 +44,19 @@ if (choosenSkin == 7) {
     name.innerText = "Peter Griffin"
 }
 
-if(choosenSkin == 8) {
+if (choosenSkin == 8) {
     playerIcon.src = "../Bilder/Birk.png"
     name.innerText = "Birk"
 }
 
-if(choosenSkin == 9) {
+if (choosenSkin == 9) {
     playerIcon.src = "../Bilder/kasper.png"
     name.innerText = "Kasper"
+}
+
+if (choosenSkin == 10) {
+    playerIcon.src = "../Bilder/elon.png"
+    name.innerText = "Elon Musk"
 }
 
 //henter hvilken fiende du vil kjempe mot
@@ -161,14 +166,27 @@ if (opponent == 1) {
     JonasDeath = 1
 }
 
-    let KasperDeath = 0
-if(opponent == 2) {
+let kasperDeath = 0
+let elonDeath = 0
+if (opponent == 2) {
     motstanderIcon.src = "../Bilder/kasper.png"
     enemyName.innerText = "Kasper"
     enemyName2.innerText = "Kasper"
     enemyName3.innerText = "Kasper"
     enemyName4.innerText = "Kasper"
+    kasperDeath = 1
+}
 
+if (opponent == 3) {
+    motstanderIcon.src = "../Bilder/Elon.png"
+    enemyName.innerText = "Elon Musk"
+    enemyName2.innerText = "Elon Musk"
+    enemyName3.innerText = "Elon Musk"
+    enemyName4.innerText = "Elon Musk"
+    elonDeath = 1
+}
+
+if (opponent == 2 || opponent == 3) {
 
     body.classList.add("img3")
     winScreenen.classList.add("img3")
@@ -198,7 +216,7 @@ if(opponent == 2) {
         GridElm.classList.add("colorScheme3border")
     })
 
-    KasperDeath = 1
+
 }
 
 
@@ -375,17 +393,25 @@ function startGame() {
 
                 let firstTimeJonas = 1
                 sessionStorage.setItem("firstTimeJonas", firstTimeJonas)
-                
+
             }
 
-            if(KasperDeath == 1) {
+            if (kasperDeath == 1) {
                 let kasperDod = 2
                 sessionStorage.setItem("kasperDod", kasperDod)
 
                 let firstTimeKasper = 1
                 sessionStorage.setItem("firstTimeKasper", firstTimeKasper)
             }
-            
+
+            if(elonDeath == 1) {
+                let elonDod = 2
+                sessionStorage.setItem("elonDod", elonDod)
+
+                let firstTimeElon = 1
+                sessionStorage.setItem("firstTimeElon", firstTimeElon)
+            }
+
 
             return;
 
