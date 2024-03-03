@@ -7,7 +7,7 @@ for (let i = 1; i < 30; i++) {
   const creChest = document.createElement("div")
   // square.innerHTML = nummer
   creChest.id = "Chest" + nummer
-  
+
 
   creChest.classList.add("InteractiveMaterial")
   creChest.classList.add("Chest")
@@ -583,11 +583,11 @@ function utfordreFiende() {
     fightKasper()
   }
 
-  if(fiende == "Elon") {
+  if (fiende == "Elon") {
     fightElonMusk()
   }
 
-  if(fiende == "mario") {
+  if (fiende == "mario") {
     fightMario()
   }
 
@@ -826,7 +826,13 @@ function peteUnlocked() {
   showAlert("Pete Davidson er nå låst opp som et skin", "success");
 }
 
+if (peteDod == 2 && marioDod == 2 && elonDod == 2 && kasperDod == 2 && jonasDod == 2 && andenDod == 2) {
+  setTimeout(allEnemiesDefeat, 5000)
+}
 
+function allEnemiesDefeat() {
+  showAlert("Du har nå beseiret alle fiender, Gratulerer", "success");
+}
 
 
 birkSkin.addEventListener("click", ikkeTilgangSkin)
@@ -1569,7 +1575,7 @@ function buyRandomSkin() {
       const randomSkin = getRandomSkin();
 
       // Perform actions after the spinning animation (e.g., show skin, update UI)
-      showAlert(`Congratulations! You got the skin ${randomSkin.name}` , "success");
+      showAlert(`Congratulations! You got the skin ${randomSkin.name}`, "success");
       hideSpinningWheel();
       npcYesBtn.style.display = "block";
     }, 2000); // Adjust the delay time as needed
@@ -1598,9 +1604,9 @@ function hideSpinningWheel() {
   spinner.style.display = 'none'; // Hide the spinner
   spinner.style.animation = ''; // Stop the animation
   const arrow = document.querySelector('.arrow-down');
-    if (arrow) {
-        arrow.remove();
-    }
+  if (arrow) {
+    arrow.remove();
+  }
 }
 
 function getRandomSkin() {
