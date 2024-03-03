@@ -18,15 +18,15 @@
 
             <div id="character"><img src="Bilder/Torbjorn.png" alt="character"></div>
 
-            <div id="Chest1" class="InteractiveMaterial Chest"><img src="Bilder/closedChest.webp" alt="Chest"></div>
-
-            <div id="Chest2" class="InteractiveMaterial Chest"><img src="Bilder/closedChest.webp" alt="Chest"></div>
-
             <div id="enemy0" class="InteractiveMaterial npc"> <img src="Bilder/playerIcon1.png" alt="anden"></div>
 
             <div id="enemy1" class="InteractiveMaterial npc"><img src="Bilder/Jonas.png" alt="Jonas"></div>
 
+            <div id="kasper" class="InteractiveMaterial npc"><img src="Bilder/kasper.png" alt="Kasper"></div>
+
+
             <div id="birk" class="InteractiveMaterial npc"><img src="Bilder/Birk.png" alt="Birk"></div>
+
 
             <div id="tree1" class="tree"><img src="Bilder/tre.png" alt="tree"></div>
 
@@ -68,12 +68,12 @@
             </div>
             <div class="buttons">
                 <div class="wrapper1">
-                    <button class="settings">settings</button>
-                    <button class="upgrades" onclick="showStats()">upgrades</button>
+                    <button class="settings">Innstillinger</button>
+                    <button class="upgrades" onclick="showStats()">Oppgraderinger</button>
                 </div>
                 <div class="wrapper2">
-                    <button class="skins" onclick="showSkins()">skins</button>
-                    <a href="intro/intro.html"><button class="HowToPlay">How to play</button></a>
+                    <button class="skins" onclick="showSkins()">Skins</button>
+                    <a href="intro/intro.html"><button class="HowToPlay">Hvordan spiller man?</button></a>
                 </div>
             </div>
         </div>
@@ -101,6 +101,10 @@
                 Anden <br> <span>Beseir Anden</span>
             </button>
 
+            <button class="Mbuttons" id="kasperSkin">
+                Kasper <br> <span>Beseir Kasper</span>
+            </button>
+
             <button class="Mbuttons" id="birkSkin">
                 Birk <br> <span>Snakk med Birk</span>
             </button>
@@ -126,12 +130,12 @@
     </div>
     <div id="statsSelect" class="select">
         <nav id="statsNav" class="nav">
-            <p>Oppgrader characteren!</p>
+            <p>Oppgrader karakteren din!!</p>
         </nav>
         <div id="statsButtons">
             <div id="speed">
-                <button class="Sbuttons" onclick="SpeedIncrease()" id="speedButton">Øk farten<br>Koster:<span
-                        id="speedUpg">1000</span></button>
+                <button class="Sbuttons" onclick="SpeedIncrease()" id="speedButton">Øk farten<br><span>Koster:<span
+                            id="speedUpg">1000</span></span></button>
                 <div id="speedLevel">
                     <div id="speed1" class="LevelIndicater"></div>
                     <div id="speed2" class="LevelIndicater"></div>
@@ -140,7 +144,8 @@
             </div>
             <div id="health">
                 <button id="liv0">reset liv</button>
-                <button class="Sbuttons" id="healthButton">Øk health<br>Koster:<span id="healthUpg">1000</span></button>
+                <button class="Sbuttons" id="healthButton">Øk health<br><span>Koster:<span
+                            id="healthUpg">1000</span></span></button>
                 <div id="healthLevel">
                     <div id="health1" class="LevelIndicater"></div>
                     <div id="health2" class="LevelIndicater"></div>
@@ -151,7 +156,7 @@
             </div>
             <div id="damage">
                 <button id="damageer0">reset damage</button>
-                <button class="Sbuttons" id="damageButton">Øk skade<br>Koster:<span id="dmgUpg">1000</span></button>
+                <button class="Sbuttons" id="damageButton">Øk skade<br> <span> Koster:<span id="dmgUpg">1000</span></span></button>
                 <div id="damageLevel">
                     <div id="damage1" class="LevelIndicater"></div>
                     <div id="damage2" class="LevelIndicater"></div>

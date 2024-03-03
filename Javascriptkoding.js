@@ -1,6 +1,32 @@
 //interne notater:
 //Husk å markere alt i js og css slik at man enklere kan se hva som er hva
 
+//Chests
+let nummer = 1
+for (let i = 1; i < 30; i++) {
+  const creChest = document.createElement("div")
+  // square.innerHTML = nummer
+  creChest.id = "Chest" + nummer
+  
+
+  creChest.classList.add("InteractiveMaterial")
+  creChest.classList.add("Chest")
+
+
+  document.getElementById("øy").appendChild(creChest)
+
+
+
+  const creChestImg = document.createElement("img")
+  creChestImg.src = "Bilder/closedChest.webp"
+  creChestImg.alt = "Chest"
+  document.getElementById("Chest" + nummer).appendChild(creChestImg)
+
+  nummer++
+}
+
+
+
 //Fjerner scrolling fra siden
 //document.body.style.overflow = "hidden";
 
@@ -24,7 +50,7 @@ quiz1Seier = localStorage.getItem("quiz1Seier") || 0
 if (quiz1Seier == 1) {
   quiz1Seier = 2
   localStorage.setItem("quiz1Seier", 2)
-  let tjentMoney = 2000
+  let tjentMoney = 5000
   money = money + tjentMoney
   showAlert("Du fikk " + tjentMoney.toFixed(0) + " penger av Quizen", "success")
 
@@ -50,6 +76,16 @@ function birkIsUnlocked() {
 }
 
 
+let getMoney = localStorage.getItem("getMoney") || 0
+if (getMoney != 0) {
+  getMoney = 0
+  localStorage.setItem("getMoney", 0)
+
+  let tjentMoney = 1000
+  money = money + tjentMoney
+  showAlert("Du fant " + tjentMoney.toFixed(0) + " penger", "success")
+}
+
 
 //Thorbjorn er 0
 //Ramus er 1
@@ -60,6 +96,7 @@ function birkIsUnlocked() {
 //Langbein er 6
 //Peter Griffin er 7
 //Birk er 8
+//Kasper er 9
 
 const torbSkin = document.getElementById("torbSkin")
 if (choosenSkin == 0) {
@@ -115,6 +152,12 @@ if (choosenSkin == 8) {
   birkSkin.style.backgroundColor = "red"
 }
 
+const kasperSkin = document.getElementById("kasperSkin")
+if (choosenSkin == 9) {
+  characterP.src = "Bilder/kasper.png"
+  kasperSkin.style.backgroundColor = "red"
+}
+
 
 
 //skins section
@@ -131,6 +174,7 @@ function ChoosenTorb() {
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "brown";
   birkSkin.style.backgroundColor = "brown"
+  kasperSkin.style.backgroundColor = "brown"
 
   showAlert("Byttet skin til Thor Bjørn", "success");
 }
@@ -159,6 +203,7 @@ function ChoosenRasmus() {
     langbeinSkin.style.backgroundColor = "brown";
     peterSkin.style.backgroundColor = "brown";
     birkSkin.style.backgroundColor = "brown"
+    kasperSkin.style.backgroundColor = "brown"
   } else if (chosenRasmus == 10) {
     rasmusSkin.innerText = "Rasmus";
     characterP.src = "Bilder/Rasmus.png";
@@ -173,6 +218,7 @@ function ChoosenRasmus() {
     langbeinSkin.style.backgroundColor = "brown";
     peterSkin.style.backgroundColor = "brown";
     birkSkin.style.backgroundColor = "brown"
+    kasperSkin.style.backgroundColor = "brown"
     showAlert("Byttet skin til Rasmus", "success")
   } else {
     showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
@@ -193,6 +239,7 @@ function ChoosenJonas() {
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "brown";
   birkSkin.style.backgroundColor = "brown"
+  kasperSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Jonas", "success");
 }
 
@@ -209,6 +256,7 @@ function ChoosenAnd() {
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "brown";
   birkSkin.style.backgroundColor = "brown"
+  kasperSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Anden", "success");
 }
 
@@ -225,6 +273,7 @@ function chosenMonke() {
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "brown";
   birkSkin.style.backgroundColor = "brown"
+  kasperSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Monke", "success");
 }
 
@@ -241,6 +290,7 @@ function chosenPanda() {
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "brown";
   birkSkin.style.backgroundColor = "brown"
+  kasperSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Panda", "success");
 }
 
@@ -257,6 +307,7 @@ function chosenLangbein() {
   langbeinSkin.style.backgroundColor = "red";
   peterSkin.style.backgroundColor = "brown";
   birkSkin.style.backgroundColor = "brown"
+  kasperSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Langbein", "success");
 }
 
@@ -273,6 +324,7 @@ function chosenPeter() {
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "red";
   birkSkin.style.backgroundColor = "brown"
+  kasperSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Peter Griffin", "success");
 }
 
@@ -289,7 +341,25 @@ function ChoosenBirk() {
   langbeinSkin.style.backgroundColor = "brown";
   peterSkin.style.backgroundColor = "brown";
   birkSkin.style.backgroundColor = "red"
+  kasperSkin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Birk", "success");
+}
+
+function choosenKasper() {
+  characterP.src = "Bilder/kasper.png"
+  choosenSkin = 9
+  sessionStorage.setItem("choosenSkin", choosenSkin);
+  rasmusSkin.style.backgroundColor = "brown";
+  jonasSkin.style.backgroundColor = "brown";
+  torbSkin.style.backgroundColor = "brown";
+  andSkin.style.backgroundColor = "brown";
+  monkeSkin.style.backgroundColor = "brown";
+  pandaSkin.style.backgroundColor = "brown";
+  langbeinSkin.style.backgroundColor = "brown";
+  peterSkin.style.backgroundColor = "brown";
+  birkSkin.style.backgroundColor = "brown"
+  kasperSkin.style.backgroundColor = "red"
+  showAlert("Byttet skin til Kasper", "success");
 }
 
 //fiender
@@ -329,8 +399,8 @@ function showEnemyPopup(enemy) {
   const Epopup = document.createElement("div");
   Epopup.className = "enemy-popup";
   Epopup.innerHTML = `
-    <p> <span id="enemyOrNot"> Du møtte </span> <span id = "enemyName"> en fiende </span>!! <span id="npcChallenge"> Vil du utfordre han til Holmgang og få alle pengene hans?? </span> </p>
-    <button onclick="utfordreFiende()"><span id="godtaOrUtfordre">Utfordre</span></button>
+    <p> <span id="enemyOrNot"> Du møtte en fiende!! Vil du utfordre han til Holmgang og få alle pengene hans?? </span> </p>
+    <button id = "godtaOrUtfordre">Utfordre</button>
     <button onclick="declineEnemy()">Avslå</button>
   `;
 
@@ -340,26 +410,29 @@ function showEnemyPopup(enemy) {
   document.body.appendChild(Epopup);
   currentEPopup = Epopup;
 
-  const enemyName = document.getElementById("enemyName")
-  const npcChallenge = document.getElementById("npcChallenge")
+
   const enemyOrNot = document.getElementById("enemyOrNot")
   const godtaOrUtfordre = document.getElementById("godtaOrUtfordre")
   if (currentEPopup != Epopup) {
     return;
   } else {
+    godtaOrUtfordre.addEventListener("click", utfordreFiende)
     if (fiende == "enemy0") {
-      enemyName.innerText = "Anden"
+      enemyOrNot.innerText = "Du møtte Anden!! Vil du utfordre han til Holmgang og få alle pengene hans??"
     }
 
     if (fiende == "enemy1") {
-      enemyName.innerText = "Jonas"
+      enemyOrNot.innerText = "Du møtte Jonas!! Vil du utfordre han til Holmgang og få alle pengene hans??"
     }
 
     if (fiende == "birk") {
-      enemyName.innerText = "Birk"
-      npcChallenge.innerText = "Hvis du løser denne quizen får du masse penger"
-      enemyOrNot.innerText = "Hei jeg heter "
-      godtaOrUtfordre.innerText = "Godta"
+      enemyOrNot.innerText = "Hei Jeg heter Birk!! Vil du snakke litt??"
+      godtaOrUtfordre.innerText = "Ja, gjerne"
+    }
+
+    if (fiende == "kasper") {
+      enemyOrNot.innerText = "Du møtte Kasper!! Vil du utfordre han til Holmgang og få alle pengene hans??"
+
     }
   }
 }
@@ -378,12 +451,27 @@ function utfordreFiende() {
     fightJonas()
   }
 
-  if (fiende == "birk") {
-    opponent = 19
-    sessionStorage.setItem("opponent", 19)
-    window.location.href = 'Quiz/quiz_3.html';
+  if (fiende == "kasper") {
+    fightKasper()
   }
 
+  if (fiende == "birk") {
+    godtaOrUtfordre.removeEventListener("click", utfordreFiende)
+    godtaOrUtfordre.addEventListener("click", birkSinQuiz)
+    enemyOrNot.innerText = "Kan du svare på quizen min?? Du får en stor belønning"
+    godtaOrUtfordre.innerText = "Godta"
+  }
+
+
+
+}
+
+function birkSinQuiz() {
+  godtaOrUtfordre.addEventListener("click", utfordreFiende)
+  godtaOrUtfordre.removeEventListener("click", birkSinQuiz)
+  opponent = 19
+  sessionStorage.setItem("opponent", 19)
+  window.location.href = 'Quiz/quiz_3.html';
 }
 
 
@@ -424,6 +512,12 @@ function fightJonas() {
   window.location.href = 'Combat/Combat.html';
 }
 
+function fightKasper() {
+  opponent = 2
+  sessionStorage.setItem("opponent", opponent)
+  window.location.href = 'Combat/Combat.html';
+}
+
 
 
 //skjekker om en fiende er beseiret
@@ -433,11 +527,22 @@ let andenDod = 0
 andenDod = sessionStorage.getItem("andenDod")
 andSkin.addEventListener("click", ikkeTilgangSkin)
 
+let firstTimeAnd = sessionStorage.getItem("firstTimeAnd") || 0
+
 if (andenDod == 2) {
+  if (firstTimeAnd == 1) {
+    setTimeout(andUnlocked, 2500)
+    firstTimeAnd = 2
+    sessionStorage.setItem("firstTimeAnd", firstTimeAnd)
+  }
   island.removeChild(document.querySelector("#enemy0"));
   andSkin.addEventListener("click", ChoosenAnd)
   andSkin.removeEventListener("click", ikkeTilgangSkin)
   andSkin.innerText = "Anden"
+}
+
+function andUnlocked() {
+  showAlert("Anden er nå låst opp som et skin", "success");
 }
 
 let jonasDod = 0
@@ -449,11 +554,45 @@ function ikkeTilgangSkin() {
 
 }
 
+let firstTimeJonas = sessionStorage.getItem("firstTimeJonas") || 0
+
 if (jonasDod == 2) {
+  if (firstTimeJonas == 1) {
+    setTimeout(jonasUnlocked, 2500)
+    firstTimeJonas = 2
+    sessionStorage.setItem("firstTimeJonas", firstTimeJonas)
+  }
   island.removeChild(document.querySelector("#enemy1"));
   jonasSkin.addEventListener("click", ChoosenJonas)
   jonasSkin.removeEventListener("click", ikkeTilgangSkin)
   jonasSkin.innerText = "Jonas"
+}
+
+function jonasUnlocked() {
+  showAlert("Jonas er nå låst opp som et skin", "success");
+}
+
+
+let kasperDod = 0
+kasperDod = sessionStorage.getItem("kasperDod") || 0
+kasperSkin.addEventListener("click", ikkeTilgangSkin)
+
+let firstTimeKasper = sessionStorage.getItem("firstTimeKasper") || 0
+
+if (kasperDod == 2) {
+  if (firstTimeKasper == 1) {
+    setTimeout(kasperUnlocked, 2500)
+    firstTimeKasper = 2
+    sessionStorage.setItem("firstTimeKasper", firstTimeKasper)
+  }
+  island.removeChild(document.querySelector("#kasper"));
+  kasperSkin.addEventListener("click", choosenKasper)
+  kasperSkin.removeEventListener("click", ikkeTilgangSkin)
+  kasperSkin.innerText = "Kasper"
+}
+
+function kasperUnlocked() {
+  showAlert("Kasper er nå låst opp som et skin", "success");
 }
 
 
@@ -466,7 +605,23 @@ if (birkUnlocked == 1) {
   birkSkin.innerText = "Birk"
 }
 
+//du har vunnet en fight i combat.js
+let combatSeier = 0
+combatSeier = sessionStorage.getItem("combatSeier") || 0
 
+if (combatSeier == 1) {
+  combatSeier = 2
+  sessionStorage.setItem("combatSeier", combatSeier)
+
+  money = money + 5000
+  localStorage.setItem("money", money);
+  let tjentPenger = money + 5000;
+  showAlert("Du fikk " + tjentPenger.toFixed(0) + " penger", "success")
+}
+
+function DuFikkPenger() {
+
+}
 
 
 
@@ -530,7 +685,7 @@ let movement = {
 };
 
 //Variabel for movement
-let movePlayer = 4
+let movePlayer = sessionStorage.getItem("movePlayer") || 4
 
 let upgradeSpeed = 1000;
 
@@ -539,6 +694,7 @@ const speedUpg = document.getElementById("speedUpg");
 function SpeedIncrease() {
   if (movePlayer < 10 && money >= upgradeSpeed) {
     movePlayer += 2;
+    sessionStorage.setItem("movePlayer", movePlayer)
     money -= upgradeSpeed;
     upgradeSpeed *= 2;
     speedNivå()
@@ -851,6 +1007,7 @@ function showChestPopup(chest) {
   if (currentPopup != popup) {
     return;
   } else {
+
     if (chestsId == "Chest1") {
       challenge.innerText = "For å åpne den må du løse en quiz"
     }
@@ -886,6 +1043,10 @@ function openChest(chestId) {
     currentPopup = null;
   }
 
+  if (chestId != "Chest1" && chestId != "Chest2") {
+    window.location.href = 'Chests/ChestOpen.html'
+  }
+
   if (chestId == "Chest1") {
     window.location.href = 'Quiz/js_quiz.html';
   }
@@ -894,6 +1055,7 @@ function openChest(chestId) {
     window.location.href = 'Quiz/quiz_2.html';
   }
 }
+
 
 function disableChests() {
   chestCheckEnabled = false;

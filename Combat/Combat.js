@@ -44,6 +44,16 @@ if (choosenSkin == 7) {
     name.innerText = "Peter Griffin"
 }
 
+if(choosenSkin == 8) {
+    playerIcon.src = "../Bilder/Birk.png"
+    name.innerText = "Birk"
+}
+
+if(choosenSkin == 9) {
+    playerIcon.src = "../Bilder/kasper.png"
+    name.innerText = "Kasper"
+}
+
 //henter hvilken fiende du vil kjempe mot
 opponent = parseInt(sessionStorage.getItem("opponent")) || 0
 
@@ -73,7 +83,7 @@ if (opponent == 0) {
     enemyName2.innerText = "Anden"
     enemyName3.innerText = "Anden"
     enemyName4.innerText = "Anden"
-    enemyName6.innerText = "Anden"
+
 
 
 
@@ -118,7 +128,6 @@ if (opponent == 1) {
     enemyName2.innerText = "Jonas"
     enemyName3.innerText = "Jonas"
     enemyName4.innerText = "Jonas"
-    enemyName6.innerText = "Jonas"
 
 
     body.classList.add("img2")
@@ -151,6 +160,48 @@ if (opponent == 1) {
 
     JonasDeath = 1
 }
+
+    let KasperDeath = 0
+if(opponent == 2) {
+    motstanderIcon.src = "../Bilder/kasper.png"
+    enemyName.innerText = "Kasper"
+    enemyName2.innerText = "Kasper"
+    enemyName3.innerText = "Kasper"
+    enemyName4.innerText = "Kasper"
+
+
+    body.classList.add("img3")
+    winScreenen.classList.add("img3")
+    deathScreenen.classList.add("img3")
+    howto.classList.add("img3")
+
+    allText.forEach(function (pElement) {
+        pElement.classList.add("colorScheme3")
+    })
+    allH.forEach(function (hElemnt) {
+        hElemnt.classList.add("colorScheme3")
+    })
+
+    allh2.forEach(function (h2Elm) {
+        h2Elm.classList.add("colorScheme3")
+    })
+
+    allh3.forEach(function (h3Elm) {
+        h3Elm.classList.add("colorScheme3")
+    })
+
+    allButton.forEach(function (ButtonElm) {
+        ButtonElm.classList.add("colorScheme3button")
+    })
+
+    allcGrid.forEach(function (GridElm) {
+        GridElm.classList.add("colorScheme3border")
+    })
+
+    KasperDeath = 1
+}
+
+
 const prov = document.getElementById("Prov")
 
 //du mister penger hvis du dør
@@ -272,11 +323,7 @@ function startGame() {
 
 
 
-    //hva som skjer når du skader fienden
-    function DuFikkPenger() {
-        let tjentPenger = money + 1000;
-        showAlert("Du fikk " + tjentPenger.toFixed(0) + " penger", "success")
-    }
+    //hva som skjer når du skader fiender
 
     function skadet() {
         player.removeChild(document.querySelector("#holdtSverd"));
@@ -311,19 +358,34 @@ function startGame() {
             setTimeout(winScreen, 2500)
             clearInterval(Forsvar)
             plyHealth = 10000
-            money = money + 1000
-            sessionStorage.setItem("money", money);
-            setTimeout(DuFikkPenger, 2500)
+            let combatSeier = 1
+            sessionStorage.setItem("combatSeier", combatSeier)
             if (Anddeath == 1) {
                 let andenDod = 2
                 sessionStorage.setItem("andenDod", andenDod)
+
+                let firstTimeAnd = 1
+                sessionStorage.setItem("firstTimeAnd", firstTimeAnd)
 
             }
 
             if (JonasDeath == 1) {
                 let jonasDod = 2
                 sessionStorage.setItem("jonasDod", jonasDod)
+
+                let firstTimeJonas = 1
+                sessionStorage.setItem("firstTimeJonas", firstTimeJonas)
+                
             }
+
+            if(KasperDeath == 1) {
+                let kasperDod = 2
+                sessionStorage.setItem("kasperDod", kasperDod)
+
+                let firstTimeKasper = 1
+                sessionStorage.setItem("firstTimeKasper", firstTimeKasper)
+            }
+            
 
             return;
 

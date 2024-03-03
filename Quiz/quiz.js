@@ -21,17 +21,19 @@ function hente_resultater() {
                 if (svar4.checked == true) {
                     alert("Riktig")
 
-                    if(opponent != 19) {
+                    if(opponent == 0) {
                         quiz1Seier = 1
                         localStorage.setItem("quiz1Seier", quiz1Seier)
+                        window.location.href = '../Chests/ChestOpen.html';
                     }
                     
                     if(opponent == 19) {
                         quiz1Seier = 3
                         localStorage.setItem("quiz1Seier", quiz1Seier)
+                        window.location.href = '../Index.html';
                     }
                     
-                    window.location.href = '../Index.html';
+                
                 } else {
                     alert("wrong")
 

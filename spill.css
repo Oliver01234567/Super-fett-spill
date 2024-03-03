@@ -168,7 +168,6 @@ body {
     padding: 50px;
     display: inline-block;
     position: absolute;
-    cursor: pointer;
 
 }
 
@@ -191,6 +190,16 @@ body {
     top: 30px;
 }
 
+#kasper {
+    left: 2473px;
+    top: 3860px;
+}
+
+#birk {
+    left: 500px;
+    top: 4000px;
+}
+
 
 /*Chests*/
 
@@ -211,14 +220,156 @@ body {
 }
 
 #Chest1 {
+    left: 3656px;
+    top: 1835px;
+}
+
+#Chest2 {
+    left: 2094px;
+    top: 4061px;
+}
+
+#Chest3 {
+    left: 2630px;
+    top: 3408px;
+}
+
+#Chest4 {
+    left: 4274px;
+    top: 942px;
+}
+
+#Chest5 {
+    left: 3340px;
+    top: 1908px;
+}
+
+#Chest6 {
+    left: 4403px;
+    top: 1085px;
+}
+
+#Chest7 {
+    left: 3124px;
+    top: 2837px;
+}
+
+#Chest8 {
+    left: 1604px;
+    top: 3595px;
+}
+
+#Chest9 {
+    left: 1897px;
+    top: 802px;
+}
+
+#Chest10 {
+    left: 3718px;
+    top: 4458px;
+}
+
+#Chest11 {
+    left: 2520px;
+    top: 4157px;
+}
+
+#Chest12 {
+    left: 1963px;
+    top: 4266px;
+}
+
+#Chest13 {
+    left: 587px;
+    top: 4155px;
+}
+
+#Chest14 {
+    left: 2960px;
+    top: 4325px;
+}
+
+#Chest15 {
+    left: 2068px;
+    top: 1228px;
+}
+
+#Chest16 {
+    left: 2136px;
+    top: 2571px;
+}
+
+#Chest17 {
+    left: 2351px;
+    top: 3029px;
+}
+
+#Chest18 {
+    left: 3219px;
+    top: 1406px;
+}
+
+#Chest19 {
+    left: 1580px;
+    top: 2209px;
+}
+
+#Chest20 {
+    left: 2934px;
+    top: 1649px;
+}
+
+#Chest21 {
+    left: 3648px;
+    top: 4069px;
+}
+
+#Chest22 {
+    left: 1164px;
+    top: 2569px;
+}
+
+#Chest23 {
+    left: 777px;
+    top: 2244px;
+}
+
+#Chest24 {
+    left: 2140px;
+    top: 1552px;
+}
+
+#Chest25 {
+    left: 883px;
+    top: 1691px;
+}
+
+#Chest26 {
     left: 300px;
     top: 400px;
 }
 
-#Chest2 {
-    left: 700px;
-    top: 40px;
+#Chest27 {
+    left: 2842px;
+    top: 4494px;
 }
+
+#Chest28 {
+    left: 2587px;
+    top: 3166px;
+}
+
+#Chest29 {
+    left: 4243px;
+    top: 2647px;
+}
+
+#Chest30 {
+    left: 2556px;
+    top: 3470px;
+}
+
+
 
 /*Popup Oliver*/
 .popup {
@@ -360,6 +511,11 @@ body {
     background-color: brown;
     font-size: 35px;
     cursor: pointer;
+}
+
+.Sbuttons span {
+    font-size: 15px;
+    margin: 0;
 }
 
 
