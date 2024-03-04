@@ -1,4 +1,3 @@
-
 /* Minimal reset: */
 * {
     margin: 0;
@@ -9,6 +8,7 @@
 :root {
     --moneyBox: #D95D39;
 }
+
 /*Spilleren*/
 
 #character {
@@ -46,10 +46,20 @@
 
 
 body {
-    background-color: rgb(0, 255, 255);
+    background-color: rgb(91 241 241 / 96%);
 }
 
 
+#sea-monster {
+    position: absolute;
+    margin-left: 1050px;
+    margin-top: 450px;
+}
+
+#sea-monster img {
+    width: 350px; 
+    height: auto; 
+}
 
 #øy {
     grid-column: 1;
@@ -62,18 +72,18 @@ body {
     margin: 500px;
 }
 
-.tree{
+.tree {
     position: absolute;
 }
 
 .tree img {
     position: absolute;
     width: 70px;
-    height: auto; 
+    height: auto;
 }
 
 .strand {
-    background: linear-gradient(to bottom, #e0cd62 35%, rgb(0, 255, 255) 65%);
+    background: linear-gradient(to bottom, #e0cd62 35%,) rgb(91 241 241 / 96%);
     /* strand gradient */
     height: 80px;
     position: absolute;
@@ -163,6 +173,8 @@ body {
 
 
 
+
+
 /*Alt materiale som spilleren skal interaktere med*/
 .InteractiveMaterial {
     padding: 50px;
@@ -175,19 +187,21 @@ body {
     padding: 30px;
 }
 
-.NPC img, .npc img {
+.NPC img,
+.npc img {
     width: 60px;
     height: 60px;
 }
 
-#enemy0 {
+
+#anden {
     left: 500px;
     top: 200px;
 }
 
-#enemy1 {
-    left: 200px;
-    top: 30px;
+#jonas {
+    left: 2736px;
+    top: 333px;
 }
 
 #kasper {
@@ -198,6 +212,22 @@ body {
 #birk {
     left: 500px;
     top: 4000px;
+}
+
+#Elon {
+    left: 1743px;
+    top: 3467px;
+    
+}
+
+#pete {
+    left: 2674px;
+    top: 1918px;
+}
+
+#mario {
+    left: 3160px;
+    top: 1091px;
 }
 
 
@@ -383,7 +413,8 @@ body {
     z-index: 10000;
 }
 
-.chest-popup, .enemy-popup {
+.chest-popup,
+.enemy-popup {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -395,7 +426,8 @@ body {
     text-align: center;
 }
 
-.chest-popup button, .enemy-popup button {
+.chest-popup button,
+.enemy-popup button {
     margin: 10px;
     padding: 5px 10px;
     cursor: pointer;
@@ -482,18 +514,37 @@ body {
     font-size: 45px;
     margin-bottom: 15px;
     padding: 10px;
-    position: fixed;
     top: 0;
 }
 
+#skinButtons {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+#skinSelect {
+    height: auto;
+    width: 1000px;
+}
+
 .Mbuttons {
-    width: 190px;
-    height: 120px;
-    top: 50%;
+    width: 150px;
+    height: 100px;
     background-color: brown;
-    font-size: 35px;
+    font-size: 27px;
     cursor: pointer;
 }
+
+#backToGameDiv {
+
+    margin-bottom: 10px;
+    background-color: black;
+
+    display: flex;
+    align-items: center;
+}
+
 
 .Mbuttons span {
     font-size: 15px;
@@ -504,7 +555,8 @@ body {
 #stats {
     display: none;
 }
-.Sbuttons{
+
+.Sbuttons {
     width: 200px;
     height: 80px;
     top: 50%;
@@ -519,34 +571,24 @@ body {
 }
 
 
-.nav {
-    background-color: brown;
-    border: 2px solid black;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 45px;
-    margin-bottom: 15px;
-    padding: 10px;
-    position: fixed;
-    top: 0;
-}
-#statsButtons{
+#statsButtons {
     display: flex;
     flex-direction: column;
 }
-.LevelIndicater{
+
+.LevelIndicater {
     background-color: white;
     border: 2px solid black;
 }
+
 /* speed */
-#speed{
+#speed {
     display: flex;
     flex-direction: row;
     margin-bottom: 3px;
 }
-#speedLevel{
+
+#speedLevel {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
@@ -554,21 +596,26 @@ body {
     width: 450px;
     height: 80px;
 }
-#speed1{   
+
+#speed1 {
     grid-column: 1/2;
 }
-#speed2{   
+
+#speed2 {
     grid-column: 2/3;
 }
-#speed3{
+
+#speed3 {
     grid-column: 3/4;
 }
+
 /* HealthLevel */
-#health{
+#health {
     display: flex;
     flex-direction: row;
 }
-#healthLevel{
+
+#healthLevel {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr;
@@ -576,30 +623,38 @@ body {
     width: 450px;
     height: 80px;
 }
-#health1{
+
+#health1 {
     grid-column: 1/2;
 }
-#health2{
+
+#health2 {
     grid-column: 2/3;
 }
-#health3{
+
+#health3 {
     grid-column: 3/4;
 }
-#health4{
+
+#health4 {
     grid-column: 4/5;
 }
-#health5{
+
+#health5 {
     grid-column: 5/6;
 }
-#liv0{
+
+#liv0 {
     background-color: brown;
 }
+
 /* Damage */
-#damage{
+#damage {
     display: flex;
     flex-direction: row;
 }
-#damageLevel{
+
+#damageLevel {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
@@ -607,33 +662,39 @@ body {
     width: 450px;
     height: 80px;
 }
-#damage1{   
+
+#damage1 {
     grid-column: 1/2;
 }
-#damage2{   
+
+#damage2 {
     grid-column: 2/3;
 }
-#damage3{
+
+#damage3 {
     grid-column: 3/4;
 }
-#damage4{
+
+#damage4 {
     grid-column: 4/5;
 }
-#damageer0{
+
+#damageer0 {
     background-color: brown;
 }
+
 /* NPC */
 .NPC {
     position: absolute;
     width: 50px;
     height: 50px;
-    background-color: #FF4500; 
-    border: 2px solid #A52A2A; 
+    background-color: #FF4500;
+    border: 2px solid #A52A2A;
     border-radius: 5px;
     cursor: pointer;
-    top: 200px; 
-    right: 600px; 
-  }
+    top: 200px;
+    right: 600px;
+}
 
 .dialog-box {
     display: none;
@@ -644,7 +705,7 @@ body {
     padding: 10px;
     border: 2px solid #333;
     z-index: 10000;
-  }
+}
 
 
 /*Skin wheel*/
@@ -688,8 +749,13 @@ body {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .arrow-down {
@@ -706,7 +772,7 @@ body {
 }
 
 /*Alert*/
-  .alert {
+.alert {
     position: fixed;
     top: 10px;
     left: 50%;
@@ -719,7 +785,7 @@ body {
 }
 
 .error {
-    background-color: #f44336; 
+    background-color: #f44336;
 }
 
 .success {

@@ -29,6 +29,6 @@ function createMoney() {
     money.style.animation = ("moneyGrow 2s infinite linear")
     setTimeout(function() {
         window.location.href = '../Index.html';
-    }, 2000)
+    }, 1800)
 }
 
