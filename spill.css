@@ -647,6 +647,7 @@ body {
   }
 
 
+/*Skin wheel*/
 .spinning-wheel {
     position: fixed;
     top: 50%;
@@ -693,15 +694,15 @@ body {
 
 .arrow-down {
     position: fixed;
-    top: 16%; /* Adjust the distance from the top */
+    top: 16%; 
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 0;
-    border-left: 20px solid transparent; /* Adjust the size of the arrow */
-    border-right: 20px solid transparent; /* Adjust the size of the arrow */
-    border-top: 30px solid #000; /* Adjust the color of the arrow */
-    z-index: 1001; /* Make sure the arrow is above the spinning wheel */
+    border-left: 20px solid transparent; 
+    border-right: 20px solid transparent; 
+    border-top: 30px solid #000; 
+    z-index: 1001; 
 }
 
 /*Alert*/

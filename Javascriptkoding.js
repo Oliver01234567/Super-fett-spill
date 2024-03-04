@@ -1291,7 +1291,7 @@ function handleNPCResponse(response) {
     hideNPCDialog();
 
     setTimeout(function () {
-      showNPCDialog("Great! Would you like to buy a randomized skin box for 1000 money?");
+      showNPCDialog("Great! Would you like to spin the wheel to get a random skin for 1000 money?");
       npcYesBtn.textContent = "Sure";
       npcNoBtn.textContent = "Decline";
 
@@ -1313,36 +1313,34 @@ function handlePurchase() {
 
   setTimeout(function () {
     showNPCDialog("Great! Please confirm your purchase.");
-    // Update buttons for the confirmation dialog
+  
     npcYesBtn.textContent = "Confirm";
     npcNoBtn.textContent = "Cancel";
 
-    // Add event listener for the "Confirm" button
+    
     npcYesBtn.addEventListener("click", buyRandomSkin);
   }, 2);
 }
 
 function buyRandomSkin() {
   console.log("kjører funksjonen")
-  //Logic to deduct money and grant a random skin
   const cost = 1000;
   if (money >= cost) {
     money -= cost;
     console.log("nok penger")
 
-    // Simulate a spinning animation for skin selection
-    simulateSpinningAnimation();
+    const randomSkin = getRandomSkin();
+
+    simulateSpinningAnimation(randomSkin);
 
     // You can use setTimeout or other logic to simulate a delay if needed
     setTimeout(function () {
-      // Select a random skin
-      const randomSkin = getRandomSkin();
 
       // Perform actions after the spinning animation (e.g., show skin, update UI)
       showAlert(`Congratulations! You got the skin ${randomSkin.name}` , "success");
       hideSpinningWheel();
       npcYesBtn.style.display = "block";
-    }, 2000); // Adjust the delay time as needed
+    }, 2000); 
   } else {
     showAlert("Not enough money to buy a skin box", "error");
     spillAvError();
@@ -1353,20 +1351,50 @@ function getSkinBoxSpinner() {
   return document.getElementById('skinBoxSpinner');
 }
 
-function simulateSpinningAnimation() {
+function simulateSpinningAnimation(selectedSkin) {
   const spinner = document.getElementById('skinBoxSpinner');
   const randomDuration = Math.random() * (2.5 - 1.5) + 0.5;
-  spinner.style.display = 'block'; // Show the spinner before animation
-  spinner.style.animation = `spin ${randomDuration}s linear infinite`; // Start the animation
+  spinner.style.display = 'block'; 
+  spinner.style.animation = `spin ${randomDuration}s linear infinite`; 
+
+  // Determine the selected section based on the chosen skin
+  const skins = [
+    { name: 'Monke', chance: 0.15 },
+    { name: 'Panda', chance: 0.3 },
+    { name: 'Langbein', chance: 0.05 },
+    { name: 'Peter', chance: 0.5 },
+  ];
+
+  const selectedSection = skins.findIndex(skin => skin.name === selectedSkin.name);
+
+  // Create and append the arrow element
   const arrow = document.createElement('div');
   arrow.classList.add('arrow-down');
   document.body.appendChild(arrow);
+
+  // Determine the initial rotation angle of the arrow (facing downwards)
+  const initialRotationAngle = -90; // Adjust this value as needed
+
+  // Rotate the arrow to point to the selected section
+  const rotationAngle = initialRotationAngle + (360 / skins.length) * selectedSection;
+  arrow.style.transform = `rotate(${rotationAngle}deg)`;
+
+  // Stop the spinning animation after a short delay (0.5 seconds)
+  setTimeout(() => {
+    spinner.style.animation = ''; // Stop the spinning animation
+
+    // Wait for another short delay (0.5 seconds) before removing the wheel
+    setTimeout(() => {
+      hideSpinningWheel();
+      npcYesBtn.style.display = "block";
+    }, 00);
+  }, 1500);
 }
 
 function hideSpinningWheel() {
   const spinner = document.getElementById('skinBoxSpinner');
-  spinner.style.display = 'none'; // Hide the spinner
-  spinner.style.animation = ''; // Stop the animation
+  spinner.style.display = 'none'; 
+  spinner.style.animation = ''; 
   const arrow = document.querySelector('.arrow-down');
     if (arrow) {
         arrow.remove();
