@@ -46,10 +46,20 @@
 
 
 body {
-    background-color: rgb(0, 255, 255);
+    background-color: rgb(91 241 241 / 96%);
 }
 
 
+#sea-monster {
+    position: absolute;
+    margin-left: 1050px;
+    margin-top: 450px;
+}
+
+#sea-monster img {
+    width: 350px; 
+    height: auto; 
+}
 
 #øy {
     grid-column: 1;
@@ -73,7 +83,7 @@ body {
 }
 
 .strand {
-    background: linear-gradient(to bottom, #e0cd62 35%, rgb(0, 255, 255) 65%);
+    background: linear-gradient(to bottom, #e0cd62 35%,) rgb(91 241 241 / 96%);
     /* strand gradient */
     height: 80px;
     position: absolute;
