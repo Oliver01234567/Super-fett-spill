@@ -10,55 +10,56 @@
 </head>
 
 <body>
-        <div id="space">
+    <div id="space">
+        <div id="sea-monster"><img src="Bilder/nessie.png" alt="sjømonster"></div>
         <main id="øy">
-
-    <div id="sea-monster"><img src="Bilder/nessie.png" alt="sjømonster"></div>
-    <main id="øy">
+            <main id="øy">
 
 
+                <div id="character"><img src="Bilder/Torbjorn.png" alt="character"></div>
 
-            <div class="strand"></div>
+                <div id="anden" class="InteractiveMaterial npc"> <img src="Bilder/playerIcon1.png" alt="anden"></div>
 
-            <div id="character"><img src="Bilder/Torbjorn.png" alt="character"></div>
+                <div id="jonas" class="InteractiveMaterial npc"><img src="Bilder/Jonas.png" alt="Jonas"></div>
 
-            <div id="anden" class="InteractiveMaterial npc"> <img src="Bilder/playerIcon1.png" alt="anden"></div>
+                <div id="kasper" class="InteractiveMaterial npc"><img src="Bilder/kasper.png" alt="Kasper"></div>
 
-            <div id="jonas" class="InteractiveMaterial npc"><img src="Bilder/Jonas.png" alt="Jonas"></div>
+                <div id="Elon" class="InteractiveMaterial npc"> <img src="Bilder/Elon.png" alt="Elon Musk"></div>
 
-            <div id="kasper" class="InteractiveMaterial npc"><img src="Bilder/kasper.png" alt="Kasper"></div>
+                <div id="mario" class="InteractiveMaterial npc"><img src="Bilder/Mario.png" alt="Mario"></div>
 
-            <div id="Elon" class="InteractiveMaterial npc"> <img src="Bilder/Elon.png" alt="Elon Musk"></div>
-
-            <div id="mario" class="InteractiveMaterial npc"><img src="Bilder/Mario.png" alt="Mario"></div>
-
-            <div id="pete" class="InteractiveMaterial npc"><img src="Bilder/peteD.png" alt="Pete Davidson"></div>
+                <div id="pete" class="InteractiveMaterial npc"><img src="Bilder/peteD.png" alt="Pete Davidson"></div>
 
 
-            <div id="birk" class="InteractiveMaterial npc"><img src="Bilder/Birk.png" alt="Birk"></div>
+                <div id="birk" class="InteractiveMaterial npc"><img src="Bilder/Birk.png" alt="Birk"></div>
 
 
-            <div id="tree1" class="tree"><img src="Bilder/tre.png" alt="tree"></div>
-
+                <!--pynt på map-->
+                <div id="tree1" class="tree"><img src="Bilder/tre.png" alt="tre"></div>
+                <div id="busk1"><img src="Bilder/busk1.png" alt="busk"></div>
+                <div id="busk2"><img src="Bilder/busk2.png" alt="busk"></div>
+                <div id="hage"><img src="Bilder/hage.png" alt="hage/busk"></div>
 
 
 
-            <div id="npc" class="InteractiveMaterial NPC">NPC
-                <div id="npc-dialog" class="dialog-box">
-                    <p id="npc-message"></p>
-                    <button id="npc-yes" onclick="handleNPCResponse(true)">Yes</button>
-                    <button id="npc-no" onclick="handleNPCResponse(false)">No</button>
+
+
+                <div id="npc" class="InteractiveMaterial NPC">NPC
+                    <div id="npc-dialog" class="dialog-box">
+                        <p id="npc-message"></p>
+                        <button id="npc-yes" onclick="handleNPCResponse(true)">Yes</button>
+                        <button id="npc-no" onclick="handleNPCResponse(false)">No</button>
+                    </div>
                 </div>
-            </div>
-            <div id="skinBoxSpinner" class="spinning-wheel">
-                <div class="wheel-section" id="wheelSection1"></div>
-                <div class="wheel-section" id="wheelSection2"></div>
-                <div class="wheel-section" id="wheelSection3"></div>
-                <div class="wheel-section" id="wheelSection4"></div>
-            </div>
-        </main>
+                <div id="skinBoxSpinner" class="spinning-wheel">
+                    <div class="wheel-section" id="wheelSection1"></div>
+                    <div class="wheel-section" id="wheelSection2"></div>
+                    <div class="wheel-section" id="wheelSection3"></div>
+                    <div class="wheel-section" id="wheelSection4"></div>
+                </div>
+            </main>
 
-        <secton id="blank"></secton>
+            <secton id="blank"></secton>
     </div>
 
     <div class="moneyContainer">
@@ -167,7 +168,8 @@
                 Peter Griffin <br> <span>Snakk med SKin NPC </span>
             </button>
 
-           <div id ="backToGameDiv"> <button class="Mbuttons" onclick="backToGame()" id="Tilbake">Tilbake</button> </div>
+            <div id="backToGameDiv"> <button class="Mbuttons" onclick="backToGame()" id="Tilbake">Tilbake</button>
+            </div>
         </div>
     </div>
     <div id="statsSelect" class="select">
@@ -198,7 +200,8 @@
             </div>
             <div id="damage">
                 <button id="damageer0">reset damage</button>
-                <button class="Sbuttons" id="damageButton">Øk skade<br> <span> Koster:<span id="dmgUpg">1000</span></span></button>
+                <button class="Sbuttons" id="damageButton">Øk skade<br> <span> Koster:<span
+                            id="dmgUpg">1000</span></span></button>
                 <div id="damageLevel">
                     <div id="damage1" class="LevelIndicater"></div>
                     <div id="damage2" class="LevelIndicater"></div>
