@@ -53,17 +53,17 @@ body {
 #sea-monster {
     position: absolute;
     margin-left: 1050px;
-    margin-top: 450px;
+    margin-top: 80px;
 }
 
 #sea-monster img {
-    width: 350px; 
+    width: 500px; 
     height: auto; 
 }
 
 #øy {
     grid-column: 1;
-    background-color: rgb(143, 183, 63);
+   background-color: rgb(143, 183, 63);
     height: 5000px;
     width: 5000px;
     position: relative;
@@ -78,17 +78,26 @@ body {
 
 .tree img {
     position: absolute;
-    width: 70px;
+    width: 370px;
     height: auto;
 }
 
-.strand {
-    background: linear-gradient(to bottom, #e0cd62 35%,) rgb(91 241 241 / 96%);
-    /* strand gradient */
-    height: 80px;
+#busk1 img{
     position: absolute;
-    bottom: 0;
-    width: 100%;
+    width: 100px;
+    height: auto;
+}
+
+#busk2 img{
+    position: absolute;
+    width: 100px;
+    height: auto;
+}
+
+#hage img{
+    position: absolute;
+    width: 100px;
+    height: auto;
 }
 
 /*Menyknapp*/
@@ -246,7 +255,7 @@ body {
 }
 
 .Chest img {
-    height: 50px;
+    height: 99px;
 }
 
 #Chest1 {
