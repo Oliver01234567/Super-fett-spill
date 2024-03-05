@@ -210,6 +210,7 @@
     margin: 30px; 
     font-size: 25px;
     line-height: 50px;
+    color: white;
 }
 
 #div_1_quiz_5 h3 {
@@ -231,8 +232,13 @@
     border: #1f3121 solid 2px;
     padding: 40px;
     margin: 30px;
-    
-    
+    font-size: 25px;
+    line-height: 50px;
+    color: white;
+}
+
+#div_2_quiz_5 h3 {
+    font-size: 35px
 }
 
 #div_2_quiz_5 img{
@@ -249,8 +255,13 @@
     border: #1f3121 solid 2px;
     padding: 40px;
     margin: 30px;
-    
-    
+    font-size: 25px;
+    line-height: 50px;
+    color: white;
+}
+
+#div_3_quiz_5 h3 {
+    font-size: 35px
 }
 
 #div_3_quiz_5 img{
@@ -267,8 +278,13 @@
     border: #1f3121 solid 2px;
     padding: 40px;
     margin: 30px;
-    
-    
+    font-size: 25px;
+    line-height: 50px;
+    color: white;
+}
+
+#div_4_quiz_5 h3 {
+    font-size: 35px
 }
 
 #div_4_quiz_5 img{

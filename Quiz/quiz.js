@@ -15,27 +15,53 @@ function hente_resultater() {
     svar3 = document.getElementById("riktig_svar3")
     svar4 = document.getElementById("riktig_svar4")
 
+    forslag1 = document.getElementById("spørsmål1_svar1")
+    forslag2 = document.getElementById("spørsmål1_svar2")
+    forslag3 = document.getElementById("spørsmål1_svar3")
+    forslag4 = document.getElementById("spørsmål1_svar4")
+    forslag5 = document.getElementById("spørsmål1_svar5")
+    forslag6 = document.getElementById("spørsmål1_svar6")
+    forslag7 = document.getElementById("spørsmål1_svar7")
+    forslag8 = document.getElementById("spørsmål1_svar8")
+
+
+
     if (svar1.checked == true) {
         if (svar2.checked == true) {
             if (svar3.checked == true) {
                 if (svar4.checked == true) {
-                    alert("Riktig")
+                    
+                    if (forslag1.checked == false &&
+                        forslag2.checked == false &&
+                        forslag3.checked == false &&
+                        forslag4.checked == false && 
+                        forslag5.checked == false &&
+                        forslag6.checked == false &&
+                        forslag7.checked == false &&
+                        forslag8.checked == false ) {
 
-                    if(opponent == 0) {
-                        quiz1Seier = 1
-                        localStorage.setItem("quiz1Seier", quiz1Seier)
-                        window.location.href = '../Chests/ChestOpen.html';
-                    }
-                    
-                    if(opponent == 19) {
-                        quiz1Seier = 3
-                        localStorage.setItem("quiz1Seier", quiz1Seier)
-                        window.location.href = '../Index.html';
-                    }
-                    
+                            if(opponent == 0) {
+                                quiz1Seier = 1
+                                localStorage.setItem("quiz1Seier", quiz1Seier)
+                                window.location.href = '../Chests/ChestOpen.html';
+                            }
+                            
+                            if(opponent == 19) {
+                                quiz1Seier = 3
+                                localStorage.setItem("quiz1Seier", quiz1Seier)
+                                window.location.href = '../Index.html';
+                            }
+
+                        } else {
+                        alert("Feil")
+                        let tapPenger = money * 0.10
+                        money = money * 0.90
+                        showAlert("Du tapte " + tapPenger.toFixed(0) + " penger", "error")
+                        localStorage.setItem("money", money);}
+
                 
                 } else {
-                    alert("wrong")
+                    alert("Feil")
 
                     let tapPenger = money * 0.10
                     money = money * 0.90
@@ -43,7 +69,7 @@ function hente_resultater() {
                     localStorage.setItem("money", money);
                 }
             } else {
-                alert("wrong")
+                alert("Feil")
 
                 let tapPenger = money * 0.10
                 money = money * 0.90
@@ -51,7 +77,7 @@ function hente_resultater() {
                 localStorage.setItem("money", money);
             }
         } else {
-            alert("wrong")
+            alert("Feil")
 
             let tapPenger = money * 0.10
             money = money * 0.90
@@ -59,7 +85,7 @@ function hente_resultater() {
             localStorage.setItem("money", money);
         }
     } else {
-        alert("wrong ")
+        alert("Feil ")
 
         let tapPenger = money * 0.10
         money = money * 0.90
