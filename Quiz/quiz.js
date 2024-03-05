@@ -82,3 +82,16 @@ function showAlert(message, type) {
 }
 
 
+function neste() {
+
+    if (document.getElementById("div_1_quiz_5").style.display = "block" == true) {
+        document.getElementById("div_1_quiz_5").style.display = "none"
+        document.getElementById("div_2_quiz_5").style.display = "block"
+    } elif (document.getElementById("div_2_quiz_5").style.display = "block"==true); {
+        document.getElementById("div_2_quiz_5").style.display = "none"
+        document.getElementById("div_3_quiz_5").style.display = "block"
+    } elif (document.getElementById("div_3_quiz_5").style.display = "block"==true); {
+        document.getElementById("div_3_quiz_5").style.display = "none"
+        document.getElementById("div_4_quiz_5").style.display = "block" 
+    }
+}
