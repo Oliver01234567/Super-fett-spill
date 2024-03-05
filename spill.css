@@ -63,14 +63,25 @@ body {
 
 #øy {
     grid-column: 1;
-   background-color: rgb(143, 183, 63);
+    background-color: rgb(143, 183, 63);
     height: 5000px;
     width: 5000px;
     position: relative;
     border-radius: 10px;
     overflow: hidden;
     margin: 500px;
+    padding-bottom: 13%; 
 }
+
+/*.beach {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    height: 13%; 
+    width: 100%; 
+    background-color: rgb(236, 204, 107);
+}*/
 
 .tree {
     position: absolute;
