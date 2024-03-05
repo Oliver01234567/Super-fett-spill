@@ -1,0 +1,397 @@
+/* minimal reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* farger */
+:root {
+    --mybrown: #563202;
+    --mygreen: #008000;
+}
+/* main elementer */
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px ifr;
+    background-color: var(--mybrown);
+
+}
+header {
+    grid-row: 1/2;
+    height: 100px;
+    background-color: var(--mygreen);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    position: relative;
+    color: white;
+}
+ul {
+    list-style-type: disc;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+button {
+    padding: 30px;
+    background-color: yellow;
+    font-size: 30px;
+    height: 100px;
+}
+img{
+    height: 120px;
+    width: 70px;
+}
+/* classer */
+.mainContainer {
+    grid-row: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.animatejump {
+    animation: jump 500ms;
+}
+.animaterotate{
+    animation: rotate 500ms;
+}
+/* ideer */
+#gameName{
+    color: goldenrod;
+    font-size: 55px;
+}
+#game {
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    width: 1100px;
+    height: 600px;
+    border: 10px solid var(--mygreen);
+    background-image: url("bilder/jungleBackground.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: var(--box-shadow-color) 0 0 10px;
+}
+#character {
+    width: 60px;
+    height: 150px;
+    background-color: transparent;
+    position: relative;
+    top: 430px;
+    left:0;   
+}
+#tarzan{
+    position: absolute;
+    top: -5%;
+    left: 60%;
+    transform: translate(-50%);
+    height: 160px;
+    width: 85px;
+}
+#block {
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    border-radius: 100%;
+    position: relative;
+    top: 370px;
+    left: 1030px;
+}
+#rollingObject{
+    width: 60px;
+    height: 60px;
+}
+#flyingBlock{
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    border-radius: 100%;
+    position: relative;
+    top: 0px;
+    left: 1030px;   
+}
+#bird{
+    position: absolute;
+    top: -175%;
+    left: 50%;
+    transform: translate(-50%);
+    height: 150px;
+    width: 150px;
+}
+#currentscore {
+    width: 400px;
+    height: 100px;
+    background-color: var(--mygreen);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 50px;
+    margin: 2px;
+}
+#highscore{
+    width: 500px;
+    height: 100px;
+    background-color: var(--mygreen);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 50px;
+    margin: 2px;
+}
+#howTo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 300px;
+    background-color: var(--mygreen);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 5px solid var(--mybrown);
+    display: none;
+    z-index: 2;
+}
+#gamereset {
+    display: none;
+    background-color: var(--mygreen);
+    width: 300px;
+    height: 100px;
+    z-index: 1;
+    border: 2px solid black;
+}
+
+#play {
+    background-color: var(--mygreen);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 200px;
+    font-size: 75px;
+    color: white;
+}
+#rules {
+    padding: 12px;
+    padding-left: 20px;
+    margin: 20px;
+    border: 2px solid black;
+}
+
+#howPlay {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: wheat;
+    width: 100px; 
+    left: 0%;
+}
+
+#x {
+    position: absolute;
+    top: 4%;
+    left: 98%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-color: red;
+}
+
+#gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1100px;
+    height: 600px;
+    background: rgba(0, 0, 0, 0.6);
+    color: red;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    font-size: 75px;
+}
+
+#info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 1100px;
+    height: 100px;  
+}
+#youWin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1080px;
+    height: 580px;
+    background: rgba(0, 0, 0, 0.3);
+    color: green;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    font-size: 75px;
+}
+#finalInfo {
+    position: absolute;
+    top: 84%;
+    left: 87%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 200px;
+    border: 10px solid var(--mygreen);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+    font-size: 15px;
+}
+#howToContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+#highscorereset{    
+        transform: translateY(-50%);
+        background-color: wheat;
+        width: 140px; 
+        height: 22px;
+        padding: 0;
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;  
+}
+
+/* animations  */
+@keyframes block {
+    0% {
+        left: 1040px;
+    }
+
+    100% {
+        left: -40px;
+        transform: rotate(-360deg);
+        
+    }
+}
+
+@keyframes flyingBlock {
+    0% {
+        left: 1030px;
+        top: 100px;
+    }
+    60%{
+        top: 220px;
+    }
+    80%{
+        transform: rotate(30deg);
+    }
+    90%{
+        transform: rotate(20deg);
+    }
+
+    100% {
+        left: -100px;
+        top: 220px;
+        transform: rotate(-30deg);
+    }
+}
+
+@keyframes jump {
+    0% {
+        top: 430px;
+    }
+
+    30% {
+        top: 310px;
+    }
+
+    70% {
+        top: 310px;
+    }
+
+    100% {
+        top: 430px;
+    }
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    30%{
+        transform: rotate(-90deg);
+    }
+    70%{
+        transform: rotate(-90deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+    0% {
+        top: 440px;
+    }
+
+    30% {
+        top: 485px;
+        left: 70px;
+    }
+
+    70% {
+        top: 485px;
+        left: 70px;
+    }
+
+    100% {
+        top: 440px;
+        left: 0;
+    }
+}
+
+@keyframes backflip{
+    
+    40%{
+        left: 15%;
+        top: 430px;
+        transform: rotate(0deg);
+    }
+    50% {
+        top: 310px;
+    }
+
+    80% {
+        top: 310px;
+    }
+
+    100% {
+        top: 430px;
+        transform: rotate(-360deg);
+        left: 15%;
+    }
+}
+
+
+
+
+/* Lagret farger:
+rgba(86, 50, 2, 0.796)
+*/

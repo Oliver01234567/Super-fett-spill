@@ -45,7 +45,6 @@ choosenSkin = parseInt(sessionStorage.getItem("choosenSkin")) || 0
 //Quiz seiere
 let quiz1Seier = 0
 quiz1Seier = localStorage.getItem("quiz1Seier") || 0
-
 if (quiz1Seier == 1) {
   quiz1Seier = 2
   localStorage.setItem("quiz1Seier", 2)
@@ -913,6 +912,10 @@ function showEnemyPopup(enemy) {
     if (fiende == "pete") {
       enemyOrNot.innerText = "Du møtte Pete Davidson!! Vil du utfordre han til Holmgang og få alle pengene hans??"
     }
+    if (fiende == "tarzan"){
+      enemyOrNot.innerText = "Du møtte Tarzan!! Han trenger din hjelp for å plyndre et skattekammer! Vil du hjelpe han og få halvparten av gullet i skattekameret??"
+      godtaOrUtfordre.innerText ="Hjelp han!"
+    }
   }
 }
 
@@ -947,6 +950,9 @@ function utfordreFiende() {
     godtaOrUtfordre.addEventListener("click", birkSinQuiz)
     enemyOrNot.innerText = "Kan du svare på quizen min?? Du får en stor belønning"
     godtaOrUtfordre.innerText = "Godta"
+  }
+  if (fiende == "tarzan"){
+    hjelpTarzan()
   }
 
 
@@ -1021,6 +1027,9 @@ function fightPeteDavidson() {
   opponent = 5
   sessionStorage.setItem("opponent", opponent)
   window.location.href = 'Combat/Combat.html';
+}
+function hjelpTarzan(){
+  window.location.href = 'TarzanJumpIsland/TarzanJumpIsland.html';
 }
 
 
