@@ -207,29 +207,19 @@ if (choosenSkin == 16) {
 
 
 
+const mButtons = document.querySelectorAll(".Mbuttons")
 
 //skins section
 function ChoosenTorb() {
   characterP.src = "Bilder/Torbjorn.png"
   choosenSkin = 0
   sessionStorage.setItem("choosenSkin", choosenSkin);
-  rasmusSkin.style.backgroundColor = "brown";
-  jonasSkin.style.backgroundColor = "brown";
-  torbSkin.style.backgroundColor = "red";
-  andSkin.style.backgroundColor = "brown";
-  monkeSkin.style.backgroundColor = "brown";
-  pandaSkin.style.backgroundColor = "brown";
-  langbeinSkin.style.backgroundColor = "brown";
-  peterSkin.style.backgroundColor = "brown";
-  birkSkin.style.backgroundColor = "brown"
-  kasperSkin.style.backgroundColor = "brown"
-  elonSkin.style.backgroundColor = "brown"
-  marioSkin.style.backgroundColor = "brown"
-  peteSkin.style.backgroundColor = "brown"
-  skrueSkin.style.backgroundColor = "brown"
-  sidSkin.style.backgroundColor = "brown"
-  stewieSkin.style.backgroundColor = "brown"
-  rockSKin.style.backgroundColor = "brown"
+  mButtons.forEach((button) => {
+    if (button.id !== "torbSkin") {
+      button.style.backgroundColor = "brown";
+    }
+  });
+  torbSkin.style.backgroundColor = "red"
 
   showAlert("Byttet skin til Thor Bjørn", "success");
 }
@@ -613,99 +603,115 @@ function ChoosenAnd() {
 }
 
 function chosenMonke() {
-  characterP.src = "Bilder/monke.jpeg";
-  choosenSkin = 4;
-  sessionStorage.setItem("choosenSkin", choosenSkin);
-  rasmusSkin.style.backgroundColor = "brown";
-  jonasSkin.style.backgroundColor = "brown";
-  torbSkin.style.backgroundColor = "brown";
-  andSkin.style.backgroundColor = "brown";
-  monkeSkin.style.backgroundColor = "red";
-  pandaSkin.style.backgroundColor = "brown";
-  langbeinSkin.style.backgroundColor = "brown";
-  peterSkin.style.backgroundColor = "brown";
-  birkSkin.style.backgroundColor = "brown"
-  kasperSkin.style.backgroundColor = "brown"
-  elonSkin.style.backgroundColor = "brown"
-  marioSkin.style.backgroundColor = "brown"
-  peteSkin.style.backgroundColor = "brown"
-  skrueSkin.style.backgroundColor = "brown"
-  sidSkin.style.backgroundColor = "brown"
-  stewieSkin.style.backgroundColor = "brown"
-  rockSKin.style.backgroundColor = "brown"
-  showAlert("Byttet skin til Monke", "success");
+  if (gotMonke == 10) {
+    characterP.src = "Bilder/monke.jpeg";
+    choosenSkin = 4;
+    sessionStorage.setItem("choosenSkin", choosenSkin);
+    rasmusSkin.style.backgroundColor = "brown";
+    jonasSkin.style.backgroundColor = "brown";
+    torbSkin.style.backgroundColor = "brown";
+    andSkin.style.backgroundColor = "brown";
+    monkeSkin.style.backgroundColor = "red";
+    pandaSkin.style.backgroundColor = "brown";
+    langbeinSkin.style.backgroundColor = "brown";
+    peterSkin.style.backgroundColor = "brown";
+    birkSkin.style.backgroundColor = "brown"
+    kasperSkin.style.backgroundColor = "brown"
+    elonSkin.style.backgroundColor = "brown"
+    marioSkin.style.backgroundColor = "brown"
+    peteSkin.style.backgroundColor = "brown"
+    skrueSkin.style.backgroundColor = "brown"
+    sidSkin.style.backgroundColor = "brown"
+    stewieSkin.style.backgroundColor = "brown"
+    rockSKin.style.backgroundColor = "brown"
+    showAlert("Byttet skin til Monke", "success");
+  } else {
+    ikkeTilgangSkin();
+  }
 }
 
 function chosenPanda() {
-  characterP.src = "Bilder/panda.png";
-  choosenSkin = 5;
-  sessionStorage.setItem("choosenSkin", choosenSkin);
-  rasmusSkin.style.backgroundColor = "brown";
-  jonasSkin.style.backgroundColor = "brown";
-  torbSkin.style.backgroundColor = "brown";
-  andSkin.style.backgroundColor = "brown";
-  monkeSkin.style.backgroundColor = "brown";
-  pandaSkin.style.backgroundColor = "red";
-  langbeinSkin.style.backgroundColor = "brown";
-  peterSkin.style.backgroundColor = "brown";
-  birkSkin.style.backgroundColor = "brown"
-  kasperSkin.style.backgroundColor = "brown"
-  elonSkin.style.backgroundColor = "brown"
-  marioSkin.style.backgroundColor = "brown"
-  peteSkin.style.backgroundColor = "brown"
-  skrueSkin.style.backgroundColor = "brown"
-  sidSkin.style.backgroundColor = "brown"
-  stewieSkin.style.backgroundColor = "brown"
-  rockSKin.style.backgroundColor = "brown"
-  showAlert("Byttet skin til Panda", "success");
+  if (gotPanda == 10) {
+    characterP.src = "Bilder/panda.png";
+    choosenSkin = 5;
+    sessionStorage.setItem("choosenSkin", choosenSkin);
+    rasmusSkin.style.backgroundColor = "brown";
+    jonasSkin.style.backgroundColor = "brown";
+    torbSkin.style.backgroundColor = "brown";
+    andSkin.style.backgroundColor = "brown";
+    monkeSkin.style.backgroundColor = "brown";
+    pandaSkin.style.backgroundColor = "red";
+    langbeinSkin.style.backgroundColor = "brown";
+    peterSkin.style.backgroundColor = "brown";
+    birkSkin.style.backgroundColor = "brown"
+    kasperSkin.style.backgroundColor = "brown"
+    elonSkin.style.backgroundColor = "brown"
+    marioSkin.style.backgroundColor = "brown"
+    peteSkin.style.backgroundColor = "brown"
+    skrueSkin.style.backgroundColor = "brown"
+    sidSkin.style.backgroundColor = "brown"
+    stewieSkin.style.backgroundColor = "brown"
+    rockSKin.style.backgroundColor = "brown"
+    showAlert("Byttet skin til Panda", "success");
+  } else {
+    ikkeTilgangSkin();
+  }
 }
 
 function chosenLangbein() {
-  characterP.src = "Bilder/angel.jpeg";
-  choosenSkin = 6;
-  sessionStorage.setItem("choosenSkin", choosenSkin);
-  rasmusSkin.style.backgroundColor = "brown";
-  jonasSkin.style.backgroundColor = "brown";
-  torbSkin.style.backgroundColor = "brown";
-  andSkin.style.backgroundColor = "brown";
-  monkeSkin.style.backgroundColor = "brown";
-  pandaSkin.style.backgroundColor = "brown";
-  langbeinSkin.style.backgroundColor = "red";
-  peterSkin.style.backgroundColor = "brown";
-  birkSkin.style.backgroundColor = "brown"
-  kasperSkin.style.backgroundColor = "brown"
-  elonSkin.style.backgroundColor = "brown"
-  marioSkin.style.backgroundColor = "brown"
-  peteSkin.style.backgroundColor = "brown"
-  skrueSkin.style.backgroundColor = "brown"
-  sidSkin.style.backgroundColor = "brown"
-  stewieSkin.style.backgroundColor = "brown"
-  rockSKin.style.backgroundColor = "brown"
-  showAlert("Byttet skin til Langbein", "success");
+  if (gotLangbein == 10) {
+    characterP.src = "Bilder/angel.jpeg";
+    choosenSkin = 6;
+    sessionStorage.setItem("choosenSkin", choosenSkin);
+    rasmusSkin.style.backgroundColor = "brown";
+    jonasSkin.style.backgroundColor = "brown";
+    torbSkin.style.backgroundColor = "brown";
+    andSkin.style.backgroundColor = "brown";
+    monkeSkin.style.backgroundColor = "brown";
+    pandaSkin.style.backgroundColor = "brown";
+    langbeinSkin.style.backgroundColor = "red";
+    peterSkin.style.backgroundColor = "brown";
+    birkSkin.style.backgroundColor = "brown"
+    kasperSkin.style.backgroundColor = "brown"
+    elonSkin.style.backgroundColor = "brown"
+    marioSkin.style.backgroundColor = "brown"
+    peteSkin.style.backgroundColor = "brown"
+    skrueSkin.style.backgroundColor = "brown"
+    sidSkin.style.backgroundColor = "brown"
+    stewieSkin.style.backgroundColor = "brown"
+    rockSKin.style.backgroundColor = "brown"
+    showAlert("Byttet skin til Langbein", "success");
+  } else {
+    ikkeTilgangSkin();
+  }
 }
 
 function chosenPeter() {
-  characterP.src = "Bilder/peter.png";
-  choosenSkin = 7;
-  sessionStorage.setItem("choosenSkin", choosenSkin);
-  rasmusSkin.style.backgroundColor = "brown";
-  jonasSkin.style.backgroundColor = "brown";
-  torbSkin.style.backgroundColor = "brown";
-  andSkin.style.backgroundColor = "brown";
-  monkeSkin.style.backgroundColor = "brown";
-  pandaSkin.style.backgroundColor = "brown";
-  langbeinSkin.style.backgroundColor = "brown";
-  peterSkin.style.backgroundColor = "red";
-  birkSkin.style.backgroundColor = "brown"
-  kasperSkin.style.backgroundColor = "brown"
-  elonSkin.style.backgroundColor = "brown"
-  marioSkin.style.backgroundColor = "brown"
-  peteSkin.style.backgroundColor = "brown"
-  skrueSkin.style.backgroundColor = "brown"
-  sidSkin.style.backgroundColor = "brown"
-  stewieSkin.style.backgroundColor = "brown"
-  rockSKin.style.backgroundColor = "brown"
-  showAlert("Byttet skin til Peter Griffin", "success");
+  if (gotPeter == 10) {
+    characterP.src = "Bilder/peter.png";
+    choosenSkin = 7;
+    sessionStorage.setItem("choosenSkin", choosenSkin);
+    rasmusSkin.style.backgroundColor = "brown";
+    jonasSkin.style.backgroundColor = "brown";
+    torbSkin.style.backgroundColor = "brown";
+    andSkin.style.backgroundColor = "brown";
+    monkeSkin.style.backgroundColor = "brown";
+    pandaSkin.style.backgroundColor = "brown";
+    langbeinSkin.style.backgroundColor = "brown";
+    peterSkin.style.backgroundColor = "red";
+    birkSkin.style.backgroundColor = "brown"
+    kasperSkin.style.backgroundColor = "brown"
+    elonSkin.style.backgroundColor = "brown"
+    marioSkin.style.backgroundColor = "brown"
+    peteSkin.style.backgroundColor = "brown"
+    skrueSkin.style.backgroundColor = "brown"
+    sidSkin.style.backgroundColor = "brown"
+    stewieSkin.style.backgroundColor = "brown"
+    rockSKin.style.backgroundColor = "brown"
+    showAlert("Byttet skin til Peter Griffin", "success");
+  } else {
+    ikkeTilgangSkin();
+  }
 }
 
 function ChoosenBirk() {
@@ -912,9 +918,9 @@ function showEnemyPopup(enemy) {
     if (fiende == "pete") {
       enemyOrNot.innerText = "Du møtte Pete Davidson!! Vil du utfordre han til Holmgang og få alle pengene hans??"
     }
-    if (fiende == "tarzan"){
+    if (fiende == "tarzan") {
       enemyOrNot.innerText = "Du møtte Tarzan!! Han trenger din hjelp for å plyndre et skattekammer! Vil du hjelpe han og få halvparten av gullet i skattekameret??"
-      godtaOrUtfordre.innerText ="Hjelp han!"
+      godtaOrUtfordre.innerText = "Hjelp han!"
     }
   }
 }
@@ -951,7 +957,7 @@ function utfordreFiende() {
     enemyOrNot.innerText = "Kan du svare på quizen min?? Du får en stor belønning"
     godtaOrUtfordre.innerText = "Godta"
   }
-  if (fiende == "tarzan"){
+  if (fiende == "tarzan") {
     hjelpTarzan()
   }
 
@@ -1028,7 +1034,7 @@ function fightPeteDavidson() {
   sessionStorage.setItem("opponent", opponent)
   window.location.href = 'Combat/Combat.html';
 }
-function hjelpTarzan(){
+function hjelpTarzan() {
   window.location.href = 'TarzanJumpIsland/TarzanJumpIsland.html';
 }
 
@@ -1052,7 +1058,7 @@ if (andenDod == 2) {
   }
   const andElement = document.querySelector("#anden");
   if (andElement && island.contains(andElement)) {
-    enemyDiv.removeChild(andElement); 
+    enemyDiv.removeChild(andElement);
   }
   andSkin.addEventListener("click", ChoosenAnd)
   andSkin.removeEventListener("click", ikkeTilgangSkin)
@@ -1178,7 +1184,7 @@ if (peteDod == 2) {
   }
   const peteElement = document.querySelector("#pete");
   if (peteElement && island.contains(peteElement)) {
-    enemyDiv.removeChild(peteElement); 
+    enemyDiv.removeChild(peteElement);
   }
 
   peteSkin.addEventListener("click", choosenPete)
@@ -1205,7 +1211,7 @@ if (birkUnlocked == 1) {
   const birkElement = document.querySelector("#birk");
   if (birkElement && island.contains(birkElement)) {
     enemyDiv.removeChild(birkElement);
-}
+  }
   birkSkin.removeEventListener("click", ikkeTilgangSkin)
   birkSkin.addEventListener("click", ChoosenBirk)
   birkSkin.innerText = "Birk"
@@ -1627,7 +1633,8 @@ function showChestPopup(chest) {
 
 }
 function consoleLog() {
-  console.log(chestsId) }
+  console.log(chestsId)
+}
 
 
 let tilfPenger = 0;
