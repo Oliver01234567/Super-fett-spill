@@ -244,8 +244,8 @@ body {
 
 .Chest {
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -279,8 +279,8 @@ body {
 }
 
 #Chest5 {
-    left: 3340px;
-    top: 1908px;
+    left: 3640px;
+    top: 2408px;
 }
 
 #Chest6 {
@@ -345,7 +345,7 @@ body {
 
 #Chest18 {
     left: 3219px;
-    top: 1406px;
+    top: 1106px;
 }
 
 #Chest19 {
