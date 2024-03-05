@@ -1952,18 +1952,62 @@ function spinWheel() {
   spinner.style.display = 'block';
   spinner.style.transform = rotateValue;
 
-    // Wait for another short delay (0.5 seconds) before removing the wheel
-    setTimeout(() => {
-      hideSpinningWheel();
-      npcYesBtn.style.display = "block";
-    }, 00);
-  }, 1500);
+  setTimeout(() => {
+    console.log("Spinning complete!");
+    checkResult(randomDegree % 360);
+    hideWheel();
+    spinning = false;
+  }, 1000);
 }
 
-function hideSpinningWheel() {
-  const spinner = document.getElementById('skinBoxSpinner');
-  spinner.style.display = 'none'; 
-  spinner.style.animation = ''; 
+let gotPeter = 0;
+let gotPanda = 0;
+let gotMonke = 0;
+let gotLangbein = 0;
+
+function checkResult(angle) {
+  console.log("Checking result for angle:", angle);
+  const sectionSize = 18;
+
+  if (angle <= sectionSize) {
+    showAlert("Congratulations! You landed on Section 1, langbein", "success");
+    if (gotLangbein == 10) {
+      money += 1000;
+      showAlert("You got back 1000 money since you already have Langbein", "success")
+    } else {
+      gotLangbein = 10;
+    }
+  } else if (angle <= 4 * sectionSize) {
+    showAlert("Congratulations! You landed on Section 2, monke", "success");
+    if (gotMonke == 10) {
+      money += 500;
+      showAlert("You got back 500 money since you already have Monke", "success")
+    } else {
+      gotMonke = 10;
+    }
+  } else if (angle <= 10 * sectionSize) {
+    showAlert("Congratulations! You landed on Section 3, panda", "success");
+    if (gotPanda == 10) {
+      money += 250;
+      showAlert("You got back 250 money since you already have Panda", "success")
+    } else {
+      gotPanda = 10;
+    }
+  } else {
+    showAlert("Congratulations! You landed on Section 4, peter", "success");
+    if (gotPeter == 10) {
+      money += 100;
+      showAlert("You got back 100 money since you already have Peter", "success")
+    } else {
+      gotPeter = 10;
+    }
+  }
+}
+
+function hideWheel() {
+  const spinner = document.getElementById('skinWheel');
+  spinner.style.display = 'none';
+  spinner.style.animation = ''; // Clear any existing animation
   const arrow = document.querySelector('.arrow-down');
   if (arrow) {
     arrow.remove();
