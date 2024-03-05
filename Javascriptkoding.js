@@ -1185,7 +1185,10 @@ function allEnemiesDefeat() {
 birkSkin.addEventListener("click", ikkeTilgangSkin)
 
 if (birkUnlocked == 1) {
-  island.removeChild(document.querySelector("#birk"));
+  const birkElement = document.querySelector("#birk");
+  if (birkElement && island.contains(birkElement)) {
+    island.removeChild(birkElement); // Fjern elementet fra "island"
+}
   birkSkin.removeEventListener("click", ikkeTilgangSkin)
   birkSkin.addEventListener("click", ChoosenBirk)
   birkSkin.innerText = "Birk"
@@ -1956,8 +1959,7 @@ function spinWheel() {
     setTimeout(() => {
       hideSpinningWheel();
       npcYesBtn.style.display = "block";
-    }, 00);
-  }, 1500);
+    }, 500);
 }
 
 function hideSpinningWheel() {
