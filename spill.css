@@ -1,4 +1,3 @@
-
 /* Minimal reset: */
 * {
     margin: 0;
@@ -9,6 +8,7 @@
 :root {
     --moneyBox: #D95D39;
 }
+
 /*Spilleren*/
 
 #character {
@@ -46,14 +46,24 @@
 
 
 body {
-    background-color: rgb(0, 255, 255);
+    background-color: rgb(91 241 241 / 96%);
 }
 
 
+#sea-monster {
+    position: absolute;
+    margin-left: 1050px;
+    margin-top: 80px;
+}
+
+#sea-monster img {
+    width: 500px; 
+    height: auto; 
+}
 
 #øy {
     grid-column: 1;
-    background-color: rgb(143, 183, 63);
+   background-color: rgb(143, 183, 63);
     height: 5000px;
     width: 5000px;
     position: relative;
@@ -62,23 +72,32 @@ body {
     margin: 500px;
 }
 
-.tree{
+.tree {
     position: absolute;
 }
 
 .tree img {
     position: absolute;
-    width: 70px;
-    height: auto; 
+    width: 370px;
+    height: auto;
 }
 
-.strand {
-    background: linear-gradient(to bottom, #e0cd62 35%, rgb(0, 255, 255) 65%);
-    /* strand gradient */
-    height: 80px;
+#busk1 img{
     position: absolute;
-    bottom: 0;
-    width: 100%;
+    width: 100px;
+    height: auto;
+}
+
+#busk2 img{
+    position: absolute;
+    width: 100px;
+    height: auto;
+}
+
+#hage img{
+    position: absolute;
+    width: 100px;
+    height: auto;
 }
 
 /*Menyknapp*/
@@ -163,12 +182,13 @@ body {
 
 
 
+
+
 /*Alt materiale som spilleren skal interaktere med*/
 .InteractiveMaterial {
     padding: 50px;
     display: inline-block;
     position: absolute;
-    cursor: pointer;
 
 }
 
@@ -176,19 +196,47 @@ body {
     padding: 30px;
 }
 
-.NPC img, .npc img {
+.NPC img,
+.npc img {
     width: 60px;
     height: 60px;
 }
 
-#enemy0 {
+
+#anden {
     left: 500px;
     top: 200px;
 }
 
-#enemy1 {
-    left: 200px;
-    top: 30px;
+#jonas {
+    left: 2736px;
+    top: 333px;
+}
+
+#kasper {
+    left: 2473px;
+    top: 3860px;
+}
+
+#birk {
+    left: 500px;
+    top: 4000px;
+}
+
+#Elon {
+    left: 1743px;
+    top: 3467px;
+    
+}
+
+#pete {
+    left: 2674px;
+    top: 1918px;
+}
+
+#mario {
+    left: 3160px;
+    top: 1091px;
 }
 
 
@@ -207,18 +255,160 @@ body {
 }
 
 .Chest img {
-    height: 50px;
+    height: 99px;
 }
 
 #Chest1 {
+    left: 3656px;
+    top: 1835px;
+}
+
+#Chest2 {
+    left: 2094px;
+    top: 4061px;
+}
+
+#Chest3 {
+    left: 2630px;
+    top: 3408px;
+}
+
+#Chest4 {
+    left: 4274px;
+    top: 942px;
+}
+
+#Chest5 {
+    left: 3340px;
+    top: 1908px;
+}
+
+#Chest6 {
+    left: 4403px;
+    top: 1085px;
+}
+
+#Chest7 {
+    left: 3124px;
+    top: 2837px;
+}
+
+#Chest8 {
+    left: 1604px;
+    top: 3595px;
+}
+
+#Chest9 {
+    left: 1897px;
+    top: 802px;
+}
+
+#Chest10 {
+    left: 3718px;
+    top: 4458px;
+}
+
+#Chest11 {
+    left: 2520px;
+    top: 4157px;
+}
+
+#Chest12 {
+    left: 1963px;
+    top: 4266px;
+}
+
+#Chest13 {
+    left: 587px;
+    top: 4155px;
+}
+
+#Chest14 {
+    left: 2960px;
+    top: 4325px;
+}
+
+#Chest15 {
+    left: 2068px;
+    top: 1228px;
+}
+
+#Chest16 {
+    left: 2136px;
+    top: 2571px;
+}
+
+#Chest17 {
+    left: 2351px;
+    top: 3029px;
+}
+
+#Chest18 {
+    left: 3219px;
+    top: 1406px;
+}
+
+#Chest19 {
+    left: 1580px;
+    top: 2209px;
+}
+
+#Chest20 {
+    left: 2934px;
+    top: 1649px;
+}
+
+#Chest21 {
+    left: 3648px;
+    top: 4069px;
+}
+
+#Chest22 {
+    left: 1164px;
+    top: 2569px;
+}
+
+#Chest23 {
+    left: 777px;
+    top: 2244px;
+}
+
+#Chest24 {
+    left: 2140px;
+    top: 1552px;
+}
+
+#Chest25 {
+    left: 883px;
+    top: 1691px;
+}
+
+#Chest26 {
     left: 300px;
     top: 400px;
 }
 
-#Chest2 {
-    left: 700px;
-    top: 40px;
+#Chest27 {
+    left: 2842px;
+    top: 4494px;
 }
+
+#Chest28 {
+    left: 2587px;
+    top: 3166px;
+}
+
+#Chest29 {
+    left: 4243px;
+    top: 2647px;
+}
+
+#Chest30 {
+    left: 2556px;
+    top: 3470px;
+}
+
+
 
 /*Popup Oliver*/
 .popup {
@@ -232,7 +422,8 @@ body {
     z-index: 10000;
 }
 
-.chest-popup, .enemy-popup {
+.chest-popup,
+.enemy-popup {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -244,7 +435,8 @@ body {
     text-align: center;
 }
 
-.chest-popup button, .enemy-popup button {
+.chest-popup button,
+.enemy-popup button {
     margin: 10px;
     padding: 5px 10px;
     cursor: pointer;
@@ -331,18 +523,37 @@ body {
     font-size: 45px;
     margin-bottom: 15px;
     padding: 10px;
-    position: fixed;
     top: 0;
 }
 
+#skinButtons {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+#skinSelect {
+    height: auto;
+    width: 1000px;
+}
+
 .Mbuttons {
-    width: 190px;
-    height: 120px;
-    top: 50%;
+    width: 150px;
+    height: 100px;
     background-color: brown;
-    font-size: 35px;
+    font-size: 27px;
     cursor: pointer;
 }
+
+#backToGameDiv {
+
+    margin-bottom: 10px;
+    background-color: black;
+
+    display: flex;
+    align-items: center;
+}
+
 
 .Mbuttons span {
     font-size: 15px;
@@ -353,7 +564,8 @@ body {
 #stats {
     display: none;
 }
-.Sbuttons{
+
+.Sbuttons {
     width: 200px;
     height: 80px;
     top: 50%;
@@ -362,35 +574,30 @@ body {
     cursor: pointer;
 }
 
-
-.nav {
-    background-color: brown;
-    border: 2px solid black;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 45px;
-    margin-bottom: 15px;
-    padding: 10px;
-    position: fixed;
-    top: 0;
+.Sbuttons span {
+    font-size: 15px;
+    margin: 0;
 }
-#statsButtons{
+
+
+#statsButtons {
     display: flex;
     flex-direction: column;
 }
-.LevelIndicater{
+
+.LevelIndicater {
     background-color: white;
     border: 2px solid black;
 }
+
 /* speed */
-#speed{
+#speed {
     display: flex;
     flex-direction: row;
     margin-bottom: 3px;
 }
-#speedLevel{
+
+#speedLevel {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
@@ -398,21 +605,26 @@ body {
     width: 450px;
     height: 80px;
 }
-#speed1{   
+
+#speed1 {
     grid-column: 1/2;
 }
-#speed2{   
+
+#speed2 {
     grid-column: 2/3;
 }
-#speed3{
+
+#speed3 {
     grid-column: 3/4;
 }
+
 /* HealthLevel */
-#health{
+#health {
     display: flex;
     flex-direction: row;
 }
-#healthLevel{
+
+#healthLevel {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr;
@@ -420,30 +632,38 @@ body {
     width: 450px;
     height: 80px;
 }
-#health1{
+
+#health1 {
     grid-column: 1/2;
 }
-#health2{
+
+#health2 {
     grid-column: 2/3;
 }
-#health3{
+
+#health3 {
     grid-column: 3/4;
 }
-#health4{
+
+#health4 {
     grid-column: 4/5;
 }
-#health5{
+
+#health5 {
     grid-column: 5/6;
 }
-#liv0{
+
+#liv0 {
     background-color: brown;
 }
+
 /* Damage */
-#damage{
+#damage {
     display: flex;
     flex-direction: row;
 }
-#damageLevel{
+
+#damageLevel {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
@@ -451,33 +671,39 @@ body {
     width: 450px;
     height: 80px;
 }
-#damage1{   
+
+#damage1 {
     grid-column: 1/2;
 }
-#damage2{   
+
+#damage2 {
     grid-column: 2/3;
 }
-#damage3{
+
+#damage3 {
     grid-column: 3/4;
 }
-#damage4{
+
+#damage4 {
     grid-column: 4/5;
 }
-#damageer0{
+
+#damageer0 {
     background-color: brown;
 }
+
 /* NPC */
 .NPC {
     position: absolute;
     width: 50px;
     height: 50px;
-    background-color: #FF4500; 
-    border: 2px solid #A52A2A; 
+    background-color: #FF4500;
+    border: 2px solid #A52A2A;
     border-radius: 5px;
     cursor: pointer;
-    top: 200px; 
-    right: 600px; 
-  }
+    top: 200px;
+    right: 600px;
+}
 
 .dialog-box {
     display: none;
@@ -488,10 +714,74 @@ body {
     padding: 10px;
     border: 2px solid #333;
     z-index: 10000;
-  }
+}
+
+
+/*Skin wheel*/
+.spinning-wheel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 500px;
+    margin-top: -250px;
+    margin-left: -250px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.wheel-section {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#wheelSection1 {
+    background-color: #FF6347;
+    clip-path: polygon(-33% 100%, 50% 50%, 100% 100%);
+}
+
+#wheelSection2 {
+    background-color: #90EE90;
+    clip-path: polygon(50% 50%, 0% 80%, 0% 20%);
+}
+
+#wheelSection3 {
+    background-color: #87CEFA;
+    clip-path: polygon(50% 50%, 0% 20%, 0% 0%);
+}
+
+#wheelSection4 {
+    background-color: #FFD700;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.arrow-down {
+    position: fixed;
+    top: 16%; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent; 
+    border-right: 20px solid transparent; 
+    border-top: 30px solid #000; 
+    z-index: 1001; 
+}
 
 /*Alert*/
-  .alert {
+.alert {
     position: fixed;
     top: 10px;
     left: 50%;
@@ -504,7 +794,7 @@ body {
 }
 
 .error {
-    background-color: #f44336; 
+    background-color: #f44336;
 }
 
 .success {

@@ -44,6 +44,51 @@ if (choosenSkin == 7) {
     name.innerText = "Peter Griffin"
 }
 
+if (choosenSkin == 8) {
+    playerIcon.src = "../Bilder/Birk.png"
+    name.innerText = "Birk"
+}
+
+if (choosenSkin == 9) {
+    playerIcon.src = "../Bilder/kasper.png"
+    name.innerText = "Kasper"
+}
+
+if (choosenSkin == 10) {
+    playerIcon.src = "../Bilder/elon.png"
+    name.innerText = "Elon Musk"
+}
+
+if (choosenSkin == 11) {
+    playerIcon.src = "../Bilder/mario.png"
+    name.innerText = "Mario"
+}
+
+if (choosenSkin == 12) {
+    playerIcon.src = "../Bilder/peteD.png"
+    name.innerText = "Pete Davidson"
+}
+
+if (choosenSkin == 13) {
+    playerIcon.src = "../Bilder/skrueMcDuck.png"
+    name.innerText = "Skrue McDuck"
+}
+
+if (choosenSkin == 14) {
+    playerIcon.src = "../Bilder/The-Rock.png"
+    name.innerText = "Dwanye The Rock Johnson"
+}
+
+if (choosenSkin == 15) {
+    playerIcon.src = "../Bilder/Stewie.png"
+    name.innerText = "Stewie Griffin"
+}
+
+if (choosenSkin == 16) {
+    playerIcon.src = "../Bilder/SId.png"
+    name.innerText = "Sid Fra Istid"
+}
+
 //henter hvilken fiende du vil kjempe mot
 opponent = parseInt(sessionStorage.getItem("opponent")) || 0
 
@@ -65,7 +110,9 @@ let allh3 = document.querySelectorAll('h3')
 let allButton = document.querySelectorAll('Button')
 let allcGrid = document.querySelectorAll('.cGrid')
 
-let Anddeath = 0
+let andDeath = 0
+
+let peteDeath = 0
 
 if (opponent == 0) {
     motstanderIcon.src = "../Bilder/playerIcon1.png"
@@ -73,11 +120,23 @@ if (opponent == 0) {
     enemyName2.innerText = "Anden"
     enemyName3.innerText = "Anden"
     enemyName4.innerText = "Anden"
-    enemyName6.innerText = "Anden"
 
+    andDeath = 1
+}
 
+if (opponent == 5) {
+    motstanderIcon.src = "../Bilder/peteD.png"
+    motstanderIcon.style.transform = "scaleX(-1)"
+    enemyName.innerText = "Pete Davidson"
+    enemyName2.innerText = "Pete Davidson"
+    enemyName3.innerText = "Pete Davidson"
+    enemyName4.innerText = "Pete Davidson"
 
+    peteDeath = 1
+}
 
+if (opponent == 0 || opponent == 5) {
+    
     body.classList.add("img1")
     winScreenen.classList.add("img1")
     deathScreenen.classList.add("img1")
@@ -106,11 +165,10 @@ if (opponent == 0) {
         GridElm.classList.add("colorScheme1border")
     })
 
-    Anddeath = 1
-    console.log(Anddeath)
 }
 
-let JonasDeath = 0
+let jonasDeath = 0
+let marioDeath = 0
 
 if (opponent == 1) {
     motstanderIcon.src = "../Bilder/Jonas.png"
@@ -118,8 +176,22 @@ if (opponent == 1) {
     enemyName2.innerText = "Jonas"
     enemyName3.innerText = "Jonas"
     enemyName4.innerText = "Jonas"
-    enemyName6.innerText = "Jonas"
 
+    jonasDeath = 1
+}
+
+if(opponent == 4) {
+    motstanderIcon.src = "../Bilder/Mario.png"
+    motstanderIcon.style.transform = "scaleX(-1)"
+    enemyName.innerText = "Mario"
+    enemyName2.innerText = "Mario"
+    enemyName3.innerText = "Mario"
+    enemyName4.innerText = "Mario"
+
+    marioDeath = 1
+}
+
+if (opponent == 1 || opponent == 4) {
 
     body.classList.add("img2")
     winScreenen.classList.add("img2")
@@ -148,9 +220,62 @@ if (opponent == 1) {
     allcGrid.forEach(function (GridElm) {
         GridElm.classList.add("colorScheme2border")
     })
-
-    JonasDeath = 1
 }
+
+let kasperDeath = 0
+let elonDeath = 0
+if (opponent == 2) {
+    motstanderIcon.src = "../Bilder/kasper.png"
+    enemyName.innerText = "Kasper"
+    enemyName2.innerText = "Kasper"
+    enemyName3.innerText = "Kasper"
+    enemyName4.innerText = "Kasper"
+    kasperDeath = 1
+}
+
+if (opponent == 3) {
+    motstanderIcon.src = "../Bilder/Elon.png"
+    enemyName.innerText = "Elon Musk"
+    enemyName2.innerText = "Elon Musk"
+    enemyName3.innerText = "Elon Musk"
+    enemyName4.innerText = "Elon Musk"
+    elonDeath = 1
+}
+
+if (opponent == 2 || opponent == 3) {
+
+    body.classList.add("img3")
+    winScreenen.classList.add("img3")
+    deathScreenen.classList.add("img3")
+    howto.classList.add("img3")
+
+    allText.forEach(function (pElement) {
+        pElement.classList.add("colorScheme3")
+    })
+    allH.forEach(function (hElemnt) {
+        hElemnt.classList.add("colorScheme3")
+    })
+
+    allh2.forEach(function (h2Elm) {
+        h2Elm.classList.add("colorScheme3")
+    })
+
+    allh3.forEach(function (h3Elm) {
+        h3Elm.classList.add("colorScheme3")
+    })
+
+    allButton.forEach(function (ButtonElm) {
+        ButtonElm.classList.add("colorScheme3button")
+    })
+
+    allcGrid.forEach(function (GridElm) {
+        GridElm.classList.add("colorScheme3border")
+    })
+
+
+}
+
+
 const prov = document.getElementById("Prov")
 
 //du mister penger hvis du dør
@@ -272,11 +397,7 @@ function startGame() {
 
 
 
-    //hva som skjer når du skader fienden
-    function DuFikkPenger() {
-        let tjentPenger = money + 1000;
-        showAlert("Du fikk " + tjentPenger.toFixed(0) + " penger", "success")
-    }
+    //hva som skjer når du skader fiender
 
     function skadet() {
         player.removeChild(document.querySelector("#holdtSverd"));
@@ -311,19 +432,58 @@ function startGame() {
             setTimeout(winScreen, 2500)
             clearInterval(Forsvar)
             plyHealth = 10000
-            money = money + 1000
-            sessionStorage.setItem("money", money);
-            setTimeout(DuFikkPenger, 2500)
-            if (Anddeath == 1) {
+            let combatSeier = 1
+            sessionStorage.setItem("combatSeier", combatSeier)
+            if (andDeath == 1) {
                 let andenDod = 2
                 sessionStorage.setItem("andenDod", andenDod)
 
+                let firstTimeAnd = 1
+                sessionStorage.setItem("firstTimeAnd", firstTimeAnd)
+
             }
 
-            if (JonasDeath == 1) {
+            if (jonasDeath == 1) {
                 let jonasDod = 2
                 sessionStorage.setItem("jonasDod", jonasDod)
+
+                let firstTimeJonas = 1
+                sessionStorage.setItem("firstTimeJonas", firstTimeJonas)
+
             }
+
+            if (kasperDeath == 1) {
+                let kasperDod = 2
+                sessionStorage.setItem("kasperDod", kasperDod)
+
+                let firstTimeKasper = 1
+                sessionStorage.setItem("firstTimeKasper", firstTimeKasper)
+            }
+
+            if(elonDeath == 1) {
+                let elonDod = 2
+                sessionStorage.setItem("elonDod", elonDod)
+
+                let firstTimeElon = 1
+                sessionStorage.setItem("firstTimeElon", firstTimeElon)
+            }
+
+            if(marioDeath == 1) {
+                let marioDod = 2
+                sessionStorage.setItem("marioDod", marioDod)
+
+                let firstTimeMario = 1
+                sessionStorage.setItem("firstTimeMario", firstTimeMario)
+            }
+
+            if(peteDeath == 1) {
+                let peteDod = 2
+                sessionStorage.setItem("peteDod", peteDod)
+
+                let firstTimePete = 1
+                sessionStorage.setItem("firstTimePete", firstTimePete)
+            }
+
 
             return;
 

@@ -11,38 +11,55 @@
 
 <body>
     <div id="space">
+        <div id="sea-monster"><img src="Bilder/nessie.png" alt="sjømonster"></div>
+        <main id="øy">
             <main id="øy">
 
 
-            <div class="strand"></div>
+                <div id="character"><img src="Bilder/Torbjorn.png" alt="character"></div>
 
-            <div id="character"><img src="Bilder/Torbjorn.png" alt="character"></div>
+                <div id="anden" class="InteractiveMaterial npc"> <img src="Bilder/playerIcon1.png" alt="anden"></div>
 
-            <div id="Chest1" class="InteractiveMaterial Chest"><img src="Bilder/closedChest.webp" alt="Chest"></div>
+                <div id="jonas" class="InteractiveMaterial npc"><img src="Bilder/Jonas.png" alt="Jonas"></div>
 
-            <div id="Chest2" class="InteractiveMaterial Chest"><img src="Bilder/closedChest.webp" alt="Chest"></div>
+                <div id="kasper" class="InteractiveMaterial npc"><img src="Bilder/kasper.png" alt="Kasper"></div>
 
-            <div id="enemy0" class="InteractiveMaterial npc"> <img src="Bilder/playerIcon1.png" alt="anden"></div>
+                <div id="Elon" class="InteractiveMaterial npc"> <img src="Bilder/Elon.png" alt="Elon Musk"></div>
 
-            <div id="enemy1" class="InteractiveMaterial npc"><img src="Bilder/Jonas.png" alt="Jonas"></div>
+                <div id="mario" class="InteractiveMaterial npc"><img src="Bilder/Mario.png" alt="Mario"></div>
 
-            <div id="birk" class="InteractiveMaterial npc"><img src="Bilder/Birk.png" alt="Birk"></div>
-
-            <div id="tree1" class="tree"><img src="Bilder/tre.png" alt="tree"></div>
+                <div id="pete" class="InteractiveMaterial npc"><img src="Bilder/peteD.png" alt="Pete Davidson"></div>
 
 
+                <div id="birk" class="InteractiveMaterial npc"><img src="Bilder/Birk.png" alt="Birk"></div>
 
 
-            <div id="npc" class="InteractiveMaterial NPC">NPC
-                <div id="npc-dialog" class="dialog-box">
-                    <p id="npc-message"></p>
-                    <button id="npc-yes" onclick="handleNPCResponse(true)">Yes</button>
-                    <button id="npc-no" onclick="handleNPCResponse(false)">No</button>
+                <!--pynt på map-->
+                <div id="tree1" class="tree"><img src="Bilder/tre.png" alt="tre"></div>
+                <div id="busk1"><img src="Bilder/busk1.png" alt="busk"></div>
+                <div id="busk2"><img src="Bilder/busk2.png" alt="busk"></div>
+                <div id="hage"><img src="Bilder/hage.png" alt="hage/busk"></div>
+
+
+
+
+
+                <div id="npc" class="InteractiveMaterial NPC">NPC
+                    <div id="npc-dialog" class="dialog-box">
+                        <p id="npc-message"></p>
+                        <button id="npc-yes" onclick="handleNPCResponse(true)">Yes</button>
+                        <button id="npc-no" onclick="handleNPCResponse(false)">No</button>
+                    </div>
                 </div>
-            </div>
-        </main>
+                <div id="skinBoxSpinner" class="spinning-wheel">
+                    <div class="wheel-section" id="wheelSection1"></div>
+                    <div class="wheel-section" id="wheelSection2"></div>
+                    <div class="wheel-section" id="wheelSection3"></div>
+                    <div class="wheel-section" id="wheelSection4"></div>
+                </div>
+            </main>
 
-        <secton id="blank"></secton>
+            <secton id="blank"></secton>
     </div>
 
     <div class="moneyContainer">
@@ -62,12 +79,12 @@
             </div>
             <div class="buttons">
                 <div class="wrapper1">
-                    <button class="settings">settings</button>
-                    <button class="upgrades" onclick="showStats()">upgrades</button>
+                    <button class="settings">Innstillinger</button>
+                    <button class="upgrades" onclick="showStats()">Oppgraderinger</button>
                 </div>
                 <div class="wrapper2">
-                    <button class="skins" onclick="showSkins()">skins</button>
-                    <a href="intro/intro.html"><button class="HowToPlay">How to play</button></a>
+                    <button class="skins" onclick="showSkins()">Skins</button>
+                    <a href="intro/intro.html"><button class="HowToPlay">Hvordan spiller man?</button></a>
                 </div>
             </div>
         </div>
@@ -83,9 +100,25 @@
                 Thor Bjørn
             </button>
 
-            <Button class="Mbuttons" id="rasmusSkin" onclick="ChoosenRasmus()">
+            <Button class="Mbuttons" id="rasmusSkin" onclick="choosenRasmus()">
                 Rasmus<br> <span> Koster: 5000</span>
             </Button>
+
+            <button class="Mbuttons" id="skrueSkin" onclick="choosenSkrue()">
+                Skrue McDuck <br> <span>Koster: 2000</span>
+            </button>
+
+            <button class="Mbuttons" id="rockSKin" onclick="choosenRock()">
+                The Rock <br> <span>Koster: 1000</span>
+            </button>
+
+            <button class="Mbuttons" id="stewieSkin" onclick="choosenStewie()">
+                Stewie Griffin <br> <span>Koster: 3000</span>
+            </button>
+
+            <button class="Mbuttons" id="sidSkin" onclick="choosenSid()">
+                Sid Fra Istid <br> <span>Koster: 1000</span>
+            </button>
 
             <button class="Mbuttons" id="jonasSkin">
                 Jonas <br> <span>Beseir Jonas</span>
@@ -95,37 +128,58 @@
                 Anden <br> <span>Beseir Anden</span>
             </button>
 
+            <button class="Mbuttons" id="kasperSkin">
+                Kasper <br> <span>Beseir Kasper</span>
+            </button>
+
+            <button class="Mbuttons" id="elonSkin">
+                Elon Musk <br> <span>Beseir Elon Musk</span>
+            </button>
+
+            <button class="Mbuttons" id="MarioSkin">
+                Mario <br> <span>Beseir Mario</span>
+            </button>
+
+            <button class="Mbuttons" id="peteSkin">
+                Pete <br> <span>Besier Pete Davidson</span>
+            </button>
+
             <button class="Mbuttons" id="birkSkin">
                 Birk <br> <span>Snakk med Birk</span>
             </button>
 
+            <button class="Mbuttons" id="peterSkin" onclick="chosenPeter()">
+                Filler <br> <span>Snakk med Matte spill NPC</span>
+            </button>
+
             <button class="Mbuttons" id="monkeSkin" onclick="chosenMonke()">
-                Monke
+                Monke <br> <span>Snakk med SKin NPC </span>
             </button>
 
             <button class="Mbuttons" id="pandaSkin" onclick="chosenPanda()">
-                Panda
+                Panda <br> <span>Snakk med SKin NPC </span>
             </button>
 
             <button class="Mbuttons" id="langbeinSkin" onclick="chosenLangbein()">
-                Langbein
+                Langbein <br> <span>Snakk med SKin NPC </span>
             </button>
 
             <button class="Mbuttons" id="peterSkin" onclick="chosenPeter()">
-                Peter Griffin
+                Peter Griffin <br> <span>Snakk med SKin NPC </span>
             </button>
 
-            <button class="Mbuttons" onclick="backToGame()">Tilbake</button>
+            <div id="backToGameDiv"> <button class="Mbuttons" onclick="backToGame()" id="Tilbake">Tilbake</button>
+            </div>
         </div>
     </div>
     <div id="statsSelect" class="select">
         <nav id="statsNav" class="nav">
-            <p>Oppgrader characteren!</p>
+            <p>Oppgrader karakteren din!!</p>
         </nav>
         <div id="statsButtons">
             <div id="speed">
-                <button class="Sbuttons" onclick="SpeedIncrease()" id="speedButton">Øk farten<br>Koster:<span
-                        id="speedUpg">1000</span></button>
+                <button class="Sbuttons" onclick="SpeedIncrease()" id="speedButton">Øk farten<br><span>Koster:<span
+                            id="speedUpg">1000</span></span></button>
                 <div id="speedLevel">
                     <div id="speed1" class="LevelIndicater"></div>
                     <div id="speed2" class="LevelIndicater"></div>
@@ -134,7 +188,8 @@
             </div>
             <div id="health">
                 <button id="liv0">reset liv</button>
-                <button class="Sbuttons" id="healthButton">Øk health<br>Koster:<span id="healthUpg">1000</span></button>
+                <button class="Sbuttons" id="healthButton">Øk health<br><span>Koster:<span
+                            id="healthUpg">1000</span></span></button>
                 <div id="healthLevel">
                     <div id="health1" class="LevelIndicater"></div>
                     <div id="health2" class="LevelIndicater"></div>
@@ -145,7 +200,8 @@
             </div>
             <div id="damage">
                 <button id="damageer0">reset damage</button>
-                <button class="Sbuttons" id="damageButton">Øk skade<br>Koster:<span id="dmgUpg">1000</span></button>
+                <button class="Sbuttons" id="damageButton">Øk skade<br> <span> Koster:<span
+                            id="dmgUpg">1000</span></span></button>
                 <div id="damageLevel">
                     <div id="damage1" class="LevelIndicater"></div>
                     <div id="damage2" class="LevelIndicater"></div>

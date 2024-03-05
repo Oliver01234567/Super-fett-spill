@@ -201,6 +201,19 @@
     margin: auto;
 }
 
+#div_1_quiz_5 {
+    background-color: #38593e;
+    border: #1f3121 solid 2px;
+    padding: 40px;
+    margin: 30px;
+}
+
+#div_2_quiz_5 {display: none;}
+
+#div_3_quiz_5 {display: none;}
+
+#div_4_quiz_5 {display: none;}
+
 
 
 /*Alert*/
