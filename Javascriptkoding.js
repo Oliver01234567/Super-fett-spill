@@ -1026,6 +1026,7 @@ function fightPeteDavidson() {
 
 
 //skjekker om en fiende er beseiret
+const enemyDiv = document.getElementById("Enemies")
 const island = document.getElementById("øy")
 
 let andenDod = 0
@@ -1040,7 +1041,10 @@ if (andenDod == 2) {
     firstTimeAnd = 2
     sessionStorage.setItem("firstTimeAnd", firstTimeAnd)
   }
-  island.removeChild(document.querySelector("#anden"));
+  const andElement = document.querySelector("#anden");
+  if (andElement && island.contains(andElement)) {
+    enemyDiv.removeChild(andElement); 
+  }
   andSkin.addEventListener("click", ChoosenAnd)
   andSkin.removeEventListener("click", ikkeTilgangSkin)
   andSkin.innerText = "Anden"
@@ -1070,7 +1074,7 @@ if (jonasDod == 2) {
     firstTimeJonas = 2
     sessionStorage.setItem("firstTimeJonas", firstTimeJonas)
   }
-  island.removeChild(document.querySelector("#jonas"));
+  enemyDiv.removeChild(document.querySelector("#jonas"));
   jonasSkin.addEventListener("click", ChoosenJonas)
   jonasSkin.removeEventListener("click", ikkeTilgangSkin)
   jonasSkin.innerText = "Jonas"
@@ -1093,7 +1097,7 @@ if (kasperDod == 2) {
     firstTimeKasper = 2
     sessionStorage.setItem("firstTimeKasper", firstTimeKasper)
   }
-  island.removeChild(document.querySelector("#kasper"));
+  enemyDiv.removeChild(document.querySelector("#kasper"));
   kasperSkin.addEventListener("click", choosenKasper)
   kasperSkin.removeEventListener("click", ikkeTilgangSkin)
   kasperSkin.innerText = "Kasper"
@@ -1117,7 +1121,7 @@ if (elonDod == 2) {
     firstTimeElon = 2
     sessionStorage.setItem("firstTimeElon", firstTimeElon)
   }
-  island.removeChild(document.querySelector("#Elon"));
+  enemyDiv.removeChild(document.querySelector("#Elon"));
   elonSkin.addEventListener("click", choosenElon)
   elonSkin.removeEventListener("click", ikkeTilgangSkin)
   elonSkin.innerText = "Elon Musk"
@@ -1140,7 +1144,7 @@ if (marioDod == 2) {
     firstTimeMario = 2
     sessionStorage.setItem("firstTimeMario", firstTimeMario)
   }
-  island.removeChild(document.querySelector("#mario"));
+  enemyDiv.removeChild(document.querySelector("#mario"));
   marioSkin.addEventListener("click", choosenMario)
   marioSkin.removeEventListener("click", ikkeTilgangSkin)
   marioSkin.innerText = "Mario"
@@ -1163,7 +1167,11 @@ if (peteDod == 2) {
     firstTimePete = 2
     sessionStorage.setItem("firstTimePete", firstTimePete)
   }
-  island.removeChild(document.querySelector("#pete"));
+  const peteElement = document.querySelector("#pete");
+  if (peteElement && island.contains(peteElement)) {
+    enemyDiv.removeChild(peteElement); 
+  }
+
   peteSkin.addEventListener("click", choosenPete)
   peteSkin.removeEventListener("click", ikkeTilgangSkin)
   peteSkin.innerText = "Pete"
@@ -1187,7 +1195,7 @@ birkSkin.addEventListener("click", ikkeTilgangSkin)
 if (birkUnlocked == 1) {
   const birkElement = document.querySelector("#birk");
   if (birkElement && island.contains(birkElement)) {
-    island.removeChild(birkElement); // Fjern elementet fra "island"
+    enemyDiv.removeChild(birkElement);
 }
   birkSkin.removeEventListener("click", ikkeTilgangSkin)
   birkSkin.addEventListener("click", ChoosenBirk)
