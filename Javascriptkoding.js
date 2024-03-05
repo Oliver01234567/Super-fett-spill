@@ -1,6 +1,6 @@
 //interne notater:
 //Husk å markere alt i js og css slik at man enklere kan se hva som er hva
-
+hideWheel();
 //Chests
 let nummer = 1
 for (let i = 1; i < 30; i++) {
@@ -41,7 +41,6 @@ const characterP = document.querySelector("#character img")
 let choosenSkin = 0
 choosenSkin = parseInt(sessionStorage.getItem("choosenSkin")) || 0
 
-hideSpinningWheel();
 
 //Quiz seiere
 let quiz1Seier = 0
@@ -1909,81 +1908,55 @@ function handlePurchase() {
 
   setTimeout(function () {
     showNPCDialog("Great! Please confirm your purchase.");
-  
+
     npcYesBtn.textContent = "Confirm";
     npcNoBtn.textContent = "Cancel";
 
-    
+
     npcYesBtn.addEventListener("click", buyRandomSkin);
   }, 2);
 }
 
+let spinning = false;
+const cost = 1000;
+
 function buyRandomSkin() {
   console.log("kjører funksjonen")
-  const cost = 1000;
-  if (money >= cost) {
+  if (!spinning && money >= cost) {
+    console.log("nok penger og ikke spinner")
     money -= cost;
-    console.log("nok penger")
-
-    const randomSkin = getRandomSkin();
-
-    simulateSpinningAnimation(randomSkin);
-
-    // You can use setTimeout or other logic to simulate a delay if needed
-    setTimeout(function () {
-
-      // Perform actions after the spinning animation (e.g., show skin, update UI)
-      showAlert(`Congratulations! You got the skin ${randomSkin.name}`, "success");
-      hideSpinningWheel();
-      npcYesBtn.style.display = "block";
-    }, 2000); 
+    spinning = true;
+    spinWheel();
+  } else if (money >= cost) {
+    showAlert("Vent til forrige spin er ferdig", "error")
   } else {
-    showAlert("Not enough money to buy a skin box", "error");
+    showAlert("Ikke nok penger til å spinne skin wheel", "error");
     spillAvError();
   }
 }
 
-function getSkinBoxSpinner() {
-  return document.getElementById('skinBoxSpinner');
-}
+function spinWheel() {
+  const spinner = document.getElementById('skinWheel');
+  console.log("Spinning wheel...");
 
-function simulateSpinningAnimation(selectedSkin) {
-  const spinner = document.getElementById('skinBoxSpinner');
-  const randomDuration = Math.random() * (2.5 - 1.5) + 0.5;
-  spinner.style.display = 'block'; 
-  spinner.style.animation = `spin ${randomDuration}s linear infinite`; 
-
-  // Determine the selected section based on the chosen skin
-  const skins = [
-    { name: 'Monke', chance: 0.15 },
-    { name: 'Panda', chance: 0.3 },
-    { name: 'Langbein', chance: 0.05 },
-    { name: 'Peter', chance: 0.5 },
-  ];
-
-  const selectedSection = skins.findIndex(skin => skin.name === selectedSkin.name);
-
-  // Create and append the arrow element
   const arrow = document.createElement('div');
   arrow.classList.add('arrow-down');
   document.body.appendChild(arrow);
 
-  // Determine the initial rotation angle of the arrow (facing downwards)
-  const initialRotationAngle = -90; // Adjust this value as needed
+  const randomDegree = 360 * (Math.random() * 5 + 1);
+  console.log("Random degree:", randomDegree);
 
-  // Rotate the arrow to point to the selected section
-  const rotationAngle = initialRotationAngle + (360 / skins.length) * selectedSection;
-  arrow.style.transform = `rotate(${rotationAngle}deg)`;
+  const rotateValue = `rotate(${randomDegree}deg)`;
+  console.log("Rotate value:", rotateValue);
 
-  // Stop the spinning animation after a short delay (0.5 seconds)
-  setTimeout(() => {
-    spinner.style.animation = ''; // Stop the spinning animation
+  spinner.style.display = 'block';
+  spinner.style.transform = rotateValue;
 
     // Wait for another short delay (0.5 seconds) before removing the wheel
     setTimeout(() => {
       hideSpinningWheel();
       npcYesBtn.style.display = "block";
-    }, 100); // måtte endre denne til 100 fordi du ikke hadde gitt den et tall
+    }, 00);
   }, 1500);
 }
 
@@ -1994,27 +1967,5 @@ function hideSpinningWheel() {
   const arrow = document.querySelector('.arrow-down');
   if (arrow) {
     arrow.remove();
-  }
-}
-
-function getRandomSkin() {
-  // Assume you have an array of skins with their respective chances
-  const skins = [
-    { name: 'Monke', chance: 0.15 },
-    { name: 'Panda', chance: 0.3 },
-    { name: 'Langbein', chance: 0.05 },
-    { name: 'Peter', chance: 0.5 },
-  ];
-
-  // Logic to select a random skin based on chances
-  const random = Math.random();
-  let cumulativeProbability = 0;
-
-  for (const skin of skins) {
-    cumulativeProbability += skin.chance;
-
-    if (random <= cumulativeProbability) {
-      return skin;
-    }
   }
 }

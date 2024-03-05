@@ -80,3 +80,5 @@ function showAlert(message, type) {
         alertDiv.remove();
     }, 2000);
 }
+
+
