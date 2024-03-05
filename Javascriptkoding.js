@@ -207,29 +207,19 @@ if (choosenSkin == 16) {
 
 
 
+const mButtons = document.querySelectorAll(".Mbuttons")
 
 //skins section
 function ChoosenTorb() {
   characterP.src = "Bilder/Torbjorn.png"
   choosenSkin = 0
   sessionStorage.setItem("choosenSkin", choosenSkin);
-  rasmusSkin.style.backgroundColor = "brown";
-  jonasSkin.style.backgroundColor = "brown";
-  torbSkin.style.backgroundColor = "red";
-  andSkin.style.backgroundColor = "brown";
-  monkeSkin.style.backgroundColor = "brown";
-  pandaSkin.style.backgroundColor = "brown";
-  langbeinSkin.style.backgroundColor = "brown";
-  peterSkin.style.backgroundColor = "brown";
-  birkSkin.style.backgroundColor = "brown"
-  kasperSkin.style.backgroundColor = "brown"
-  elonSkin.style.backgroundColor = "brown"
-  marioSkin.style.backgroundColor = "brown"
-  peteSkin.style.backgroundColor = "brown"
-  skrueSkin.style.backgroundColor = "brown"
-  sidSkin.style.backgroundColor = "brown"
-  stewieSkin.style.backgroundColor = "brown"
-  rockSKin.style.backgroundColor = "brown"
+  mButtons.forEach((button) => {
+    if (button.id !== "torbSkin") {
+      button.style.backgroundColor = "brown";
+    }
+  });
+  torbSkin.style.backgroundColor = "red"
 
   showAlert("Byttet skin til Thor Bjørn", "success");
 }
