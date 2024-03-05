@@ -917,10 +917,6 @@ function showEnemyPopup(enemy) {
   }
 }
 
-setInterval(consoleLog, 2000)
-function consoleLog() {
-  console.log(fiende)
-}
 
 function utfordreFiende() {
   if (fiende == "anden") {
@@ -1603,8 +1599,16 @@ function showChestPopup(chest) {
     if (chestsId == "Chest2") {
       challenge.innerText = "For å åpne den må du løse en quiz"
     }
+
+    if (chestsId == "Chest25") {
+      challenge.innerText = "For å åpne den må du løse en quiz"
+    }
   }
+
+
 }
+function consoleLog() {
+  console.log(chestsId) }
 
 
 let tilfPenger = 0;
@@ -1631,7 +1635,7 @@ function openChest(chestId) {
     currentPopup = null;
   }
 
-  if (chestId != "Chest1" && chestId != "Chest2") {
+  if (chestId != "Chest1" && chestId != "Chest2" && chestId != "Chest25") {
     window.location.href = 'Chests/ChestOpen.html'
   }
 
@@ -1641,6 +1645,10 @@ function openChest(chestId) {
 
   if (chestId == "Chest2") {
     window.location.href = 'Quiz/quiz_2.html';
+  }
+
+  if (chestId == "Chest25") {
+    window.location.href = 'Quiz/quiz_4.html';
   }
 }
 
@@ -1975,7 +1983,7 @@ function simulateSpinningAnimation(selectedSkin) {
     setTimeout(() => {
       hideSpinningWheel();
       npcYesBtn.style.display = "block";
-    }, 00);
+    }, 100); // måtte endre denne til 100 fordi du ikke hadde gitt den et tall
   }, 1500);
 }
 
