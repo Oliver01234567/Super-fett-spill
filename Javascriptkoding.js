@@ -243,45 +243,24 @@ function choosenRasmus() {
     chosenRasmus = 10;
     sessionStorage.setItem("chosenRasmus", chosenRasmus)
     rasmusSkin.innerText = "Rasmus";
-    rasmusSkin.style.backgroundColor = "red";
-    jonasSkin.style.backgroundColor = "brown";
-    torbSkin.style.backgroundColor = "brown";
-    andSkin.style.backgroundColor = "brown";
-    monkeSkin.style.backgroundColor = "brown";
-    pandaSkin.style.backgroundColor = "brown";
-    langbeinSkin.style.backgroundColor = "brown";
-    peterSkin.style.backgroundColor = "brown";
-    birkSkin.style.backgroundColor = "brown"
-    kasperSkin.style.backgroundColor = "brown"
-    elonSkin.style.backgroundColor = "brown"
-    marioSkin.style.backgroundColor = "brown"
-    peteSkin.style.backgroundColor = "brown"
-    skrueSkin.style.backgroundColor = "brown"
-    sidSkin.style.backgroundColor = "brown"
-    stewieSkin.style.backgroundColor = "brown"
-    rockSKin.style.backgroundColor = "brown"
+    mButtons.forEach((button) => {
+      if (button.id !== "rasmusSkin") {
+        button.style.backgroundColor = "brown";
+      }
+    });
+    rasmusSkin.style.backgroundColor = "red"
+
   } else if (chosenRasmus == 10) {
     rasmusSkin.innerText = "Rasmus";
     characterP.src = "Bilder/Rasmus.png";
     choosenSkin = 1;
     sessionStorage.setItem("choosenSkin", choosenSkin);
-    rasmusSkin.style.backgroundColor = "red";
-    jonasSkin.style.backgroundColor = "brown";
-    torbSkin.style.backgroundColor = "brown";
-    andSkin.style.backgroundColor = "brown";
-    monkeSkin.style.backgroundColor = "brown";
-    pandaSkin.style.backgroundColor = "brown";
-    langbeinSkin.style.backgroundColor = "brown";
-    peterSkin.style.backgroundColor = "brown";
-    birkSkin.style.backgroundColor = "brown"
-    kasperSkin.style.backgroundColor = "brown"
-    elonSkin.style.backgroundColor = "brown"
-    marioSkin.style.backgroundColor = "brown"
-    peteSkin.style.backgroundColor = "brown"
-    skrueSkin.style.backgroundColor = "brown"
-    sidSkin.style.backgroundColor = "brown"
-    stewieSkin.style.backgroundColor = "brown"
-    rockSKin.style.backgroundColor = "brown"
+    mButtons.forEach((button) => {
+      if (button.id !== "rasmusSkin") {
+        button.style.backgroundColor = "brown";
+      }
+    });
+    rasmusSkin.style.backgroundColor = "red"
     showAlert("Byttet skin til Rasmus", "success")
   } else {
     showAlert("Du har ikke nok penger for å kjøpe Rasmus ", "error");
