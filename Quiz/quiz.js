@@ -49,7 +49,7 @@ function hente_resultater() {
                             if(opponent == 19) {
                                 quiz1Seier = 3
                                 localStorage.setItem("quiz1Seier", quiz1Seier)
-                                window.location.href = '../Index.html';
+                                window.location.href = '../Island/index.html';
                             }
 
                         } else {

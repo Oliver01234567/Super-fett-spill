@@ -18,7 +18,7 @@ for (let i = 1; i < 30; i++) {
 
 
   const creChestImg = document.createElement("img")
-  creChestImg.src = "Bilder/closedChest.webp"
+  creChestImg.src = "../Bilder/closedChest.webp"
   creChestImg.alt = "Chest"
   document.getElementById("Chest" + nummer).appendChild(creChestImg)
 
@@ -105,103 +105,103 @@ if (getMoney != 0) {
 
 const torbSkin = document.getElementById("torbSkin")
 if (choosenSkin == 0) {
-  characterP.src = "Bilder/Torbjorn.png"
+  characterP.src = "../Bilder/Torbjorn.png"
   torbSkin.style.backgroundColor = "red"
 }
 
 const rasmusSkin = document.getElementById("rasmusSkin")
 if (choosenSkin == 1) {
-  characterP.src = "Bilder/Rasmus.png"
+  characterP.src = "../Bilder/Rasmus.png"
   rasmusSkin.innerText = "Rasmus";
   rasmusSkin.style.backgroundColor = "red"
 }
 
 const jonasSkin = document.getElementById("jonasSkin")
 if (choosenSkin == 2) {
-  characterP.src = "Bilder/Jonas.png"
+  characterP.src = "../Bilder/Jonas.png"
   jonasSkin.style.backgroundColor = "red"
 }
 
 const andSkin = document.getElementById("andSkin")
 if (choosenSkin == 3) {
-  characterP.src = "Bilder/playerIcon1.png"
+  characterP.src = "../Bilder/playerIcon1.png"
   andSkin.style.backgroundColor = "red"
 }
 
 const monkeSkin = document.getElementById("monkeSkin")
 if (choosenSkin == 4) {
-  characterP.src = "Bilder/monke.jpeg"
+  characterP.src = "../Bilder/monke.jpeg"
   monkeSkin.style.backgroundColor = "red"
 }
 
 const pandaSkin = document.getElementById("pandaSkin")
 if (choosenSkin == 5) {
-  characterP.src = "Bilder/panda.png"
+  characterP.src = "../Bilder/panda.png"
   pandaSkin.style.backgroundColor = "red"
 }
 
 const langbeinSkin = document.getElementById("langbeinSkin")
 if (choosenSkin == 6) {
-  characterP.src = "Bilder/angel.jpeg"
+  characterP.src = "../Bilder/angel.jpeg"
   langbeinSkin.style.backgroundColor = "red"
 }
 
 const peterSkin = document.getElementById("peterSkin")
 if (choosenSkin == 7) {
-  characterP.src = "Bilder/peter.png"
+  characterP.src = "../Bilder/peter.png"
   peterSkin.style.backgroundColor = "red"
 }
 
 if (choosenSkin == 8) {
-  characterP.src = "Bilder/Birk.png"
+  characterP.src = "../Bilder/Birk.png"
   birkSkin.style.backgroundColor = "red"
 }
 
 const kasperSkin = document.getElementById("kasperSkin")
 if (choosenSkin == 9) {
-  characterP.src = "Bilder/kasper.png"
+  characterP.src = "../Bilder/kasper.png"
   kasperSkin.style.backgroundColor = "red"
 }
 
 const elonSkin = document.getElementById("elonSkin")
 if (choosenSkin == 10) {
-  characterP.src = "Bilder/elon.png"
+  characterP.src = "../Bilder/elon.png"
   elonSkin.style.backgroundColor = "red"
 }
 
 const marioSkin = document.getElementById("MarioSkin")
 if (choosenSkin == 11) {
-  characterP.src = "Bilder/mario.png"
+  characterP.src = "../Bilder/mario.png"
   marioSkin.style.backgroundColor = "red"
 }
 
 const peteSkin = document.getElementById("peteSkin")
 if (choosenSkin == 12) {
-  characterP.src = "Bilder/peteD.png"
+  characterP.src = "../Bilder/peteD.png"
   peteSkin.style.backgroundColor = "red"
 }
 
 const skrueSkin = document.getElementById("skrueSkin")
 if (choosenSkin == 13) {
-  characterP.src = "Bilder/skrueMcDuck.png"
+  characterP.src = "../Bilder/skrueMcDuck.png"
   skrueSkin.style.backgroundColor = "red"
 }
 
 const rockSKin = document.getElementById("rockSKin")
 if (choosenSkin == 14) {
-  characterP.src = "Bilder/The-Rock.png"
+  characterP.src = "../Bilder/The-Rock.png"
   rockSKin.style.backgroundColor = "red"
 }
 
 const stewieSkin = document.getElementById("stewieSkin")
 if (choosenSkin == 15) {
-  characterP.src = "Bilder/Stewie.png"
+  characterP.src = "../Bilder/Stewie.png"
   stewieSkin.style.backgroundColor = "red"
 }
 
 const sidSkin = document.getElementById("sidSkin")
 if (choosenSkin == 16) {
-  characterP.src = "Bilder/SId.png"
+  characterP.src = "../Bilder/SId.png"
   sidSkin.style.backgroundColor = "red"
 }
 
@@ -211,7 +211,7 @@ const mButtons = document.querySelectorAll(".Mbuttons")
 
 //skins section
 function ChoosenTorb() {
-  characterP.src = "Bilder/Torbjorn.png"
+  characterP.src = "../Bilder/Torbjorn.png"
   choosenSkin = 0
   sessionStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
@@ -234,7 +234,7 @@ if (chosenRasmus == 10) {
 
 function choosenRasmus() {
   if (money >= 5000 && chosenRasmus == 0) {
-    characterP.src = "Bilder/Rasmus.png";
+    characterP.src = "../Bilder/Rasmus.png";
     choosenSkin = 1;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     money -= 5000;
@@ -252,7 +252,7 @@ function choosenRasmus() {
 
   } else if (chosenRasmus == 10) {
     rasmusSkin.innerText = "Rasmus";
-    characterP.src = "Bilder/Rasmus.png";
+    characterP.src = "../Bilder/Rasmus.png";
     choosenSkin = 1;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
@@ -278,7 +278,7 @@ if (chosenSkrue == 10) {
 
 function choosenSkrue() {
   if (money >= 2000 && chosenSkrue == 0) {
-    characterP.src = "Bilder/skrueMcDuck.png";
+    characterP.src = "../Bilder/skrueMcDuck.png";
     choosenSkin = 13;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     money -= 2000;
@@ -296,7 +296,7 @@ function choosenSkrue() {
 
   } else if (chosenSkrue == 10) {
     skrueSkin.innerText = "Skrue McDuck";
-    characterP.src = "Bilder/skrueMcDuck.png";
+    characterP.src = "../Bilder/skrueMcDuck.png";
     choosenSkin = 13;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
@@ -322,7 +322,7 @@ if (chosenRock == 10) {
 
 function choosenRock() {
   if (money >= 1000 && chosenRock == 0) {
-    characterP.src = "Bilder/The-Rock.png";
+    characterP.src = "../Bilder/The-Rock.png";
     choosenSkin = 14;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     money -= 2000;
@@ -340,7 +340,7 @@ function choosenRock() {
 
   } else if (chosenRock == 10) {
     rockSKin.innerText = "The Rock";
-    characterP.src = "Bilder/The-Rock.png";
+    characterP.src = "../Bilder/The-Rock.png";
     choosenSkin = 14;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
@@ -367,7 +367,7 @@ if (chosenStewie == 10) {
 
 function choosenStewie() {
   if (money >= 3000 && chosenStewie == 0) {
-    characterP.src = "Bilder/Stewie.png";
+    characterP.src = "../Bilder/Stewie.png";
     choosenSkin = 15;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     money -= 3000;
@@ -385,7 +385,7 @@ function choosenStewie() {
 
   } else if (chosenStewie == 10) {
     stewieSkin.innerText = "Stewie Griffin";
-    characterP.src = "Bilder/Stewie.png";
+    characterP.src = "../Bilder/Stewie.png";
     choosenSkin = 15;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
@@ -411,7 +411,7 @@ if (chosenSid == 10) {
 
 function choosenSid() {
   if (money >= 1000 && chosenSid == 0) {
-    characterP.src = "Bilder/SId.png";
+    characterP.src = "../Bilder/SId.png";
     choosenSkin = 16;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     money -= 1000;
@@ -429,7 +429,7 @@ function choosenSid() {
 
   } else if (chosenSid == 10) {
     sidSkin.innerText = "Sid Fra Istid";
-    characterP.src = "Bilder/SId.png";
+    characterP.src = "../Bilder/SId.png";
     choosenSkin = 16;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
@@ -446,7 +446,7 @@ function choosenSid() {
 }
 
 function ChoosenJonas() {
-  characterP.src = "Bilder/Jonas.png"
+  characterP.src = "../Bilder/Jonas.png"
   choosenSkin = 2
   sessionStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
@@ -459,7 +459,7 @@ function ChoosenJonas() {
 }
 
 function ChoosenAnd() {
-  characterP.src = "Bilder/playerIcon1.png"
+  characterP.src = "../Bilder/playerIcon1.png"
   choosenSkin = 3
   sessionStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
@@ -473,7 +473,7 @@ function ChoosenAnd() {
 
 function chosenMonke() {
   if (gotMonke == 10) {
-    characterP.src = "Bilder/monke.jpeg";
+    characterP.src = "../Bilder/monke.jpeg";
     choosenSkin = 4;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
@@ -490,7 +490,7 @@ function chosenMonke() {
 
 function chosenPanda() {
   if (gotPanda == 10) {
-    characterP.src = "Bilder/panda.png";
+    characterP.src = "../Bilder/panda.png";
     choosenSkin = 5;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
@@ -507,7 +507,7 @@ function chosenPanda() {
 
 function chosenLangbein() {
   if (gotLangbein == 10) {
-    characterP.src = "Bilder/angel.jpeg";
+    characterP.src = "../Bilder/angel.jpeg";
     choosenSkin = 6;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
@@ -524,7 +524,7 @@ function chosenLangbein() {
 
 function chosenPeter() {
   if (gotPeter == 10) {
-    characterP.src = "Bilder/peter.png";
+    characterP.src = "../Bilder/peter.png";
     choosenSkin = 7;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
@@ -540,7 +540,7 @@ function chosenPeter() {
 }
 
 function ChoosenBirk() {
-  characterP.src = "Bilder/Birk.png"
+  characterP.src = "../Bilder/Birk.png"
   choosenSkin = 8
   sessionStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
@@ -553,7 +553,7 @@ function ChoosenBirk() {
 }
 
 function choosenKasper() {
-  characterP.src = "Bilder/kasper.png"
+  characterP.src = "../Bilder/kasper.png"
   choosenSkin = 9
   sessionStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
@@ -566,7 +566,7 @@ function choosenKasper() {
 }
 
 function choosenElon() {
-  characterP.src = "Bilder/elon.png"
+  characterP.src = "../Bilder/elon.png"
   choosenSkin = 10
   sessionStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
@@ -579,7 +579,7 @@ function choosenElon() {
 }
 
 function choosenMario() {
-  characterP.src = "Bilder/elon.png"
+  characterP.src = "../Bilder/elon.png"
   choosenSkin = 11
   sessionStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
@@ -592,7 +592,7 @@ function choosenMario() {
 }
 
 function choosenPete() {
-  characterP.src = "Bilder/peteD.png"
+  characterP.src = "../Bilder/peteD.png"
   choosenSkin = 12
   sessionStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
@@ -1025,7 +1025,7 @@ function generateTrees(numTrees) {
     tree.classList.add('tree');
 
     let img = document.createElement('img');
-    img.src = 'Bilder/tre.png';
+    img.src = '../Bilder/tre.png';
     img.alt = 'tree';
 
     // random posisjon
@@ -1414,7 +1414,7 @@ setInterval(checkOpenChests, 100)
 function checkOpenChests() {
   const openedChests = document.querySelectorAll(".opened img")
   openedChests.forEach(chest => {
-    chest.src = "Bilder/openedChest.webp";
+    chest.src = "../Bilder/openedChest.webp";
   })
 
 }
