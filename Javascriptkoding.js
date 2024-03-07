@@ -331,46 +331,24 @@ function choosenRock() {
     chosenRock = 10;
     sessionStorage.setItem("chosenRock", chosenRock)
     rockSKin.innerText = "The Rock";
-    rasmusSkin.style.backgroundColor = "brown";
-    jonasSkin.style.backgroundColor = "brown";
-    torbSkin.style.backgroundColor = "brown";
-    andSkin.style.backgroundColor = "brown";
-    monkeSkin.style.backgroundColor = "brown";
-    pandaSkin.style.backgroundColor = "brown";
-    langbeinSkin.style.backgroundColor = "brown";
-    peterSkin.style.backgroundColor = "brown";
-    birkSkin.style.backgroundColor = "brown"
-    kasperSkin.style.backgroundColor = "brown"
-    elonSkin.style.backgroundColor = "brown"
-    marioSkin.style.backgroundColor = "brown"
-    peteSkin.style.backgroundColor = "brown"
-    skrueSkin.style.backgroundColor = "brown"
-    sidSkin.style.backgroundColor = "brown"
-    stewieSkin.style.backgroundColor = "brown"
-    rockSKin.style.backgroundColor = "red"
+    mButtons.forEach((button) => {
+      if (button.id !== "rockSkin") {
+        button.style.backgroundColor = "brown";
+      }
+    });
+    rockSkin.style.backgroundColor = "red"
 
   } else if (chosenRock == 10) {
     rockSKin.innerText = "The Rock";
     characterP.src = "Bilder/The-Rock.png";
     choosenSkin = 14;
     sessionStorage.setItem("choosenSkin", choosenSkin);
-    rasmusSkin.style.backgroundColor = "brown";
-    jonasSkin.style.backgroundColor = "brown";
-    torbSkin.style.backgroundColor = "brown";
-    andSkin.style.backgroundColor = "brown";
-    monkeSkin.style.backgroundColor = "brown";
-    pandaSkin.style.backgroundColor = "brown";
-    langbeinSkin.style.backgroundColor = "brown";
-    peterSkin.style.backgroundColor = "brown";
-    birkSkin.style.backgroundColor = "brown"
-    kasperSkin.style.backgroundColor = "brown"
-    elonSkin.style.backgroundColor = "brown"
-    marioSkin.style.backgroundColor = "brown"
-    peteSkin.style.backgroundColor = "brown"
-    skrueSkin.style.backgroundColor = "brown"
-    sidSkin.style.backgroundColor = "brown"
-    stewieSkin.style.backgroundColor = "brown"
-    rockSKin.style.backgroundColor = "red"
+    mButtons.forEach((button) => {
+      if (button.id !== "rockSkin") {
+        button.style.backgroundColor = "brown";
+      }
+    });
+    rockSkin.style.backgroundColor = "red"
     showAlert("Byttet skin til Dwanye The Rock Johnson", "success")
   } else {
     showAlert("Du har ikke nok penger for å kjøpe Dwanye The Rock Johnson ", "error");
@@ -398,46 +376,24 @@ function choosenStewie() {
     chosenStewie = 10;
     sessionStorage.setItem("chosenStewie", chosenStewie)
     stewieSkin.innerText = "Stewie Griffin";
-    rasmusSkin.style.backgroundColor = "brown";
-    jonasSkin.style.backgroundColor = "brown";
-    torbSkin.style.backgroundColor = "brown";
-    andSkin.style.backgroundColor = "brown";
-    monkeSkin.style.backgroundColor = "brown";
-    pandaSkin.style.backgroundColor = "brown";
-    langbeinSkin.style.backgroundColor = "brown";
-    peterSkin.style.backgroundColor = "brown";
-    birkSkin.style.backgroundColor = "brown"
-    kasperSkin.style.backgroundColor = "brown"
-    elonSkin.style.backgroundColor = "brown"
-    marioSkin.style.backgroundColor = "brown"
-    peteSkin.style.backgroundColor = "brown"
-    skrueSkin.style.backgroundColor = "brown"
-    sidSkin.style.backgroundColor = "brown"
+    mButtons.forEach((button) => {
+      if (button.id !== "stewieSkin") {
+        button.style.backgroundColor = "brown";
+      }
+    });
     stewieSkin.style.backgroundColor = "red"
-    rockSKin.style.backgroundColor = "brown"
 
   } else if (chosenStewie == 10) {
     stewieSkin.innerText = "Stewie Griffin";
     characterP.src = "Bilder/Stewie.png";
     choosenSkin = 15;
     sessionStorage.setItem("choosenSkin", choosenSkin);
-    rasmusSkin.style.backgroundColor = "brown";
-    jonasSkin.style.backgroundColor = "brown";
-    torbSkin.style.backgroundColor = "brown";
-    andSkin.style.backgroundColor = "brown";
-    monkeSkin.style.backgroundColor = "brown";
-    pandaSkin.style.backgroundColor = "brown";
-    langbeinSkin.style.backgroundColor = "brown";
-    peterSkin.style.backgroundColor = "brown";
-    birkSkin.style.backgroundColor = "brown"
-    kasperSkin.style.backgroundColor = "brown"
-    elonSkin.style.backgroundColor = "brown"
-    marioSkin.style.backgroundColor = "brown"
-    peteSkin.style.backgroundColor = "brown"
-    skrueSkin.style.backgroundColor = "brown"
-    sidSkin.style.backgroundColor = "brown"
+    mButtons.forEach((button) => {
+      if (button.id !== "stewieSkin") {
+        button.style.backgroundColor = "brown";
+      }
+    });
     stewieSkin.style.backgroundColor = "red"
-    rockSKin.style.backgroundColor = "brown"
     showAlert("Byttet skin til Stewie Griffin", "success")
   } else {
     showAlert("Du har ikke nok penger for å kjøpe Stewie Griffin ", "error");
@@ -464,46 +420,24 @@ function choosenSid() {
     chosenSid = 10;
     sessionStorage.setItem("chosenSid", chosenSid)
     sidSkin.innerText = "Sid Fra Istid";
-    rasmusSkin.style.backgroundColor = "brown";
-    jonasSkin.style.backgroundColor = "brown";
-    torbSkin.style.backgroundColor = "brown";
-    andSkin.style.backgroundColor = "brown";
-    monkeSkin.style.backgroundColor = "brown";
-    pandaSkin.style.backgroundColor = "brown";
-    langbeinSkin.style.backgroundColor = "brown";
-    peterSkin.style.backgroundColor = "brown";
-    birkSkin.style.backgroundColor = "brown"
-    kasperSkin.style.backgroundColor = "brown"
-    elonSkin.style.backgroundColor = "brown"
-    marioSkin.style.backgroundColor = "brown"
-    peteSkin.style.backgroundColor = "brown"
-    skrueSkin.style.backgroundColor = "brown"
+    mButtons.forEach((button) => {
+      if (button.id !== "sidSkin") {
+        button.style.backgroundColor = "brown";
+      }
+    });
     sidSkin.style.backgroundColor = "red"
-    stewieSkin.style.backgroundColor = "brown"
-    rockSKin.style.backgroundColor = "brown"
 
   } else if (chosenSid == 10) {
     sidSkin.innerText = "Sid Fra Istid";
     characterP.src = "Bilder/SId.png";
     choosenSkin = 16;
     sessionStorage.setItem("choosenSkin", choosenSkin);
-    rasmusSkin.style.backgroundColor = "brown";
-    jonasSkin.style.backgroundColor = "brown";
-    torbSkin.style.backgroundColor = "brown";
-    andSkin.style.backgroundColor = "brown";
-    monkeSkin.style.backgroundColor = "brown";
-    pandaSkin.style.backgroundColor = "brown";
-    langbeinSkin.style.backgroundColor = "brown";
-    peterSkin.style.backgroundColor = "brown";
-    birkSkin.style.backgroundColor = "brown"
-    kasperSkin.style.backgroundColor = "brown"
-    elonSkin.style.backgroundColor = "brown"
-    marioSkin.style.backgroundColor = "brown"
-    peteSkin.style.backgroundColor = "brown"
-    skrueSkin.style.backgroundColor = "brown"
+    mButtons.forEach((button) => {
+      if (button.id !== "sidSkin") {
+        button.style.backgroundColor = "brown";
+      }
+    });
     sidSkin.style.backgroundColor = "red"
-    stewieSkin.style.backgroundColor = "brown"
-    rockSKin.style.backgroundColor = "brown"
     showAlert("Byttet skin til Sid Fra Istid", "success")
   } else {
     showAlert("Du har ikke nok penger for å kjøpe Stewie Griffin ", "error");
@@ -515,23 +449,12 @@ function ChoosenJonas() {
   characterP.src = "Bilder/Jonas.png"
   choosenSkin = 2
   sessionStorage.setItem("choosenSkin", choosenSkin);
-  rasmusSkin.style.backgroundColor = "brown";
-  jonasSkin.style.backgroundColor = "red";
-  torbSkin.style.backgroundColor = "brown";
-  andSkin.style.backgroundColor = "brown";
-  monkeSkin.style.backgroundColor = "brown";
-  pandaSkin.style.backgroundColor = "brown";
-  langbeinSkin.style.backgroundColor = "brown";
-  peterSkin.style.backgroundColor = "brown";
-  birkSkin.style.backgroundColor = "brown"
-  kasperSkin.style.backgroundColor = "brown"
-  elonSkin.style.backgroundColor = "brown"
-  marioSkin.style.backgroundColor = "brown"
-  peteSkin.style.backgroundColor = "brown"
-  skrueSkin.style.backgroundColor = "brown"
-  sidSkin.style.backgroundColor = "brown"
-  stewieSkin.style.backgroundColor = "brown"
-  rockSKin.style.backgroundColor = "brown"
+  mButtons.forEach((button) => {
+    if (button.id !== "jonasSkin") {
+      button.style.backgroundColor = "brown";
+    }
+  });
+  jonasSkin.style.backgroundColor = "red"
   showAlert("Byttet skin til Jonas", "success");
 }
 
@@ -539,23 +462,12 @@ function ChoosenAnd() {
   characterP.src = "Bilder/playerIcon1.png"
   choosenSkin = 3
   sessionStorage.setItem("choosenSkin", choosenSkin);
-  rasmusSkin.style.backgroundColor = "brown";
-  jonasSkin.style.backgroundColor = "brown";
-  torbSkin.style.backgroundColor = "brown";
-  andSkin.style.backgroundColor = "red";
-  monkeSkin.style.backgroundColor = "brown";
-  pandaSkin.style.backgroundColor = "brown";
-  langbeinSkin.style.backgroundColor = "brown";
-  peterSkin.style.backgroundColor = "brown";
-  birkSkin.style.backgroundColor = "brown"
-  kasperSkin.style.backgroundColor = "brown"
-  elonSkin.style.backgroundColor = "brown"
-  marioSkin.style.backgroundColor = "brown"
-  peteSkin.style.backgroundColor = "brown"
-  skrueSkin.style.backgroundColor = "brown"
-  sidSkin.style.backgroundColor = "brown"
-  stewieSkin.style.backgroundColor = "brown"
-  rockSKin.style.backgroundColor = "brown"
+  mButtons.forEach((button) => {
+    if (button.id !== "andSkin") {
+      button.style.backgroundColor = "brown";
+    }
+  });
+  andSkin.style.backgroundColor = "red"
   showAlert("Byttet skin til Anden", "success");
 }
 
@@ -564,23 +476,12 @@ function chosenMonke() {
     characterP.src = "Bilder/monke.jpeg";
     choosenSkin = 4;
     sessionStorage.setItem("choosenSkin", choosenSkin);
-    rasmusSkin.style.backgroundColor = "brown";
-    jonasSkin.style.backgroundColor = "brown";
-    torbSkin.style.backgroundColor = "brown";
-    andSkin.style.backgroundColor = "brown";
-    monkeSkin.style.backgroundColor = "red";
-    pandaSkin.style.backgroundColor = "brown";
-    langbeinSkin.style.backgroundColor = "brown";
-    peterSkin.style.backgroundColor = "brown";
-    birkSkin.style.backgroundColor = "brown"
-    kasperSkin.style.backgroundColor = "brown"
-    elonSkin.style.backgroundColor = "brown"
-    marioSkin.style.backgroundColor = "brown"
-    peteSkin.style.backgroundColor = "brown"
-    skrueSkin.style.backgroundColor = "brown"
-    sidSkin.style.backgroundColor = "brown"
-    stewieSkin.style.backgroundColor = "brown"
-    rockSKin.style.backgroundColor = "brown"
+    mButtons.forEach((button) => {
+      if (button.id !== "monkeSkin") {
+        button.style.backgroundColor = "brown";
+      }
+    });
+    monkeSkin.style.backgroundColor = "red"
     showAlert("Byttet skin til Monke", "success");
   } else {
     ikkeTilgangSkin();
@@ -592,23 +493,12 @@ function chosenPanda() {
     characterP.src = "Bilder/panda.png";
     choosenSkin = 5;
     sessionStorage.setItem("choosenSkin", choosenSkin);
-    rasmusSkin.style.backgroundColor = "brown";
-    jonasSkin.style.backgroundColor = "brown";
-    torbSkin.style.backgroundColor = "brown";
-    andSkin.style.backgroundColor = "brown";
-    monkeSkin.style.backgroundColor = "brown";
-    pandaSkin.style.backgroundColor = "red";
-    langbeinSkin.style.backgroundColor = "brown";
-    peterSkin.style.backgroundColor = "brown";
-    birkSkin.style.backgroundColor = "brown"
-    kasperSkin.style.backgroundColor = "brown"
-    elonSkin.style.backgroundColor = "brown"
-    marioSkin.style.backgroundColor = "brown"
-    peteSkin.style.backgroundColor = "brown"
-    skrueSkin.style.backgroundColor = "brown"
-    sidSkin.style.backgroundColor = "brown"
-    stewieSkin.style.backgroundColor = "brown"
-    rockSKin.style.backgroundColor = "brown"
+    mButtons.forEach((button) => {
+      if (button.id !== "pandaSkin") {
+        button.style.backgroundColor = "brown";
+      }
+    });
+    pandaSkin.style.backgroundColor = "red"
     showAlert("Byttet skin til Panda", "success");
   } else {
     ikkeTilgangSkin();
@@ -620,23 +510,12 @@ function chosenLangbein() {
     characterP.src = "Bilder/angel.jpeg";
     choosenSkin = 6;
     sessionStorage.setItem("choosenSkin", choosenSkin);
-    rasmusSkin.style.backgroundColor = "brown";
-    jonasSkin.style.backgroundColor = "brown";
-    torbSkin.style.backgroundColor = "brown";
-    andSkin.style.backgroundColor = "brown";
-    monkeSkin.style.backgroundColor = "brown";
-    pandaSkin.style.backgroundColor = "brown";
-    langbeinSkin.style.backgroundColor = "red";
-    peterSkin.style.backgroundColor = "brown";
-    birkSkin.style.backgroundColor = "brown"
-    kasperSkin.style.backgroundColor = "brown"
-    elonSkin.style.backgroundColor = "brown"
-    marioSkin.style.backgroundColor = "brown"
-    peteSkin.style.backgroundColor = "brown"
-    skrueSkin.style.backgroundColor = "brown"
-    sidSkin.style.backgroundColor = "brown"
-    stewieSkin.style.backgroundColor = "brown"
-    rockSKin.style.backgroundColor = "brown"
+    mButtons.forEach((button) => {
+      if (button.id !== "langbeinSkin") {
+        button.style.backgroundColor = "brown";
+      }
+    });
+    langbeinSkin.style.backgroundColor = "red"
     showAlert("Byttet skin til Langbein", "success");
   } else {
     ikkeTilgangSkin();
@@ -648,23 +527,12 @@ function chosenPeter() {
     characterP.src = "Bilder/peter.png";
     choosenSkin = 7;
     sessionStorage.setItem("choosenSkin", choosenSkin);
-    rasmusSkin.style.backgroundColor = "brown";
-    jonasSkin.style.backgroundColor = "brown";
-    torbSkin.style.backgroundColor = "brown";
-    andSkin.style.backgroundColor = "brown";
-    monkeSkin.style.backgroundColor = "brown";
-    pandaSkin.style.backgroundColor = "brown";
-    langbeinSkin.style.backgroundColor = "brown";
-    peterSkin.style.backgroundColor = "red";
-    birkSkin.style.backgroundColor = "brown"
-    kasperSkin.style.backgroundColor = "brown"
-    elonSkin.style.backgroundColor = "brown"
-    marioSkin.style.backgroundColor = "brown"
-    peteSkin.style.backgroundColor = "brown"
-    skrueSkin.style.backgroundColor = "brown"
-    sidSkin.style.backgroundColor = "brown"
-    stewieSkin.style.backgroundColor = "brown"
-    rockSKin.style.backgroundColor = "brown"
+    mButtons.forEach((button) => {
+      if (button.id !== "peterSkin") {
+        button.style.backgroundColor = "brown";
+      }
+    });
+    peterSkin.style.backgroundColor = "red"
     showAlert("Byttet skin til Peter Griffin", "success");
   } else {
     ikkeTilgangSkin();
@@ -675,23 +543,12 @@ function ChoosenBirk() {
   characterP.src = "Bilder/Birk.png"
   choosenSkin = 8
   sessionStorage.setItem("choosenSkin", choosenSkin);
-  rasmusSkin.style.backgroundColor = "brown";
-  jonasSkin.style.backgroundColor = "brown";
-  torbSkin.style.backgroundColor = "brown";
-  andSkin.style.backgroundColor = "brown";
-  monkeSkin.style.backgroundColor = "brown";
-  pandaSkin.style.backgroundColor = "brown";
-  langbeinSkin.style.backgroundColor = "brown";
-  peterSkin.style.backgroundColor = "brown";
+  mButtons.forEach((button) => {
+    if (button.id !== "birkSkin") {
+      button.style.backgroundColor = "brown";
+    }
+  });
   birkSkin.style.backgroundColor = "red"
-  kasperSkin.style.backgroundColor = "brown"
-  elonSkin.style.backgroundColor = "brown"
-  marioSkin.style.backgroundColor = "brown"
-  peteSkin.style.backgroundColor = "brown"
-  skrueSkin.style.backgroundColor = "brown"
-  sidSkin.style.backgroundColor = "brown"
-  stewieSkin.style.backgroundColor = "brown"
-  rockSKin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Birk", "success");
 }
 
@@ -699,23 +556,12 @@ function choosenKasper() {
   characterP.src = "Bilder/kasper.png"
   choosenSkin = 9
   sessionStorage.setItem("choosenSkin", choosenSkin);
-  rasmusSkin.style.backgroundColor = "brown";
-  jonasSkin.style.backgroundColor = "brown";
-  torbSkin.style.backgroundColor = "brown";
-  andSkin.style.backgroundColor = "brown";
-  monkeSkin.style.backgroundColor = "brown";
-  pandaSkin.style.backgroundColor = "brown";
-  langbeinSkin.style.backgroundColor = "brown";
-  peterSkin.style.backgroundColor = "brown";
-  birkSkin.style.backgroundColor = "brown"
+  mButtons.forEach((button) => {
+    if (button.id !== "kasperSkin") {
+      button.style.backgroundColor = "brown";
+    }
+  });
   kasperSkin.style.backgroundColor = "red"
-  elonSkin.style.backgroundColor = "brown"
-  marioSkin.style.backgroundColor = "brown"
-  peteSkin.style.backgroundColor = "brown"
-  skrueSkin.style.backgroundColor = "brown"
-  sidSkin.style.backgroundColor = "brown"
-  stewieSkin.style.backgroundColor = "brown"
-  rockSKin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Kasper", "success");
 }
 
@@ -723,23 +569,12 @@ function choosenElon() {
   characterP.src = "Bilder/elon.png"
   choosenSkin = 10
   sessionStorage.setItem("choosenSkin", choosenSkin);
-  rasmusSkin.style.backgroundColor = "brown";
-  jonasSkin.style.backgroundColor = "brown";
-  torbSkin.style.backgroundColor = "brown";
-  andSkin.style.backgroundColor = "brown";
-  monkeSkin.style.backgroundColor = "brown";
-  pandaSkin.style.backgroundColor = "brown";
-  langbeinSkin.style.backgroundColor = "brown";
-  peterSkin.style.backgroundColor = "brown";
-  birkSkin.style.backgroundColor = "brown"
-  kasperSkin.style.backgroundColor = "brown"
+  mButtons.forEach((button) => {
+    if (button.id !== "elonSkin") {
+      button.style.backgroundColor = "brown";
+    }
+  });
   elonSkin.style.backgroundColor = "red"
-  marioSkin.style.backgroundColor = "brown"
-  peteSkin.style.backgroundColor = "brown"
-  skrueSkin.style.backgroundColor = "brown"
-  sidSkin.style.backgroundColor = "brown"
-  stewieSkin.style.backgroundColor = "brown"
-  rockSKin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Elon Musk", "success");
 }
 
@@ -747,22 +582,12 @@ function choosenMario() {
   characterP.src = "Bilder/elon.png"
   choosenSkin = 11
   sessionStorage.setItem("choosenSkin", choosenSkin);
-  rasmusSkin.style.backgroundColor = "brown";
-  jonasSkin.style.backgroundColor = "brown";
-  torbSkin.style.backgroundColor = "brown";
-  andSkin.style.backgroundColor = "brown";
-  monkeSkin.style.backgroundColor = "brown";
-  pandaSkin.style.backgroundColor = "brown";
-  langbeinSkin.style.backgroundColor = "brown";
-  peterSkin.style.backgroundColor = "brown";
-  birkSkin.style.backgroundColor = "brown"
-  kasperSkin.style.backgroundColor = "brown"
-  elonSkin.style.backgroundColor = "brown"
+  mButtons.forEach((button) => {
+    if (button.id !== "marioSkin") {
+      button.style.backgroundColor = "brown";
+    }
+  });
   marioSkin.style.backgroundColor = "red"
-  skrueSkin.style.backgroundColor = "brown"
-  sidSkin.style.backgroundColor = "brown"
-  stewieSkin.style.backgroundColor = "brown"
-  rockSKin.style.backgroundColor = "brown"
   showAlert("Byttet skin til Mario", "success");
 }
 
