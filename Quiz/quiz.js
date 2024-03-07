@@ -108,16 +108,21 @@ function showAlert(message, type) {
 }
 
 
+// query selector returnerer FØRSTE treffet - denne skal ha display flex
+const sporsmaal = document.querySelector("#quiz_container > div")
+sporsmaal.style.display = "flex"
+
+
 function neste() {
 
-    if (document.getElementById("div_1_quiz_5").style.display = "block" == true) {
+    if (document.getElementById("div_1_quiz_5").style.display == "flex") {
         document.getElementById("div_1_quiz_5").style.display = "none"
-        document.getElementById("div_2_quiz_5").style.display = "block"
-    } elif (document.getElementById("div_2_quiz_5").style.display = "block"==true); {
+        document.getElementById("div_2_quiz_5").style.display = "flex"
+    } else if (document.getElementById("div_2_quiz_5").style.display == "flex") {
         document.getElementById("div_2_quiz_5").style.display = "none"
-        document.getElementById("div_3_quiz_5").style.display = "block"
-    } elif (document.getElementById("div_3_quiz_5").style.display = "block"==true); {
+        document.getElementById("div_3_quiz_5").style.display = "flex"
+    } else if (document.getElementById("div_3_quiz_5").style.display == "flex") {
         document.getElementById("div_3_quiz_5").style.display = "none"
-        document.getElementById("div_4_quiz_5").style.display = "block" 
+        document.getElementById("div_4_quiz_5").style.display = "flex" 
     }
 }
