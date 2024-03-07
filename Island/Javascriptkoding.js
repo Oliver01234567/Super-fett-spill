@@ -38,6 +38,8 @@ setInterval(updateMoneyAmount, 100)
 
 const characterP = document.querySelector("#character")
 
+const character = document.querySelector("#charater img")
+
 let choosenSkin = 0
 choosenSkin = parseInt(sessionStorage.getItem("choosenSkin")) || 0
 
@@ -626,6 +628,7 @@ function checkForNPC() {
       showEnemyPopup(enemy);
 
     }
+    
   });
 }
 

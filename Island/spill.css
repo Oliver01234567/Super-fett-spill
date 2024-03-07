@@ -73,15 +73,28 @@ body {
     padding-bottom: 13%; 
 }
 
-/*.beach {
+.beach {
+    z-index: 2;
     position: absolute;
-    z-index: 1;
     bottom: 0;
     left: 0;
-    height: 13%; 
-    width: 100%; 
-    background-color: rgb(236, 204, 107);
-}*/
+    width: 5000px; 
+    height: 350px; 
+    margin-left: 0;
+    background: linear-gradient(to bottom, rgb(244, 199, 127) 45%, rgb(91 241 241 / 96%) 55%);
+}
+
+.beach2 {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 5000px;
+    height: 350px; 
+    margin-left: 500px;
+    margin-bottom: 2450px;
+    background: linear-gradient(to top, rgb(244, 199, 127) 45%, rgb(91 241 241 / 96%) 55%);
+}
 
 .tree {
     position: absolute;
