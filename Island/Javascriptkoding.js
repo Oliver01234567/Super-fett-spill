@@ -1750,13 +1750,46 @@ function spinWheel() {
   spinner.style.display = 'block';
   spinner.style.transform = rotateValue;
 
+  let styleElement = document.getElementById('spinKeyframes');
+
+  if (!styleElement) {
+      styleElement = document.createElement('style');
+      styleElement.id = 'spinKeyframes';
+      document.head.appendChild(styleElement);
+  }
+
+  // Update the keyframes rule with the dynamic rotation
+  styleElement.innerHTML = `
+      @keyframes spin {
+          0% {
+              transform: rotate(0deg);
+          }
+          100% {
+              transform: ${rotateValue};
+          }
+      }
+  `;
+
+  // Clear any existing animation
+  spinner.style.animation = 'none';
+
+  // Trigger reflow before applying the new animation
+  spinner.offsetHeight;
+
+  // Apply the spin-animation class to start the spinning
+  spinner.style.animation = 'spin 3s ease-in-out';
+
   setTimeout(() => {
-    console.log("Spinning complete!");
-    checkResult(randomDegree % 360);
-    hideWheel();
-    spinning = false;
-  }, 1000);
+      console.log("Spinning complete!");
+      checkResult(randomDegree % 360);
+      hideWheel();
+      spinning = false;
+      setTimeout(() => {
+          spinner.style.display = 'none'; // Hide the wheel after half a second
+      }, 500);
+  }, 3000); // Adjust the timeout based on the animation duration
 }
+
 
 let gotPeter = 0;
 let gotPanda = 0;
