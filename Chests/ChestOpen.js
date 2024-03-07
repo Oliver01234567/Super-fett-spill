@@ -23,12 +23,13 @@ function changeImg() {
 }
 
 function createMoney() {
-    let money = document.createElement("div")
+    let money = document.createElement("img")
+    money.src = "../Bilder/pengesekk.png"
     money.id = "money"
     document.getElementById("body").appendChild(money)
     money.style.animation = ("moneyGrow 2s infinite linear")
     setTimeout(function() {
-        window.location.href = '../Island/index.html';
+       window.location.href = '../Island/index.html';
     }, 1800)
 }
 
