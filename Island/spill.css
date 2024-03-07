@@ -73,15 +73,28 @@ body {
     padding-bottom: 13%; 
 }
 
-/*.beach {
+.beach {
+    z-index: 2;
     position: absolute;
-    z-index: 1;
     bottom: 0;
     left: 0;
-    height: 13%; 
-    width: 100%; 
-    background-color: rgb(236, 204, 107);
-}*/
+    width: 5000px; 
+    height: 350px; 
+    margin-left: 0;
+    background: linear-gradient(to bottom, rgb(244, 199, 127) 45%, rgb(91 241 241 / 96%) 55%);
+}
+
+.beach2 {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 5000px;
+    height: 350px; 
+    margin-left: 500px;
+    margin-bottom: 2450px;
+    background: linear-gradient(to top, rgb(244, 199, 127) 45%, rgb(91 241 241 / 96%) 55%);
+}
 
 .tree {
     position: absolute;
@@ -762,22 +775,22 @@ body {
 
 #wheelSection1 {
     background-color: #FF6347;
-    clip-path: polygon(-33% 100%, 50% 50%, 100% 100%);
+    clip-path: polygon(0% 10%, 50% 0%, 50% 100%, 0% 100%);
 }
 
 #wheelSection2 {
     background-color: #90EE90;
-    clip-path: polygon(50% 50%, 0% 80%, 0% 20%);
+    clip-path: polygon(50% 50%, 35% 0%, -18% 34%);
 }
 
 #wheelSection3 {
     background-color: #87CEFA;
-    clip-path: polygon(50% 50%, 0% 20%, 0% 0%);
+    clip-path: polygon(50% 50%, 50% 0%, 34% 0%);
 }
 
 #wheelSection4 {
     background-color: #FFD700;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+    clip-path: polygon(50% 0%, 100% 0%, 50% 100000%, 50% 50%);
 }
 
 @keyframes spin {
