@@ -628,8 +628,19 @@ function checkForNPC() {
       showEnemyPopup(enemy);
 
     }
-    
-  });
+    else if(characterPlassering.right < npcPlassering.left &&
+      characterPlassering.left > npcPlassering.right &&
+      characterPlassering.bottom < npcPlassering.top &&
+      characterPlassering.top > npcPlassering.bottom
+      ){
+      if (currentEPopup) {
+        document.body.removeChild(currentEPopup);
+        currentEPopup = null;
+        fiende = null
+      }
+    }}
+
+  );
 }
 
 let currentEPopup = null;
@@ -678,7 +689,6 @@ function showEnemyPopup(enemy) {
 
     if (fiende == "kasper") {
       enemyOrNot.innerText = "Du møtte Kasper!! Vil du utfordre han til Holmgang og få alle pengene hans??"
-
     }
 
     if (fiende == "Elon") {
