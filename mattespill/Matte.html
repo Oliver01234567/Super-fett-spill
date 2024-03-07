@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Matte.css">
+    <title>Mattespill</title>
+</head>
+<body>
+    <nav class="nav"><h1 class="Overskrift-Matte">Regnemesteren</h1></nav>
+    <div class="Bank">Bank: <span id="penger">x</span>$</div>
+    <div id="container">
+        <button id="pengeknapp" onclick="genererMatteoppgave()"></button>
+        <div id="midtboks-container">
+          <input type="text" id="matteboks" readonly>
+          <input type="text" id="svar" placeholder="Skriv inn svaret" oninput="slettResultat()">
+          <button onclick="sjekkSvar()">Sjekk svar</button>
+          <button onclick="avsluttMatteoppgave()">Avslutt</button>
+          <div id="resultat-boks">
+            <p id="resultat"></p>
+          </div>
+        </div>
+      </div>
+    
+      <audio id="moneySound" src="../lyd/kaching.m4a" type="audio/m4a">
+      </audio>
+      <script src="Matte.js"></script>
+</body>
+</html>

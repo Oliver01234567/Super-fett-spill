@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/*font-family: "Press Start 2P", system-ui; */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+  body {
+    background-image: url(matte.jpeg);
+    background-size: cover;
+  }
+  .Overskrift-Matte {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 50px;
+    color: rgb(0, 13, 255);
+    text-align: center;
+}
+  .nav {
+    background-color: beige;
+    padding: 30px;
+  
+  }
+  
+  nav h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    font-size: 60px;
+  }
+  #container {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  #midtboks-container {
+    display: none;
+    border: 2px solid black;
+    padding: 10px;
+    background-color: #ffffff;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+  }
+  
+  #matteboks,
+  #svar,
+  #resultat-boks {
+    margin: 10px 0;
+  }
+  
+  #svar {
+    margin-top: 20px;
+  }
+
+  
+  #pengeknapp {
+    background-image: url("start.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 400px;
+    height: 200px;
+  }
+  
+  .Bank {
+    float: left;
+    font-size: 30px;
+    margin-top: 80px;
+    background-color: white;
+    padding: 30px;
+    width: fit-content;
+    border: 3px black;
+    margin-left: 20px;
+  }
+  
+ 
