@@ -28,7 +28,7 @@ function createMoney() {
     document.getElementById("body").appendChild(money)
     money.style.animation = ("moneyGrow 2s infinite linear")
     setTimeout(function() {
-        window.location.href = '../Index.html';
+        window.location.href = '../Island/index.html';
     }, 1800)
 }
 
