@@ -36,9 +36,8 @@ money = parseInt(localStorage.getItem("money")) || 0
 setInterval(updateMoneyAmount, 100)
 
 
-const characterP = document.querySelector("#character")
+const characterP = document.getElementById("character")
 
-const character = document.querySelector("#charater img")
 
 let choosenSkin = 0
 choosenSkin = parseInt(sessionStorage.getItem("choosenSkin")) || 0
@@ -754,7 +753,7 @@ function birkSinQuiz() {
   godtaOrUtfordre.removeEventListener("click", birkSinQuiz)
   opponent = 19
   sessionStorage.setItem("opponent", 19)
-  window.location.href = 'Quiz/quiz_3.html';
+  window.location.href = '../Quiz/quiz_3.html';
 }
 
 
@@ -785,41 +784,41 @@ let opponent = 0
 function fightAnden() {
   opponent = 0
   sessionStorage.setItem("opponent", opponent);
-  window.location.href = 'Combat/Combat.html';
+  window.location.href = '../Combat/Combat.html';
 
 }
 
 function fightJonas() {
   opponent = 1
   sessionStorage.setItem("opponent", opponent)
-  window.location.href = 'Combat/Combat.html';
+  window.location.href = '../Combat/Combat.html';
 }
 
 function fightKasper() {
   opponent = 2
   sessionStorage.setItem("opponent", opponent)
-  window.location.href = 'Combat/Combat.html';
+  window.location.href = '../Combat/Combat.html';
 }
 
 function fightElonMusk() {
   opponent = 3
   sessionStorage.setItem("opponent", opponent)
-  window.location.href = 'Combat/Combat.html';
+  window.location.href = '../Combat/Combat.html';
 }
 
 function fightMario() {
   opponent = 4
   sessionStorage.setItem("opponent", opponent)
-  window.location.href = 'Combat/Combat.html';
+  window.location.href = '../Combat/Combat.html';
 }
 
 function fightPeteDavidson() {
   opponent = 5
   sessionStorage.setItem("opponent", opponent)
-  window.location.href = 'Combat/Combat.html';
+  window.location.href = '../Combat/Combat.html';
 }
 function hjelpTarzan() {
-  window.location.href = 'TarzanJumpIsland/TarzanJumpIsland.html';
+  window.location.href = '../TarzanJumpIsland/TarzanJumpIsland.html';
 }
 
 
@@ -1446,19 +1445,19 @@ function openChest(chestId) {
   }
 
   if (chestId != "Chest1" && chestId != "Chest2" && chestId != "Chest25") {
-    window.location.href = 'Chests/ChestOpen.html'
+    window.location.href = '../Chests/ChestOpen.html'
   }
 
   if (chestId == "Chest1") {
-    window.location.href = 'Quiz/js_quiz.html';
+    window.location.href = '../Quiz/js_quiz.html';
   }
 
   if (chestId == "Chest2") {
-    window.location.href = 'Quiz/quiz_2.html';
+    window.location.href = '../Quiz/quiz_2.html';
   }
 
   if (chestId == "Chest25") {
-    window.location.href = 'Quiz/quiz_4.html';
+    window.location.href = '../Quiz/quiz_4.html';
   }
 }
 
