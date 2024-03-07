@@ -36,7 +36,7 @@ money = parseInt(localStorage.getItem("money")) || 0
 setInterval(updateMoneyAmount, 100)
 
 
-const characterP = document.querySelector("#character img")
+const characterP = document.querySelector("#character")
 
 let choosenSkin = 0
 choosenSkin = parseInt(sessionStorage.getItem("choosenSkin")) || 0
@@ -611,7 +611,7 @@ let fiende = 0
 let enemyCheckEnabled = true;
 function checkForNPC() {
   let npcs = document.querySelectorAll(".npc");
-  let characterPlassering = character.getBoundingClientRect();
+  let characterPlassering = characterP.getBoundingClientRect();
   npcs.forEach(function (enemy) {
     let npcPlassering = enemy.getBoundingClientRect();
 
@@ -1111,8 +1111,8 @@ let posisjonHoyde = 1
 let posisjonBredde = 1
 posisjonHoyde = sessionStorage.getItem("posisjonHoyde") || 1
 posisjonBredde = sessionStorage.getItem("posisjonBredde") || 1
-character.style.left = posisjonBredde + "px";
-character.style.top = posisjonHoyde + "px";
+characterP.style.left = posisjonBredde + "px";
+characterP.style.top = posisjonHoyde + "px";
 
 function updateScreenPositionLeft() {
   scrollBy(-movePlayer, 0)
@@ -1129,14 +1129,14 @@ function updateScreenPositionDown() {
 
 
 function move() {
-  let currentLeft = parseInt(character.style.left) || 0;
-  let currentTop = parseInt(character.style.top) || 0;
+  let currentLeft = parseInt(characterP.style.left) || 0;
+  let currentTop = parseInt(characterP.style.top) || 0;
 
   if (movement.ArrowLeft || movement.a || movement.A) {
     posisjonBredde = currentLeft - movePlayer
     sessionStorage.setItem("posisjonBredde", posisjonBredde)
-    character.style.left = posisjonBredde + "px";
-    character.style.transform = "scaleX(-1)"
+    characterP.style.left = posisjonBredde + "px";
+    characterP.style.transform = "scaleX(-1)"
     checkCharacterPosition();
     checkForChests()
     checkForNPC()
@@ -1145,8 +1145,8 @@ function move() {
   if (movement.ArrowRight || movement.d || movement.D) {
     posisjonBredde = currentLeft + movePlayer
     sessionStorage.setItem("posisjonBredde", posisjonBredde)
-    character.style.left = posisjonBredde + "px";
-    character.style.transform = "scaleX(1)"
+    characterP.style.left = posisjonBredde + "px";
+    characterP.style.transform = "scaleX(1)"
     checkCharacterPosition();
     checkForChests()
     checkForNPC()
@@ -1155,7 +1155,7 @@ function move() {
   if (movement.ArrowUp || movement.w || movement.W) {
     posisjonHoyde = currentTop - movePlayer
     sessionStorage.setItem("posisjonHoyde", posisjonHoyde)
-    character.style.top = posisjonHoyde + "px";
+    characterP.style.top = posisjonHoyde + "px";
     checkCharacterPosition();
     checkForChests()
     checkForNPC()
@@ -1164,7 +1164,7 @@ function move() {
   if (movement.ArrowDown || movement.s || movement.S) {
     posisjonHoyde = currentTop + movePlayer
     sessionStorage.setItem("posisjonHoyde", posisjonHoyde)
-    character.style.top = posisjonHoyde + "px";
+    characterP.style.top = posisjonHoyde + "px";
     checkCharacterPosition();
     checkForChests()
     checkForNPC()
@@ -1333,7 +1333,7 @@ chests.forEach(chest => {
 
 function checkForChests() {
   let chests = document.querySelectorAll(".Chest");
-  let characterPlassering = character.getBoundingClientRect();
+  let characterPlassering = characterP.getBoundingClientRect();
   chests.forEach(function (chest) {
     let chestPlassering = chest.getBoundingClientRect();
 
@@ -1493,7 +1493,7 @@ function die() {
 
 function checkCharacterPosition() {
   let island = document.getElementById("øy");
-  let characterPlassering = character.getBoundingClientRect();
+  let characterPlassering = characterP.getBoundingClientRect();
   let islandPlassering = island.getBoundingClientRect();
 
   if (
@@ -1546,7 +1546,7 @@ function toggleFlexBox() {
 
 // Teleportering når man går på vannet, Oliver
 function isCharacterOnWater(character, island) {
-  const characterPlassering = character.getBoundingClientRect();
+  const characterPlassering = characterP.getBoundingClientRect();
   const islandPlassering = island.getBoundingClientRect();
 
   // Sjekk om karakteren er på det lyseblå området
@@ -1565,9 +1565,9 @@ function resetCharacterPosition() {
 
   // Endre antall pixler for å endre hvor man blir teleportert
   if (onWater) {
-    character.style.left = "350px";
-    character.style.top = "350px";
-    //character.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    characterP.style.left = "350px";
+    characterP.style.top = "350px";
+    //characterP.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
 }

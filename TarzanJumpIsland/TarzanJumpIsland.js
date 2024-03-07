@@ -1,6 +1,6 @@
-let character =
+const character =
     document.getElementById("character");
-let block =
+const block =
     document.getElementById("block");
 let poeng = 0;
 let obstacle = Math.floor(Math.random() * 2);
