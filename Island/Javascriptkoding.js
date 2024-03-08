@@ -628,20 +628,20 @@ function checkForNPC() {
 
       showEnemyPopup(enemy);
 
-    } 
-    else if(characterPlassering.right < npcPlassering.left &&
+    }
+    else if (characterPlassering.right > npcPlassering.left &&
       characterPlassering.left > npcPlassering.right &&
-      characterPlassering.bottom < npcPlassering.top &&
-      characterPlassering.top > npcPlassering.bottom
-    ){
-      if (currentEPopup) {
+      characterPlassering.bottom > npcPlassering.top &&
+      characterPlassering.top > npcPlassering.bottom && 
+      currentEPopup == Epopup
+    ) {
       document.body.removeChild(currentEPopup);
       currentEPopup = null;
-      fiende = null
+      fiende = null;
+      console.log("Spilleren gikk av en kiste.");
     }
-}}
- 
-);
+  }
+  );
 }
 
 
