@@ -78,6 +78,7 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
+<<<<<<< Updated upstream:Island/spill.css
     width: 5000px; 
     height: 350px; 
     margin-left: 0;
@@ -94,6 +95,13 @@ body {
     margin-left: 500px;
     margin-bottom: 2450px;
     background: linear-gradient(to top, rgb(244, 199, 127) 45%, rgb(91 241 241 / 96%) 55%);
+=======
+    width: 5000px;
+    height: 350px;
+    /*background-color: rgb(244, 199, 127);*/
+    background: linear-gradient(to bottom, rgb(244, 199, 127) 45%, rgb(91 241 241 / 96%) 55%);
+    margin-left: 0;
+>>>>>>> Stashed changes:spill.css
 }
 
 .tree {
