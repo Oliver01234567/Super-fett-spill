@@ -20,9 +20,7 @@
 
     transition: left 0.2s linear, top 0.2s linear;
     z-index: 2;
-}
 
-#character img {
     height: 60px;
     width: 60px;
 }
@@ -267,7 +265,7 @@ body {
 }
 
 #mario {
-    left: 3160px;
+    left: 3760px;
     top: 1091px;
 }
 
@@ -389,7 +387,7 @@ body {
 
 #Chest18 {
     left: 3219px;
-    top: 1106px;
+    top: 1006px;
 }
 
 #Chest19 {
@@ -783,22 +781,22 @@ body {
 
 #wheelSection1 {
     background-color: #FF6347;
-    clip-path: polygon(-33% 100%, 50% 50%, 100% 100%);
+    clip-path: polygon(0% 10%, 50% 0%, 50% 100%, 0% 100%);
 }
 
 #wheelSection2 {
     background-color: #90EE90;
-    clip-path: polygon(50% 50%, 0% 80%, 0% 20%);
+    clip-path: polygon(50% 50%, 35% 0%, -18% 34%);
 }
 
 #wheelSection3 {
     background-color: #87CEFA;
-    clip-path: polygon(50% 50%, 0% 20%, 0% 0%);
+    clip-path: polygon(50% 50%, 50% 0%, 34% 0%);
 }
 
 #wheelSection4 {
     background-color: #FFD700;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+    clip-path: polygon(50% 0%, 100% 0%, 50% 100000%, 50% 50%);
 }
 
 @keyframes spin {

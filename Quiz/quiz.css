@@ -187,6 +187,7 @@
     margin-left: 30px;
     font-size: 15px;
     color: white ;
+    text-decoration: none;
 }
 
 /* Quiz 5 */
@@ -198,7 +199,10 @@
 #tittel_quiz_5 {
     background-color: #38593e ;
     border: #1f3121 solid 2px;
-    margin: auto;
+    padding: 0 20px;
+    color: white;
+    font-size: 22px;
+
 }
 
 #quiz_container > div {
@@ -214,7 +218,7 @@
 }
 
 #quiz_container > div h3 {
-    font-size: 35px
+    font-size: 30px
 }
 
 #quiz_container > div img{

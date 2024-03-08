@@ -36,9 +36,8 @@ money = parseInt(localStorage.getItem("money")) || 0
 setInterval(updateMoneyAmount, 100)
 
 
-const characterP = document.querySelector("#character")
+const characterP = document.getElementById("character")
 
-const character = document.querySelector("#charater img")
 
 let choosenSkin = 0
 choosenSkin = parseInt(sessionStorage.getItem("choosenSkin")) || 0
@@ -609,8 +608,10 @@ function choosenPete() {
 
 //fiender
 //oppdager fiender
-let fiende = 0
+let fiende = null
+const Epopup = document.createElement("div");
 let enemyCheckEnabled = true;
+let npcFound = false
 function checkForNPC() {
   let npcs = document.querySelectorAll(".npc");
   let characterPlassering = characterP.getBoundingClientRect();
@@ -628,9 +629,21 @@ function checkForNPC() {
       showEnemyPopup(enemy);
 
     }
-    
-  });
+    else if (characterPlassering.right > npcPlassering.left &&
+      characterPlassering.left > npcPlassering.right &&
+      characterPlassering.bottom > npcPlassering.top &&
+      characterPlassering.top > npcPlassering.bottom && 
+      currentEPopup == Epopup
+    ) {
+      document.body.removeChild(currentEPopup);
+      currentEPopup = null;
+      fiende = null;
+      console.log("Spilleren gikk av en kiste.");
+    }
+  }
+  );
 }
+
 
 let currentEPopup = null;
 
@@ -642,7 +655,6 @@ function showEnemyPopup(enemy) {
     currentEPopup = null;
   }
 
-  const Epopup = document.createElement("div");
   Epopup.className = "enemy-popup";
   Epopup.innerHTML = `
     <p> <span id="enemyOrNot"> Du møtte en fiende!! Vil du utfordre han til Holmgang og få alle pengene hans?? </span> </p>
@@ -678,7 +690,6 @@ function showEnemyPopup(enemy) {
 
     if (fiende == "kasper") {
       enemyOrNot.innerText = "Du møtte Kasper!! Vil du utfordre han til Holmgang og få alle pengene hans??"
-
     }
 
     if (fiende == "Elon") {
@@ -744,7 +755,7 @@ function birkSinQuiz() {
   godtaOrUtfordre.removeEventListener("click", birkSinQuiz)
   opponent = 19
   sessionStorage.setItem("opponent", 19)
-  window.location.href = 'Quiz/quiz_3.html';
+  window.location.href = '../Quiz/quiz_3.html';
 }
 
 
@@ -775,41 +786,41 @@ let opponent = 0
 function fightAnden() {
   opponent = 0
   sessionStorage.setItem("opponent", opponent);
-  window.location.href = 'Combat/Combat.html';
+  window.location.href = '../Combat/Combat.html';
 
 }
 
 function fightJonas() {
   opponent = 1
   sessionStorage.setItem("opponent", opponent)
-  window.location.href = 'Combat/Combat.html';
+  window.location.href = '../Combat/Combat.html';
 }
 
 function fightKasper() {
   opponent = 2
   sessionStorage.setItem("opponent", opponent)
-  window.location.href = 'Combat/Combat.html';
+  window.location.href = '../Combat/Combat.html';
 }
 
 function fightElonMusk() {
   opponent = 3
   sessionStorage.setItem("opponent", opponent)
-  window.location.href = 'Combat/Combat.html';
+  window.location.href = '../Combat/Combat.html';
 }
 
 function fightMario() {
   opponent = 4
   sessionStorage.setItem("opponent", opponent)
-  window.location.href = 'Combat/Combat.html';
+  window.location.href = '../Combat/Combat.html';
 }
 
 function fightPeteDavidson() {
   opponent = 5
   sessionStorage.setItem("opponent", opponent)
-  window.location.href = 'Combat/Combat.html';
+  window.location.href = '../Combat/Combat.html';
 }
 function hjelpTarzan() {
-  window.location.href = 'TarzanJumpIsland/TarzanJumpIsland.html';
+  window.location.href = '../TarzanJumpIsland/TarzanJumpIsland.html';
 }
 
 
@@ -1436,19 +1447,19 @@ function openChest(chestId) {
   }
 
   if (chestId != "Chest1" && chestId != "Chest2" && chestId != "Chest25") {
-    window.location.href = 'Chests/ChestOpen.html'
+    window.location.href = '../Chests/ChestOpen.html'
   }
 
   if (chestId == "Chest1") {
-    window.location.href = 'Quiz/js_quiz.html';
+    window.location.href = '../Quiz/js_quiz.html';
   }
 
   if (chestId == "Chest2") {
-    window.location.href = 'Quiz/quiz_2.html';
+    window.location.href = '../Quiz/quiz_2.html';
   }
 
   if (chestId == "Chest25") {
-    window.location.href = 'Quiz/quiz_4.html';
+    window.location.href = '../Quiz/quiz_4.html';
   }
 }
 
@@ -1753,13 +1764,46 @@ function spinWheel() {
   spinner.style.display = 'block';
   spinner.style.transform = rotateValue;
 
+  let styleElement = document.getElementById('spinKeyframes');
+
+  if (!styleElement) {
+    styleElement = document.createElement('style');
+    styleElement.id = 'spinKeyframes';
+    document.head.appendChild(styleElement);
+  }
+
+  // Update the keyframes rule with the dynamic rotation
+  styleElement.innerHTML = `
+      @keyframes spin {
+          0% {
+              transform: rotate(0deg);
+          }
+          100% {
+              transform: ${rotateValue};
+          }
+      }
+  `;
+
+  // Clear any existing animation
+  spinner.style.animation = 'none';
+
+  // Trigger reflow before applying the new animation
+  spinner.offsetHeight;
+
+  // Apply the spin-animation class to start the spinning
+  spinner.style.animation = 'spin 3s ease-in-out';
+
   setTimeout(() => {
     console.log("Spinning complete!");
     checkResult(randomDegree % 360);
     hideWheel();
     spinning = false;
-  }, 1000);
+    setTimeout(() => {
+      spinner.style.display = 'none'; // Hide the wheel after half a second
+    }, 500);
+  }, 3000); // Adjust the timeout based on the animation duration
 }
+
 
 let gotPeter = 0;
 let gotPanda = 0;

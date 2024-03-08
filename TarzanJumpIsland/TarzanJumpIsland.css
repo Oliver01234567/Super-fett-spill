@@ -189,11 +189,20 @@ img{
 #howPlay {
     position: absolute;
     top: 50%;
-    right: 10px;
     transform: translateY(-50%);
     background-color: wheat;
     width: 100px; 
     left: 0%;
+}
+#toIsland{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: wheat;
+    width: 200px; 
+    left: 86%;
+    font-size: 25px;
+    padding: 10px;
 }
 
 #x {
@@ -264,6 +273,22 @@ img{
     display: none;
     font-size: 15px;
 }
+#goBack{
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 100px;
+    border: 2px solid black;
+    color: white;
+    background-color: var(--mygreen);
+    justify-content: center;
+    align-items: center;
+    display: none;
+    font-size: 20px;
+    padding: 0;
+}
 #howToContainer{
     display: flex;
     flex-direction: row;
@@ -280,7 +305,147 @@ img{
         justify-content: center;
         align-items: center;  
 }
+#gameStartInfo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 120vh;
+    background: wheat;
+    background-image: url(bilder/øyJungel.png);
+    background-size: cover;
+    color: green;
+    justify-content: center;
+    align-items: center;
+    display: block;
+    font-size: 75px;
 
+}
+#tarzanExplain{
+    position: absolute;
+    z-index: 100;
+    top: 470px;
+    left: -200px;
+    animation: explain 1s linear forwards;
+}
+#tarzanExplainBilde{
+    width: 200px;
+    height: 300px;
+}
+#snakkeboble{
+    position: absolute;
+    top: 300px;
+    left: 300px;
+}
+#snakkebobleBilde{
+    width: 400px;
+    height: 250px;
+}
+#forklaringTekst{
+    position: absolute;
+    z-index: 200;
+    background-color: transparent;
+    width: 200px;
+    height: 150px;
+    top: 350px;
+    left: 400px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+}
+#Explanation{
+    z-index: -1;
+    animation: appear 1s linear forwards;
+}
+.forklaringer{
+    grid-row: 2/3;
+    text-align: center;
+}
+#videre{
+    grid-row: 4/5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.forklarButtons{
+    width: 75px;
+    height: 40px;
+    padding: 0;
+    border: 2px solid black;
+    background-color: white;
+    font-size: 20px;
+}
+#forklaring2{
+    display: none;
+}
+#neste2{
+    display: none;
+}
+#howToStart{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 120vh;
+    background: rgba(0, 0, 0, 0.3);
+    color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 75px;
+    display: none;
+}
+#controls{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 400px;
+    background-color: rgb(0, 170, 255);
+    z-index: 210;
+    border: 5px solid black;
+}
+#h1Forklaring{
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+}
+#startContainer{
+    display: flex;
+    flex-direction: row;
+}
+#regler{
+    width: 700px;
+    height: 200px;
+    font-size: 20px;
+    color: white;
+    padding: 12px;
+    padding-left: 30px;
+    margin: 20px;
+    border: 2px solid black;
+}
+#gåTilSpill{
+    width: 125px;
+    height: 60px;
+    padding: 0;
+    border: 2px solid black;
+    background-color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#gåTilSpillContainer{
+    width: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* animations  */
 @keyframes block {
     0% {
@@ -386,6 +551,27 @@ img{
         top: 430px;
         transform: rotate(-360deg);
         left: 15%;
+    }
+}
+@keyframes explain{
+    100%{
+        left: 160px;
+    }
+}
+@keyframes appear{
+    99%{
+        z-index: -1;
+    }
+    100%{
+        z-index: 2;
+    }
+}
+@keyframes tarzanUt{
+    0%{
+        left: 160px;
+    }
+    100%{
+        left: 1500px;
     }
 }
 
