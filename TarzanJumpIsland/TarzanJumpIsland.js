@@ -317,7 +317,7 @@ function spillStart(){
 toIsland.addEventListener("click", backToIsland)
 goBack.addEventListener("click", backToIsland)
 function backToIsland(){
-    window.location.href = 'Island/Index.html';
+    window.location.href = '../Island/Index.html';
 }
 
 
