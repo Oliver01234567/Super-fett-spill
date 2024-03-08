@@ -608,8 +608,10 @@ function choosenPete() {
 
 //fiender
 //oppdager fiender
-let fiende = 0
+let fiende = null
+const Epopup = document.createElement("div");
 let enemyCheckEnabled = true;
+let npcFound = false
 function checkForNPC() {
   let npcs = document.querySelectorAll(".npc");
   let characterPlassering = characterP.getBoundingClientRect();
@@ -626,21 +628,22 @@ function checkForNPC() {
 
       showEnemyPopup(enemy);
 
-    }
+    } 
     else if(characterPlassering.right < npcPlassering.left &&
       characterPlassering.left > npcPlassering.right &&
       characterPlassering.bottom < npcPlassering.top &&
       characterPlassering.top > npcPlassering.bottom
-      ){
+    ){
       if (currentEPopup) {
-        document.body.removeChild(currentEPopup);
-        currentEPopup = null;
-        fiende = null
-      }
-    }}
-
-  );
+      document.body.removeChild(currentEPopup);
+      currentEPopup = null;
+      fiende = null
+    }
+}}
+ 
+);
 }
+
 
 let currentEPopup = null;
 
@@ -652,7 +655,6 @@ function showEnemyPopup(enemy) {
     currentEPopup = null;
   }
 
-  const Epopup = document.createElement("div");
   Epopup.className = "enemy-popup";
   Epopup.innerHTML = `
     <p> <span id="enemyOrNot"> Du møtte en fiende!! Vil du utfordre han til Holmgang og få alle pengene hans?? </span> </p>
@@ -1765,9 +1767,9 @@ function spinWheel() {
   let styleElement = document.getElementById('spinKeyframes');
 
   if (!styleElement) {
-      styleElement = document.createElement('style');
-      styleElement.id = 'spinKeyframes';
-      document.head.appendChild(styleElement);
+    styleElement = document.createElement('style');
+    styleElement.id = 'spinKeyframes';
+    document.head.appendChild(styleElement);
   }
 
   // Update the keyframes rule with the dynamic rotation
@@ -1792,13 +1794,13 @@ function spinWheel() {
   spinner.style.animation = 'spin 3s ease-in-out';
 
   setTimeout(() => {
-      console.log("Spinning complete!");
-      checkResult(randomDegree % 360);
-      hideWheel();
-      spinning = false;
-      setTimeout(() => {
-          spinner.style.display = 'none'; // Hide the wheel after half a second
-      }, 500);
+    console.log("Spinning complete!");
+    checkResult(randomDegree % 360);
+    hideWheel();
+    spinning = false;
+    setTimeout(() => {
+      spinner.style.display = 'none'; // Hide the wheel after half a second
+    }, 500);
   }, 3000); // Adjust the timeout based on the animation duration
 }
 
