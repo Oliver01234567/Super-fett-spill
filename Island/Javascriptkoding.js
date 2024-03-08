@@ -625,6 +625,7 @@ function checkForNPC() {
       characterPlassering.top < npcPlassering.bottom
     ) {
       fiende = enemy.id
+      console.log(fiende)
 
       showEnemyPopup(enemy);
 
@@ -633,7 +634,7 @@ function checkForNPC() {
       characterPlassering.left > npcPlassering.right &&
       characterPlassering.bottom > npcPlassering.top &&
       characterPlassering.top > npcPlassering.bottom && 
-      currentEPopup == Epopup
+      currentEPopup != null
     ) {
       document.body.removeChild(currentEPopup);
       currentEPopup = null;
