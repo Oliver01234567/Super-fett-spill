@@ -43,31 +43,62 @@ let choosenSkin = 0
 choosenSkin = parseInt(sessionStorage.getItem("choosenSkin")) || 0
 
 
+//matte seiere
+let tjentMoney = 0
+
+let matteSeier = 0
+matteSeier = localStorage.getItem("matteSeier") || 0
+if (matteSeier == 1) {
+  matteSeier = 2
+  localStorage.setItem("matteSeier", 2)
+  tjentMoney = 5000
+  money = money + tjentMoney
+  showAlert("Du fant " + tjentMoney.toFixed(0) + " penger", "success")
+}
+
+
+
+let matteUnlocked = 0
+matteUnlocked = sessionStorage.getItem("matteUnlocked") || 0
+
+
+function matteIsUlocked() {
+  showAlert("X er nå tilgjengelig som et Skin", "success")
+}
+
+if (matteSeier == 3) {
+  matteSeier = 2
+  localStorage.setItem("matteSeier", 2)
+
+  matteUnlocked = 1
+  sessionStorage.setItem("matteUnlocked", 1)
+  tjentMoney = 7000
+  money = money + tjentMoney
+  showAlert("X er stolt av deg, de gir deg " + tjentMoney.toFixed(0) + " penger", "success")
+  setTimeout(birkIsUnlocked, 2100)
+}
+
+
 //Quiz seiere
 let quiz1Seier = 0
 quiz1Seier = localStorage.getItem("quiz1Seier") || 0
 if (quiz1Seier == 1) {
   quiz1Seier = 2
   localStorage.setItem("quiz1Seier", 2)
-  let tjentMoney = 5000
+  tjentMoney = 5000
   money = money + tjentMoney
   showAlert("Du fikk " + tjentMoney.toFixed(0) + " penger av Quizen", "success")
 
 }
 
-//Du vant i Tarzan spillet
-let tarzanSeier = localStorage.getItem("tarzanSeier") || 0
-if (tarzanSeier == 1) {
-  tarzanSeier = 2
-  localStorage.setItem("tarzanSeier", 2)
-  let tjentMoney = 10000
-  money = money + tjentMoney
-  showAlert("Du fikk " + tjentMoney.toFixed(0) + " penger av siden du hjalp Tarzan", "success") 
-}
-
 
 let birkUnlocked = 0
 birkUnlocked = sessionStorage.getItem("birkUnlocked") || 0
+
+
+function birkIsUnlocked() {
+  showAlert("Birk er nå tilgjengelig som et Skin", "success")
+}
 
 if (quiz1Seier == 3) {
   quiz1Seier = 2
@@ -75,14 +106,20 @@ if (quiz1Seier == 3) {
 
   birkUnlocked = 1
   sessionStorage.setItem("birkUnlocked", 1)
-  let tjentMoney = 4000
+  tjentMoney = 7000
   money = money + tjentMoney
   showAlert("Birk er stolt av deg, han gir deg " + tjentMoney.toFixed(0) + " penger", "success")
   setTimeout(birkIsUnlocked, 2100)
 }
 
-function birkIsUnlocked() {
-  showAlert("Birk er nå tilgjengelig som et Skin", "success")
+//Du vant i Tarzan spillet
+let tarzanSeier = localStorage.getItem("tarzanSeier") || 0
+if (tarzanSeier == 1) {
+  tarzanSeier = 2
+  localStorage.setItem("tarzanSeier", 2)
+  tjentMoney = 10000
+  money = money + tjentMoney
+  showAlert("Du fikk " + tjentMoney.toFixed(0) + " penger av siden du hjalp Tarzan", "success")
 }
 
 
@@ -91,7 +128,7 @@ if (getMoney != 0) {
   getMoney = 0
   localStorage.setItem("getMoney", 0)
 
-  let tjentMoney = 1000
+  tjentMoney = 1000
   money = money + tjentMoney
   showAlert("Du fant " + tjentMoney.toFixed(0) + " penger", "success")
 }
@@ -1412,6 +1449,22 @@ function showChestPopup(chest) {
     if (chestsId == "Chest25") {
       challenge.innerText = "For å åpne den må du løse en quiz"
     }
+
+    if (chestsId == "Chest19") {
+      challenge.innerText = "For å åpne den må du klare matte testen"
+    }
+
+    if (chestsId == "Chest11") {
+      challenge.innerText = "For å åpne den må du klare matte testen"
+    }
+
+    if (chestsId == "Chest16") {
+      challenge.innerText = "For å åpne den må du klare matte testen"
+    }
+
+    if (chestsId == "Chest2") {
+      challenge.innerText = "For å åpne den må du klare matte testen"
+    }
   }
 
 
@@ -1445,7 +1498,13 @@ function openChest(chestId) {
     currentPopup = null;
   }
 
-  if (chestId != "Chest1" && chestId != "Chest2" && chestId != "Chest25") {
+  if (chestId != "Chest1" &&
+    chestId != "Chest2" &&
+    chestId != "Chest25" &&
+    chestId != "Chest19" &&
+    chestId != "Chest11" &&
+    chestId != "Chest16" &&
+    chestId != "Chest2") {
     window.location.href = '../Chests/ChestOpen.html'
   }
 
@@ -1459,6 +1518,22 @@ function openChest(chestId) {
 
   if (chestId == "Chest25") {
     window.location.href = '../Quiz/quiz_4.html';
+  }
+
+  if (chestId == "Chest19") {
+    window.location.href = '../mattespill/matte.html';
+  }
+
+  if (chestId == "Chest11") {
+    window.location.href = '../mattespill/matte.html';
+  }
+
+  if (chestId == "Chest16") {
+    window.location.href = '../mattespill/matte.html';
+  }
+
+  if (chestId == "Chest2") {
+    window.location.href = '../mattespill/matte.html';
   }
 }
 
@@ -1500,7 +1575,7 @@ function die() {
   sessionStorage.setItem("money", money);
   showAlert("Du tapte " + tapPenger.toFixed(0) + " penger", "error")
 
-  showPopup("Du drukna, suger å suge")
+  showPopup("Du druknet")
   resetCharacterPosition();
 }
 

@@ -1,17 +1,21 @@
-let penger = 0
-oppdaterPenger()
+let score = 0
+const scoreBoard = document.getElementById("score")
+const body = document.getElementById("body")
+let opponent = 0
+opponent = parseInt(sessionStorage.getItem("opponent")) || 0
+let matteSeier = 0
 
 function genererMatteoppgave() {
-  var tall1 = Math.floor(Math.random() * 10) + 1; // Tilfeldig tall mellom 1 og 10
-  var tall2 = Math.floor(Math.random() * 10) + 1; // Tilfeldig tall mellom 1 og 10
+  let tall1 = Math.floor(Math.random() * 10) + 1; // Tilfeldig tall mellom 1 og 10
+  let tall2 = Math.floor(Math.random() * 10) + 1; // Tilfeldig tall mellom 1 og 10
 
-  var operasjon = Math.random() < 0.5 ? '+' : '-'; // 50% sjanse for addisjon, 50% for subtraksjon
+  let operasjon = Math.random() < 0.5 ? '+' : '-'; // 50% sjanse for addisjon, 50% for subtraksjon
 
-  var matteoppgave = tall1 + ' ' + operasjon + ' ' + tall2 + ' = ';
+  let matteoppgave = tall1 + ' ' + operasjon + ' ' + tall2 + ' = ';
   document.getElementById('matteboks').value = matteoppgave;
 
   // Tilfeldig farge genereres
-  var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+  let randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
   document.getElementById('midtboks-container').style.backgroundColor = randomColor;
   document.getElementById('midtboks-container').style.display = 'inline-block';
   document.getElementById('resultat-boks').textContent = '';
@@ -20,39 +24,55 @@ function genererMatteoppgave() {
 }
 
 function sjekkSvar() {
-  var brukerSvar = document.getElementById('svar').value;
-  var matteoppgaveTekst = document.getElementById('matteboks').value;
-  var riktigSvar = eval(matteoppgaveTekst.replace('=', ''));
+  let brukerSvar = document.getElementById('svar').value;
+  let matteoppgaveTekst = document.getElementById('matteboks').value;
+  let riktigSvar = eval(matteoppgaveTekst.replace('=', ''));
 
-  var resultatTekst = 'Feil svar! Prøv igjen.';
+  let resultatTekst = ' '
+
   if (parseInt(brukerSvar) === riktigSvar) {
     resultatTekst = 'Riktig svar!';
-    penger += 100
-    oppdaterPenger()
+    score += 1
+    
     genererMatteoppgave()
-    spillAvPengeLyd()
+    scoreBoard.innerText = score;
+  }
+
+  else if(parseInt(brukerSvar) != riktigSvar) {
+    resultatTekst = 'Feil svar! Prøv igjen.';
+
+    score = 0
+    scoreBoard.innerText = score;
+  }
+  console.log(score)
+
+  if(score == 5) {
+    console.log("du vant")
+
+    goHome()
   }
 
   document.getElementById('resultat-boks').textContent = resultatTekst;
+}
+
+function goHome() {
+  if(opponent != 18) {
+    matteSeier = 1
+    localStorage.setItem("matteSeier", matteSeier)
+    window.location.href = '../Chests/ChestOpen.html';
+}
+
+if(opponent == 18) {
+    matteSeier = 3
+    localStorage.setItem("matteSeier", matteSeier)
+    window.location.href = '../Island/index.html';
+}
 }
 
 function slettResultat() {
   document.getElementById('resultat-boks').textContent = '';
 }
 
-function oppdaterPenger() {
-  document.getElementById("penger").innerHTML = penger;
-  spillAvPengeLyd();
-  function spillAvPengeLyd() {
-    var lydElement = document.getElementById('moneySound');
-    lydElement.currentTime = 0; 
-    lydElement.play();
-  }
-}
-
-
-function avsluttMatteoppgave() {
-  document.getElementById('midtboks-container').style.display = 'none';
-  slettResultat();
-  pengeknapp.style.display ="block"
+function giveUp() {
+  window.location.href = '../Island/index.html';
 }

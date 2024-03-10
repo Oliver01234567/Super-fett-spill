@@ -6,16 +6,16 @@
     <link rel="stylesheet" href="Matte.css">
     <title>Mattespill</title>
 </head>
-<body>
+<body id="body">
     <nav class="nav"><h1 class="Overskrift-Matte">Regnemesteren</h1></nav>
-    <div class="Bank">Bank: <span id="penger">x</span>$</div>
+    <div class="Bank" id="socreBoard">Score: <span id="score">0</span></div>
     <div id="container">
         <button id="pengeknapp" onclick="genererMatteoppgave()"></button>
         <div id="midtboks-container">
           <input type="text" id="matteboks" readonly>
           <input type="text" id="svar" placeholder="Skriv inn svaret" oninput="slettResultat()">
           <button onclick="sjekkSvar()">Sjekk svar</button>
-          <button onclick="avsluttMatteoppgave()">Avslutt</button>
+          <button onclick="giveUp()">Gi opp</button>
           <div id="resultat-boks">
             <p id="resultat"></p>
           </div>
