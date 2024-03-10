@@ -55,6 +55,17 @@ if (quiz1Seier == 1) {
 
 }
 
+//Du vant i Tarzan spillet
+let tarzanSeier = localStorage.getItem("tarzanSeier") || 0
+if (tarzanSeier == 1) {
+  tarzanSeier = 2
+  localStorage.setItem("tarzanSeier", 2)
+  let tjentMoney = 10000
+  money = money + tjentMoney
+  showAlert("Du fikk " + tjentMoney.toFixed(0) + " penger av siden du hjalp Tarzan", "success") 
+}
+
+
 let birkUnlocked = 0
 birkUnlocked = sessionStorage.getItem("birkUnlocked") || 0
 
@@ -609,6 +620,7 @@ function choosenPete() {
 //fiender
 //oppdager fiender
 let fiende = null
+let currentEPopup = null;
 const Epopup = document.createElement("div");
 let enemyCheckEnabled = true;
 let npcFound = false
@@ -628,25 +640,11 @@ function checkForNPC() {
       console.log(fiende)
 
       showEnemyPopup(enemy);
-
-    }
-    else if (characterPlassering.right > npcPlassering.left &&
-      characterPlassering.left > npcPlassering.right &&
-      characterPlassering.bottom > npcPlassering.top &&
-      characterPlassering.top > npcPlassering.bottom && 
-      currentEPopup != null
-    ) {
-      document.body.removeChild(currentEPopup);
-      currentEPopup = null;
-      fiende = null;
-      console.log("Spilleren gikk av en kiste.");
     }
   }
   );
 }
 
-
-let currentEPopup = null;
 
 
 function showEnemyPopup(enemy) {

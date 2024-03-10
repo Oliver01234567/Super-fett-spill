@@ -137,10 +137,19 @@ function gameUpdate(){
         jumpedOver.innerHTML ="Du hoppet over " + rollDodge + " rullende objekter"
         duckedUnder.innerHTML ="du ducket under " + birdDodge + " fugler"
         goBack.style.display ="block"
+        goBack.addEventListener("click", goHome)
         }, 2000);
         }, 2000);
     }
 }
+
+function goHome(){
+        let tarzanSeier = 1
+        localStorage.setItem("tarzanSeier", tarzanSeier)
+        window.location.href = '../Island/index.html';
+    
+}
+
 function highscoreUpdate(){
     if(poeng > highscore){
         highscore = poeng
