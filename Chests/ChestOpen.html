@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="ChestOpen.css">
-	<title>Chest</title>
+    <title>Chest</title>
 </head>
 
-<body id="body">
-    <h1>Åpne kisten du fant</h1>
-
-    <img id="Chest" src="../Bilder/closedChest.webp">
-
-    <button id="openChest" onclick="openChest()">Åpne</button>
-
+<body>
+    <main id="main">
+        <h1>Åpne kisten du fant</h1>
+        <div id="chestDiv">
+            <img id="Chest" src="../Bilder/closedChest.webp">
+        </div>
+        <button id="openChest">Åpne</button>
+        
+    </main>
     <script src="ChestOpen.js"></script>
+    <audio src="../lyd/holyAhhhh.mp3" id="moneySOund"></audio>
 </body>
 
 </html>
