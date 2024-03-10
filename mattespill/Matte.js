@@ -46,7 +46,7 @@ function sjekkSvar() {
   }
   console.log(score)
 
-  if(score == 5) {
+  if(score == 1) {
     console.log("du vant")
 
     goHome()

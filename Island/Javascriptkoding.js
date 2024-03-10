@@ -63,7 +63,7 @@ matteUnlocked = sessionStorage.getItem("matteUnlocked") || 0
 
 
 function matteIsUlocked() {
-  showAlert("X er nå tilgjengelig som et Skin", "success")
+  showAlert("Svampebob er nå tilgjengelig som et Skin", "success")
 }
 
 if (matteSeier == 3) {
@@ -74,8 +74,8 @@ if (matteSeier == 3) {
   sessionStorage.setItem("matteUnlocked", 1)
   tjentMoney = 7000
   money = money + tjentMoney
-  showAlert("X er stolt av deg, de gir deg " + tjentMoney.toFixed(0) + " penger", "success")
-  setTimeout(birkIsUnlocked, 2100)
+  showAlert("Svampebob er stolt av deg, de gir deg " + tjentMoney.toFixed(0) + " penger", "success")
+  setTimeout(matteIsUlocked, 2100)
 }
 
 
@@ -253,6 +253,8 @@ if (choosenSkin == 16) {
   characterP.src = "../Bilder/SId.png"
   sidSkin.style.backgroundColor = "red"
 }
+
+const svampSkin = document.getElementById("svampSkin")
 
 
 
@@ -724,6 +726,12 @@ function showEnemyPopup(enemy) {
       godtaOrUtfordre.innerText = "Ja, gjerne"
     }
 
+    if (fiende == "svamp") {
+      enemyOrNot.innerText = "Hei Jeg heter Svampebob!! Vil du snakke litt??"
+      godtaOrUtfordre.innerText = "Ja, gjerne"
+    }
+
+
     if (fiende == "kasper") {
       enemyOrNot.innerText = "Du møtte Kasper!! Vil du utfordre han til Holmgang og få alle pengene hans??"
     }
@@ -739,6 +747,7 @@ function showEnemyPopup(enemy) {
     if (fiende == "pete") {
       enemyOrNot.innerText = "Du møtte Pete Davidson!! Vil du utfordre han til Holmgang og få alle pengene hans??"
     }
+
     if (fiende == "tarzan") {
       enemyOrNot.innerText = "Du møtte Tarzan!! Han trenger din hjelp for å plyndre et skattekammer! Vil du hjelpe han og få halvparten av gullet i skattekameret??"
       godtaOrUtfordre.innerText = "Hjelp han!"
@@ -778,6 +787,14 @@ function utfordreFiende() {
     enemyOrNot.innerText = "Kan du svare på quizen min?? Du får en stor belønning"
     godtaOrUtfordre.innerText = "Godta"
   }
+
+  if (fiende == "svamp") {
+    godtaOrUtfordre.removeEventListener("click", utfordreFiende)
+    godtaOrUtfordre.addEventListener("click", matte)
+    enemyOrNot.innerText = "Kan du svare på matte testen min?? Du får en stor belønning"
+    godtaOrUtfordre.innerText = "Godta"
+  }
+
   if (fiende == "tarzan") {
     hjelpTarzan()
   }
@@ -787,11 +804,19 @@ function utfordreFiende() {
 }
 
 function birkSinQuiz() {
-  godtaOrUtfordre.addEventListener("click", utfordreFiende)
   godtaOrUtfordre.removeEventListener("click", birkSinQuiz)
+  godtaOrUtfordre.addEventListener("click", utfordreFiende)
   opponent = 19
   sessionStorage.setItem("opponent", 19)
   window.location.href = '../Quiz/quiz_3.html';
+}
+
+function matte() {
+  godtaOrUtfordre.removeEventListener("click", matte)
+  godtaOrUtfordre.addEventListener("click", utfordreFiende)
+  opponent = 18
+  sessionStorage.setItem("opponent", 18)
+  window.location.href = '../mattespill/matte.html';
 }
 
 
@@ -1036,6 +1061,18 @@ if (birkUnlocked == 1) {
   birkSkin.removeEventListener("click", ikkeTilgangSkin)
   birkSkin.addEventListener("click", ChoosenBirk)
   birkSkin.innerText = "Birk"
+}
+
+svampSkin.addEventListener("click", ikkeTilgangSkin)
+
+if (matteUnlocked == 1) {
+  const svampeElement = document.querySelector("#svamp");
+  if (svampeElement && island.contains(svampeElement)) {
+    enemyDiv.removeChild(svampeElement);
+  }
+  svampSkin.removeEventListener("click", ikkeTilgangSkin)
+  //svampSkin.addEventListener("click", ChoosenBirk)
+  svampSkin.innerText = "Svampebob"
 }
 
 //du har vunnet en fight i combat.js
