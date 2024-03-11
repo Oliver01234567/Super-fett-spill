@@ -23,6 +23,13 @@ function genererMatteoppgave() {
   pengeknapp.style.display ="none"
 }
 
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+      
+      sjekkSvar();
+  }
+});
+
 function sjekkSvar() {
   let brukerSvar = document.getElementById('svar').value;
   let matteoppgaveTekst = document.getElementById('matteboks').value;

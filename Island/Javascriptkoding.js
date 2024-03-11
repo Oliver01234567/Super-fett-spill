@@ -1521,7 +1521,6 @@ function showChestPopup(chest) {
 
 
 
-
   document.body.appendChild(popup);
   currentPopup = popup;
 
@@ -1718,6 +1717,13 @@ function toggleFlexBox() {
   }
 
 }
+document.addEventListener("keydown", function(event) {
+    if (event.key === "m") {
+       
+        toggleFlexBox();
+    }
+});
+
 
 
 
