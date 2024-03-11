@@ -748,6 +748,11 @@ body {
     border-radius: 50%;
     overflow: hidden;
     z-index: 1000;
+    display: none;
+}
+
+.visible {
+    display: block;  /* Add this class to control visibility */
 }
 
 .wheel-section {
