@@ -680,8 +680,13 @@ const Epopup = document.createElement("div");
 let enemyCheckEnabled = true;
 let npcFound = false
 function checkForNPC() {
+
+  console.log(fiende)
+
   let npcs = document.querySelectorAll(".npc");
   let characterPlassering = characterP.getBoundingClientRect();
+
+  let fiendeFunnet = false
   npcs.forEach(function (enemy) {
     let npcPlassering = enemy.getBoundingClientRect();
 
@@ -692,12 +697,19 @@ function checkForNPC() {
       characterPlassering.top < npcPlassering.bottom
     ) {
       fiende = enemy.id
+      fiendeFunnet = true
       console.log(fiende)
 
       showEnemyPopup(enemy);
     }
+  });
+  if (!fiendeFunnet && fiende) {
+    if (currentEPopup) {
+      document.body.removeChild(currentEPopup);
+      currentEPopup = null;
+      fiende = null
+    }
   }
-  );
 }
 
 
@@ -836,7 +848,7 @@ function matte() {
 }
 
 
-function declineEnemy(enemyid) {
+function declineEnemy() {
   disableEnemies()
   if (currentEPopup) {
     document.body.removeChild(currentEPopup);
