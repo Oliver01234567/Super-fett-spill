@@ -27,7 +27,7 @@ for (let i = 1; i < 30; i++) {
 
 
 //Fjerner scrolling fra siden
-//document.body.style.overflow = "hidden";
+document.body.style.overflow = "hidden";
 
 const moneyAmount = document.getElementById("moneyAmount");
 let money = 0
@@ -680,8 +680,11 @@ const Epopup = document.createElement("div");
 let enemyCheckEnabled = true;
 let npcFound = false
 function checkForNPC() {
+
   let npcs = document.querySelectorAll(".npc");
   let characterPlassering = characterP.getBoundingClientRect();
+
+  let fiendeFunnet = false
   npcs.forEach(function (enemy) {
     let npcPlassering = enemy.getBoundingClientRect();
 
@@ -692,12 +695,18 @@ function checkForNPC() {
       characterPlassering.top < npcPlassering.bottom
     ) {
       fiende = enemy.id
-      console.log(fiende)
+      fiendeFunnet = true
 
       showEnemyPopup(enemy);
     }
+  });
+  if (!fiendeFunnet && fiende) {
+    if (currentEPopup) {
+      document.body.removeChild(currentEPopup);
+      currentEPopup = null;
+      fiende = null
+    }
   }
-  );
 }
 
 
@@ -836,7 +845,7 @@ function matte() {
 }
 
 
-function declineEnemy(enemyid) {
+function declineEnemy() {
   disableEnemies()
   if (currentEPopup) {
     document.body.removeChild(currentEPopup);
@@ -1168,11 +1177,15 @@ let movement = {
 };
 
 //Variabel for movement
-let movePlayer = sessionStorage.getItem("movePlayer") || 4
+let movePlayer = parseInt(sessionStorage.getItem("movePlayer")) || 4;
 
 let upgradeSpeed = 1000;
 
 const speedUpg = document.getElementById("speedUpg");
+
+function ScreenOnCharacter(){
+  window.scrollTo(posisjonBredde - 160, posisjonHoyde + 160);
+}
 
 function SpeedIncrease() {
   if (movePlayer < 10 && money >= upgradeSpeed) {
@@ -1244,6 +1257,7 @@ function move() {
     checkForChests()
     checkForNPC()
     updateScreenPositionLeft()
+    ScreenOnCharacter()
   }
   if (movement.ArrowRight || movement.d || movement.D) {
     posisjonBredde = currentLeft + movePlayer
@@ -1254,6 +1268,7 @@ function move() {
     checkForChests()
     checkForNPC()
     updateScreenPositionRight()
+    ScreenOnCharacter()
   }
   if (movement.ArrowUp || movement.w || movement.W) {
     posisjonHoyde = currentTop - movePlayer
@@ -1263,6 +1278,7 @@ function move() {
     checkForChests()
     checkForNPC()
     updateScreenPositionTop()
+    ScreenOnCharacter()
   }
   if (movement.ArrowDown || movement.s || movement.S) {
     posisjonHoyde = currentTop + movePlayer
@@ -1272,6 +1288,7 @@ function move() {
     checkForChests()
     checkForNPC()
     updateScreenPositionDown()
+    ScreenOnCharacter()
   }
 
   requestAnimationFrame(move);
@@ -1284,6 +1301,11 @@ document.addEventListener("keydown", function (event) {
 document.addEventListener("keyup", function (event) {
   movement[event.key] = false;
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  ScreenOnCharacter()
+});
+
 
 move();
 
@@ -1433,10 +1455,12 @@ chests.forEach(chest => {
 });
 
 
+let che
 
 function checkForChests() {
   let chests = document.querySelectorAll(".Chest");
   let characterPlassering = characterP.getBoundingClientRect();
+  let chestFunnet = false
   chests.forEach(function (chest) {
     let chestPlassering = chest.getBoundingClientRect();
 
@@ -1447,14 +1471,22 @@ function checkForChests() {
       characterPlassering.top < chestPlassering.bottom
     ) {
 
+      chestFunnet = true
       showChestPopup(chest);
     }
   });
+  if (!chestFunnet && chestsId) {
+    if (currentPopup) {
+      document.body.removeChild(currentPopup);
+      currentPopup = null;
+    }
+  }
 }
 
 let currentPopup = null;
-
 let chestCheckEnabled = true;
+let chestsId = null
+
 
 const challenge = document.getElementById("challenge")
 
@@ -1470,7 +1502,7 @@ function showChestPopup(chest) {
     return;
   }
 
-  let chestsId = chest.id
+  chestsId = chest.id
 
   const popup = document.createElement("div");
   popup.className = "chest-popup";
@@ -1521,9 +1553,6 @@ function showChestPopup(chest) {
   }
 
 
-}
-function consoleLog() {
-  console.log(chestsId)
 }
 
 
@@ -1629,7 +1658,8 @@ function die() {
   showAlert("Du tapte " + tapPenger.toFixed(0) + " penger", "error")
 
   showPopup("Du druknet")
-  resetCharacterPosition();
+  resetCharacterPosition()
+  ScreenOnCharacter()
 }
 
 function checkCharacterPosition() {
