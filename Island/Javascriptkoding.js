@@ -1851,7 +1851,6 @@ function handlePurchase() {
     npcYesBtn.textContent = "Confirm";
     npcNoBtn.textContent = "Cancel";
 
-
     npcYesBtn.addEventListener("click", buyRandomSkin);
   }, 2);
 }
@@ -1919,9 +1918,9 @@ function spinWheel() {
   setTimeout(() => {
     console.log("Spinning complete!");
     checkResult(randomDegree % 360);
-    spinning = false;
     setTimeout(() => {
       hideWheel();
+      spinning = false;
     }, 500);
   }, 3000); 
 }
@@ -1968,6 +1967,11 @@ function checkResult(angle) {
       gotPeter = 10;
     }
   }
+  setTimeout(() => {
+    console.log("Spinning complete!");
+    showObtainedSkin(); // Show the obtained skin modal
+    spinning = false;
+  }, 3000);
 }
 
 function hideWheel() {
@@ -1978,4 +1982,25 @@ function hideWheel() {
   if (arrow) {
       arrow.remove();
   }
+}
+
+function showObtainedSkin() {
+  const modal = document.getElementById('skinModal');
+  const obtainedSkinImage = document.getElementById('obtainedSkinImage');
+
+  let skinImage;
+
+  // Logic to determine which skin image to display based on the result
+  if (angle <= sectionSize) {
+    skinImage = 'angel.jpeg';
+  } else if (angle <= 4 * sectionSize) {
+    skinImage = 'monke.jpeg';
+  } else if (angle <= 10 * sectionSize) {
+    skinImage = 'panda.png';
+  } else {
+    skinImage = 'peter.png';
+  }
+
+  obtainedSkinImage.src = `../Bilder/${skinImage}`;
+  modal.style.display = 'block';
 }
