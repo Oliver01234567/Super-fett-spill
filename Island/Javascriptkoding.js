@@ -114,6 +114,8 @@ if (quiz1Seier == 3) {
 }
 
 //Du vant i Tarzan spillet
+let enemyCheckEnabled = true;
+
 let tarzanSeier = localStorage.getItem("tarzanSeier") || 0
 if (tarzanSeier == 1) {
   tarzanSeier = 2
@@ -121,6 +123,8 @@ if (tarzanSeier == 1) {
   tjentMoney = 10000
   money = money + tjentMoney
   showAlert("Du fikk " + tjentMoney.toFixed(0) + " penger av siden du hjalp Tarzan", "success")
+
+  disableEnemies();
 }
 
 
@@ -678,7 +682,6 @@ function choosenPete() {
 let fiende = null
 let currentEPopup = null;
 const Epopup = document.createElement("div");
-let enemyCheckEnabled = true;
 let npcFound = false
 function checkForNPC() {
 
