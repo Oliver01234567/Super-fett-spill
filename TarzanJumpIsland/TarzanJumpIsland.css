@@ -196,11 +196,11 @@ img{
 }
 #toIsland{
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 0;
+    transform: translateX(-100%);
     background-color: wheat;
     width: 200px; 
-    left: 86%;
+    left: 100%;
     font-size: 25px;
     padding: 10px;
 }
@@ -305,6 +305,7 @@ img{
         justify-content: center;
         align-items: center;  
 }
+/* Start Info og forklaring*/
 #gameStartInfo{
     position: absolute;
     top: 50%;

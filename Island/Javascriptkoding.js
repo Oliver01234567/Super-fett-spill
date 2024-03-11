@@ -1,6 +1,5 @@
 //interne notater:
 //Husk å markere alt i js og css slik at man enklere kan se hva som er hva
-hideWheel();
 //Chests
 let nummer = 1
 for (let i = 1; i < 30; i++) {
@@ -1879,6 +1878,8 @@ function spinWheel() {
   const spinner = document.getElementById('skinWheel');
   console.log("Spinning wheel...");
 
+  spinner.classList.add('visible');
+
   const arrow = document.createElement('div');
   arrow.classList.add('arrow-down');
   document.body.appendChild(arrow);
@@ -1889,7 +1890,7 @@ function spinWheel() {
   const rotateValue = `rotate(${randomDegree}deg)`;
   console.log("Rotate value:", rotateValue);
 
-  spinner.style.display = 'block';
+  
   spinner.style.transform = rotateValue;
 
   let styleElement = document.getElementById('spinKeyframes');
@@ -1900,7 +1901,6 @@ function spinWheel() {
     document.head.appendChild(styleElement);
   }
 
-  // Update the keyframes rule with the dynamic rotation
   styleElement.innerHTML = `
       @keyframes spin {
           0% {
@@ -1912,26 +1912,19 @@ function spinWheel() {
       }
   `;
 
-  // Clear any existing animation
   spinner.style.animation = 'none';
 
-  // Trigger reflow before applying the new animation
-  spinner.offsetHeight;
-
-  // Apply the spin-animation class to start the spinning
   spinner.style.animation = 'spin 3s ease-in-out';
 
   setTimeout(() => {
     console.log("Spinning complete!");
     checkResult(randomDegree % 360);
-    hideWheel();
     spinning = false;
     setTimeout(() => {
-      spinner.style.display = 'none'; // Hide the wheel after half a second
+      hideWheel();
     }, 500);
-  }, 3000); // Adjust the timeout based on the animation duration
+  }, 3000); 
 }
-
 
 let gotPeter = 0;
 let gotPanda = 0;
@@ -1979,10 +1972,10 @@ function checkResult(angle) {
 
 function hideWheel() {
   const spinner = document.getElementById('skinWheel');
-  spinner.style.display = 'none';
-  spinner.style.animation = ''; // Clear any existing animation
+  spinner.classList.remove('visible'); 
+  spinner.style.animation = ''; 
   const arrow = document.querySelector('.arrow-down');
   if (arrow) {
-    arrow.remove();
+      arrow.remove();
   }
 }
