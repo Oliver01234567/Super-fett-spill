@@ -27,7 +27,7 @@ for (let i = 1; i < 30; i++) {
 
 
 //Fjerner scrolling fra siden
-//document.body.style.overflow = "hidden";
+document.body.style.overflow = "hidden";
 
 const moneyAmount = document.getElementById("moneyAmount");
 let money = 0
@@ -1183,6 +1183,10 @@ let upgradeSpeed = 1000;
 
 const speedUpg = document.getElementById("speedUpg");
 
+function ScreenOnCharacter(){
+  window.scrollTo(posisjonBredde - 160, posisjonHoyde + 160);
+}
+
 function SpeedIncrease() {
   if (movePlayer < 10 && money >= upgradeSpeed) {
     movePlayer += 2;
@@ -1253,6 +1257,7 @@ function move() {
     checkForChests()
     checkForNPC()
     updateScreenPositionLeft()
+    ScreenOnCharacter()
   }
   if (movement.ArrowRight || movement.d || movement.D) {
     posisjonBredde = currentLeft + movePlayer
@@ -1263,7 +1268,7 @@ function move() {
     checkForChests()
     checkForNPC()
     updateScreenPositionRight()
-    console.log("left er", character.style.left)
+    ScreenOnCharacter()
   }
   if (movement.ArrowUp || movement.w || movement.W) {
     posisjonHoyde = currentTop - movePlayer
@@ -1273,6 +1278,7 @@ function move() {
     checkForChests()
     checkForNPC()
     updateScreenPositionTop()
+    ScreenOnCharacter()
   }
   if (movement.ArrowDown || movement.s || movement.S) {
     posisjonHoyde = currentTop + movePlayer
@@ -1282,6 +1288,7 @@ function move() {
     checkForChests()
     checkForNPC()
     updateScreenPositionDown()
+    ScreenOnCharacter()
   }
 
   requestAnimationFrame(move);
@@ -1294,6 +1301,11 @@ document.addEventListener("keydown", function (event) {
 document.addEventListener("keyup", function (event) {
   movement[event.key] = false;
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  ScreenOnCharacter()
+});
+
 
 move();
 
@@ -1646,7 +1658,8 @@ function die() {
   showAlert("Du tapte " + tapPenger.toFixed(0) + " penger", "error")
 
   showPopup("Du druknet")
-  resetCharacterPosition();
+  resetCharacterPosition()
+  ScreenOnCharacter()
 }
 
 function checkCharacterPosition() {
