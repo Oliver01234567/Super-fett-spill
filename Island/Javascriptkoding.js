@@ -681,8 +681,6 @@ let enemyCheckEnabled = true;
 let npcFound = false
 function checkForNPC() {
 
-  console.log(fiende)
-
   let npcs = document.querySelectorAll(".npc");
   let characterPlassering = characterP.getBoundingClientRect();
 
@@ -698,7 +696,6 @@ function checkForNPC() {
     ) {
       fiende = enemy.id
       fiendeFunnet = true
-      console.log(fiende)
 
       showEnemyPopup(enemy);
     }
@@ -1446,10 +1443,12 @@ chests.forEach(chest => {
 });
 
 
+let che
 
 function checkForChests() {
   let chests = document.querySelectorAll(".Chest");
   let characterPlassering = characterP.getBoundingClientRect();
+  let chestFunnet = false
   chests.forEach(function (chest) {
     let chestPlassering = chest.getBoundingClientRect();
 
@@ -1460,14 +1459,22 @@ function checkForChests() {
       characterPlassering.top < chestPlassering.bottom
     ) {
 
+      chestFunnet = true
       showChestPopup(chest);
     }
   });
+  if (!chestFunnet && chestsId) {
+    if (currentPopup) {
+      document.body.removeChild(currentPopup);
+      currentPopup = null;
+    }
+  }
 }
 
 let currentPopup = null;
-
 let chestCheckEnabled = true;
+let chestsId = null
+
 
 const challenge = document.getElementById("challenge")
 
@@ -1483,7 +1490,7 @@ function showChestPopup(chest) {
     return;
   }
 
-  let chestsId = chest.id
+  chestsId = chest.id
 
   const popup = document.createElement("div");
   popup.className = "chest-popup";
@@ -1534,9 +1541,6 @@ function showChestPopup(chest) {
   }
 
 
-}
-function consoleLog() {
-  console.log(chestsId)
 }
 
 
