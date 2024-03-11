@@ -79,6 +79,7 @@ if (matteSeier == 3) {
 }
 
 
+
 //Quiz seiere
 let quiz1Seier = 0
 quiz1Seier = localStorage.getItem("quiz1Seier") || 0
@@ -255,7 +256,10 @@ if (choosenSkin == 16) {
 }
 
 const svampSkin = document.getElementById("svampSkin")
-
+if (choosenSkin == 17) {
+  characterP.src = "../Bilder/SId.png"
+  svampSkin.style.backgroundColor = "red"
+}
 
 
 const mButtons = document.querySelectorAll(".Mbuttons")
@@ -494,6 +498,19 @@ function choosenSid() {
     showAlert("Du har ikke nok penger for å kjøpe Stewie Griffin ", "error");
     spillAvError()
   }
+}
+
+function choosenSvamp() {
+  characterP.src = "../Bilder/Jonas.png"
+  choosenSkin = 17
+  sessionStorage.setItem("choosenSkin", choosenSkin);
+  mButtons.forEach((button) => {
+    if (button.id !== "svampSkin") {
+      button.style.backgroundColor = "brown";
+    }
+  });
+  svampSkin.style.backgroundColor = "red"
+  showAlert("Byttet skin til Svampebob", "success");
 }
 
 function ChoosenJonas() {
@@ -1071,7 +1088,7 @@ if (matteUnlocked == 1) {
     enemyDiv.removeChild(svampeElement);
   }
   svampSkin.removeEventListener("click", ikkeTilgangSkin)
-  //svampSkin.addEventListener("click", ChoosenBirk)
+  svampSkin.addEventListener("click", choosenSvamp)
   svampSkin.innerText = "Svampebob"
 }
 
