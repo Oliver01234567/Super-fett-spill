@@ -1180,7 +1180,7 @@ let movement = {
 };
 
 //Variabel for movement
-let movePlayer = sessionStorage.getItem("movePlayer") || 4
+let movePlayer = parseInt(sessionStorage.getItem("movePlayer")) || 4;
 
 let upgradeSpeed = 1000;
 
@@ -1266,6 +1266,7 @@ function move() {
     checkForChests()
     checkForNPC()
     updateScreenPositionRight()
+    console.log("left er", character.style.left)
   }
   if (movement.ArrowUp || movement.w || movement.W) {
     posisjonHoyde = currentTop - movePlayer
