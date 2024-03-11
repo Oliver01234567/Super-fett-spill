@@ -136,10 +136,20 @@ function gameUpdate(){
         finalInfo.style.display = "flex"
         jumpedOver.innerHTML ="Du hoppet over " + rollDodge + " rullende objekter"
         duckedUnder.innerHTML ="du ducket under " + birdDodge + " fugler"
+        goBack.style.display ="block"
+        goBack.addEventListener("click", goHome)
         }, 2000);
         }, 2000);
     }
 }
+
+function goHome(){
+        let tarzanSeier = 1
+        localStorage.setItem("tarzanSeier", tarzanSeier)
+        window.location.href = '../Island/index.html';
+    
+}
+
 function highscoreUpdate(){
     if(poeng > highscore){
         highscore = poeng
@@ -287,8 +297,37 @@ function resetHighscore(){
     localStorage.removeItem('highscore');
 }
 
-
-
+forklaring1.innerHTML =("Hei så hyggelig du ville hjelpe med å lete etter skattekameret!")
+neste1.addEventListener("click", ForklaringUpdtate)
+function ForklaringUpdtate(){
+    forklaring1.style.display ="none"
+    forklaring2.style.display ="block"
+    neste1.style.display="none"
+    neste2.style.display="block"
+    console.log("trykk1")
+}
+forklaring2.innerHTML =("Vær obs på at det kan være feller og dyr som vil stoppe oss!")
+neste2.addEventListener("click", tilSpill)
+function tilSpill(){
+    forklaring2.style.display="none"
+    neste2.style.display="none"
+    Explanation.style.display="none"
+    howToStart.style.display ="block"
+    gåTilSpillContainer.style.display ="block"
+    gåTilSpillContainer.style.display ="flex"
+    tarzanExplain.style.animation ="tarzanUt 3s linear forwards"
+}
+gåTilSpill.addEventListener("click", spillStart)
+function spillStart(){
+    howToStart.style.display ="none"
+    gameStartInfo.style.display ="none"
+    tarzanExplain.style.display="none"
+}
+toIsland.addEventListener("click", backToIsland)
+goBack.addEventListener("click", backToIsland)
+function backToIsland(){
+    window.location.href = '../Island/Index.html';
+}
 
 
 

@@ -40,7 +40,7 @@ function hente_resultater() {
                         forslag7.checked == false &&
                         forslag8.checked == false ) {
 
-                            if(opponent == 0) {
+                            if(opponent != 19) {
                                 quiz1Seier = 1
                                 localStorage.setItem("quiz1Seier", quiz1Seier)
                                 window.location.href = '../Chests/ChestOpen.html';

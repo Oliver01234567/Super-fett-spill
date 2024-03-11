@@ -36,12 +36,47 @@ money = parseInt(localStorage.getItem("money")) || 0
 setInterval(updateMoneyAmount, 100)
 
 
-const characterP = document.querySelector("#character")
+const characterP = document.getElementById("character")
 
-const character = document.querySelector("#charater img")
 
 let choosenSkin = 0
 choosenSkin = parseInt(sessionStorage.getItem("choosenSkin")) || 0
+
+
+//matte seiere
+let tjentMoney = 0
+
+let matteSeier = 0
+matteSeier = localStorage.getItem("matteSeier") || 0
+if (matteSeier == 1) {
+  matteSeier = 2
+  localStorage.setItem("matteSeier", 2)
+  tjentMoney = 5000
+  money = money + tjentMoney
+  showAlert("Du fant " + tjentMoney.toFixed(0) + " penger", "success")
+}
+
+
+
+let matteUnlocked = 0
+matteUnlocked = sessionStorage.getItem("matteUnlocked") || 0
+
+
+function matteIsUlocked() {
+  showAlert("Svampebob er nå tilgjengelig som et Skin", "success")
+}
+
+if (matteSeier == 3) {
+  matteSeier = 2
+  localStorage.setItem("matteSeier", 2)
+
+  matteUnlocked = 1
+  sessionStorage.setItem("matteUnlocked", 1)
+  tjentMoney = 7000
+  money = money + tjentMoney
+  showAlert("Svampebob er stolt av deg, de gir deg " + tjentMoney.toFixed(0) + " penger", "success")
+  setTimeout(matteIsUlocked, 2100)
+}
 
 
 //Quiz seiere
@@ -50,14 +85,20 @@ quiz1Seier = localStorage.getItem("quiz1Seier") || 0
 if (quiz1Seier == 1) {
   quiz1Seier = 2
   localStorage.setItem("quiz1Seier", 2)
-  let tjentMoney = 5000
+  tjentMoney = 5000
   money = money + tjentMoney
   showAlert("Du fikk " + tjentMoney.toFixed(0) + " penger av Quizen", "success")
 
 }
 
+
 let birkUnlocked = 0
 birkUnlocked = sessionStorage.getItem("birkUnlocked") || 0
+
+
+function birkIsUnlocked() {
+  showAlert("Birk er nå tilgjengelig som et Skin", "success")
+}
 
 if (quiz1Seier == 3) {
   quiz1Seier = 2
@@ -65,14 +106,20 @@ if (quiz1Seier == 3) {
 
   birkUnlocked = 1
   sessionStorage.setItem("birkUnlocked", 1)
-  let tjentMoney = 4000
+  tjentMoney = 7000
   money = money + tjentMoney
   showAlert("Birk er stolt av deg, han gir deg " + tjentMoney.toFixed(0) + " penger", "success")
   setTimeout(birkIsUnlocked, 2100)
 }
 
-function birkIsUnlocked() {
-  showAlert("Birk er nå tilgjengelig som et Skin", "success")
+//Du vant i Tarzan spillet
+let tarzanSeier = localStorage.getItem("tarzanSeier") || 0
+if (tarzanSeier == 1) {
+  tarzanSeier = 2
+  localStorage.setItem("tarzanSeier", 2)
+  tjentMoney = 10000
+  money = money + tjentMoney
+  showAlert("Du fikk " + tjentMoney.toFixed(0) + " penger av siden du hjalp Tarzan", "success")
 }
 
 
@@ -81,7 +128,7 @@ if (getMoney != 0) {
   getMoney = 0
   localStorage.setItem("getMoney", 0)
 
-  let tjentMoney = 1000
+  tjentMoney = 1000
   money = money + tjentMoney
   showAlert("Du fant " + tjentMoney.toFixed(0) + " penger", "success")
 }
@@ -206,6 +253,8 @@ if (choosenSkin == 16) {
   characterP.src = "../Bilder/SId.png"
   sidSkin.style.backgroundColor = "red"
 }
+
+const svampSkin = document.getElementById("svampSkin")
 
 
 
@@ -609,8 +658,11 @@ function choosenPete() {
 
 //fiender
 //oppdager fiender
-let fiende = 0
+let fiende = null
+let currentEPopup = null;
+const Epopup = document.createElement("div");
 let enemyCheckEnabled = true;
+let npcFound = false
 function checkForNPC() {
   let npcs = document.querySelectorAll(".npc");
   let characterPlassering = characterP.getBoundingClientRect();
@@ -624,15 +676,14 @@ function checkForNPC() {
       characterPlassering.top < npcPlassering.bottom
     ) {
       fiende = enemy.id
+      console.log(fiende)
 
       showEnemyPopup(enemy);
-
     }
-    
-  });
+  }
+  );
 }
 
-let currentEPopup = null;
 
 
 function showEnemyPopup(enemy) {
@@ -642,7 +693,6 @@ function showEnemyPopup(enemy) {
     currentEPopup = null;
   }
 
-  const Epopup = document.createElement("div");
   Epopup.className = "enemy-popup";
   Epopup.innerHTML = `
     <p> <span id="enemyOrNot"> Du møtte en fiende!! Vil du utfordre han til Holmgang og få alle pengene hans?? </span> </p>
@@ -676,9 +726,14 @@ function showEnemyPopup(enemy) {
       godtaOrUtfordre.innerText = "Ja, gjerne"
     }
 
+    if (fiende == "svamp") {
+      enemyOrNot.innerText = "Hei Jeg heter Svampebob!! Vil du snakke litt??"
+      godtaOrUtfordre.innerText = "Ja, gjerne"
+    }
+
+
     if (fiende == "kasper") {
       enemyOrNot.innerText = "Du møtte Kasper!! Vil du utfordre han til Holmgang og få alle pengene hans??"
-
     }
 
     if (fiende == "Elon") {
@@ -692,6 +747,7 @@ function showEnemyPopup(enemy) {
     if (fiende == "pete") {
       enemyOrNot.innerText = "Du møtte Pete Davidson!! Vil du utfordre han til Holmgang og få alle pengene hans??"
     }
+
     if (fiende == "tarzan") {
       enemyOrNot.innerText = "Du møtte Tarzan!! Han trenger din hjelp for å plyndre et skattekammer! Vil du hjelpe han og få halvparten av gullet i skattekameret??"
       godtaOrUtfordre.innerText = "Hjelp han!"
@@ -731,6 +787,14 @@ function utfordreFiende() {
     enemyOrNot.innerText = "Kan du svare på quizen min?? Du får en stor belønning"
     godtaOrUtfordre.innerText = "Godta"
   }
+
+  if (fiende == "svamp") {
+    godtaOrUtfordre.removeEventListener("click", utfordreFiende)
+    godtaOrUtfordre.addEventListener("click", matte)
+    enemyOrNot.innerText = "Kan du svare på matte testen min?? Du får en stor belønning"
+    godtaOrUtfordre.innerText = "Godta"
+  }
+
   if (fiende == "tarzan") {
     hjelpTarzan()
   }
@@ -740,11 +804,19 @@ function utfordreFiende() {
 }
 
 function birkSinQuiz() {
-  godtaOrUtfordre.addEventListener("click", utfordreFiende)
   godtaOrUtfordre.removeEventListener("click", birkSinQuiz)
+  godtaOrUtfordre.addEventListener("click", utfordreFiende)
   opponent = 19
   sessionStorage.setItem("opponent", 19)
-  window.location.href = 'Quiz/quiz_3.html';
+  window.location.href = '../Quiz/quiz_3.html';
+}
+
+function matte() {
+  godtaOrUtfordre.removeEventListener("click", matte)
+  godtaOrUtfordre.addEventListener("click", utfordreFiende)
+  opponent = 18
+  sessionStorage.setItem("opponent", 18)
+  window.location.href = '../mattespill/matte.html';
 }
 
 
@@ -775,41 +847,41 @@ let opponent = 0
 function fightAnden() {
   opponent = 0
   sessionStorage.setItem("opponent", opponent);
-  window.location.href = 'Combat/Combat.html';
+  window.location.href = '../Combat/Combat.html';
 
 }
 
 function fightJonas() {
   opponent = 1
   sessionStorage.setItem("opponent", opponent)
-  window.location.href = 'Combat/Combat.html';
+  window.location.href = '../Combat/Combat.html';
 }
 
 function fightKasper() {
   opponent = 2
   sessionStorage.setItem("opponent", opponent)
-  window.location.href = 'Combat/Combat.html';
+  window.location.href = '../Combat/Combat.html';
 }
 
 function fightElonMusk() {
   opponent = 3
   sessionStorage.setItem("opponent", opponent)
-  window.location.href = 'Combat/Combat.html';
+  window.location.href = '../Combat/Combat.html';
 }
 
 function fightMario() {
   opponent = 4
   sessionStorage.setItem("opponent", opponent)
-  window.location.href = 'Combat/Combat.html';
+  window.location.href = '../Combat/Combat.html';
 }
 
 function fightPeteDavidson() {
   opponent = 5
   sessionStorage.setItem("opponent", opponent)
-  window.location.href = 'Combat/Combat.html';
+  window.location.href = '../Combat/Combat.html';
 }
 function hjelpTarzan() {
-  window.location.href = 'TarzanJumpIsland/TarzanJumpIsland.html';
+  window.location.href = '../TarzanJumpIsland/TarzanJumpIsland.html';
 }
 
 
@@ -989,6 +1061,18 @@ if (birkUnlocked == 1) {
   birkSkin.removeEventListener("click", ikkeTilgangSkin)
   birkSkin.addEventListener("click", ChoosenBirk)
   birkSkin.innerText = "Birk"
+}
+
+svampSkin.addEventListener("click", ikkeTilgangSkin)
+
+if (matteUnlocked == 1) {
+  const svampeElement = document.querySelector("#svamp");
+  if (svampeElement && island.contains(svampeElement)) {
+    enemyDiv.removeChild(svampeElement);
+  }
+  svampSkin.removeEventListener("click", ikkeTilgangSkin)
+  //svampSkin.addEventListener("click", ChoosenBirk)
+  svampSkin.innerText = "Svampebob"
 }
 
 //du har vunnet en fight i combat.js
@@ -1402,6 +1486,22 @@ function showChestPopup(chest) {
     if (chestsId == "Chest25") {
       challenge.innerText = "For å åpne den må du løse en quiz"
     }
+
+    if (chestsId == "Chest19") {
+      challenge.innerText = "For å åpne den må du klare matte testen"
+    }
+
+    if (chestsId == "Chest11") {
+      challenge.innerText = "For å åpne den må du klare matte testen"
+    }
+
+    if (chestsId == "Chest16") {
+      challenge.innerText = "For å åpne den må du klare matte testen"
+    }
+
+    if (chestsId == "Chest2") {
+      challenge.innerText = "For å åpne den må du klare matte testen"
+    }
   }
 
 
@@ -1435,20 +1535,42 @@ function openChest(chestId) {
     currentPopup = null;
   }
 
-  if (chestId != "Chest1" && chestId != "Chest2" && chestId != "Chest25") {
-    window.location.href = 'Chests/ChestOpen.html'
+  if (chestId != "Chest1" &&
+    chestId != "Chest2" &&
+    chestId != "Chest25" &&
+    chestId != "Chest19" &&
+    chestId != "Chest11" &&
+    chestId != "Chest16" &&
+    chestId != "Chest2") {
+    window.location.href = '../Chests/ChestOpen.html'
   }
 
   if (chestId == "Chest1") {
-    window.location.href = 'Quiz/js_quiz.html';
+    window.location.href = '../Quiz/js_quiz.html';
   }
 
   if (chestId == "Chest2") {
-    window.location.href = 'Quiz/quiz_2.html';
+    window.location.href = '../Quiz/quiz_2.html';
   }
 
   if (chestId == "Chest25") {
-    window.location.href = 'Quiz/quiz_4.html';
+    window.location.href = '../Quiz/quiz_4.html';
+  }
+
+  if (chestId == "Chest19") {
+    window.location.href = '../mattespill/matte.html';
+  }
+
+  if (chestId == "Chest11") {
+    window.location.href = '../mattespill/matte.html';
+  }
+
+  if (chestId == "Chest16") {
+    window.location.href = '../mattespill/matte.html';
+  }
+
+  if (chestId == "Chest2") {
+    window.location.href = '../mattespill/matte.html';
   }
 }
 
@@ -1490,7 +1612,7 @@ function die() {
   sessionStorage.setItem("money", money);
   showAlert("Du tapte " + tapPenger.toFixed(0) + " penger", "error")
 
-  showPopup("Du drukna, suger å suge")
+  showPopup("Du druknet")
   resetCharacterPosition();
 }
 
@@ -1753,13 +1875,46 @@ function spinWheel() {
   spinner.style.display = 'block';
   spinner.style.transform = rotateValue;
 
+  let styleElement = document.getElementById('spinKeyframes');
+
+  if (!styleElement) {
+    styleElement = document.createElement('style');
+    styleElement.id = 'spinKeyframes';
+    document.head.appendChild(styleElement);
+  }
+
+  // Update the keyframes rule with the dynamic rotation
+  styleElement.innerHTML = `
+      @keyframes spin {
+          0% {
+              transform: rotate(0deg);
+          }
+          100% {
+              transform: ${rotateValue};
+          }
+      }
+  `;
+
+  // Clear any existing animation
+  spinner.style.animation = 'none';
+
+  // Trigger reflow before applying the new animation
+  spinner.offsetHeight;
+
+  // Apply the spin-animation class to start the spinning
+  spinner.style.animation = 'spin 3s ease-in-out';
+
   setTimeout(() => {
     console.log("Spinning complete!");
     checkResult(randomDegree % 360);
     hideWheel();
     spinning = false;
-  }, 1000);
+    setTimeout(() => {
+      spinner.style.display = 'none'; // Hide the wheel after half a second
+    }, 500);
+  }, 3000); // Adjust the timeout based on the animation duration
 }
+
 
 let gotPeter = 0;
 let gotPanda = 0;
