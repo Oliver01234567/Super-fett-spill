@@ -500,7 +500,7 @@ function choosenSid() {
 }
 
 function choosenSvamp() {
-  characterP.src = "../Bilder/Jonas.png"
+  characterP.src = "../Bilder/svanpeBob.png"
   choosenSkin = 17
   sessionStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
