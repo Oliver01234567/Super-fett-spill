@@ -44,15 +44,18 @@ function sjekkSvar() {
     score = 0
     scoreBoard.innerText = score;
   }
-  console.log(score)
 
   if(score == 5) {
-    console.log("du vant")
+    const winscreen = document.getElementById("winscreen")
+    winscreen.style.opacity = "100%"
+    winscreen.style.zIndex = "20"
 
-    goHome()
   }
 
   document.getElementById('resultat-boks').textContent = resultatTekst;
+
+  setTimeout(slettResultat, 2000)
+  clearAnswer();
 }
 
 function goHome() {
@@ -73,6 +76,7 @@ function slettResultat() {
   document.getElementById('resultat-boks').textContent = '';
 }
 
-function giveUp() {
-  window.location.href = '../Island/index.html';
+function clearAnswer() {
+  const svarBox = document.getElementById('svar')
+  svarBox.value = ' ';
 }

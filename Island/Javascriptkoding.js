@@ -1,5 +1,6 @@
 //interne notater:
 //Husk å markere alt i js og css slik at man enklere kan se hva som er hva
+
 //Chests
 let nummer = 1
 for (let i = 1; i < 30; i++) {
@@ -1187,6 +1188,7 @@ function ScreenOnCharacter(){
   window.scrollTo(posisjonBredde - 160, posisjonHoyde + 160);
 }
 
+
 function SpeedIncrease() {
   if (movePlayer < 10 && money >= upgradeSpeed) {
     movePlayer += 2;
@@ -1308,6 +1310,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 move();
+
+
 
 // Health
 
