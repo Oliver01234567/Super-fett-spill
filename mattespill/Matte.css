@@ -8,6 +8,8 @@
 
   body {
     background-image: url(klasserom.jpeg);
+
+    background-image: url(Bilder/klasserom.jpeg); 
     background-size: cover;
   }
   .Overskrift-Matte {
