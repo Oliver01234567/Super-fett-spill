@@ -129,7 +129,7 @@ function neste() {
 }
 
 function tilbake() {
-
+    document.getElementById("for_slutt").style.display = "block"
     document.getElementById("div_1_quiz_5").style.display = "flex"
     document.getElementById("div_2_quiz_5").style.display = "none"
     document.getElementById("div_3_quiz_5").style.display = "none"

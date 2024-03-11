@@ -234,6 +234,11 @@
     flex-direction: column;
 }
 
+#bare_flex {
+    display: flex;
+    flex-direction: row;
+}
+
 /*Alert*/
 .alert {
     position: fixed;
