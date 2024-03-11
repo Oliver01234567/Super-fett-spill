@@ -256,7 +256,7 @@ if (choosenSkin == 16) {
 
 const svampSkin = document.getElementById("svampSkin")
 if (choosenSkin == 17) {
-  characterP.src = "../Bilder/SId.png"
+  characterP.src = "../Bilder/svanpeBob.png"
   svampSkin.style.backgroundColor = "red"
 }
 
@@ -500,7 +500,7 @@ function choosenSid() {
 }
 
 function choosenSvamp() {
-  characterP.src = "../Bilder/Jonas.png"
+  characterP.src = "../Bilder/svanpeBob.png"
   choosenSkin = 17
   sessionStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
