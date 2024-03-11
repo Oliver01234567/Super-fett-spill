@@ -89,6 +89,11 @@ if (choosenSkin == 16) {
     name.innerText = "Sid Fra Istid"
 }
 
+if (choosenSkin == 17) {
+    playerIcon.src = "../Bilder/svanpeBob.png"
+    name.innerText = "Svampebob Firkant"
+}
+
 //henter hvilken fiende du vil kjempe mot
 opponent = parseInt(sessionStorage.getItem("opponent")) || 0
 
