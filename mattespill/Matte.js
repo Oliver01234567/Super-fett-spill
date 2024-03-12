@@ -23,6 +23,13 @@ function genererMatteoppgave() {
   pengeknapp.style.display ="none"
 }
 
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+      
+      sjekkSvar();
+  }
+});
+
 function sjekkSvar() {
   let brukerSvar = document.getElementById('svar').value;
   let matteoppgaveTekst = document.getElementById('matteboks').value;
@@ -44,15 +51,18 @@ function sjekkSvar() {
     score = 0
     scoreBoard.innerText = score;
   }
-  console.log(score)
 
-  if(score == 1) {
-    console.log("du vant")
+  if(score == 5) {
+    const winscreen = document.getElementById("winscreen")
+    winscreen.style.opacity = "100%"
+    winscreen.style.zIndex = "20"
 
-    goHome()
   }
 
   document.getElementById('resultat-boks').textContent = resultatTekst;
+
+  setTimeout(slettResultat, 2000)
+  clearAnswer();
 }
 
 function goHome() {
@@ -73,6 +83,7 @@ function slettResultat() {
   document.getElementById('resultat-boks').textContent = '';
 }
 
-function giveUp() {
-  window.location.href = '../Island/index.html';
+function clearAnswer() {
+  const svarBox = document.getElementById('svar')
+  svarBox.value = ' ';
 }

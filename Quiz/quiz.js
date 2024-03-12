@@ -24,6 +24,42 @@ function hente_resultater() {
     forslag7 = document.getElementById("spørsmål1_svar7")
     forslag8 = document.getElementById("spørsmål1_svar8")
 
+    if (svar1.checked == false)
+     { 
+        if (svar2.checked == false) {
+            if (svar3.checked == false) {
+                if (svar4.checked == false) {alert("ALLE ER FEIL DIN JWL FJOMP")}
+                else {alert("1/4🤨")}
+            }
+            else if (svar4.checked == false) {alert("1/4")}
+            else {alert("2/4")}
+
+        }
+        else if (svar3.checked == false) {
+            if (svar4.checked == false) {alert("1/4")}
+            else {alert("2/4")}
+
+        }
+        else if (svar4.checked == false) {alert("2/4")}
+        else {alert("3/4")}
+      } 
+      else if (svar2.checked == false) 
+      {
+        if (svar3.checked == false) {
+            if (svar4.checked == false) {alert("1/4")}
+            else {alert("2/4")}
+        }
+        else if (svar4.checked == false) {alert("2/4")}
+        else {alert("3/4")}
+      }
+
+      else if (svar3.checked ==false) {
+        if (svar4.checked == false) {alert("2/4")}
+        else {alert("3/4")}
+      } 
+      else if (svar4.checked == false) {alert("3/4")}
+
+
 
 
     if (svar1.checked == true) {
@@ -53,7 +89,7 @@ function hente_resultater() {
                             }
 
                         } else {
-                        alert("Feil")
+                        
                         let tapPenger = money * 0.10
                         money = money * 0.90
                         showAlert("Du tapte " + tapPenger.toFixed(0) + " penger", "error")
@@ -61,7 +97,6 @@ function hente_resultater() {
 
                 
                 } else {
-                    alert("Feil")
 
                     let tapPenger = money * 0.10
                     money = money * 0.90
@@ -69,7 +104,6 @@ function hente_resultater() {
                     localStorage.setItem("money", money);
                 }
             } else {
-                alert("Feil")
 
                 let tapPenger = money * 0.10
                 money = money * 0.90
@@ -77,15 +111,13 @@ function hente_resultater() {
                 localStorage.setItem("money", money);
             }
         } else {
-            alert("Feil")
 
             let tapPenger = money * 0.10
             money = money * 0.90
             showAlert("Du tapte " + tapPenger.toFixed(0) + " penger", "error")
             localStorage.setItem("money", money);
         }
-    } else {
-        alert("Feil ")
+    } else {   
 
         let tapPenger = money * 0.10
         money = money * 0.90
@@ -124,12 +156,15 @@ function neste() {
     } else if (document.getElementById("div_3_quiz_5").style.display == "flex") {
         document.getElementById("div_3_quiz_5").style.display = "none"
         document.getElementById("div_4_quiz_5").style.display = "flex" 
+        document.getElementById("for_slutt").style.display = "none"
     }
 }
 
 function tilbake() {
+    document.getElementById("for_slutt").style.display = "block"
     document.getElementById("div_1_quiz_5").style.display = "flex"
     document.getElementById("div_2_quiz_5").style.display = "none"
     document.getElementById("div_3_quiz_5").style.display = "none"
     document.getElementById("div_4_quiz_5").style.display = "none"
+    
 }

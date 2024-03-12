@@ -40,7 +40,7 @@
 
                 <div id="birk" class="InteractiveMaterial npc"><img src="../Bilder/Birk.png" alt="Birk"></div>
 
-                <div id="svamp"class="InteractiveMaterial npc"><img src="../Bilder/Birk.png" alt="Svampebob"></div>
+                <div id="svamp"class="InteractiveMaterial npc"><img src="../Bilder/svanpeBob.png" alt="Svampebob"></div>
 
 
                 <div id="tarzan" class="InteractiveMaterial npc"><img id="tarzanBilde" src="../Bilder/tarzanUtenBak.png"
@@ -56,7 +56,7 @@
 
 
 
-            <div id="npc" class="InteractiveMaterial NPC">NPC
+            <div id="npc" class="InteractiveMaterial NPC">
                 <div id="npc-dialog" class="dialog-box">
                     <p id="npc-message"></p>
                     <button id="npc-yes" onclick="handleNPCResponse(true)">Yes</button>
@@ -68,6 +68,13 @@
                 <div class="wheel-section" id="wheelSection2"></div>
                 <div class="wheel-section" id="wheelSection3"></div>
                 <div class="wheel-section" id="wheelSection4"></div>
+            </div>
+            <div id="skinModal" class="modal">
+                <div class="modal-content">
+                  <span class="close" onclick="closeSkinModal()">&times;</span>
+                  <img id="obtainedSkinImage" src="" alt="Obtained Skin">
+                  <div class="rays"></div>
+                </div>
             </div>
         </main>
 
