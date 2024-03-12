@@ -13,3 +13,5 @@ document.addEventListener("DOMContentLoaded", function() {
     // Gjør snakkeboblen og knappene synlige etter 3 sekunder
     setTimeout(visElementer, 3000);
 });
+
+
