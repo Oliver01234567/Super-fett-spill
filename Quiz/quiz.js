@@ -29,35 +29,35 @@ function hente_resultater() {
         if (svar2.checked == false) {
             if (svar3.checked == false) {
                 if (svar4.checked == false) {alert("ALLE ER FEIL DIN JWL FJOMP")}
-                else {alert("1/4🤨")}
+                else {alert("1/4 🤨")}
             }
-            else if (svar4.checked == false) {alert("1/4")}
-            else {alert("2/4")}
+            else if (svar4.checked == false) {alert("1/4 🤨")}
+            else {alert("2/4 🥱")}
 
         }
         else if (svar3.checked == false) {
-            if (svar4.checked == false) {alert("1/4")}
-            else {alert("2/4")}
+            if (svar4.checked == false) {alert("1/4 🤨")}
+            else {alert("2/4 😒")}
 
         }
-        else if (svar4.checked == false) {alert("2/4")}
-        else {alert("3/4")}
+        else if (svar4.checked == false) {alert("2/4 😐")}
+        else {alert("3/4 🤓")}
       } 
       else if (svar2.checked == false) 
       {
         if (svar3.checked == false) {
-            if (svar4.checked == false) {alert("1/4")}
-            else {alert("2/4")}
+            if (svar4.checked == false) {alert("1/4 🤨")}
+            else {alert("2/4 😑")}
         }
-        else if (svar4.checked == false) {alert("2/4")}
-        else {alert("3/4")}
+        else if (svar4.checked == false) {alert("2/4 🫤")}
+        else {alert("3/4 🤯")}
       }
 
       else if (svar3.checked ==false) {
-        if (svar4.checked == false) {alert("2/4")}
-        else {alert("3/4")}
+        if (svar4.checked == false) {alert("2/4 😶")}
+        else {alert("3/4 🤠")}
       } 
-      else if (svar4.checked == false) {alert("3/4")}
+      else if (svar4.checked == false) {alert("3/4 👎")}
 
 
 
