@@ -25,176 +25,176 @@ const fortsett = document.getElementById("HoppOver")
 const tilbakeButton = document.getElementById("backButton")
 
 
-explButton.addEventListener("click", Next1)
+explButton.addEventListener("click", next1)
 
-function Next1() {
+function next1() {
     explText.innerText = 'Realm Of Riches er et "open world" spill med masse utfordinger!'
     backButton.style.display = "block";
 
-    explButton.removeEventListener("click", Next1)
-    explButton.addEventListener("click", Next2)
+    explButton.removeEventListener("click", next1)
+    explButton.addEventListener("click", next2)
 
-    tilbakeButton.addEventListener("click", Back1)
+    tilbakeButton.addEventListener("click", back1)
 
 
 }
 
-function Next2() {
+function next2() {
     explText.innerText = "For å bevege deg rundt på øya, kan du bruke W, A, S og D."
 
-    explButton.removeEventListener("click", Next2)
-    explButton.addEventListener("click", Next3)
+    explButton.removeEventListener("click", next2)
+    explButton.addEventListener("click", next3)
 
-    tilbakeButton.addEventListener("click", Back2)
+    tilbakeButton.addEventListener("click", back2)
 }
 
-function Next3() {
+function next3() {
     explText.innerText = "Men hva enn du gjør..."
 
-    explButton.removeEventListener("click", Next3)
-    explButton.addEventListener("click", Next4)
+    explButton.removeEventListener("click", next3)
+    explButton.addEventListener("click", next4)
 
-    tilbakeButton.addEventListener("click", Back3)
+    tilbakeButton.addEventListener("click", back3)
 }
 
-function Next4() {
+function next4() {
     explText.innerText = "IKKE FORLAT ØYA!"
 
-    explButton.removeEventListener("click", Next4)
-    explButton.addEventListener("click", Next5)
+    explButton.removeEventListener("click", next4)
+    explButton.addEventListener("click", next5)
 
-    tilbakeButton.addEventListener("click", Back4)
+    tilbakeButton.addEventListener("click", back4)
 }
 
-function Next5() {
+function next5() {
     explText.innerText = "Da drukner du eller blir spist av sjømonsteret."
 
-    explButton.removeEventListener("click", Next5)
-    explButton.addEventListener("click", Next6)
+    explButton.removeEventListener("click", next5)
+    explButton.addEventListener("click", next6)
 
-    tilbakeButton.addEventListener("click", Back5)
+    tilbakeButton.addEventListener("click", back5)
 }
 
 
 
-function Next6() {
+function next6() {
     explText.innerText = "På øya er det mange kister man kan åpne for å få belønninger!"
 
-    explButton.removeEventListener("click", Next6)
-    explButton.addEventListener("click", Next7)
+    explButton.removeEventListener("click", next6)
+    explButton.addEventListener("click", next7)
 
-    tilbakeButton.addEventListener("click", Back6)
+    tilbakeButton.addEventListener("click", back6)
 }
 
-function Next7() {
+function next7() {
     explText.innerText = "men i noen kister skjuler det seg noen utfordringer du må løse."
 
-    explButton.removeEventListener("click", Next7)
-    explButton.addEventListener("click", Next8)
+    explButton.removeEventListener("click", next7)
+    explButton.addEventListener("click", next8)
 
-    tilbakeButton.addEventListener("click", Back7)
+    tilbakeButton.addEventListener("click", back7)
 }
 
-function Next8() {
+function next8() {
     explText.innerText = "Belønningene du får, kan brukes i menyen oppe i det høyre hjørnet"
 
-    explButton.removeEventListener("click", Next8)
-    explButton.addEventListener("click", Next9)
+    explButton.removeEventListener("click", next8)
+    explButton.addEventListener("click", next9)
 
-    tilbakeButton.addEventListener("click", Back8)
+    tilbakeButton.addEventListener("click", back8)
 }
 
-function Next9() {
+function next9() {
     explText.innerText = "her kan du kjøpe deg oppgraderinger, og nye skins!"
 
-    explButton.removeEventListener("click", Next9)
-    explButton.addEventListener("click", Next10)
+    explButton.removeEventListener("click", next9)
+    explButton.addEventListener("click", next10)
 
-    tilbakeButton.addEventListener("click", Back9)
+    tilbakeButton.addEventListener("click", back9)
 }
 
-function Next10() {
+function next10() {
     explText.innerText = "Noen av oppgraderingene vil du få bruk for i kamp."
 
-    explButton.removeEventListener("click", Next10)
-    explButton.addEventListener("click", Next11)
+    explButton.removeEventListener("click", next10)
+    explButton.addEventListener("click", next11)
 
-    tilbakeButton.addEventListener("click", Back10)
+    tilbakeButton.addEventListener("click", back10)
 }
 
-function Next11() {
+function next11() {
     explText.innerText = "Det er nemlig plassert ut fiender på øya som må beseires i Holmgang!"
 
-    explButton.removeEventListener("click", Next11)
-    explButton.addEventListener("click", Next12)
+    explButton.removeEventListener("click", next11)
+    explButton.addEventListener("click", next12)
 
-    tilbakeButton.addEventListener("click", Back11)
+    tilbakeButton.addEventListener("click", back11)
 }
 
-function Next12() {
+function next12() {
     explText.innerText = "Du vil få vite mer om dette når du møter på fiendene"
 
-    explButton.removeEventListener("click", Next12)
-    explButton.addEventListener("click", Next13)
+    explButton.removeEventListener("click", next12)
+    explButton.addEventListener("click", next13)
 
-    tilbakeButton.addEventListener("click", Back12)
+    tilbakeButton.addEventListener("click", back12)
 }
 
-function Next13() {
+function next13() {
     explText.innerText = "Spillet er ferdig når du har:"
 
-    explButton.removeEventListener("click", Next13)
-    explButton.addEventListener("click", Next14)
+    explButton.removeEventListener("click", next13)
+    explButton.addEventListener("click", next14)
 
-    tilbakeButton.addEventListener("click", Back13)
+    tilbakeButton.addEventListener("click", back13)
 }
 
-function Next14() {
+function next14() {
     explText.innerText = "1. Beseiret alle fiender"
 
-    explButton.removeEventListener("click", Next14)
-    explButton.addEventListener("click", Next15)
+    explButton.removeEventListener("click", next14)
+    explButton.addEventListener("click", next15)
 
-    tilbakeButton.addEventListener("click", Back14)
+    tilbakeButton.addEventListener("click", back14)
 }
 
-function Next15() {
+function next15() {
     explText.innerText = "2. Åpnet alle kister"
 
-    explButton.removeEventListener("click", Next15)
-    explButton.addEventListener("click", Next16)
+    explButton.removeEventListener("click", next15)
+    explButton.addEventListener("click", next16)
 
-    tilbakeButton.addEventListener("click", Back15)
+    tilbakeButton.addEventListener("click", back15)
 }
 
-function Next16() {
+function next16() {
     explText.innerText = "3. løst alle oppgaver og utfordringer"
 
-    explButton.removeEventListener("click", Next16)
-    explButton.addEventListener("click", Next17)
+    explButton.removeEventListener("click", next16)
+    explButton.addEventListener("click", next17)
 
-    tilbakeButton.addEventListener("click", Back16)
+    tilbakeButton.addEventListener("click", back16)
 }
 
-function Next17() {
+function next17() {
     explText.innerText = "4. låst opp alt i menyen"
 
-    explButton.removeEventListener("click", Next17)
-    explButton.addEventListener("click", Next18)
+    explButton.removeEventListener("click", next17)
+    explButton.addEventListener("click", next18)
 
-    tilbakeButton.addEventListener("click", Back17)
+    tilbakeButton.addEventListener("click", back17)
 }
 
-function Next18() {
+function next18() {
     explText.innerText = "Lykke til!"
 
-    explButton.removeEventListener("click", Next18)
-    explButton.addEventListener("click", StartGame)
+    explButton.removeEventListener("click", next18)
+    explButton.addEventListener("click", startGame)
 
     explButton.innerHTML = "Start Spillet"
     fortsett.style.display = "none"
 
-    tilbakeButton.addEventListener("click", Back18)
+    tilbakeButton.addEventListener("click", back18)
 
     
 
@@ -202,174 +202,174 @@ function Next18() {
 }
 
 
-function StartGame() {
+function startGame() {
     document.location = '../Island/index.html'
 }
 
-tilbakeButton.addEventListener("click", Back1)
+tilbakeButton.addEventListener("click", back1)
 
-function Back1() {
+function back1() {
     explText.innerText = 'Velkommen til Realm of Riches!'
-    explButton.removeEventListener("click", Next2)
-    explButton.addEventListener("click", Next1)
+    explButton.removeEventListener("click", next2)
+    explButton.addEventListener("click", next1)
 
-    tilbakeButton.removeEventListener("click", Back1)
+    tilbakeButton.removeEventListener("click", back1)
 
 }
 
-function Back2() {
+function back2() {
     explText.innerText = 'Realm Of Riches er et "open world" spill med masse utfordinger!'
-    explButton.removeEventListener("click", Next3)
-    explButton.addEventListener("click", Next2)
+    explButton.removeEventListener("click", next3)
+    explButton.addEventListener("click", next2)
 
-    tilbakeButton.removeEventListener("click", Back2)
-    tilbakeButton.addEventListener("click", Back1)
+    tilbakeButton.removeEventListener("click", back2)
+    tilbakeButton.addEventListener("click", back1)
 }
 
-function Back3() {
+function back3() {
     explText.innerText = 'For å bevege deg rundt på øya, kan du bruke W, A, S og D.'
-    explButton.removeEventListener("click", Next4)
-    explButton.addEventListener("click", Next3)
+    explButton.removeEventListener("click", next4)
+    explButton.addEventListener("click", next3)
 
-    tilbakeButton.removeEventListener("click", Back3)
-    tilbakeButton.addEventListener("click", Back2)
+    tilbakeButton.removeEventListener("click", back3)
+    tilbakeButton.addEventListener("click", back2)
 }
 
-function Back4() {
+function back4() {
     explText.innerText = 'Men hva enn du gjør...'
-    explButton.removeEventListener("click", Next5)
-    explButton.addEventListener("click", Next4)
+    explButton.removeEventListener("click", next5)
+    explButton.addEventListener("click", next4)
 
-    tilbakeButton.removeEventListener("click", Back4)
-    tilbakeButton.addEventListener("click", Back3)
+    tilbakeButton.removeEventListener("click", back4)
+    tilbakeButton.addEventListener("click", back3)
 }
 
-function Back5() {
+function back5() {
     explText.innerText = 'IKKE FORLAT ØYA!'
-    explButton.removeEventListener("click", Next6)
-    explButton.addEventListener("click", Next5)
+    explButton.removeEventListener("click", next6)
+    explButton.addEventListener("click", next5)
 
-    tilbakeButton.removeEventListener("click", Back5)
-    tilbakeButton.addEventListener("click", Back4)
+    tilbakeButton.removeEventListener("click", back5)
+    tilbakeButton.addEventListener("click", back4)
 }
 
-function Back6() {
+function back6() {
     explText.innerText = 'Da drukner du eller blir spist av sjømonsteret.'
-    explButton.removeEventListener("click", Next7)
-    explButton.addEventListener("click", Next6)
+    explButton.removeEventListener("click", next7)
+    explButton.addEventListener("click", next6)
 
-    tilbakeButton.removeEventListener("click", Back6)
-    tilbakeButton.addEventListener("click", Back5)
+    tilbakeButton.removeEventListener("click", back6)
+    tilbakeButton.addEventListener("click", back5)
 }
 
-function Back7() {
+function back7() {
     explText.innerText = 'På øya er det mange kister man kan åpne for å få belønninger!'
-    explButton.removeEventListener("click", Next8)
-    explButton.addEventListener("click", Next7)
+    explButton.removeEventListener("click", next8)
+    explButton.addEventListener("click", next7)
 
-    tilbakeButton.removeEventListener("click", Back7)
-    tilbakeButton.addEventListener("click", Back6)
+    tilbakeButton.removeEventListener("click", back7)
+    tilbakeButton.addEventListener("click", back6)
 }
 
-function Back8() {
+function back8() {
     explText.innerText = 'men i noen kister skjuler det seg noen utfordringer du må løse.'
-    explButton.removeEventListener("click", Next9)
-    explButton.addEventListener("click", Next8)
+    explButton.removeEventListener("click", next9)
+    explButton.addEventListener("click", next8)
 
-    tilbakeButton.removeEventListener("click", Back8)
-    tilbakeButton.addEventListener("click", Back7)
+    tilbakeButton.removeEventListener("click", back8)
+    tilbakeButton.addEventListener("click", back7)
 }
 
-function Back9() {
+function back9() {
     explText.innerText = 'Belønningene du får, kan brukes i menyen oppe i det høyre hjørnet'
-    explButton.removeEventListener("click", Next10)
-    explButton.addEventListener("click", Next9)
+    explButton.removeEventListener("click", next10)
+    explButton.addEventListener("click", next9)
 
-    tilbakeButton.removeEventListener("click", Back9)
-    tilbakeButton.addEventListener("click", Back8)
+    tilbakeButton.removeEventListener("click", back9)
+    tilbakeButton.addEventListener("click", back8)
 }
 
-function Back10() {
+function back10() {
     explText.innerText = 'her kan du kjøpe deg oppgraderinger, og nye skins!'
-    explButton.removeEventListener("click", Next11)
-    explButton.addEventListener("click", Next10)
+    explButton.removeEventListener("click", next11)
+    explButton.addEventListener("click", next10)
 
-    tilbakeButton.removeEventListener("click", Back10)
-    tilbakeButton.addEventListener("click", Back9)
+    tilbakeButton.removeEventListener("click", back10)
+    tilbakeButton.addEventListener("click", back9)
 }
 
-function Back11() {
+function back11() {
     explText.innerText = 'Noen av oppgraderingene vil du få bruk for i kamp.'
-    explButton.removeEventListener("click", Next12)
-    explButton.addEventListener("click", Next11)
+    explButton.removeEventListener("click", next12)
+    explButton.addEventListener("click", next11)
 
-    tilbakeButton.removeEventListener("click", Back11)
-    tilbakeButton.addEventListener("click", Back10)
+    tilbakeButton.removeEventListener("click", back11)
+    tilbakeButton.addEventListener("click", back10)
 }
 
-function Back12() {
+function back12() {
     explText.innerText = 'Det er nemlig plassert ut fiender på øya som må beseires i Holmgang!'
-    explButton.removeEventListener("click", Next13)
-    explButton.addEventListener("click", Next12)
+    explButton.removeEventListener("click", next13)
+    explButton.addEventListener("click", next12)
 
-    tilbakeButton.removeEventListener("click", Back12)
-    tilbakeButton.addEventListener("click", Back11)
+    tilbakeButton.removeEventListener("click", back12)
+    tilbakeButton.addEventListener("click", back11)
 }
 
-function Back13() {
+function back13() {
     explText.innerText = 'Du vil få vite mer om dette når du møter på fiendene'
-    explButton.removeEventListener("click", Next14)
-    explButton.addEventListener("click", Next13)
+    explButton.removeEventListener("click", next14)
+    explButton.addEventListener("click", next13)
 
-    tilbakeButton.removeEventListener("click", Back13)
-    tilbakeButton.addEventListener("click", Back12)
+    tilbakeButton.removeEventListener("click", back13)
+    tilbakeButton.addEventListener("click", back12)
 }
 
-function Back14() {
+function back14() {
     explText.innerText = 'Spillet er ferdig når du har:'
-    explButton.removeEventListener("click", Next15)
-    explButton.addEventListener("click", Next14)
+    explButton.removeEventListener("click", next15)
+    explButton.addEventListener("click", next14)
 
-    tilbakeButton.removeEventListener("click", Back14)
-    tilbakeButton.addEventListener("click", Back13)
+    tilbakeButton.removeEventListener("click", back14)
+    tilbakeButton.addEventListener("click", back13)
 }
 
-function Back15() {
+function back15() {
     explText.innerText = '1. Beseiret alle fiender'
-    explButton.removeEventListener("click", Next16)
-    explButton.addEventListener("click", Next15)
+    explButton.removeEventListener("click", next16)
+    explButton.addEventListener("click", next15)
 
-    tilbakeButton.removeEventListener("click", Back15)
-    tilbakeButton.addEventListener("click", Back14)
+    tilbakeButton.removeEventListener("click", back15)
+    tilbakeButton.addEventListener("click", back14)
 }
 
-function Back16() {
+function back16() {
     explText.innerText = '2. Åpnet alle kister'
-    explButton.removeEventListener("click", Next17)
-    explButton.addEventListener("click", Next16)
+    explButton.removeEventListener("click", next17)
+    explButton.addEventListener("click", next16)
 
-    tilbakeButton.removeEventListener("click", Back16)
-    tilbakeButton.addEventListener("click", Back15)
+    tilbakeButton.removeEventListener("click", back16)
+    tilbakeButton.addEventListener("click", back15)
 }
 
-function Back17() {
+function back17() {
     explText.innerText = '3. løst alle oppgaver og utfordringer'
-    explButton.removeEventListener("click", Next18)
-    explButton.addEventListener("click", Next17)
+    explButton.removeEventListener("click", next18)
+    explButton.addEventListener("click", next17)
 
-    tilbakeButton.removeEventListener("click", Back17)
-    tilbakeButton.addEventListener("click", Back16)
+    tilbakeButton.removeEventListener("click", back17)
+    tilbakeButton.addEventListener("click", back16)
 }
 
-function Back18() {
+function back18() {
     explText.innerText = '4. låst opp alt i menyen'
     explButton.removeEventListener("click", startGame)
-    explButton.addEventListener("click", Next18)
+    explButton.addEventListener("click", next18)
 
 
-    tilbakeButton.removeEventListener("click", Back18)
-    tilbakeButton.addEventListener("click", Back17)
+    tilbakeButton.removeEventListener("click", back18)
+    tilbakeButton.addEventListener("click", back17)
 
-    explButton.innerHTML = "neste"
+    explButton.innerHTML = "Neste"
     fortsett.style.display = "block"
 }
