@@ -914,60 +914,60 @@ function startGame() {
 
 
 //forklaringskjerm
-const explButton = document.getElementById("Next")
+const explButton = document.getElementById("next")
 const explText = document.getElementById("explainEverything")
 const explText2 = document.getElementById("explainEverything2")
 const fortsett = document.getElementById("Skip")
 const buttons = document.getElementById("buttons")
 
-explButton.addEventListener("click", Next1)
+explButton.addEventListener("click", next1)
 
-function Next1() {
+function next1() {
     explText.innerText = 'For å angripe motstanderen din må du trykke på han'
     explText2.innerText = "Men pass på, motstanderen din er rask"
 
-    explButton.removeEventListener("click", Next1)
-    explButton.addEventListener("click", Next2)
+    explButton.removeEventListener("click", next1)
+    explButton.addEventListener("click", next2)
 }
 
-function Next2() {
+function next2() {
     explText.innerText = "Motstanderen din gjør det ikke lett for deg dessverre"
     explText2.innerText = "De kan mane fram flammer som skader deg så lenge du er i dem"
 
-    explButton.removeEventListener("click", Next2)
-    explButton.addEventListener("click", Next3)
+    explButton.removeEventListener("click", next2)
+    explButton.addEventListener("click", next3)
 }
 
-function Next3() {
+function next3() {
     explText.innerText = "For å unngå flammene bruk W A S D eller pil tastene"
     explText2.innerText = "Å brenne seg er lite kult"
 
-    explButton.removeEventListener("click", Next3)
-    explButton.addEventListener("click", Next4)
+    explButton.removeEventListener("click", next3)
+    explButton.addEventListener("click", next4)
 }
 
-function Next4() {
+function next4() {
     explText.innerText = "Du kan se din helse markert med grønt ved siden av deg"
     explText2.innerText = "Fienden din sin helse er markert med rødt ved siden av fienden"
 
-    explButton.removeEventListener("click", Next4)
-    explButton.addEventListener("click", Next5)
+    explButton.removeEventListener("click", next4)
+    explButton.addEventListener("click", next5)
 }
 
-function Next5() {
+function next5() {
     explText.innerText = "Pass på helsen din"
     explText2.innerText = "Det er ikke mulig å regenere sin egen helse"
 
-    explButton.removeEventListener("click", Next5)
-    explButton.addEventListener("click", Next6)
+    explButton.removeEventListener("click", next5)
+    explButton.addEventListener("click", next6)
 }
 
-function Next6() {
+function next6() {
     explText.innerText = "Lykke til"
     explText2.innerText = "Trykk på start når du er klar"
 
     fortsett.innerText = "Start"
-    buttons.removeChild(document.querySelector("#Next"));
+    buttons.removeChild(document.querySelector("#next"));
 }
 
 
