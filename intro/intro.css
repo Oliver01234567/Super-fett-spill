@@ -39,15 +39,15 @@
 }
 @keyframes Forklareranimasjon{
     100%{
-        left: 620px;
-        top: 550px;
+        left: 650px;
+        top: 450px;
     
     }
 }
 
 #snakkeboble-container {
     position: absolute;
-    top: 300px;
+    top: 200px;
     left: 700px;
     display: none;
     
@@ -58,7 +58,7 @@
     width: 700px;
 }
 
-.content {
+#content {
     width: 100%;
     height: 100%;
     top: 0;
@@ -72,8 +72,8 @@
     font-size: 20px;
 }
 
-.flexboks {
-    display: flex;
+#flexboks {
+    display: none;
     position: absolute;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -87,13 +87,18 @@
     transform: translateY(-50%);
     top: 90%;
     left: 40%;
-
-
-    
-
 }
-#hovedcontainer{
+
+#hovedcontainer {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 90px);
+}
+
+a {
+    text-decoration: none;
+}
+
+#backButton {
+    display: none;
 }
