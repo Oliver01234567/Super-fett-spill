@@ -161,7 +161,7 @@ function highscoreUpdate(){
     }
 }
 
-var tap = setInterval(function () {
+let tap = setInterval(function () {
 
     let characterTop =
         parseInt(window.getComputedStyle(character).getPropertyValue("top"));
@@ -172,7 +172,7 @@ var tap = setInterval(function () {
 
     if (blockLeft < 0) {
         block.style.animation = "none";
-        var tid = Math.floor(Math.random() * 2000);
+        let tid = Math.floor(Math.random() * 2000);
         console.log(tid)
         rollDodge++
         console.log("rullende object hoppet over " + rollDodge)
