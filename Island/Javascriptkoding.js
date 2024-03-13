@@ -1188,7 +1188,7 @@ let upgradeSpeed = 1000;
 const speedUpg = document.getElementById("speedUpg");
 
 function ScreenOnCharacter(){
-  window.scrollTo(posisjonBredde - 160, posisjonHoyde + 160);
+  window.scrollTo(posisjonBredde, posisjonHoyde);
 }
 
 
@@ -1208,12 +1208,12 @@ function SpeedIncrease() {
   console.log(movePlayer)
 }
 function speedNivå() {
-  if (movePlayer === 6) {
+  if (movePlayer >= 6) {
     speed1.style.backgroundColor = "blue"
     showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
     speedUpg.innerText = formatNumber(upgradeSpeed);
   }
-  if (movePlayer === 8) {
+  if (movePlayer >= 8) {
     speed2.style.backgroundColor = "blue"
     showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
     speedUpg.innerText = formatNumber(upgradeSpeed);
@@ -1309,6 +1309,7 @@ document.addEventListener("keyup", function (event) {
 
 document.addEventListener('DOMContentLoaded', function () {
   ScreenOnCharacter()
+  speedNivå()
 });
 
 
