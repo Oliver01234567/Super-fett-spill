@@ -2046,6 +2046,7 @@ function hideWheel() {
 function showObtainedSkin() {
   const modal = document.getElementById('skinModal');
   const obtainedSkinImage = document.getElementById('obtainedSkinImage');
+  const sectionSize = 18;
 
   let skinImage;
 
@@ -2056,8 +2057,10 @@ function showObtainedSkin() {
     skinImage = 'monke.jpeg';
   } else if (angle <= 10 * sectionSize) {
     skinImage = 'panda.png';
-  } else {
+  } else if (angle <= 19.9 * sectionSize) {
     skinImage = 'peter.png';
+  } else {
+    skinImage = 'pengesekk.png'
   }
 
   obtainedSkinImage.src = `../Bilder/${skinImage}`;
