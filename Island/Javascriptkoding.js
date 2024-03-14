@@ -1199,6 +1199,7 @@ function SpeedIncrease() {
     money -= upgradeSpeed;
     upgradeSpeed *= 2;
     speedNivå()
+    speedAlerts();
     spillAvPengeLyd()
   } else if (movePlayer == 10) {
     showAlert("Maksfart er nådd ", "error")
@@ -1207,20 +1208,29 @@ function SpeedIncrease() {
   }
   console.log(movePlayer)
 }
+
+function speedAlerts() {
+  if (movePlayer >= 6) {
+    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
+  }
+  if (movePlayer >= 8) {
+    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
+  }
+  if (movePlayer === 10) {
+    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
+  }
+}
 function speedNivå() {
   if (movePlayer >= 6) {
     speed1.style.backgroundColor = "blue"
-    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
     speedUpg.innerText = formatNumber(upgradeSpeed);
   }
   if (movePlayer >= 8) {
     speed2.style.backgroundColor = "blue"
-    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
     speedUpg.innerText = formatNumber(upgradeSpeed);
   }
   if (movePlayer === 10) {
     speed3.style.backgroundColor = "blue"
-    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
     const speedButton = document.getElementById("speedButton")
     speedUpg.innerText = formatNumber(upgradeSpeed);
     speedButton.innerHTML = "Maksfart er nådd"
@@ -2051,7 +2061,6 @@ function showObtainedSkin() {
 
   let skinImage;
 
-  // Logic to determine which skin image to display based on the result
   if (angle <= sectionSize) {
     skinImage = 'langbeinT.png';
   } else if (angle <= 4 * sectionSize) {
