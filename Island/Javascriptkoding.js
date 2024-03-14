@@ -1684,7 +1684,7 @@ function checkCharacterPosition() {
   }
 }
 
-// Popup, Oliver
+// Popup
 function showPopup(message) {
   const popup = document.createElement("div");
   popup.className = "popup";
@@ -1831,9 +1831,28 @@ const npcMessage = document.getElementById("npc-message");
 const npcYesBtn = document.getElementById("npc-yes");
 const npcNoBtn = document.getElementById("npc-no");
 
-npc.addEventListener("click", () => {
-  showNPCDialog("Hi there! Would you like to talk?");
-});
+function checkForNPC() {
+  let characterP = document.getElementById('character');
+  let characterPlassering = characterP.getBoundingClientRect();
+  let npc = document.getElementById('npc');
+  let npcPlassering = npc.getBoundingClientRect();
+  
+  if (
+    characterPlassering.right > npcPlassering.left &&
+    characterPlassering.left < npcPlassering.right &&
+    characterPlassering.bottom > npcPlassering.top &&
+    characterPlassering.top < npcPlassering.bottom
+  ) {
+    showNPCDialog("Hi there! Would you like to talk?");
+  } else {
+    hideNPCDialog();
+  }
+}
+
+const dialogues = [
+  { question: "Hi there! Would you like to talk?", response: "Great! Would you like to spin the wheel to get a random skin for 1000 money?" },
+  { question: "Great! Would you like to spin the wheel to get a random skin for 1000 money?", response: "Great! Please confirm your purchase." }
+];
 
 function showNPCDialog(message) {
   console.log("showNPCDialog called");
