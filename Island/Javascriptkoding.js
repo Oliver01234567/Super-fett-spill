@@ -1843,75 +1843,72 @@ function checkForNPC() {
     characterPlassering.bottom > npcPlassering.top &&
     characterPlassering.top < npcPlassering.bottom
   ) {
-    showNPCDialog("Hei der! Vil du snakke litt?");
+    showFirstNPCDialog();
   } else {
     hideNPCDialog();
   }
 }
 
+function showFirstNPCDialog() {
+  npcMessage.textContent = "Hei der! Vil du snakke litt?";
+  npcDialog.style.display = "block";
+  npcYesBtn.style.display = "block";
+  npcNoBtn.style.display = "block";
+  
+  npcYesBtn.textContent = "Jaa";
+  npcNoBtn.textContent = "Nei";
 
-function showNPCDialog(message) {
-  console.log("showNPCDialog called");
+  npcYesBtn.onclick = function() {
+    hideNPCDialog();
+    showSecondNPCDialog();
+  };
 
-  npcMessage.textContent = message;
+  npcNoBtn.onclick = function() {
+    hideNPCDialog();
+  };
+}
+
+function showSecondNPCDialog() {
+  npcMessage.textContent = "Så fint! Vil du spinne hjullet for et tilfeldig skin for 1000 penger?";
   npcDialog.style.display = "block";
   npcYesBtn.style.display = "block";
   npcNoBtn.style.display = "block";
 
-  npcYesBtn.textContent = "Ja";
-  npcNoBtn.textContent = "Nei";
+  npcYesBtn.textContent = "Greit";
+  npcNoBtn.textContent = "Avslå";
 
-  console.log("showNPCDialog completed");
+  npcYesBtn.onclick = function() {
+    hideNPCDialog();
+    showThirdNPCDialog();
+  };
+
+  npcNoBtn.onclick = function() {
+    hideNPCDialog();
+  };
+}
+
+function showThirdNPCDialog() {
+  npcMessage.textContent = "Perfekt! Vennligst bekreft kjøpet.";
+  npcDialog.style.display = "block";
+  npcYesBtn.style.display = "block";
+  npcNoBtn.style.display = "block";
+
+  npcYesBtn.textContent = "Bekreft";
+  npcNoBtn.textContent = "Avbryt";
+
+  npcYesBtn.onclick = function() {
+    buyRandomSkin();
+  };
+
+  npcNoBtn.onclick = function() {
+    hideNPCDialog();
+  };
 }
 
 function hideNPCDialog() {
-  console.log("hideNPCDialog called");
-
-  setTimeout(function () {
-    npcDialog.style.display = "none";
-    npcYesBtn.style.display = "none";
-    npcNoBtn.style.display = "none";
-
-    console.log("hideNPCDialog completed");
-  }, 1);
-}
-
-function handleNPCResponse(response) {
-  console.log("handleNPCResponse triggered with response:", response);
-
-  if (response) {
-    console.log("Player said 'Yes'");
-    hideNPCDialog();
-
-    setTimeout(function () {
-      showNPCDialog("Så fint! Vil du spinne hjullet for et tilfeldig skin for 1000 penger?");
-      npcYesBtn.textContent = "Greit";
-      npcNoBtn.textContent = "Avslå";
-
-      npcYesBtn.addEventListener("click", handlePurchase);
-    }, 2);
-  } else {
-    console.log("Player said 'No'");
-    hideNPCDialog();
-  }
-}
-
-npcNoBtn.addEventListener("click", () => {
-  hideNPCDialog();
-});
-
-function handlePurchase() {
-  console.log("Player wants to purchase");
-  hideNPCDialog();
-
-  setTimeout(function () {
-    showNPCDialog("Perfekt! Vennligst bekreft kjøpet");
-
-    npcYesBtn.textContent = "Bekreft";
-    npcNoBtn.textContent = "Avbryt";
-
-    npcYesBtn.addEventListener("click", buyRandomSkin);
-  }, 2);
+  npcDialog.style.display = "none";
+  npcYesBtn.style.display = "none";
+  npcNoBtn.style.display = "none";
 }
 
 let spinning = false;
