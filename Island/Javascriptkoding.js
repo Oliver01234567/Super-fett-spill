@@ -1843,16 +1843,12 @@ function checkForNPC() {
     characterPlassering.bottom > npcPlassering.top &&
     characterPlassering.top < npcPlassering.bottom
   ) {
-    showNPCDialog("Hi there! Would you like to talk?");
+    showNPCDialog("Hei der! Vil du snakke litt?");
   } else {
     hideNPCDialog();
   }
 }
 
-const dialogues = [
-  { question: "Hi there! Would you like to talk?", response: "Great! Would you like to spin the wheel to get a random skin for 1000 money?" },
-  { question: "Great! Would you like to spin the wheel to get a random skin for 1000 money?", response: "Great! Please confirm your purchase." }
-];
 
 function showNPCDialog(message) {
   console.log("showNPCDialog called");
@@ -1862,8 +1858,8 @@ function showNPCDialog(message) {
   npcYesBtn.style.display = "block";
   npcNoBtn.style.display = "block";
 
-  npcYesBtn.textContent = "Yes";
-  npcNoBtn.textContent = "No";
+  npcYesBtn.textContent = "Ja";
+  npcNoBtn.textContent = "Nei";
 
   console.log("showNPCDialog completed");
 }
@@ -1888,9 +1884,9 @@ function handleNPCResponse(response) {
     hideNPCDialog();
 
     setTimeout(function () {
-      showNPCDialog("Great! Would you like to spin the wheel to get a random skin for 1000 money?");
-      npcYesBtn.textContent = "Sure";
-      npcNoBtn.textContent = "Decline";
+      showNPCDialog("Så fint! Vil du spinne hjullet for et tilfeldig skin for 1000 penger?");
+      npcYesBtn.textContent = "Greit";
+      npcNoBtn.textContent = "Avslå";
 
       npcYesBtn.addEventListener("click", handlePurchase);
     }, 2);
@@ -1909,10 +1905,10 @@ function handlePurchase() {
   hideNPCDialog();
 
   setTimeout(function () {
-    showNPCDialog("Great! Please confirm your purchase.");
+    showNPCDialog("Perfekt! Vennligst bekreft kjøpet");
 
-    npcYesBtn.textContent = "Confirm";
-    npcNoBtn.textContent = "Cancel";
+    npcYesBtn.textContent = "Bekreft";
+    npcNoBtn.textContent = "Avbryt";
 
     npcYesBtn.addEventListener("click", buyRandomSkin);
   }, 2);
@@ -1931,7 +1927,7 @@ function buyRandomSkin() {
   } else if (money >= cost) {
     showAlert("Vent til forrige spin er ferdig", "error")
   } else {
-    showAlert("Ikke nok penger til å spinne skin wheel", "error");
+    showAlert("Ikke nok penger til å spinne hjullet", "error");
     spillAvError();
   }
 }
@@ -1998,34 +1994,34 @@ function checkResult(angle) {
   const sectionSize = 18;
 
   if (angle <= sectionSize) {
-    showAlert("Congratulations! You landed on Section 1, langbein", "success");
+    showAlert("Gratulerer! Du fikk skinnet Langbein", "success");
     if (gotLangbein == 10) {
       money += 1000;
-      showAlert("You got back 1000 money since you already have Langbein", "success")
+      showAlert("Du fikk tilbake 1000 penger siden du allerede har Langbein", "success")
     } else {
       gotLangbein = 10;
     }
   } else if (angle <= 4 * sectionSize) {
-    showAlert("Congratulations! You landed on Section 2, monke", "success");
+    showAlert("Gratulerer! Du fikk skinnet Monke", "success");
     if (gotMonke == 10) {
       money += 500;
-      showAlert("You got back 500 money since you already have Monke", "success")
+      showAlert("Du fikk tilbake 500 penger siden du allerede har Monke", "success")
     } else {
       gotMonke = 10;
     }
   } else if (angle <= 10 * sectionSize) {
-    showAlert("Congratulations! You landed on Section 3, panda", "success");
+    showAlert("Gratulerer! Du fikk skinnet Panda", "success");
     if (gotPanda == 10) {
       money += 250;
-      showAlert("You got back 250 money since you already have Panda", "success")
+      showAlert("Du fikk tilbake 250 penger siden du allerede har Panda", "success")
     } else {
       gotPanda = 10;
     }
   } else {
-    showAlert("Congratulations! You landed on Section 4, peter", "success");
+    showAlert("Gratulerer! Du fikk skinnet Peter Griffin", "success");
     if (gotPeter == 10) {
       money += 100;
-      showAlert("You got back 100 money since you already have Peter", "success")
+      showAlert("Du fikk tilbake 100 penger siden du allerede har Peter", "success")
     } else {
       gotPeter = 10;
     }
