@@ -25,17 +25,17 @@ if (choosenSkin == 3) {
 }
 
 if (choosenSkin == 4) {
-    playerIcon.src = "../Bilder/monke.jpeg"
+    playerIcon.src = "../Bilder/monkeT.png"
     name.innerText = "Monke"
 }
 
 if (choosenSkin == 5) {
-    playerIcon.src = "../Bilder/panda.png"
+    playerIcon.src = "../Bilder/bPandaT.png"
     name.innerText = "Panda"
 }
 
 if (choosenSkin == 6) {
-    playerIcon.src = "../Bilder/angel.jpeg"
+    playerIcon.src = "../Bilder/langbeinT.png"
     name.innerText = "Langbein"
 }
 

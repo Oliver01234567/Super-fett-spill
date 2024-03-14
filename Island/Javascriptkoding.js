@@ -184,19 +184,19 @@ if (choosenSkin == 3) {
 
 const monkeSkin = document.getElementById("monkeSkin")
 if (choosenSkin == 4) {
-  characterP.src = "../Bilder/monke.jpeg"
+  characterP.src = "../Bilder/monkeT.png"
   monkeSkin.style.backgroundColor = "red"
 }
 
 const pandaSkin = document.getElementById("pandaSkin")
 if (choosenSkin == 5) {
-  characterP.src = "../Bilder/panda.png"
+  characterP.src = "../Bilder/bPandaT.png"
   pandaSkin.style.backgroundColor = "red"
 }
 
 const langbeinSkin = document.getElementById("langbeinSkin")
 if (choosenSkin == 6) {
-  characterP.src = "../Bilder/angel.jpeg"
+  characterP.src = "../Bilder/langbeinT.png"
   langbeinSkin.style.backgroundColor = "red"
 }
 
@@ -545,7 +545,7 @@ function ChoosenAnd() {
 
 function chosenMonke() {
   if (gotMonke == 10) {
-    characterP.src = "../Bilder/monke.jpeg";
+    characterP.src = "../Bilder/monkeT.png";
     choosenSkin = 4;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
@@ -562,7 +562,7 @@ function chosenMonke() {
 
 function chosenPanda() {
   if (gotPanda == 10) {
-    characterP.src = "../Bilder/panda.png";
+    characterP.src = "../Bilder/bPandaT.png";
     choosenSkin = 5;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
@@ -579,7 +579,7 @@ function chosenPanda() {
 
 function chosenLangbein() {
   if (gotLangbein == 10) {
-    characterP.src = "../Bilder/angel.jpeg";
+    characterP.src = "../Bilder/langbeinT.png";
     choosenSkin = 6;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
@@ -2055,7 +2055,7 @@ function showObtainedSkin() {
 
   // Logic to determine which skin image to display based on the result
   if (angle <= sectionSize) {
-    skinImage = 'angel.jpeg';
+    skinImage = 'langbeinT.png';
   } else if (angle <= 4 * sectionSize) {
     skinImage = 'monke.jpeg';
   } else if (angle <= 10 * sectionSize) {
