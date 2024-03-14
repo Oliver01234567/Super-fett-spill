@@ -1261,6 +1261,7 @@ function move() {
     checkCharacterPosition();
     checkForChests()
     checkForNPC()
+    checkForNpc();
     updateScreenPositionLeft()
     ScreenOnCharacter()
   }
@@ -1831,7 +1832,7 @@ const npcMessage = document.getElementById("npc-message");
 const npcYesBtn = document.getElementById("npc-yes");
 const npcNoBtn = document.getElementById("npc-no");
 
-function checkForNPC() {
+function checkForNpc() {
   let characterP = document.getElementById('character');
   let characterPlassering = characterP.getBoundingClientRect();
   let npc = document.getElementById('npc');
@@ -1843,13 +1844,13 @@ function checkForNPC() {
     characterPlassering.bottom > npcPlassering.top &&
     characterPlassering.top < npcPlassering.bottom
   ) {
-    showFirstNPCDialog();
+    showFirstNpcDialog();
   } else {
-    hideNPCDialog();
+    hideNpcDialog();
   }
 }
 
-function showFirstNPCDialog() {
+function showFirstNpcDialog() {
   npcMessage.textContent = "Hei der! Vil du snakke litt?";
   npcDialog.style.display = "block";
   npcYesBtn.style.display = "block";
@@ -1859,16 +1860,16 @@ function showFirstNPCDialog() {
   npcNoBtn.textContent = "Nei";
 
   npcYesBtn.onclick = function() {
-    hideNPCDialog();
-    showSecondNPCDialog();
+    hideNpcDialog();
+    showSecondNpcDialog();
   };
 
   npcNoBtn.onclick = function() {
-    hideNPCDialog();
+    hideNpcDialog();
   };
 }
 
-function showSecondNPCDialog() {
+function showSecondNpcDialog() {
   npcMessage.textContent = "Så fint! Vil du spinne hjullet for et tilfeldig skin for 1000 penger?";
   npcDialog.style.display = "block";
   npcYesBtn.style.display = "block";
@@ -1878,16 +1879,16 @@ function showSecondNPCDialog() {
   npcNoBtn.textContent = "Avslå";
 
   npcYesBtn.onclick = function() {
-    hideNPCDialog();
-    showThirdNPCDialog();
+    hideNpcDialog();
+    showThirdNpcDialog();
   };
 
   npcNoBtn.onclick = function() {
-    hideNPCDialog();
+    hideNpcDialog();
   };
 }
 
-function showThirdNPCDialog() {
+function showThirdNpcDialog() {
   npcMessage.textContent = "Perfekt! Vennligst bekreft kjøpet.";
   npcDialog.style.display = "block";
   npcYesBtn.style.display = "block";
@@ -1901,11 +1902,11 @@ function showThirdNPCDialog() {
   };
 
   npcNoBtn.onclick = function() {
-    hideNPCDialog();
+    hideNpcDialog();
   };
 }
 
-function hideNPCDialog() {
+function hideNpcDialog() {
   npcDialog.style.display = "none";
   npcYesBtn.style.display = "none";
   npcNoBtn.style.display = "none";
