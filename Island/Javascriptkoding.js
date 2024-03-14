@@ -2018,7 +2018,7 @@ function checkResult(angle) {
     showAlert("Gratulerer! Du fikk skinnet Peter Griffin", "success");
     if (gotPeter == 10) {
       money += 100;
-      showAlert("Du fikk tilbake 100 penger siden du allerede har Peter", "success")
+      showAlert("Du fikk tilbake 100 penger siden du allerede har Peter Griffin", "success")
     } else {
       gotPeter = 10;
     }
