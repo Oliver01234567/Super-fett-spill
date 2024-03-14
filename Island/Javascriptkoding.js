@@ -2017,7 +2017,7 @@ function checkResult(angle) {
     } else {
       gotPanda = 10;
     }
-  } else {
+  } else if (angle <= 19.9 * sectionSize) {
     showAlert("Gratulerer! Du fikk skinnet Peter Griffin", "success");
     if (gotPeter == 10) {
       money += 100;
@@ -2025,6 +2025,9 @@ function checkResult(angle) {
     } else {
       gotPeter = 10;
     }
+  } else {
+    money *= 100;
+    showAlert("DU VANT DEN HEMMELIGE PREMIEN (0,5% sjanse), DU HAR NÅ 100 GANGER SÅ MANGE PENGER");
   }
   setTimeout(() => {
     console.log("Spinning complete!");
