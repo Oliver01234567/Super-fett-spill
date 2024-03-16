@@ -1,6 +1,10 @@
 //interne notater:
 //Husk å markere alt i js og css slik at man enklere kan se hva som er hva
 
+function settings() {
+  showAlert("Ingenting skjer når du trykker på denne knappen, den er der bare så menyen ser bedre ut", "success")
+}
+
 //Chests
 let nummer = 1
 for (let i = 1; i < 30; i++) {
