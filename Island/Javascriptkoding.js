@@ -7,7 +7,7 @@ function settings() {
 
 //Chests
 let nummer = 1
-for (let i = 1; i < 30; i++) {
+for (let i = 1; i < 31; i++) {
   const creChest = document.createElement("div")
   // square.innerHTML = nummer
   creChest.id = "Chest" + nummer
@@ -1466,9 +1466,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //Chest
-
-
 const chests = document.querySelectorAll('.Chest');
+
 chests.forEach(chest => {
   const chestId = chest.id;
   if (sessionStorage.getItem(chestId) == 1) {
@@ -1477,7 +1476,7 @@ chests.forEach(chest => {
 });
 
 
-let che
+
 
 function checkForChests() {
   let chests = document.querySelectorAll(".Chest");
@@ -1579,13 +1578,30 @@ function showChestPopup(chest) {
 
 let tilfPenger = 0;
 
-setInterval(checkOpenChests, 100)
+let chestIntervall = setInterval(checkOpenChests, 100)
+
+checkOpenChests();
 function checkOpenChests() {
   const openedChests = document.querySelectorAll(".opened img")
   openedChests.forEach(chest => {
     chest.src = "../Bilder/openedChest.webp";
   })
 
+  function allChestOpened() {
+    return openedChests.length;
+  }
+  
+  let amountChest = allChestOpened();
+  console.log(amountChest)
+  if(amountChest == 30) {
+    setTimeout(allChestsPopup, 2300)
+    clearInterval(chestIntervall)
+  }
+
+}
+
+function allChestsPopup()  {
+  showAlert("Du har nå åpnet alle kister", "Success")
 }
 
 function openChest(chestId) {
