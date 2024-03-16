@@ -1992,10 +1992,25 @@ function spinWheel() {
   }, 3000); 
 }
 
-let gotPeter = 0;
-let gotPanda = 0;
-let gotMonke = 0;
-let gotLangbein = 0;
+let gotPeter = sessionStorage.getItem("gotPeter") || 0
+if(gotPeter == 10) {
+  peterSkin.innerText = "Peter Griffin"
+}
+
+let gotPanda = sessionStorage.getItem("gotPanda") || 0
+if(gotPanda == 10) {
+  pandaSkin.innerText = "Panda"
+}
+
+let gotMonke = sessionStorage.getItem("gotMonke") || 0
+if(gotMonke == 10) {
+  monkeSkin.innerText = "Monke"
+}
+
+let gotLangbein = sessionStorage.getItem("gotLangbein") || 0
+if(gotLangbein == 10) {
+  langbeinSkin.innerText = "Langbein"
+}
 
 function checkResult(angle) {
   console.log("Checking result for angle:", angle);
@@ -2003,35 +2018,43 @@ function checkResult(angle) {
 
   if (angle <= sectionSize) {
     showAlert("Gratulerer! Du fikk skinnet Langbein", "success");
+    langbeinSkin.innerText = "Langbein"
     if (gotLangbein == 10) {
       money += 1000;
       showAlert("Du fikk tilbake 1000 penger siden du allerede har Langbein", "success")
     } else {
       gotLangbein = 10;
+      sessionStorage.setItem("gotLangbein", 10)
     }
   } else if (angle <= 4 * sectionSize) {
     showAlert("Gratulerer! Du fikk skinnet Monke", "success");
+    monkeSkin.innerText = "Monke"
     if (gotMonke == 10) {
       money += 500;
       showAlert("Du fikk tilbake 500 penger siden du allerede har Monke", "success")
     } else {
       gotMonke = 10;
+      sessionStorage.setItem("gotMonke", gotMonke)
     }
   } else if (angle <= 10 * sectionSize) {
     showAlert("Gratulerer! Du fikk skinnet Panda", "success");
+    pandaSkin.innerText = "Panda"
     if (gotPanda == 10) {
       money += 250;
       showAlert("Du fikk tilbake 250 penger siden du allerede har Panda", "success")
     } else {
       gotPanda = 10;
+      sessionStorage.setItem("gotPanda", gotPanda)
     }
   } else if (angle <= 19.9 * sectionSize) {
     showAlert("Gratulerer! Du fikk skinnet Peter Griffin", "success");
+    peterSkin.innerText = "Peter Griffin"
     if (gotPeter == 10) {
       money += 100;
       showAlert("Du fikk tilbake 100 penger siden du allerede har Peter Griffin", "success")
     } else {
       gotPeter = 10;
+      sessionStorage.setItem("gotPeter", 10)
     }
   } else {
     money *= 100;
