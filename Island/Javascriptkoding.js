@@ -1,5 +1,6 @@
 //interne notater:
 //Husk å markere alt i js og css slik at man enklere kan se hva som er hva
+
 //Chests
 let nummer = 1
 for (let i = 1; i < 30; i++) {
@@ -113,6 +114,8 @@ if (quiz1Seier == 3) {
 }
 
 //Du vant i Tarzan spillet
+let enemyCheckEnabled = true;
+
 let tarzanSeier = localStorage.getItem("tarzanSeier") || 0
 if (tarzanSeier == 1) {
   tarzanSeier = 2
@@ -120,6 +123,8 @@ if (tarzanSeier == 1) {
   tjentMoney = 10000
   money = money + tjentMoney
   showAlert("Du fikk " + tjentMoney.toFixed(0) + " penger av siden du hjalp Tarzan", "success")
+
+  disableEnemies();
 }
 
 
@@ -179,19 +184,19 @@ if (choosenSkin == 3) {
 
 const monkeSkin = document.getElementById("monkeSkin")
 if (choosenSkin == 4) {
-  characterP.src = "../Bilder/monke.jpeg"
+  characterP.src = "../Bilder/monkeT.png"
   monkeSkin.style.backgroundColor = "red"
 }
 
 const pandaSkin = document.getElementById("pandaSkin")
 if (choosenSkin == 5) {
-  characterP.src = "../Bilder/panda.png"
+  characterP.src = "../Bilder/bPandaT.png"
   pandaSkin.style.backgroundColor = "red"
 }
 
 const langbeinSkin = document.getElementById("langbeinSkin")
 if (choosenSkin == 6) {
-  characterP.src = "../Bilder/angel.jpeg"
+  characterP.src = "../Bilder/langbeinT.png"
   langbeinSkin.style.backgroundColor = "red"
 }
 
@@ -540,7 +545,7 @@ function ChoosenAnd() {
 
 function chosenMonke() {
   if (gotMonke == 10) {
-    characterP.src = "../Bilder/monke.jpeg";
+    characterP.src = "../Bilder/monkeT.png";
     choosenSkin = 4;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
@@ -557,7 +562,7 @@ function chosenMonke() {
 
 function chosenPanda() {
   if (gotPanda == 10) {
-    characterP.src = "../Bilder/panda.png";
+    characterP.src = "../Bilder/bPandaT.png";
     choosenSkin = 5;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
@@ -574,7 +579,7 @@ function chosenPanda() {
 
 function chosenLangbein() {
   if (gotLangbein == 10) {
-    characterP.src = "../Bilder/angel.jpeg";
+    characterP.src = "../Bilder/langbeinT.png";
     choosenSkin = 6;
     sessionStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
@@ -677,7 +682,6 @@ function choosenPete() {
 let fiende = null
 let currentEPopup = null;
 const Epopup = document.createElement("div");
-let enemyCheckEnabled = true;
 let npcFound = false
 function checkForNPC() {
 
@@ -1184,8 +1188,9 @@ let upgradeSpeed = 1000;
 const speedUpg = document.getElementById("speedUpg");
 
 function ScreenOnCharacter(){
-  window.scrollTo(posisjonBredde - 160, posisjonHoyde + 160);
+  window.scrollTo(posisjonBredde, posisjonHoyde);
 }
+
 
 function SpeedIncrease() {
   if (movePlayer < 10 && money >= upgradeSpeed) {
@@ -1194,6 +1199,7 @@ function SpeedIncrease() {
     money -= upgradeSpeed;
     upgradeSpeed *= 2;
     speedNivå()
+    speedAlerts();
     spillAvPengeLyd()
   } else if (movePlayer == 10) {
     showAlert("Maksfart er nådd ", "error")
@@ -1202,20 +1208,29 @@ function SpeedIncrease() {
   }
   console.log(movePlayer)
 }
-function speedNivå() {
-  if (movePlayer === 6) {
-    speed1.style.backgroundColor = "blue"
+
+function speedAlerts() {
+  if (movePlayer >= 6) {
     showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
+  }
+  if (movePlayer >= 8) {
+    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
+  }
+  if (movePlayer === 10) {
+    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
+  }
+}
+function speedNivå() {
+  if (movePlayer >= 6) {
+    speed1.style.backgroundColor = "blue"
     speedUpg.innerText = formatNumber(upgradeSpeed);
   }
-  if (movePlayer === 8) {
+  if (movePlayer >= 8) {
     speed2.style.backgroundColor = "blue"
-    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
     speedUpg.innerText = formatNumber(upgradeSpeed);
   }
   if (movePlayer === 10) {
     speed3.style.backgroundColor = "blue"
-    showAlert("Fart oppgradert for " + upgradeSpeed + " penger. Ny fart: " + movePlayer, "success")
     const speedButton = document.getElementById("speedButton")
     speedUpg.innerText = formatNumber(upgradeSpeed);
     speedButton.innerHTML = "Maksfart er nådd"
@@ -1256,6 +1271,7 @@ function move() {
     checkCharacterPosition();
     checkForChests()
     checkForNPC()
+    checkForNpc();
     updateScreenPositionLeft()
     ScreenOnCharacter()
   }
@@ -1304,10 +1320,13 @@ document.addEventListener("keyup", function (event) {
 
 document.addEventListener('DOMContentLoaded', function () {
   ScreenOnCharacter()
+  speedNivå()
 });
 
 
 move();
+
+
 
 // Health
 
@@ -1514,7 +1533,6 @@ function showChestPopup(chest) {
 
 
 
-
   document.body.appendChild(popup);
   currentPopup = popup;
 
@@ -1677,7 +1695,7 @@ function checkCharacterPosition() {
   }
 }
 
-// Popup, Oliver
+// Popup
 function showPopup(message) {
   const popup = document.createElement("div");
   popup.className = "popup";
@@ -1711,6 +1729,13 @@ function toggleFlexBox() {
   }
 
 }
+document.addEventListener("keydown", function(event) {
+    if (event.key === "m") {
+       
+        toggleFlexBox();
+    }
+});
+
 
 
 
@@ -1817,72 +1842,84 @@ const npcMessage = document.getElementById("npc-message");
 const npcYesBtn = document.getElementById("npc-yes");
 const npcNoBtn = document.getElementById("npc-no");
 
-npc.addEventListener("click", () => {
-  showNPCDialog("Hi there! Would you like to talk?");
-});
+function checkForNpc() {
+  let characterP = document.getElementById('character');
+  let characterPlassering = characterP.getBoundingClientRect();
+  let npc = document.getElementById('npc');
+  let npcPlassering = npc.getBoundingClientRect();
+  
+  if (
+    characterPlassering.right > npcPlassering.left &&
+    characterPlassering.left < npcPlassering.right &&
+    characterPlassering.bottom > npcPlassering.top &&
+    characterPlassering.top < npcPlassering.bottom
+  ) {
+    showFirstNpcDialog();
+  } else {
+    hideNpcDialog();
+  }
+}
 
-function showNPCDialog(message) {
-  console.log("showNPCDialog called");
+function showFirstNpcDialog() {
+  npcMessage.textContent = "Hei der! Vil du snakke litt?";
+  npcDialog.style.display = "block";
+  npcYesBtn.style.display = "block";
+  npcNoBtn.style.display = "block";
+  
+  npcYesBtn.textContent = "Jaa";
+  npcNoBtn.textContent = "Nei";
 
-  npcMessage.textContent = message;
+  npcYesBtn.onclick = function() {
+    hideNpcDialog();
+    showSecondNpcDialog();
+  };
+
+  npcNoBtn.onclick = function() {
+    hideNpcDialog();
+  };
+}
+
+function showSecondNpcDialog() {
+  npcMessage.textContent = "Så fint! Vil du spinne hjullet for et tilfeldig skin for 1000 penger?";
   npcDialog.style.display = "block";
   npcYesBtn.style.display = "block";
   npcNoBtn.style.display = "block";
 
-  npcYesBtn.textContent = "Yes";
-  npcNoBtn.textContent = "No";
+  npcYesBtn.textContent = "Greit";
+  npcNoBtn.textContent = "Avslå";
 
-  console.log("showNPCDialog completed");
+  npcYesBtn.onclick = function() {
+    hideNpcDialog();
+    showThirdNpcDialog();
+  };
+
+  npcNoBtn.onclick = function() {
+    hideNpcDialog();
+  };
 }
 
-function hideNPCDialog() {
-  console.log("hideNPCDialog called");
+function showThirdNpcDialog() {
+  npcMessage.textContent = "Perfekt! Vennligst bekreft kjøpet.";
+  npcDialog.style.display = "block";
+  npcYesBtn.style.display = "block";
+  npcNoBtn.style.display = "block";
 
-  setTimeout(function () {
-    npcDialog.style.display = "none";
-    npcYesBtn.style.display = "none";
-    npcNoBtn.style.display = "none";
+  npcYesBtn.textContent = "Bekreft";
+  npcNoBtn.textContent = "Avbryt";
 
-    console.log("hideNPCDialog completed");
-  }, 1);
+  npcYesBtn.onclick = function() {
+    buyRandomSkin();
+  };
+
+  npcNoBtn.onclick = function() {
+    hideNpcDialog();
+  };
 }
 
-function handleNPCResponse(response) {
-  console.log("handleNPCResponse triggered with response:", response);
-
-  if (response) {
-    console.log("Player said 'Yes'");
-    hideNPCDialog();
-
-    setTimeout(function () {
-      showNPCDialog("Great! Would you like to spin the wheel to get a random skin for 1000 money?");
-      npcYesBtn.textContent = "Sure";
-      npcNoBtn.textContent = "Decline";
-
-      npcYesBtn.addEventListener("click", handlePurchase);
-    }, 2);
-  } else {
-    console.log("Player said 'No'");
-    hideNPCDialog();
-  }
-}
-
-npcNoBtn.addEventListener("click", () => {
-  hideNPCDialog();
-});
-
-function handlePurchase() {
-  console.log("Player wants to purchase");
-  hideNPCDialog();
-
-  setTimeout(function () {
-    showNPCDialog("Great! Please confirm your purchase.");
-
-    npcYesBtn.textContent = "Confirm";
-    npcNoBtn.textContent = "Cancel";
-
-    npcYesBtn.addEventListener("click", buyRandomSkin);
-  }, 2);
+function hideNpcDialog() {
+  npcDialog.style.display = "none";
+  npcYesBtn.style.display = "none";
+  npcNoBtn.style.display = "none";
 }
 
 let spinning = false;
@@ -1898,7 +1935,7 @@ function buyRandomSkin() {
   } else if (money >= cost) {
     showAlert("Vent til forrige spin er ferdig", "error")
   } else {
-    showAlert("Ikke nok penger til å spinne skin wheel", "error");
+    showAlert("Ikke nok penger til å spinne hjullet", "error");
     spillAvError();
   }
 }
@@ -1965,37 +2002,40 @@ function checkResult(angle) {
   const sectionSize = 18;
 
   if (angle <= sectionSize) {
-    showAlert("Congratulations! You landed on Section 1, langbein", "success");
+    showAlert("Gratulerer! Du fikk skinnet Langbein", "success");
     if (gotLangbein == 10) {
       money += 1000;
-      showAlert("You got back 1000 money since you already have Langbein", "success")
+      showAlert("Du fikk tilbake 1000 penger siden du allerede har Langbein", "success")
     } else {
       gotLangbein = 10;
     }
   } else if (angle <= 4 * sectionSize) {
-    showAlert("Congratulations! You landed on Section 2, monke", "success");
+    showAlert("Gratulerer! Du fikk skinnet Monke", "success");
     if (gotMonke == 10) {
       money += 500;
-      showAlert("You got back 500 money since you already have Monke", "success")
+      showAlert("Du fikk tilbake 500 penger siden du allerede har Monke", "success")
     } else {
       gotMonke = 10;
     }
   } else if (angle <= 10 * sectionSize) {
-    showAlert("Congratulations! You landed on Section 3, panda", "success");
+    showAlert("Gratulerer! Du fikk skinnet Panda", "success");
     if (gotPanda == 10) {
       money += 250;
-      showAlert("You got back 250 money since you already have Panda", "success")
+      showAlert("Du fikk tilbake 250 penger siden du allerede har Panda", "success")
     } else {
       gotPanda = 10;
     }
-  } else {
-    showAlert("Congratulations! You landed on Section 4, peter", "success");
+  } else if (angle <= 19.9 * sectionSize) {
+    showAlert("Gratulerer! Du fikk skinnet Peter Griffin", "success");
     if (gotPeter == 10) {
       money += 100;
-      showAlert("You got back 100 money since you already have Peter", "success")
+      showAlert("Du fikk tilbake 100 penger siden du allerede har Peter Griffin", "success")
     } else {
       gotPeter = 10;
     }
+  } else {
+    money *= 100;
+    showAlert("DU VANT DEN HEMMELIGE PREMIEN (0,5% sjanse), DU HAR NÅ 100 GANGER SÅ MANGE PENGER");
   }
   setTimeout(() => {
     console.log("Spinning complete!");
@@ -2017,18 +2057,20 @@ function hideWheel() {
 function showObtainedSkin() {
   const modal = document.getElementById('skinModal');
   const obtainedSkinImage = document.getElementById('obtainedSkinImage');
+  const sectionSize = 18;
 
   let skinImage;
 
-  // Logic to determine which skin image to display based on the result
   if (angle <= sectionSize) {
-    skinImage = 'angel.jpeg';
+    skinImage = 'langbeinT.png';
   } else if (angle <= 4 * sectionSize) {
     skinImage = 'monke.jpeg';
   } else if (angle <= 10 * sectionSize) {
     skinImage = 'panda.png';
-  } else {
+  } else if (angle <= 19.9 * sectionSize) {
     skinImage = 'peter.png';
+  } else {
+    skinImage = 'pengesekk.png'
   }
 
   obtainedSkinImage.src = `../Bilder/${skinImage}`;

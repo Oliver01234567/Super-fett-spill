@@ -57,9 +57,11 @@
 
             <div id="npc" class="InteractiveMaterial NPC">
                 <div id="npc-dialog" class="dialog-box">
-                    <p id="npc-message"></p>
-                    <button id="npc-yes" onclick="handleNPCResponse(true)">Yes</button>
-                    <button id="npc-no" onclick="handleNPCResponse(false)">No</button>
+                    <p id="npc-message" class="dialog-message"></p>
+                    <div class="dialog-options">
+                        <button id="npc-yes" class="dialog-btn">Yes</button>
+                        <button id="npc-no" class="dialog-btn">No</button>
+                    </div>
                 </div>
             </div>
             <div id="skinWheel" class="spinning-wheel">

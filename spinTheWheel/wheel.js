@@ -211,11 +211,11 @@ function showObtainedSkin() {
 
   // Logic to determine which skin image to display based on the result
   if (angle <= sectionSize) {
-    skinImage = 'angel.jpeg';
+    skinImage = 'langbeinT.png';
   } else if (angle <= 4 * sectionSize) {
-    skinImage = 'monke.jpeg';
+    skinImage = 'monkeT.png';
   } else if (angle <= 10 * sectionSize) {
-    skinImage = 'panda.png';
+    skinImage = 'bPandaT.png';
   } else {
     skinImage = 'peter.png';
   }
