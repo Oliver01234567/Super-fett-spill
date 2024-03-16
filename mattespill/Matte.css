@@ -105,12 +105,12 @@ nav h1 {
 
 h2 {
   font-family: "Press Start 2P", system-ui;
-  color: yellow;
+  color: #ffff44;
   font-size: 40px;
 }
 
 #winButton {
-  background-color: yellow;
+  background-color: #ffff44;
 
   padding: 50px;
   border-radius: 50px;
