@@ -82,12 +82,6 @@ body {
     background: linear-gradient(to right, rgb(244, 199, 127) 43%, rgb(91 241 241 / 96%) 57%)
 }
 
-.monster{
-    position: absolute;
-    z-index: 3;
-}
-
-
 
 .tree {
     position: absolute;
