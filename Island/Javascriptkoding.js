@@ -1156,10 +1156,9 @@ function generateTrees(numTrees) {
     map.appendChild(tree);
   }
 }
-
 // random tre når siden loader
 window.onload = function () {
-  generateTrees(20);
+  generateTrees(30);
 };
 
 
