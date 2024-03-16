@@ -67,7 +67,7 @@ function next4() {
 }
 
 function next5() {
-    explText.innerText = "Da drukner du eller blir spist av sjømonsteret."
+    explText.innerText = "Beveger du deg videre enn stranden DRUKNER DU!."
 
     explButton.removeEventListener("click", next5)
     explButton.addEventListener("click", next6)
