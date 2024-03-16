@@ -292,13 +292,13 @@ if (chosenRasmus == 10) {
 }
 
 function choosenRasmus() {
-  if (money >= 5000 && chosenRasmus == 0) {
+  if (money >= 30000 && chosenRasmus == 0) {
     characterP.src = "../Bilder/Rasmus.png";
     choosenSkin = 1;
     sessionStorage.setItem("choosenSkin", choosenSkin);
-    money -= 5000;
+    money -= 30000;
     spillAvPengeLyd();
-    showAlert("Du har kjøpt Rasmus for 5000 penger", "success")
+    showAlert("Du har kjøpt Rasmus for 30 000 penger", "success")
     chosenRasmus = 10;
     sessionStorage.setItem("chosenRasmus", chosenRasmus)
     rasmusSkin.innerText = "Rasmus";
@@ -336,13 +336,13 @@ if (chosenSkrue == 10) {
 }
 
 function choosenSkrue() {
-  if (money >= 2000 && chosenSkrue == 0) {
+  if (money >= 5000 && chosenSkrue == 0) {
     characterP.src = "../Bilder/skrueMcDuck.png";
     choosenSkin = 13;
     sessionStorage.setItem("choosenSkin", choosenSkin);
-    money -= 2000;
+    money -= 5000;
     spillAvPengeLyd();
-    showAlert("Du har kjøpt Skrue McDuck for 2000 penger", "success")
+    showAlert("Du har kjøpt Skrue McDuck for 5 000 penger", "success")
     chosenSkrue = 10;
     sessionStorage.setItem("chosenSkrue", chosenSkrue)
     skrueSkin.innerText = "Skrue McDuck";
@@ -380,13 +380,13 @@ if (chosenRock == 10) {
 }
 
 function choosenRock() {
-  if (money >= 1000 && chosenRock == 0) {
+  if (money >= 10000 && chosenRock == 0) {
     characterP.src = "../Bilder/The-Rock.png";
     choosenSkin = 14;
     sessionStorage.setItem("choosenSkin", choosenSkin);
-    money -= 2000;
+    money -= 10000;
     spillAvPengeLyd();
-    showAlert("Du har kjøpt Dwanye The Rock Johnson for 1000 penger", "success")
+    showAlert("Du har kjøpt Dwanye The Rock Johnson for 10 000 penger", "success")
     chosenRock = 10;
     sessionStorage.setItem("chosenRock", chosenRock)
     rockSKin.innerText = "The Rock";
@@ -469,13 +469,13 @@ if (chosenSid == 10) {
 }
 
 function choosenSid() {
-  if (money >= 1000 && chosenSid == 0) {
+  if (money >= 10000 && chosenSid == 0) {
     characterP.src = "../Bilder/SId.png";
     choosenSkin = 16;
     sessionStorage.setItem("choosenSkin", choosenSkin);
-    money -= 1000;
+    money -= 10000;
     spillAvPengeLyd();
-    showAlert("Du har kjøpt Sid Fra Istid for 3000 penger", "success")
+    showAlert("Du har kjøpt Sid Fra Istid for 10 000 penger", "success")
     chosenSid = 10;
     sessionStorage.setItem("chosenSid", chosenSid)
     sidSkin.innerText = "Sid Fra Istid";
