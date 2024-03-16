@@ -45,6 +45,7 @@ header {
     color: black;
     background-color: yellow;
     font-family: "Press Start 2P", system-ui;
+    margin-left: 20px;
 }
 
 .colorScheme1border {
