@@ -2034,11 +2034,14 @@ if(gotLangbein == 10) {
   langbeinSkin.innerText = "Langbein"
 }
 
+let skinImage;
+
 function checkResult(angle) {
   console.log("Checking result for angle:", angle);
   const sectionSize = 18;
 
   if (angle <= sectionSize) {
+    skinImage = 'langbeinT.png';
     showAlert("Gratulerer! Du fikk skinnet Langbein", "success");
     langbeinSkin.innerText = "Langbein"
     if (gotLangbein == 10) {
@@ -2049,6 +2052,7 @@ function checkResult(angle) {
       sessionStorage.setItem("gotLangbein", 10)
     }
   } else if (angle <= 4 * sectionSize) {
+    skinImage = 'monke.jpeg';
     showAlert("Gratulerer! Du fikk skinnet Monke", "success");
     monkeSkin.innerText = "Monke"
     if (gotMonke == 10) {
@@ -2059,6 +2063,7 @@ function checkResult(angle) {
       sessionStorage.setItem("gotMonke", gotMonke)
     }
   } else if (angle <= 10 * sectionSize) {
+    skinImage = 'panda.png';
     showAlert("Gratulerer! Du fikk skinnet Panda", "success");
     pandaSkin.innerText = "Panda"
     if (gotPanda == 10) {
@@ -2069,6 +2074,7 @@ function checkResult(angle) {
       sessionStorage.setItem("gotPanda", gotPanda)
     }
   } else if (angle <= 19.9 * sectionSize) {
+    skinImage = 'peter.png';
     showAlert("Gratulerer! Du fikk skinnet Peter Griffin", "success");
     peterSkin.innerText = "Peter Griffin"
     if (gotPeter == 10) {
@@ -2079,6 +2085,7 @@ function checkResult(angle) {
       sessionStorage.setItem("gotPeter", 10)
     }
   } else {
+    skinImage = 'pengesekk.png';
     money *= 100;
     showAlert("DU VANT DEN HEMMELIGE PREMIEN (0,5% sjanse), DU HAR NÅ 100 GANGER SÅ MANGE PENGER");
   }
@@ -2100,24 +2107,13 @@ function hideWheel() {
 }
 
 function showObtainedSkin() {
-  const modal = document.getElementById('skinModal');
-  const obtainedSkinImage = document.getElementById('obtainedSkinImage');
-  const sectionSize = 18;
+  const obtainedSkinContainer = document.getElementById('obtainedSkinContainer');
+  const obtainedSkinDiv = document.createElement('div');
+  obtainedSkinDiv.classList.add('obtained-skin');
 
-  let skinImage;
+  const obtainedSkinImg = document.createElement('img');
+  obtainedSkinImg.src = `../Bilder/${skinImage}`;
 
-  if (angle <= sectionSize) {
-    skinImage = 'langbeinT.png';
-  } else if (angle <= 4 * sectionSize) {
-    skinImage = 'monke.jpeg';
-  } else if (angle <= 10 * sectionSize) {
-    skinImage = 'panda.png';
-  } else if (angle <= 19.9 * sectionSize) {
-    skinImage = 'peter.png';
-  } else {
-    skinImage = 'pengesekk.png'
-  }
-
-  obtainedSkinImage.src = `../Bilder/${skinImage}`;
-  modal.style.display = 'block';
+  obtainedSkinDiv.appendChild(obtainedSkinImg);
+  obtainedSkinContainer.appendChild(obtainedSkinDiv);
 }
