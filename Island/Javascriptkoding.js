@@ -1286,6 +1286,7 @@ function move() {
     checkCharacterPosition();
     checkForChests()
     checkForNPC()
+    checkForNpc();
     updateScreenPositionRight()
     ScreenOnCharacter()
   }
@@ -1296,6 +1297,7 @@ function move() {
     checkCharacterPosition();
     checkForChests()
     checkForNPC()
+    checkForNpc();
     updateScreenPositionTop()
     ScreenOnCharacter()
   }
@@ -1306,6 +1308,7 @@ function move() {
     checkCharacterPosition();
     checkForChests()
     checkForNPC()
+    checkForNpc();
     updateScreenPositionDown()
     ScreenOnCharacter()
   }
