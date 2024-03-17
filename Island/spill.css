@@ -712,8 +712,8 @@ body {
 .dialog-box {
     display: none;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: calc(50% - 118px);
+    left: calc(50% - 85px);
     transform: translate(-50%, -50%);
     background-color: #fff;
     border: 2px solid #333;
@@ -814,6 +814,18 @@ body {
     z-index: 1001; 
 }
 
+.obtained-skin {
+    display: inline-block;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  .obtained-skin img {
+    max-width: 100px; /* Adjust the maximum width of the image */
+    max-height: 100px; /* Adjust the maximum height of the image */
+  }
   
   .rays {
     background: url('rays.png'); /* Add your rays image */
