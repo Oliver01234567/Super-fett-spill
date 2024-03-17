@@ -2,7 +2,7 @@ let score = 0
 const scoreBoard = document.getElementById("score")
 const body = document.getElementById("body")
 let opponent = 0
-opponent = parseInt(sessionStorage.getItem("opponent")) || 0
+opponent = parseInt(localStorage.getItem("opponent")) || 0
 let matteSeier = 0
 
 function genererMatteoppgave() {

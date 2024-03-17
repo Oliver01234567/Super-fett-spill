@@ -1,5 +1,5 @@
 //henter skins fra andre html dokumenter
-choosenSkin = parseInt(sessionStorage.getItem("choosenSkin")) || 0
+choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
 
 const playerIcon = document.getElementById("karakter")
 const name = document.getElementById("playerName")
@@ -95,7 +95,7 @@ if (choosenSkin == 17) {
 }
 
 //henter hvilken fiende du vil kjempe mot
-opponent = parseInt(sessionStorage.getItem("opponent")) || 0
+opponent = parseInt(localStorage.getItem("opponent")) || 0
 
 const motstanderIcon = document.getElementById("motstanderIcon")
 const enemyName = document.getElementById("EnemyName")
@@ -285,7 +285,7 @@ const prov = document.getElementById("Prov")
 
 //du mister penger hvis du dør
 let money = 0
-money = parseInt(sessionStorage.getItem("money")) || 0
+money = parseInt(localStorage.getItem("money")) || 0
 
 function spillAvFight() {
     let lydElement3 = document.getElementById('Fight');
@@ -382,7 +382,7 @@ function startGame() {
     //variabler for endringen i healthbar til fienden
     let u = 0
     let n = 100
-    let playerDamage = parseFloat(sessionStorage.getItem("damageIs")) || 1;
+    let playerDamage = parseFloat(localStorage.getItem("damageIs")) || 1;
     let playerDamagePercentage = (playerDamage / 10) * 100
 
 
@@ -397,7 +397,7 @@ function startGame() {
 
 
     //spillerens helse (må være her oppe fordi den referes til i koden under)
-    let plyHealth = parseInt(sessionStorage.getItem("healthIs")) || 30
+    let plyHealth = parseInt(localStorage.getItem("healthIs")) || 30
     console.log("plyHealth er " + plyHealth)
 
 
@@ -438,55 +438,55 @@ function startGame() {
             clearInterval(Forsvar)
             plyHealth = 10000
             let combatSeier = 1
-            sessionStorage.setItem("combatSeier", combatSeier)
+          localStorage.setItem("combatSeier", combatSeier)
             if (andDeath == 1) {
                 let andenDod = 2
-                sessionStorage.setItem("andenDod", andenDod)
+              localStorage.setItem("andenDod", andenDod)
 
                 let firstTimeAnd = 1
-                sessionStorage.setItem("firstTimeAnd", firstTimeAnd)
+              localStorage.setItem("firstTimeAnd", firstTimeAnd)
 
             }
 
             if (jonasDeath == 1) {
                 let jonasDod = 2
-                sessionStorage.setItem("jonasDod", jonasDod)
+              localStorage.setItem("jonasDod", jonasDod)
 
                 let firstTimeJonas = 1
-                sessionStorage.setItem("firstTimeJonas", firstTimeJonas)
+              localStorage.setItem("firstTimeJonas", firstTimeJonas)
 
             }
 
             if (kasperDeath == 1) {
                 let kasperDod = 2
-                sessionStorage.setItem("kasperDod", kasperDod)
+              localStorage.setItem("kasperDod", kasperDod)
 
                 let firstTimeKasper = 1
-                sessionStorage.setItem("firstTimeKasper", firstTimeKasper)
+              localStorage.setItem("firstTimeKasper", firstTimeKasper)
             }
 
             if(elonDeath == 1) {
                 let elonDod = 2
-                sessionStorage.setItem("elonDod", elonDod)
+              localStorage.setItem("elonDod", elonDod)
 
                 let firstTimeElon = 1
-                sessionStorage.setItem("firstTimeElon", firstTimeElon)
+              localStorage.setItem("firstTimeElon", firstTimeElon)
             }
 
             if(marioDeath == 1) {
                 let marioDod = 2
-                sessionStorage.setItem("marioDod", marioDod)
+              localStorage.setItem("marioDod", marioDod)
 
                 let firstTimeMario = 1
-                sessionStorage.setItem("firstTimeMario", firstTimeMario)
+              localStorage.setItem("firstTimeMario", firstTimeMario)
             }
 
             if(peteDeath == 1) {
                 let peteDod = 2
-                sessionStorage.setItem("peteDod", peteDod)
+              localStorage.setItem("peteDod", peteDod)
 
                 let firstTimePete = 1
-                sessionStorage.setItem("firstTimePete", firstTimePete)
+              localStorage.setItem("firstTimePete", firstTimePete)
             }
 
 
@@ -815,7 +815,7 @@ function startGame() {
     }
 
     function resetHealth() {
-        plyHealth = parseInt(sessionStorage.getItem("healthIs")) || 30
+        plyHealth = parseInt(localStorage.getItem("healthIs")) || 30
         EmyHealth = 10
 
         //fiende healthbar
@@ -884,7 +884,7 @@ function startGame() {
             playerIcon.style.animation = "dødSpiller 1s linear forwards"
             let tapPenger = money * 0.1;
             money = money * 0.9
-            sessionStorage.setItem("money", money);
+          localStorage.setItem("money", money);
             showAlert("Du tapte " + tapPenger.toFixed(0) + " penger", "error")
         }
     }

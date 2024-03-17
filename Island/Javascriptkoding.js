@@ -44,7 +44,7 @@ const characterP = document.getElementById("character")
 
 
 let choosenSkin = 0
-choosenSkin = parseInt(sessionStorage.getItem("choosenSkin")) || 0
+choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
 
 
 //matte seiere
@@ -63,7 +63,7 @@ if (matteSeier == 1) {
 
 
 let matteUnlocked = 0
-matteUnlocked = sessionStorage.getItem("matteUnlocked") || 0
+matteUnlocked = localStorage.getItem("matteUnlocked") || 0
 
 
 function matteIsUlocked() {
@@ -75,7 +75,7 @@ if (matteSeier == 3) {
   localStorage.setItem("matteSeier", 2)
 
   matteUnlocked = 1
-  sessionStorage.setItem("matteUnlocked", 1)
+localStorage.setItem("matteUnlocked", 1)
   tjentMoney = 7000
   money = money + tjentMoney
   showAlert("Svampebob er stolt av deg, de gir deg " + tjentMoney.toFixed(0) + " penger", "success")
@@ -98,7 +98,7 @@ if (quiz1Seier == 1) {
 
 
 let birkUnlocked = 0
-birkUnlocked = sessionStorage.getItem("birkUnlocked") || 0
+birkUnlocked = localStorage.getItem("birkUnlocked") || 0
 
 
 function birkIsUnlocked() {
@@ -110,7 +110,7 @@ if (quiz1Seier == 3) {
   localStorage.setItem("quiz1Seier", 2)
 
   birkUnlocked = 1
-  sessionStorage.setItem("birkUnlocked", 1)
+localStorage.setItem("birkUnlocked", 1)
   tjentMoney = 7000
   money = money + tjentMoney
   showAlert("Birk er stolt av deg, han gir deg " + tjentMoney.toFixed(0) + " penger", "success")
@@ -276,7 +276,7 @@ const mButtons = document.querySelectorAll(".Mbuttons")
 function ChoosenTorb() {
   characterP.src = "../Bilder/Torbjorn.png"
   choosenSkin = 0
-  sessionStorage.setItem("choosenSkin", choosenSkin);
+localStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
     if (button.id !== "torbSkin") {
       button.style.backgroundColor = "brown";
@@ -289,7 +289,7 @@ function ChoosenTorb() {
 
 let chosenRasmus = 0;
 
-chosenRasmus = sessionStorage.getItem("chosenRasmus") || 0
+chosenRasmus = localStorage.getItem("chosenRasmus") || 0
 
 if (chosenRasmus == 10) {
   rasmusSkin.innerText = "Rasmus";
@@ -299,12 +299,12 @@ function choosenRasmus() {
   if (money >= 30000 && chosenRasmus == 0) {
     characterP.src = "../Bilder/Rasmus.png";
     choosenSkin = 1;
-    sessionStorage.setItem("choosenSkin", choosenSkin);
+  localStorage.setItem("choosenSkin", choosenSkin);
     money -= 30000;
     spillAvPengeLyd();
     showAlert("Du har kjøpt Rasmus for 30 000 penger", "success")
     chosenRasmus = 10;
-    sessionStorage.setItem("chosenRasmus", chosenRasmus)
+  localStorage.setItem("chosenRasmus", chosenRasmus)
     rasmusSkin.innerText = "Rasmus";
     mButtons.forEach((button) => {
       if (button.id !== "rasmusSkin") {
@@ -317,7 +317,7 @@ function choosenRasmus() {
     rasmusSkin.innerText = "Rasmus";
     characterP.src = "../Bilder/Rasmus.png";
     choosenSkin = 1;
-    sessionStorage.setItem("choosenSkin", choosenSkin);
+  localStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
       if (button.id !== "rasmusSkin") {
         button.style.backgroundColor = "brown";
@@ -333,7 +333,7 @@ function choosenRasmus() {
 
 let chosenSkrue = 0;
 
-chosenSkrue = sessionStorage.getItem("chosenSkrue") || 0
+chosenSkrue = localStorage.getItem("chosenSkrue") || 0
 
 if (chosenSkrue == 10) {
   skrueSkin.innerText = "Skrue McDuck";
@@ -343,12 +343,12 @@ function choosenSkrue() {
   if (money >= 5000 && chosenSkrue == 0) {
     characterP.src = "../Bilder/skrueMcDuck.png";
     choosenSkin = 13;
-    sessionStorage.setItem("choosenSkin", choosenSkin);
+  localStorage.setItem("choosenSkin", choosenSkin);
     money -= 5000;
     spillAvPengeLyd();
     showAlert("Du har kjøpt Skrue McDuck for 5 000 penger", "success")
     chosenSkrue = 10;
-    sessionStorage.setItem("chosenSkrue", chosenSkrue)
+  localStorage.setItem("chosenSkrue", chosenSkrue)
     skrueSkin.innerText = "Skrue McDuck";
     mButtons.forEach((button) => {
       if (button.id !== "skrueSkin") {
@@ -361,7 +361,7 @@ function choosenSkrue() {
     skrueSkin.innerText = "Skrue McDuck";
     characterP.src = "../Bilder/skrueMcDuck.png";
     choosenSkin = 13;
-    sessionStorage.setItem("choosenSkin", choosenSkin);
+  localStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
       if (button.id !== "skrueSkin") {
         button.style.backgroundColor = "brown";
@@ -377,7 +377,7 @@ function choosenSkrue() {
 
 let chosenRock = 0;
 
-chosenRock = sessionStorage.getItem("chosenRock") || 0
+chosenRock = localStorage.getItem("chosenRock") || 0
 
 if (chosenRock == 10) {
   rockSKin.innerText = "The Rock";
@@ -387,12 +387,12 @@ function choosenRock() {
   if (money >= 10000 && chosenRock == 0) {
     characterP.src = "../Bilder/The-Rock.png";
     choosenSkin = 14;
-    sessionStorage.setItem("choosenSkin", choosenSkin);
+  localStorage.setItem("choosenSkin", choosenSkin);
     money -= 10000;
     spillAvPengeLyd();
     showAlert("Du har kjøpt Dwanye The Rock Johnson for 10 000 penger", "success")
     chosenRock = 10;
-    sessionStorage.setItem("chosenRock", chosenRock)
+  localStorage.setItem("chosenRock", chosenRock)
     rockSKin.innerText = "The Rock";
     mButtons.forEach((button) => {
       if (button.id !== "rockSkin") {
@@ -405,7 +405,7 @@ function choosenRock() {
     rockSKin.innerText = "The Rock";
     characterP.src = "../Bilder/The-Rock.png";
     choosenSkin = 14;
-    sessionStorage.setItem("choosenSkin", choosenSkin);
+  localStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
       if (button.id !== "rockSkin") {
         button.style.backgroundColor = "brown";
@@ -422,7 +422,7 @@ function choosenRock() {
 
 let chosenStewie = 0;
 
-chosenStewie = sessionStorage.getItem("chosenStewie") || 0
+chosenStewie = localStorage.getItem("chosenStewie") || 0
 
 if (chosenStewie == 10) {
   stewieSkin.innerText = "Stewie Griffin";
@@ -432,12 +432,12 @@ function choosenStewie() {
   if (money >= 3000 && chosenStewie == 0) {
     characterP.src = "../Bilder/Stewie.png";
     choosenSkin = 15;
-    sessionStorage.setItem("choosenSkin", choosenSkin);
+  localStorage.setItem("choosenSkin", choosenSkin);
     money -= 3000;
     spillAvPengeLyd();
     showAlert("Du har kjøpt Stewie Griffin for 3000 penger", "success")
     chosenStewie = 10;
-    sessionStorage.setItem("chosenStewie", chosenStewie)
+  localStorage.setItem("chosenStewie", chosenStewie)
     stewieSkin.innerText = "Stewie Griffin";
     mButtons.forEach((button) => {
       if (button.id !== "stewieSkin") {
@@ -450,7 +450,7 @@ function choosenStewie() {
     stewieSkin.innerText = "Stewie Griffin";
     characterP.src = "../Bilder/Stewie.png";
     choosenSkin = 15;
-    sessionStorage.setItem("choosenSkin", choosenSkin);
+  localStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
       if (button.id !== "stewieSkin") {
         button.style.backgroundColor = "brown";
@@ -466,7 +466,7 @@ function choosenStewie() {
 
 let chosenSid = 0;
 
-chosenSid = sessionStorage.getItem("chosenSid") || 0
+chosenSid = localStorage.getItem("chosenSid") || 0
 
 if (chosenSid == 10) {
   sidSkin.innerText = "Sid Fra Istid";
@@ -476,12 +476,12 @@ function choosenSid() {
   if (money >= 10000 && chosenSid == 0) {
     characterP.src = "../Bilder/SId.png";
     choosenSkin = 16;
-    sessionStorage.setItem("choosenSkin", choosenSkin);
+  localStorage.setItem("choosenSkin", choosenSkin);
     money -= 10000;
     spillAvPengeLyd();
     showAlert("Du har kjøpt Sid Fra Istid for 10 000 penger", "success")
     chosenSid = 10;
-    sessionStorage.setItem("chosenSid", chosenSid)
+  localStorage.setItem("chosenSid", chosenSid)
     sidSkin.innerText = "Sid Fra Istid";
     mButtons.forEach((button) => {
       if (button.id !== "sidSkin") {
@@ -494,7 +494,7 @@ function choosenSid() {
     sidSkin.innerText = "Sid Fra Istid";
     characterP.src = "../Bilder/SId.png";
     choosenSkin = 16;
-    sessionStorage.setItem("choosenSkin", choosenSkin);
+  localStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
       if (button.id !== "sidSkin") {
         button.style.backgroundColor = "brown";
@@ -511,7 +511,7 @@ function choosenSid() {
 function choosenSvamp() {
   characterP.src = "../Bilder/svanpeBob.png"
   choosenSkin = 17
-  sessionStorage.setItem("choosenSkin", choosenSkin);
+localStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
     if (button.id !== "svampSkin") {
       button.style.backgroundColor = "brown";
@@ -524,7 +524,7 @@ function choosenSvamp() {
 function ChoosenJonas() {
   characterP.src = "../Bilder/Jonas.png"
   choosenSkin = 2
-  sessionStorage.setItem("choosenSkin", choosenSkin);
+localStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
     if (button.id !== "jonasSkin") {
       button.style.backgroundColor = "brown";
@@ -537,7 +537,7 @@ function ChoosenJonas() {
 function ChoosenAnd() {
   characterP.src = "../Bilder/playerIcon1.png"
   choosenSkin = 3
-  sessionStorage.setItem("choosenSkin", choosenSkin);
+localStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
     if (button.id !== "andSkin") {
       button.style.backgroundColor = "brown";
@@ -551,7 +551,7 @@ function chosenMonke() {
   if (gotMonke == 10) {
     characterP.src = "../Bilder/monkeT.png";
     choosenSkin = 4;
-    sessionStorage.setItem("choosenSkin", choosenSkin);
+  localStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
       if (button.id !== "monkeSkin") {
         button.style.backgroundColor = "brown";
@@ -568,7 +568,7 @@ function chosenPanda() {
   if (gotPanda == 10) {
     characterP.src = "../Bilder/bPandaT.png";
     choosenSkin = 5;
-    sessionStorage.setItem("choosenSkin", choosenSkin);
+  localStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
       if (button.id !== "pandaSkin") {
         button.style.backgroundColor = "brown";
@@ -585,7 +585,7 @@ function chosenLangbein() {
   if (gotLangbein == 10) {
     characterP.src = "../Bilder/langbeinT.png";
     choosenSkin = 6;
-    sessionStorage.setItem("choosenSkin", choosenSkin);
+  localStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
       if (button.id !== "langbeinSkin") {
         button.style.backgroundColor = "brown";
@@ -602,7 +602,7 @@ function chosenPeter() {
   if (gotPeter == 10) {
     characterP.src = "../Bilder/peter.png";
     choosenSkin = 7;
-    sessionStorage.setItem("choosenSkin", choosenSkin);
+  localStorage.setItem("choosenSkin", choosenSkin);
     mButtons.forEach((button) => {
       if (button.id !== "peterSkin") {
         button.style.backgroundColor = "brown";
@@ -618,7 +618,7 @@ function chosenPeter() {
 function ChoosenBirk() {
   characterP.src = "../Bilder/Birk.png"
   choosenSkin = 8
-  sessionStorage.setItem("choosenSkin", choosenSkin);
+localStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
     if (button.id !== "birkSkin") {
       button.style.backgroundColor = "brown";
@@ -631,7 +631,7 @@ function ChoosenBirk() {
 function choosenKasper() {
   characterP.src = "../Bilder/kasper.png"
   choosenSkin = 9
-  sessionStorage.setItem("choosenSkin", choosenSkin);
+localStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
     if (button.id !== "kasperSkin") {
       button.style.backgroundColor = "brown";
@@ -644,7 +644,7 @@ function choosenKasper() {
 function choosenElon() {
   characterP.src = "../Bilder/elon.png"
   choosenSkin = 10
-  sessionStorage.setItem("choosenSkin", choosenSkin);
+localStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
     if (button.id !== "elonSkin") {
       button.style.backgroundColor = "brown";
@@ -657,7 +657,7 @@ function choosenElon() {
 function choosenMario() {
   characterP.src = "../Bilder/elon.png"
   choosenSkin = 11
-  sessionStorage.setItem("choosenSkin", choosenSkin);
+localStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
     if (button.id !== "marioSkin") {
       button.style.backgroundColor = "brown";
@@ -670,7 +670,7 @@ function choosenMario() {
 function choosenPete() {
   characterP.src = "../Bilder/peteD.png"
   choosenSkin = 12
-  sessionStorage.setItem("choosenSkin", choosenSkin);
+localStorage.setItem("choosenSkin", choosenSkin);
   mButtons.forEach((button) => {
     if (button.id !== "peteSkin") {
       button.style.backgroundColor = "brown";
@@ -840,7 +840,7 @@ function birkSinQuiz() {
   godtaOrUtfordre.removeEventListener("click", birkSinQuiz)
   godtaOrUtfordre.addEventListener("click", utfordreFiende)
   opponent = 19
-  sessionStorage.setItem("opponent", 19)
+localStorage.setItem("opponent", 19)
   window.location.href = '../Quiz/quiz_3.html';
 }
 
@@ -848,7 +848,7 @@ function matte() {
   godtaOrUtfordre.removeEventListener("click", matte)
   godtaOrUtfordre.addEventListener("click", utfordreFiende)
   opponent = 18
-  sessionStorage.setItem("opponent", 18)
+localStorage.setItem("opponent", 18)
   window.location.href = '../mattespill/matte.html';
 }
 
@@ -879,38 +879,38 @@ let opponent = 0
 //de ulike fiendene
 function fightAnden() {
   opponent = 0
-  sessionStorage.setItem("opponent", opponent);
+localStorage.setItem("opponent", opponent);
   window.location.href = '../Combat/Combat.html';
 
 }
 
 function fightJonas() {
   opponent = 1
-  sessionStorage.setItem("opponent", opponent)
+localStorage.setItem("opponent", opponent)
   window.location.href = '../Combat/Combat.html';
 }
 
 function fightKasper() {
   opponent = 2
-  sessionStorage.setItem("opponent", opponent)
+localStorage.setItem("opponent", opponent)
   window.location.href = '../Combat/Combat.html';
 }
 
 function fightElonMusk() {
   opponent = 3
-  sessionStorage.setItem("opponent", opponent)
+localStorage.setItem("opponent", opponent)
   window.location.href = '../Combat/Combat.html';
 }
 
 function fightMario() {
   opponent = 4
-  sessionStorage.setItem("opponent", opponent)
+localStorage.setItem("opponent", opponent)
   window.location.href = '../Combat/Combat.html';
 }
 
 function fightPeteDavidson() {
   opponent = 5
-  sessionStorage.setItem("opponent", opponent)
+localStorage.setItem("opponent", opponent)
   window.location.href = '../Combat/Combat.html';
 }
 function hjelpTarzan() {
@@ -924,16 +924,16 @@ const enemyDiv = document.getElementById("Enemies")
 const island = document.getElementById("øy")
 
 let andenDod = 0
-andenDod = sessionStorage.getItem("andenDod") || 0
+andenDod = localStorage.getItem("andenDod") || 0
 andSkin.addEventListener("click", ikkeTilgangSkin)
 
-let firstTimeAnd = sessionStorage.getItem("firstTimeAnd") || 0
+let firstTimeAnd = localStorage.getItem("firstTimeAnd") || 0
 
 if (andenDod == 2) {
   if (firstTimeAnd == 1) {
     setTimeout(andUnlocked, 2500)
     firstTimeAnd = 2
-    sessionStorage.setItem("firstTimeAnd", firstTimeAnd)
+  localStorage.setItem("firstTimeAnd", firstTimeAnd)
   }
   const andElement = document.querySelector("#anden");
   if (andElement && island.contains(andElement)) {
@@ -952,7 +952,7 @@ function andUnlocked() {
 
 
 let jonasDod = 0
-jonasDod = sessionStorage.getItem("jonasDod") || 0
+jonasDod = localStorage.getItem("jonasDod") || 0
 jonasSkin.addEventListener("click", ikkeTilgangSkin)
 
 function ikkeTilgangSkin() {
@@ -960,13 +960,13 @@ function ikkeTilgangSkin() {
 
 }
 
-let firstTimeJonas = sessionStorage.getItem("firstTimeJonas") || 0
+let firstTimeJonas = localStorage.getItem("firstTimeJonas") || 0
 
 if (jonasDod == 2) {
   if (firstTimeJonas == 1) {
     setTimeout(jonasUnlocked, 2500)
     firstTimeJonas = 2
-    sessionStorage.setItem("firstTimeJonas", firstTimeJonas)
+  localStorage.setItem("firstTimeJonas", firstTimeJonas)
   }
   enemyDiv.removeChild(document.querySelector("#jonas"));
   jonasSkin.addEventListener("click", ChoosenJonas)
@@ -980,16 +980,16 @@ function jonasUnlocked() {
 
 
 let kasperDod = 0
-kasperDod = sessionStorage.getItem("kasperDod") || 0
+kasperDod = localStorage.getItem("kasperDod") || 0
 kasperSkin.addEventListener("click", ikkeTilgangSkin)
 
-let firstTimeKasper = sessionStorage.getItem("firstTimeKasper") || 0
+let firstTimeKasper = localStorage.getItem("firstTimeKasper") || 0
 
 if (kasperDod == 2) {
   if (firstTimeKasper == 1) {
     setTimeout(kasperUnlocked, 2500)
     firstTimeKasper = 2
-    sessionStorage.setItem("firstTimeKasper", firstTimeKasper)
+  localStorage.setItem("firstTimeKasper", firstTimeKasper)
   }
   enemyDiv.removeChild(document.querySelector("#kasper"));
   kasperSkin.addEventListener("click", choosenKasper)
@@ -1004,16 +1004,16 @@ function kasperUnlocked() {
 
 
 let elonDod = 0
-elonDod = sessionStorage.getItem("elonDod") || 0
+elonDod = localStorage.getItem("elonDod") || 0
 elonSkin.addEventListener("click", ikkeTilgangSkin)
 
-let firstTimeElon = sessionStorage.getItem("firstTimeElon") || 0
+let firstTimeElon = localStorage.getItem("firstTimeElon") || 0
 
 if (elonDod == 2) {
   if (firstTimeElon == 1) {
     setTimeout(elonUnlocked, 2500)
     firstTimeElon = 2
-    sessionStorage.setItem("firstTimeElon", firstTimeElon)
+  localStorage.setItem("firstTimeElon", firstTimeElon)
   }
   enemyDiv.removeChild(document.querySelector("#Elon"));
   elonSkin.addEventListener("click", choosenElon)
@@ -1027,16 +1027,16 @@ function elonUnlocked() {
 
 
 let marioDod = 0
-marioDod = sessionStorage.getItem("marioDod") || 0
+marioDod = localStorage.getItem("marioDod") || 0
 marioSkin.addEventListener("click", ikkeTilgangSkin)
 
-let firstTimeMario = sessionStorage.getItem("firstTimeMario") || 0
+let firstTimeMario = localStorage.getItem("firstTimeMario") || 0
 
 if (marioDod == 2) {
   if (firstTimeMario == 1) {
     setTimeout(marioUnlocked, 2500)
     firstTimeMario = 2
-    sessionStorage.setItem("firstTimeMario", firstTimeMario)
+  localStorage.setItem("firstTimeMario", firstTimeMario)
   }
   enemyDiv.removeChild(document.querySelector("#mario"));
   marioSkin.addEventListener("click", choosenMario)
@@ -1050,16 +1050,16 @@ function marioUnlocked() {
 
 
 let peteDod = 0
-peteDod = sessionStorage.getItem("peteDod") || 0
+peteDod = localStorage.getItem("peteDod") || 0
 peteSkin.addEventListener("click", ikkeTilgangSkin)
 
-let firstTimePete = sessionStorage.getItem("firstTimePete") || 0
+let firstTimePete = localStorage.getItem("firstTimePete") || 0
 
 if (peteDod == 2) {
   if (firstTimePete == 1) {
     setTimeout(peteUnlocked, 2500)
     firstTimePete = 2
-    sessionStorage.setItem("firstTimePete", firstTimePete)
+  localStorage.setItem("firstTimePete", firstTimePete)
   }
   const peteElement = document.querySelector("#pete");
   if (peteElement && island.contains(peteElement)) {
@@ -1110,11 +1110,11 @@ if (matteUnlocked == 1) {
 
 //du har vunnet en fight i combat.js
 let combatSeier = 0
-combatSeier = sessionStorage.getItem("combatSeier") || 0
+combatSeier = localStorage.getItem("combatSeier") || 0
 
 if (combatSeier == 1) {
   combatSeier = 2
-  sessionStorage.setItem("combatSeier", combatSeier)
+localStorage.setItem("combatSeier", combatSeier)
 
   money = money + 5000
   localStorage.setItem("money", money);
@@ -1184,7 +1184,7 @@ let movement = {
 };
 
 //Variabel for movement
-let movePlayer = parseInt(sessionStorage.getItem("movePlayer")) || 4;
+let movePlayer = parseInt(localStorage.getItem("movePlayer")) || 4;
 
 let upgradeSpeed = 1000;
 
@@ -1198,7 +1198,7 @@ function ScreenOnCharacter(){
 function SpeedIncrease() {
   if (movePlayer < 10 && money >= upgradeSpeed) {
     movePlayer += 2;
-    sessionStorage.setItem("movePlayer", movePlayer)
+  localStorage.setItem("movePlayer", movePlayer)
     money -= upgradeSpeed;
     upgradeSpeed *= 2;
     speedNivå()
@@ -1243,8 +1243,8 @@ function speedNivå() {
 
 let posisjonHoyde = 1
 let posisjonBredde = 1
-posisjonHoyde = sessionStorage.getItem("posisjonHoyde") || 1
-posisjonBredde = sessionStorage.getItem("posisjonBredde") || 1
+posisjonHoyde = localStorage.getItem("posisjonHoyde") || 1
+posisjonBredde = localStorage.getItem("posisjonBredde") || 1
 characterP.style.left = posisjonBredde + "px";
 characterP.style.top = posisjonHoyde + "px";
 
@@ -1268,7 +1268,7 @@ function move() {
 
   if (movement.ArrowLeft || movement.a || movement.A) {
     posisjonBredde = currentLeft - movePlayer
-    sessionStorage.setItem("posisjonBredde", posisjonBredde)
+  localStorage.setItem("posisjonBredde", posisjonBredde)
     characterP.style.left = posisjonBredde + "px";
     characterP.style.transform = "scaleX(-1)"
     checkCharacterPosition();
@@ -1280,7 +1280,7 @@ function move() {
   }
   if (movement.ArrowRight || movement.d || movement.D) {
     posisjonBredde = currentLeft + movePlayer
-    sessionStorage.setItem("posisjonBredde", posisjonBredde)
+  localStorage.setItem("posisjonBredde", posisjonBredde)
     characterP.style.left = posisjonBredde + "px";
     characterP.style.transform = "scaleX(1)"
     checkCharacterPosition();
@@ -1292,7 +1292,7 @@ function move() {
   }
   if (movement.ArrowUp || movement.w || movement.W) {
     posisjonHoyde = currentTop - movePlayer
-    sessionStorage.setItem("posisjonHoyde", posisjonHoyde)
+  localStorage.setItem("posisjonHoyde", posisjonHoyde)
     characterP.style.top = posisjonHoyde + "px";
     checkCharacterPosition();
     checkForChests()
@@ -1303,7 +1303,7 @@ function move() {
   }
   if (movement.ArrowDown || movement.s || movement.S) {
     posisjonHoyde = currentTop + movePlayer
-    sessionStorage.setItem("posisjonHoyde", posisjonHoyde)
+  localStorage.setItem("posisjonHoyde", posisjonHoyde)
     characterP.style.top = posisjonHoyde + "px";
     checkCharacterPosition();
     checkForChests()
@@ -1336,7 +1336,7 @@ move();
 
 // Health
 
-let plyHealth = parseInt(sessionStorage.getItem("healthIs")) || 30
+let plyHealth = parseInt(localStorage.getItem("healthIs")) || 30
 
 let upgradeHealth = 1000;
 
@@ -1376,7 +1376,7 @@ function healthIncrease() {
     upgradeHealth += 2000;
     healthLevelIndicator()
     spillAvPengeLyd()
-    sessionStorage.setItem("healthIs", plyHealth);
+  localStorage.setItem("healthIs", plyHealth);
     showAlert("Liv oppgradert for " + upgradeHealth + " penger. Ny liv: " + plyHealth, "success")
     healthUpg.innerText = formatNumber(upgradeHealth);
   } else if (plyHealth == 45) {
@@ -1396,12 +1396,12 @@ function healthblir0() {
   health4.style.backgroundColor = "white"
   health5.style.backgroundColor = "white"
   console.log("trykk " + plyHealth)
-  sessionStorage.setItem("healthIs", plyHealth);
+localStorage.setItem("healthIs", plyHealth);
 
 }
 
 // damage
-let playerDamage = parseInt(sessionStorage.getItem("damageIs")) || 1
+let playerDamage = parseInt(localStorage.getItem("damageIs")) || 1
 damageButton.addEventListener("click", damageIncrease)
 
 let upgradeDmg = 1000;
@@ -1440,7 +1440,7 @@ function damageIncrease() {
     upgradeDmg *= 2;
     damageIndicator();
     spillAvPengeLyd();
-    sessionStorage.setItem("damageIs", playerDamage);
+  localStorage.setItem("damageIs", playerDamage);
     showAlert("Skade oppgradert for " + upgradeHealth + " penger. Ny skade: " + playerDamage, "success")
     dmgUpg.innerText = formatNumber(upgradeDmg);
   } else if (playerDamage == 2) {
@@ -1459,13 +1459,13 @@ function damageReset() {
   damage3.style.backgroundColor = "white"
   damage4.style.backgroundColor = "white"
   console.log("damage trykk")
-  sessionStorage.setItem("damageIs", playerDamage);
+localStorage.setItem("damageIs", playerDamage);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  playerDamage = parseFloat(sessionStorage.getItem("damageIs")) || 1; // Oppdater playerDamage fra sessionStorage
+  playerDamage = parseFloat(localStorage.getItem("damageIs")) || 1; // Oppdater playerDamage fra localStorage
   damageIndicator();
-  console.log(sessionStorage.getItem('damageIs'));
+  console.log(localStorage.getItem('damageIs'));
 });
 
 //Chest
@@ -1473,7 +1473,7 @@ const chests = document.querySelectorAll('.Chest');
 
 chests.forEach(chest => {
   const chestId = chest.id;
-  if (sessionStorage.getItem(chestId) == 1) {
+  if (localStorage.getItem(chestId) == 1) {
     chest.classList.add('opened');
   }
 });
@@ -1614,7 +1614,7 @@ function openChest(chestId) {
   chest.classList.add('opened');
 
 
-  sessionStorage.setItem(chestId, 1);
+localStorage.setItem(chestId, 1);
   if (currentPopup) {
     document.body.removeChild(currentPopup);
     currentPopup = null;
@@ -1694,7 +1694,7 @@ function die() {
   console.log("du døde")
   let tapPenger = money * 0.1;
   money = money * 0.9
-  sessionStorage.setItem("money", money);
+localStorage.setItem("money", money);
   showAlert("Du tapte " + tapPenger.toFixed(0) + " penger", "error")
 
   showPopup("Du druknet")
@@ -2014,22 +2014,22 @@ function spinWheel() {
   }, 3000); 
 }
 
-let gotPeter = sessionStorage.getItem("gotPeter") || 0
+let gotPeter = localStorage.getItem("gotPeter") || 0
 if(gotPeter == 10) {
   peterSkin.innerText = "Peter Griffin"
 }
 
-let gotPanda = sessionStorage.getItem("gotPanda") || 0
+let gotPanda = localStorage.getItem("gotPanda") || 0
 if(gotPanda == 10) {
   pandaSkin.innerText = "Panda"
 }
 
-let gotMonke = sessionStorage.getItem("gotMonke") || 0
+let gotMonke = localStorage.getItem("gotMonke") || 0
 if(gotMonke == 10) {
   monkeSkin.innerText = "Monke"
 }
 
-let gotLangbein = sessionStorage.getItem("gotLangbein") || 0
+let gotLangbein = localStorage.getItem("gotLangbein") || 0
 if(gotLangbein == 10) {
   langbeinSkin.innerText = "Langbein"
 }
@@ -2049,7 +2049,7 @@ function checkResult(angle) {
       showAlert("Du fikk tilbake 1000 penger siden du allerede har Langbein", "success")
     } else {
       gotLangbein = 10;
-      sessionStorage.setItem("gotLangbein", 10)
+    localStorage.setItem("gotLangbein", 10)
     }
   } else if (angle <= 4 * sectionSize) {
     skinImage = 'monke.jpeg';
@@ -2060,7 +2060,7 @@ function checkResult(angle) {
       showAlert("Du fikk tilbake 500 penger siden du allerede har Monke", "success")
     } else {
       gotMonke = 10;
-      sessionStorage.setItem("gotMonke", gotMonke)
+    localStorage.setItem("gotMonke", gotMonke)
     }
   } else if (angle <= 10 * sectionSize) {
     skinImage = 'panda.png';
@@ -2071,7 +2071,7 @@ function checkResult(angle) {
       showAlert("Du fikk tilbake 250 penger siden du allerede har Panda", "success")
     } else {
       gotPanda = 10;
-      sessionStorage.setItem("gotPanda", gotPanda)
+    localStorage.setItem("gotPanda", gotPanda)
     }
   } else if (angle <= 19.9 * sectionSize) {
     skinImage = 'peter.png';
@@ -2082,7 +2082,7 @@ function checkResult(angle) {
       showAlert("Du fikk tilbake 100 penger siden du allerede har Peter Griffin", "success")
     } else {
       gotPeter = 10;
-      sessionStorage.setItem("gotPeter", 10)
+    localStorage.setItem("gotPeter", 10)
     }
   } else {
     skinImage = 'pengesekk.png';

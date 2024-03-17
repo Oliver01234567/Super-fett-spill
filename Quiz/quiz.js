@@ -2,7 +2,7 @@ let money = 0
 money = parseInt(localStorage.getItem("money")) || 0
 
 let opponent = 0
-opponent = parseInt(sessionStorage.getItem("opponent")) || 0
+opponent = parseInt(localStorage.getItem("opponent")) || 0
 
 quiz_poeng = 0
 let quiz1Seier = 0
