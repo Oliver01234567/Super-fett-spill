@@ -44,15 +44,26 @@ function updateButtonsVisibility() {
 
 let skrivingPågår = false; // Variabel for å sjekke om skriving pågår. dette er for å unngå at man kan spamme neste og få opp samme tekst flere ganger
 
+function startGame() {
+    document.location = '../Island/index.html'
+}
+
 explButton.addEventListener("click", () => {
     if (!skrivingPågår) { // Sjekk om skriving ikke allerede pågår
         skrivingPågår = true; // Merk at skrivingen er i gang
+        if (currentTextIndex === texts.length - 1) {
+            startGame()  // sender deg til index.html når det ikke er flere tekster å vise
+        } else {
         previousTexts.push(explText.innerText);
         explText.innerHTML = ""; // Tømmer innholdet i tekstboksen
         bufferArray = bufferArray.concat(texts[currentTextIndex + 1].split("")); // Deler opp neste tekst i enkeltbokstaver og legger dem til i bufferArray
         skrivNesteTekst(); // Starter skrivingen av neste tekst
     }
+}
 });
+
+
+
 
 function skrivNesteTekst() {
     // Sjekker om bufferArray er tom, hvis ikke, skriv ut neste bokstav
