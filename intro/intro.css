@@ -109,8 +109,10 @@ button {
     padding: 5px;
     border-radius: 15px;
     color: white;
+    transition: 0.3s;
 }
 
 button:hover{
     background-color: rgb(180, 182, 180);
+    font-size: 1em;
 }

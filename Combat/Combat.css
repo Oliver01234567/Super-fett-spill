@@ -37,8 +37,6 @@ header {
     color: yellow;
     text-shadow: 0 0 3px black;
     font-family: "Press Start 2P", system-ui;
-
-
 }
 
 .colorScheme1button {
@@ -317,7 +315,12 @@ footer {
     margin-left: 20px;
     margin-right: 20px;
     cursor: pointer;
+    transition: 0.3s;
 
+}
+
+#buttons button:hover{
+    font-size: 1em;
 }
 
 #explainEverything,

@@ -93,29 +93,6 @@ body {
     height: auto;
 }
 
-/*#busk1 img{
-    position: absolute;
-    width: 100px;
-    height: auto;
-    z-index: 2;
-}
-
-#busk2 img{
-    position: absolute;
-    width: 100px;
-    height: auto;
-}
-
-#hage img{
-    position: absolute;
-    width: 100px;
-    height: auto;
-}
-
-#hage{
-    margin-left: 1000px;
-}*/
-
 /*Menyknapp*/
 #menyknapp {
     position: fixed;
@@ -194,10 +171,6 @@ body {
     background-color: brown;
     cursor: pointer;
 }
-
-
-
-
 
 
 /*Alt materiale som spilleren skal interaktere med*/

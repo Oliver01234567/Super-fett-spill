@@ -132,6 +132,11 @@ img{
     color: white;
     font-size: 50px;
     margin: 2px;
+    transition: 0.2s;
+}
+#currentscore:hover{
+    color: rgb(95, 241, 241);
+    font-size: 52px;
 }
 #highscore{
     width: 500px;
@@ -143,6 +148,11 @@ img{
     color: white;
     font-size: 50px;
     margin: 2px;
+    transition: 0.2s;
+}
+#highscore:hover{
+    color: rgb(95, 241, 241);
+    font-size: 52px;
 }
 #howTo {
     position: absolute;
@@ -179,6 +189,13 @@ img{
     height: 200px;
     font-size: 75px;
     color: white;
+    transition: 0.3s;
+}
+
+#play:hover{
+    font-size: 79px;
+    width: 310px;
+    height: 210px;
 }
 #rules {
     padding: 12px;
@@ -195,6 +212,11 @@ img{
     width: 100px; 
     left: 0%;
     border: none;
+    transition: 0.2s;
+}
+#howPlay:hover{
+    font-size: 0.6em;
+    color: #5ca853 ;
 }
 #toIsland{
     position: absolute;
@@ -206,6 +228,12 @@ img{
     font-size: 25px;
     padding: 10px;
     border: none;
+    transition: 0.2s;
+}
+
+#toIsland:hover{
+    font-size: 27px;
+    color: #5ca853;
 }
 
 #x {
@@ -284,13 +312,20 @@ img{
     height: 100px;
     border: 2px solid black;
     color: white;
-    background-color: 5ca853;
+    background-color: #5ca853;
     justify-content: center;
     align-items: center;
     display: none;
     font-size: 20px;
     padding: 0;
     border-radius: 10px;
+    transition: 0.3s;
+}
+
+#goBack:hover{
+    font-size: 23px;
+    width: 210px;
+    height: 110px;
 }
 #howToContainer{
     display: flex;
@@ -373,7 +408,7 @@ img{
     justify-content: center;
     align-items: center;
 }
-.forklarButtons{
+.forklarButtons {   
     width: 75px;
     height: 40px;
     padding: 0;
@@ -381,7 +416,14 @@ img{
     background-color: white;
     font-size: 20px;
     border-radius: 17px;
+    transition: 0.2s;
 }
+
+.forklarButtons:hover{
+    font-size: 22px;
+    background-color:cadetblue;
+}
+
 #forklaring2{
     display: none;
 }
@@ -448,7 +490,16 @@ img{
     justify-content: center;
     align-items: center;
     border-radius:12px;
+    transition: 0.2s;
 }
+
+#gåTilSpill:hover{
+    font-size: 22px;
+    background-color: #f47a42;
+    width: 130px;
+    height: 62px;
+}
+
 #gåTilSpillContainer{
     width: 700px;
     display: flex;

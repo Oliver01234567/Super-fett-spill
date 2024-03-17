@@ -44,6 +44,11 @@ button {
     font-family: "Press Start 2P", system-ui;
     font-size: 20px;
     background-color: gold;
+    transition: 0.3s;
+}
+
+button:hover{
+    font-size: 25px;
 }
 
 #chestDiv {
