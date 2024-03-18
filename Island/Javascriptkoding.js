@@ -1857,8 +1857,6 @@ function backToGame() {
 }
 
 // Npc greier
-
-
 const npcDialog = document.getElementById("npc-dialog");
 const npcMessage = document.getElementById("npc-message");
 const npcYesBtn = document.getElementById("npc-yes");
@@ -2009,8 +2007,11 @@ function spinWheel() {
     checkResult(randomDegree % 360);
     setTimeout(() => {
       hideWheel();
-      spinning = false;
-    }, 500);
+      showObtainedSkin();
+      setTimeout(() => {
+        spinning = false;
+      }, 1500);
+    }, 250);
   }, 3000); 
 }
 
@@ -2052,7 +2053,7 @@ function checkResult(angle) {
     localStorage.setItem("gotLangbein", 10)
     }
   } else if (angle <= 4 * sectionSize) {
-    skinImage = 'monke.jpeg';
+    skinImage = 'monkeT.png';
     showAlert("Gratulerer! Du fikk skinnet Monke", "success");
     monkeSkin.innerText = "Monke"
     if (gotMonke == 10) {
@@ -2063,7 +2064,7 @@ function checkResult(angle) {
     localStorage.setItem("gotMonke", gotMonke)
     }
   } else if (angle <= 10 * sectionSize) {
-    skinImage = 'panda.png';
+    skinImage = 'bpandaT.png';
     showAlert("Gratulerer! Du fikk skinnet Panda", "success");
     pandaSkin.innerText = "Panda"
     if (gotPanda == 10) {
@@ -2087,13 +2088,9 @@ function checkResult(angle) {
   } else {
     skinImage = 'pengesekk.png';
     money *= 100;
-    showAlert("DU VANT DEN HEMMELIGE PREMIEN (0,5% sjanse), DU HAR NÅ 100 GANGER SÅ MANGE PENGER");
+    showAlert("DU VANT DEN HEMMELIGE PREMIEN (0,5% sjanse), DU HAR NÅ 100 GANGER SÅ MANGE PENGER", "success");
   }
-  setTimeout(() => {
-    console.log("Spinning complete!");
-    showObtainedSkin(); // Show the obtained skin modal
-    spinning = false;
-  }, 3000);
+  
 }
 
 function hideWheel() {
@@ -2107,13 +2104,23 @@ function hideWheel() {
 }
 
 function showObtainedSkin() {
-  const obtainedSkinContainer = document.getElementById('obtainedSkinContainer');
-  const obtainedSkinDiv = document.createElement('div');
-  obtainedSkinDiv.classList.add('obtained-skin');
+  const obtainedSkin = document.createElement('img');
+  obtainedSkin.classList.add('obtainedSkin');
+  obtainedSkin.src = `../Bilder/${skinImage}`;
+  document.body.appendChild(obtainedSkin);
 
-  const obtainedSkinImg = document.createElement('img');
-  obtainedSkinImg.src = `../Bilder/${skinImage}`;
+  const rays = document.createElement('div');
+  rays.classList.add('rays');
+  obtainedSkin.appendChild(rays);
 
-  obtainedSkinDiv.appendChild(obtainedSkinImg);
-  obtainedSkinContainer.appendChild(obtainedSkinDiv);
+  setTimeout(() => {
+    obtainedSkin.remove();
+  }, 1500);
+}
+
+function removeObtainedSkin() {
+  const obtainedSkin = document.querySelector('.obtainedSkin');
+  if (obtainedSkin) {
+    obtainedSkin.remove();
+  }
 }

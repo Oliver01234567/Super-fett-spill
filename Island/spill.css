@@ -692,7 +692,7 @@ body {
     border: 2px solid #333;
     border-radius: 10px;
     padding: 20px;
-    z-index: 1000;
+    z-index: 90;
     text-align: center;
 }
 
@@ -786,39 +786,37 @@ body {
     border-top: 30px solid #000; 
     z-index: 1001; 
 }
+  
+  .obtainedSkin {
+    position: fixed;
+    top: 50%;  
+    left: 50%; 
+    height: 400px;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    animation: obtainedSkinGlow 2s infinite, obtainedSkinGrow 2s ease-in-out forwards;
+  }
+  
+  @keyframes obtainedSkinGlow {
+    0%, 100% {
+        box-shadow: 0 0 100px yellow;
+    }
 
-.obtained-skin {
-    display: inline-block;
-    margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 5px;
-  }
-  
-  .obtained-skin img {
-    max-width: 100px; /* Adjust the maximum width of the image */
-    max-height: 100px; /* Adjust the maximum height of the image */
-  }
-  
-  .rays {
-    background: url('rays.png'); /* Add your rays image */
-    background-size: cover;
-    width: 200px; /* Adjust based on your design */
-    height: 200px; /* Adjust based on your design */
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    animation: raysAnimation 2s linear;
-  }
-  
-  @keyframes raysAnimation {
+    50% {
+        box-shadow: none;
+    }
+}
+
+@keyframes obtainedSkinGrow {
     0% {
-      transform: rotate(0deg);
+        transform: translate(-50%, -50%) scale(1);
     }
+
     100% {
-      transform: rotate(360deg);
+        transform: translate(-50%, -50%) scale(1.5);
     }
-  }
+}
+
 
 /*Alert*/
 .alert {
