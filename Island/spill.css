@@ -735,7 +735,7 @@ body {
 }
 
 .visible {
-    display: block;  /* Add this class to control visibility */
+    display: block;  
 }
 
 .wheel-section {
@@ -787,6 +787,7 @@ body {
     z-index: 1001; 
 }
   
+/* Viser skin */
   .obtainedSkin {
     position: fixed;
     top: 50%;  

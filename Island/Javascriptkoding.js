@@ -2115,7 +2115,7 @@ function showObtainedSkin() {
 
   setTimeout(() => {
     obtainedSkin.remove();
-  }, 1500);
+  }, 1750);
 }
 
 function removeObtainedSkin() {
