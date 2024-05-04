@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Quiz</title>
 
+        <link rel="icon" href="../Bilder/JavaScript-logo.png">
         <link rel="stylesheet" href="quiz.css">
         <script src="quiz.js"></script>
     </head>
@@ -19,32 +20,40 @@
                 <h3>Er det sant at man kan ha semikolon foran en kodelinje i js?</h3>
                 <input  type="checkbox" id="riktig_svar1" name="checkbox1">
                 <label for="checkbox1"  >Riktig!</label>
-                <input type="checkbox" name="checkbox2">
+                <input type="checkbox" id="spørsmål1_svar1" name="checkbox2">
                 <label for="checkbox2">Galt!</label>
+                <input type="checkbox" id="spørsmål1_svar5" name="checkbox3">
+                <label for="checkbox3">Vet ikke?!</label>
             </div>
             
             <div>
                 <h3>Er det sant at js er det andre mest brukte kodespråket i verden?</h3>
-                <input type="checkbox" name="checkbox4">
+                <input type="checkbox" id="spørsmål1_svar2" name="checkbox4">
                 <label for="checkbox4">Riktig!</label>
                 <input type="checkbox" id="riktig_svar2" name="checkbox5">
                 <label for="checkbox5" >Galt!</label>
+                <input type="checkbox" id="spørsmål1_svar6" name="checkbox6">
+                <label for="checkbox6">Vet ikke?!</label>
             </div>
 
             <div>
                 <h3>Er det sant at NaN ikke er lik NaN</h3>
                 <input type="checkbox" id="riktig_svar3" name="checkbox7">
                 <label for="checkbox7">Riktig!</label>
-                <input type="checkbox" name="checkbox8">
+                <input type="checkbox" id="spørsmål1_svar3" name="checkbox8">
                 <label for="checkbox8" >Galt!</label>
+                <input type="checkbox" id="spørsmål1_svar7" name="checkbox9">
+                <label for="checkbox9">Vet ikke?!</label>
             </div>
 
             <div>
                 <h3>Er det sant at js var laget på 3 måneder bare?</h3>
-                <input type="checkbox" name="checkbox10">
+                <input type="checkbox" id="spørsmål1_svar4" name="checkbox10">
                 <label for="checkbox10">Riktig!</label>
                 <input type="checkbox" id="riktig_svar4" name="checkbox11">
                 <label for="checkbox11">Galt!</label>
+                <input type="checkbox" id="spørsmål1_svar8" name="checkbox12">
+                <label for="checkbox12">Vet ikke?!</label>
             </div>
 
             <button type="button" onclick="hente_resultater()" id="quiz_2_knapp" >Resultat</button>

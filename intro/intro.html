@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../Bilder/hei.png">
     <link rel="stylesheet" href="intro.css">
     <title>Intro</title>
 </head>
@@ -13,22 +14,26 @@
         <h1 class="Overskrift-intro">Realm of Riches</h1>
     </header>
 
-    <main>
+    <main id="hovedcontainer">
         <div id="SpillForklaring">
             <img id="Forklarer" src="bilder/Rasmus.png">
         </div>
         <div id="snakkeboble-container">
             <div>
                 <img id="snakkeboble" src="bilder/snakkeboble.png">
-                <div class="content">
+                <div id="content">
                     <p>Hei! Velkommen til Realm Of Riches!</p>
                 </div>
-        
             </div>
-            <button id="nextButton">Neste</button>
+        </div>
+
+        <div id="flexboks">
             <button id="backButton">Tilbake</button>
+            <button id="nextButton">Neste</button>
+            <a href="../Island/index.html"><button id="HoppOver"> Hopp over intro</button></a>
         </div>
     </main>
+
     <script src="intro.js">
 
     </script>

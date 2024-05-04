@@ -13,16 +13,14 @@
 
 #character {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0px;
+    left: 0px;
     width: 60px;
     height: 60px;
 
     transition: left 0.2s linear, top 0.2s linear;
-    z-index: 2;
-}
+    z-index: 3;
 
-#character img {
     height: 60px;
     width: 60px;
 }
@@ -46,10 +44,8 @@
 
 
 body {
-    background-color: rgb(0, 255, 255);
+    background-color: rgb(91 241 241 / 96%);
 }
-
-
 
 #øy {
     grid-column: 1;
@@ -60,7 +56,32 @@ body {
     border-radius: 10px;
     overflow: hidden;
     margin: 500px;
+    padding-bottom: 13%; 
 }
+
+.beach {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 5000px; 
+    height: 500px; 
+    margin-left: 0;
+    background: linear-gradient(to bottom, rgb(244, 199, 127) 45%, rgb(91 241 241 / 96%) 55%);
+}
+
+.beach2 {
+    z-index: 2;
+    position: absolute;
+    bottom: 30;
+    left: 0;
+    width: 820px;
+    height: 4700px;
+    margin-left: 4600px;
+    background: linear-gradient(to right, rgb(244, 199, 127) 43%, rgb(91 241 241 / 96%) 57%)
+}
+
 
 .tree {
     position: absolute;
@@ -68,17 +89,8 @@ body {
 
 .tree img {
     position: absolute;
-    width: 70px;
+    width: 370px;
     height: auto;
-}
-
-.strand {
-    background: linear-gradient(to bottom, #e0cd62 35%, rgb(0, 255, 255) 65%);
-    /* strand gradient */
-    height: 80px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
 }
 
 /*Menyknapp*/
@@ -161,10 +173,6 @@ body {
 }
 
 
-
-
-
-
 /*Alt materiale som spilleren skal interaktere med*/
 .InteractiveMaterial {
     padding: 50px;
@@ -190,7 +198,7 @@ body {
 }
 
 #jonas {
-    left: 2736px;
+    left: 2036px;
     top: 333px;
 }
 
@@ -216,17 +224,35 @@ body {
 }
 
 #mario {
-    left: 3160px;
+    left: 3760px;
     top: 1091px;
 }
 
+#svamp {
+    left: 3400px;
+    top: 400px;
+}
+
+#tarzan{
+    position: absolute;
+    left: 2600px;
+    top: 900px;
+    width: 120px;
+    height: 120px;
+
+}
+
+#tarzanBilde{
+    width: 120px;
+    height: 120px;
+}
 
 /*Chests*/
 
 .Chest {
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -236,159 +262,129 @@ body {
 }
 
 .Chest img {
-    height: 50px;
+    height: 99px;
 }
 
 #Chest1 {
-    left: 3656px;
-    top: 1835px;
-}
-
-#Chest2 {
-    left: 2094px;
-    top: 4061px;
-}
-
-#Chest3 {
-    left: 2630px;
-    top: 3408px;
-}
-
-#Chest4 {
-    left: 4274px;
-    top: 942px;
-}
-
-#Chest5 {
-    left: 3340px;
-    top: 1908px;
-}
-
-#Chest6 {
-    left: 4403px;
-    top: 1085px;
-}
-
-#Chest7 {
-    left: 3124px;
-    top: 2837px;
-}
-
-#Chest8 {
-    left: 1604px;
-    top: 3595px;
-}
-
-#Chest9 {
-    left: 1897px;
-    top: 802px;
-}
-
-#Chest10 {
-    left: 3718px;
-    top: 4458px;
-}
-
-#Chest11 {
-    left: 2520px;
-    top: 4157px;
-}
-
-#Chest12 {
-    left: 1963px;
-    top: 4266px;
-}
-
-#Chest13 {
-    left: 587px;
-    top: 4155px;
-}
-
-#Chest14 {
+    left: 2088px;
+    top: 1356px;
+ }
+ #Chest2 {
+    left: 1652px;
+    top: 2044px;
+ }
+ #Chest3 {
+    left: 4344px;
+    top: 1012px;
+ }
+ #Chest4 {
+    left: 1556px;
+    top: 3276px;
+ }
+ #Chest5 {
+    left: 3276px;
+    top: 1376px;
+ }
+ #Chest6 {
+    left: 1976px;
+    top: 3760px;
+ }
+ #Chest7 {
+    left: 4060px;
+    top: 3080px;
+ }
+ #Chest8 {
+    left: 3080px;
+    top: 1900px;
+ }
+ #Chest9 {
+    left: 1900px;
+    top: 4288px;
+ }
+ #Chest10 {
+    left: 4288px;
+    top: 3764px;
+ }
+ #Chest11 {
+    left: 3764px;
+    top: 2120px;
+ }
+ #Chest12 {
+    left: 2120px;
+    top: 1796px;
+ }
+ #Chest13 {
+    left: 1796px;
+    top: 2960px;
+ }
+ #Chest14 {
     left: 2960px;
-    top: 4325px;
-}
-
-#Chest15 {
-    left: 2068px;
-    top: 1228px;
-}
-
-#Chest16 {
-    left: 2136px;
-    top: 2571px;
-}
-
-#Chest17 {
-    left: 2351px;
-    top: 3029px;
-}
-
-#Chest18 {
-    left: 3219px;
-    top: 1406px;
-}
-
-#Chest19 {
-    left: 1580px;
-    top: 2209px;
-}
-
-#Chest20 {
-    left: 2934px;
-    top: 1649px;
-}
-
-#Chest21 {
-    left: 3648px;
-    top: 4069px;
-}
-
-#Chest22 {
-    left: 1164px;
-    top: 2569px;
-}
-
-#Chest23 {
-    left: 777px;
-    top: 2244px;
-}
-
-#Chest24 {
-    left: 2140px;
-    top: 1552px;
-}
-
-#Chest25 {
-    left: 883px;
-    top: 1691px;
-}
-
-#Chest26 {
-    left: 300px;
-    top: 400px;
-}
-
-#Chest27 {
-    left: 2842px;
-    top: 4494px;
-}
-
-#Chest28 {
-    left: 2587px;
-    top: 3166px;
-}
-
-#Chest29 {
-    left: 4243px;
-    top: 2647px;
-}
-
-#Chest30 {
-    left: 2556px;
-    top: 3470px;
-}
-
+    top: 1504px;
+ }
+ #Chest15 {
+    left: 1504px;
+    top: 464px;
+ }
+ #Chest16 {
+    left: 464px;
+    top: 1240px;
+ }
+ #Chest17 {
+    left: 1240px;
+    top: 4044px;
+ }
+ #Chest18 {
+    left: 4044px;
+    top: 2540px;
+ }
+ #Chest19 {
+    left: 2540px;
+    top: 3096px;
+ }
+ #Chest20 {
+    left: 3096px;
+    top: 2652px;
+ }
+ #Chest21 {
+    left: 2652px;
+    top: 701px;
+ }
+ #Chest22 {
+    left: 931px;
+    top: 1136px;
+ }
+ #Chest23 {
+    left: 1136px;
+    top: 2784px;
+ }
+ #Chest24 {
+    left: 2784px;
+    top: 3468px;
+ }
+ #Chest25 {
+    left: 3468px;
+    top: 823px;
+ }
+ #Chest26 {
+    left: 823px;
+    top: 3324px;
+ }
+ #Chest27 {
+    left: 3324px;
+    top: 3944px;
+ }
+ #Chest28 {
+    left: 3944px;
+    top: 332px;
+ }
+ #Chest29 {
+    left: 332px;
+    top: 3808px;
+ }
+ #Chest30 {
+    left: 3808px;
+    top: 3876px;
+ }
 
 
 /*Popup Oliver*/
@@ -678,8 +674,8 @@ body {
     position: absolute;
     width: 50px;
     height: 50px;
-    background-color: #FF4500;
-    border: 2px solid #A52A2A;
+    background-image: url('../Bilder/steveT.png');
+    background-size: cover;
     border-radius: 5px;
     cursor: pointer;
     top: 200px;
@@ -689,15 +685,41 @@ body {
 .dialog-box {
     display: none;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    background-color: white;
-    padding: 10px;
+    top: calc(50% - 118px);
+    left: calc(50% - 85px);
+    transform: translate(-50%, -50%);
+    background-color: #fff;
     border: 2px solid #333;
-    z-index: 10000;
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 90;
+    text-align: center;
+}
+
+.dialog-message {
+    margin-bottom: 20px;
+}
+
+.dialog-options {
+    display: flex;
+    justify-content: center;
+}
+
+.dialog-btn {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: lightgray;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dialog-btn:hover {
+    background-color: gray;
 }
 
 
+/*Skin wheel*/
 .spinning-wheel {
     position: fixed;
     top: 50%;
@@ -708,7 +730,12 @@ body {
     margin-left: -250px;
     border-radius: 50%;
     overflow: hidden;
-    z-index: 1000;
+    z-index: 1001;
+    display: none;
+}
+
+.visible {
+    display: block;  
 }
 
 .wheel-section {
@@ -719,22 +746,22 @@ body {
 
 #wheelSection1 {
     background-color: #FF6347;
-    clip-path: polygon(-33% 100%, 50% 50%, 100% 100%);
+    clip-path: polygon(0% 10%, 50% 0%, 50% 100%, 0% 100%);
 }
 
 #wheelSection2 {
     background-color: #90EE90;
-    clip-path: polygon(50% 50%, 0% 80%, 0% 20%);
+    clip-path: polygon(50% 50%, 35% 0%, -18% 34%);
 }
 
 #wheelSection3 {
     background-color: #87CEFA;
-    clip-path: polygon(50% 50%, 0% 20%, 0% 0%);
+    clip-path: polygon(50% 50%, 50% 0%, 34% 0%);
 }
 
 #wheelSection4 {
     background-color: #FFD700;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+    clip-path: polygon(50% 0%, 100% 0%, 50% 100000%, 50% 50%);
 }
 
 @keyframes spin {
@@ -749,21 +776,48 @@ body {
 
 .arrow-down {
     position: fixed;
-    top: 16%;
-    /* Adjust the distance from the top */
+    top: 16%; 
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 0;
-    border-left: 20px solid transparent;
-    /* Adjust the size of the arrow */
-    border-right: 20px solid transparent;
-    /* Adjust the size of the arrow */
-    border-top: 30px solid #000;
-    /* Adjust the color of the arrow */
-    z-index: 1001;
-    /* Make sure the arrow is above the spinning wheel */
+    border-left: 20px solid transparent; 
+    border-right: 20px solid transparent; 
+    border-top: 30px solid #000; 
+    z-index: 1001; 
 }
+  
+/* Viser skin */
+  .obtainedSkin {
+    position: fixed;
+    top: 50%;  
+    left: 50%; 
+    height: 400px;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    animation: obtainedSkinGlow 2s infinite, obtainedSkinGrow 2s ease-in-out forwards;
+  }
+  
+  @keyframes obtainedSkinGlow {
+    0%, 100% {
+        box-shadow: 0 0 100px yellow;
+    }
+
+    50% {
+        box-shadow: none;
+    }
+}
+
+@keyframes obtainedSkinGrow {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+}
+
 
 /*Alert*/
 .alert {

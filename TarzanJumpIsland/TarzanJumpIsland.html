@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarzan spill</title>
+    <link rel="stylesheet" href="TarzanJumpIsland.css">
+</head>
+
+<body>
+    <header>
+        <div>Tarzan jump <span id="gameName">Island</span></div>
+        <button id="howPlay">?</button>
+        <button id="toIsland">Back to Island</button>
+    </header>
+
+    <div class="mainContainer">
+        <div id="info">
+            <div id="highscore">Record:</div>
+            <div id="currentscore">Poeng:</div>
+            <button id="gamereset">Spill igjen</button>
+        </div>
+        <div id="game">
+            <div id="character">
+                <img id="tarzan" src="bilder/tarzanUtenBak.png" alt="Tarzan">
+            </div>
+            <div id="block">
+                <img id="rollingObject" src="bilder/sideLog.png">
+            </div>
+            <div id="flyingBlock">
+                <img id="bird" src="bilder/parrot.png">
+            </div>
+            <button id="play">Spill</button>
+            <div id="howTo">
+                <h1>Hvordan spiller man?</h1>
+                <button id="x">X</button>
+                <div id="howToContainer">
+                    <div id="rules">
+                        <ul>
+                            <li>Trykk "Gå til spill" for å starte spiller</li>
+                            <li>Unngå å bli truffet av rullende objekter ved å trykke "mellomrom" eller "pilOpp"</li>
+                            <li>Unngå å bli truffet av fugler ved å trykke "s" eller "pilNed"</li>
+                            <li>Få poeng ved å unngå hindringer</li>
+                            <li>Hvis du taper trykk "Spill igjen" for å spille igjen</li>
+                            <li>Få 15 poeng for å vinne</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button id="highscorereset">Nullstill record</button>
+            </div>
+            <div id="gameOver">Du tapte</div>
+            <div id="youWin">Du vant!</div>
+            <div id="finalInfo">
+                <p id="jumpedOver"></p>
+                <p id="duckedUnder"></p>
+            </div>
+            <button id="goBack">Gå tilbake til øya</button>
+        </div>
+        <div id="gameStartInfo"></div>
+        <div id="tarzanExplain"><img id="tarzanExplainBilde" src="bilder/tarzanUtenBak.png" alt="Tarzan"></div>
+        <div id="Explanation">
+            <div id="snakkeboble"><img id="snakkebobleBilde" src="bilder/snakkeboble.png"></div>
+            <div id="forklaringTekst">
+                <p class="forklaringer" id="forklaring1"></p>
+                <p class="forklaringer" id="forklaring2"></p>
+                <div id="videre">
+                <button class="forklarButtons" id="neste1">Neste</button>
+                <button class="forklarButtons" id="neste2">Neste</button>
+            </div>
+            </div>
+        </div>
+        <div id="howToStart">
+            <div id="controls">
+                <h1 id="h1Forklaring">Hvordan spiller man?</h1>
+                <div id="startContainer">
+                    <div id="regler">
+                        <ul>
+                            <li>Trykk "Spill" for å starte spiller</li>
+                            <li>Unngå å bli truffet av rullende objekter ved å trykke "mellomrom" eller "piltast opp"</li>
+                            <li>Unngå å bli truffet av fugler ved å trykke "s" eller "piltast ned"</li>
+                            <li>Få poeng ved å unngå hindringer</li>
+                            <li>Hvis du taper trykk "Spill igjen" for å spille igjen</li>
+                            <li>Få 15 poeng for å vinne</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="gåTilSpillContainer">
+                <button id="gåTilSpill">Gå til spill</button>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+</body>
+<script src="TarzanJumpIsland.js"></script>
+
+</html>

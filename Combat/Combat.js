@@ -1,5 +1,5 @@
 //henter skins fra andre html dokumenter
-choosenSkin = parseInt(sessionStorage.getItem("choosenSkin")) || 0
+choosenSkin = parseInt(localStorage.getItem("choosenSkin")) || 0
 
 const playerIcon = document.getElementById("karakter")
 const name = document.getElementById("playerName")
@@ -25,17 +25,17 @@ if (choosenSkin == 3) {
 }
 
 if (choosenSkin == 4) {
-    playerIcon.src = "../Bilder/monke.jpeg"
+    playerIcon.src = "../Bilder/monkeT.png"
     name.innerText = "Monke"
 }
 
 if (choosenSkin == 5) {
-    playerIcon.src = "../Bilder/panda.png"
+    playerIcon.src = "../Bilder/bPandaT.png"
     name.innerText = "Panda"
 }
 
 if (choosenSkin == 6) {
-    playerIcon.src = "../Bilder/angel.jpeg"
+    playerIcon.src = "../Bilder/langbeinT.png"
     name.innerText = "Langbein"
 }
 
@@ -89,8 +89,13 @@ if (choosenSkin == 16) {
     name.innerText = "Sid Fra Istid"
 }
 
+if (choosenSkin == 17) {
+    playerIcon.src = "../Bilder/svanpeBob.png"
+    name.innerText = "Svampebob Firkant"
+}
+
 //henter hvilken fiende du vil kjempe mot
-opponent = parseInt(sessionStorage.getItem("opponent")) || 0
+opponent = parseInt(localStorage.getItem("opponent")) || 0
 
 const motstanderIcon = document.getElementById("motstanderIcon")
 const enemyName = document.getElementById("EnemyName")
@@ -280,7 +285,7 @@ const prov = document.getElementById("Prov")
 
 //du mister penger hvis du dør
 let money = 0
-money = parseInt(sessionStorage.getItem("money")) || 0
+money = parseInt(localStorage.getItem("money")) || 0
 
 function spillAvFight() {
     let lydElement3 = document.getElementById('Fight');
@@ -377,7 +382,7 @@ function startGame() {
     //variabler for endringen i healthbar til fienden
     let u = 0
     let n = 100
-    let playerDamage = parseFloat(sessionStorage.getItem("damageIs")) || 1;
+    let playerDamage = parseFloat(localStorage.getItem("damageIs")) || 1;
     let playerDamagePercentage = (playerDamage / 10) * 100
 
 
@@ -392,7 +397,7 @@ function startGame() {
 
 
     //spillerens helse (må være her oppe fordi den referes til i koden under)
-    let plyHealth = parseInt(sessionStorage.getItem("healthIs")) || 30
+    let plyHealth = parseInt(localStorage.getItem("healthIs")) || 30
     console.log("plyHealth er " + plyHealth)
 
 
@@ -433,55 +438,55 @@ function startGame() {
             clearInterval(Forsvar)
             plyHealth = 10000
             let combatSeier = 1
-            sessionStorage.setItem("combatSeier", combatSeier)
+          localStorage.setItem("combatSeier", combatSeier)
             if (andDeath == 1) {
                 let andenDod = 2
-                sessionStorage.setItem("andenDod", andenDod)
+              localStorage.setItem("andenDod", andenDod)
 
                 let firstTimeAnd = 1
-                sessionStorage.setItem("firstTimeAnd", firstTimeAnd)
+              localStorage.setItem("firstTimeAnd", firstTimeAnd)
 
             }
 
             if (jonasDeath == 1) {
                 let jonasDod = 2
-                sessionStorage.setItem("jonasDod", jonasDod)
+              localStorage.setItem("jonasDod", jonasDod)
 
                 let firstTimeJonas = 1
-                sessionStorage.setItem("firstTimeJonas", firstTimeJonas)
+              localStorage.setItem("firstTimeJonas", firstTimeJonas)
 
             }
 
             if (kasperDeath == 1) {
                 let kasperDod = 2
-                sessionStorage.setItem("kasperDod", kasperDod)
+              localStorage.setItem("kasperDod", kasperDod)
 
                 let firstTimeKasper = 1
-                sessionStorage.setItem("firstTimeKasper", firstTimeKasper)
+              localStorage.setItem("firstTimeKasper", firstTimeKasper)
             }
 
             if(elonDeath == 1) {
                 let elonDod = 2
-                sessionStorage.setItem("elonDod", elonDod)
+              localStorage.setItem("elonDod", elonDod)
 
                 let firstTimeElon = 1
-                sessionStorage.setItem("firstTimeElon", firstTimeElon)
+              localStorage.setItem("firstTimeElon", firstTimeElon)
             }
 
             if(marioDeath == 1) {
                 let marioDod = 2
-                sessionStorage.setItem("marioDod", marioDod)
+              localStorage.setItem("marioDod", marioDod)
 
                 let firstTimeMario = 1
-                sessionStorage.setItem("firstTimeMario", firstTimeMario)
+              localStorage.setItem("firstTimeMario", firstTimeMario)
             }
 
             if(peteDeath == 1) {
                 let peteDod = 2
-                sessionStorage.setItem("peteDod", peteDod)
+              localStorage.setItem("peteDod", peteDod)
 
                 let firstTimePete = 1
-                sessionStorage.setItem("firstTimePete", firstTimePete)
+              localStorage.setItem("firstTimePete", firstTimePete)
             }
 
 
@@ -810,7 +815,7 @@ function startGame() {
     }
 
     function resetHealth() {
-        plyHealth = parseInt(sessionStorage.getItem("healthIs")) || 30
+        plyHealth = parseInt(localStorage.getItem("healthIs")) || 30
         EmyHealth = 10
 
         //fiende healthbar
@@ -879,7 +884,7 @@ function startGame() {
             playerIcon.style.animation = "dødSpiller 1s linear forwards"
             let tapPenger = money * 0.1;
             money = money * 0.9
-            sessionStorage.setItem("money", money);
+          localStorage.setItem("money", money);
             showAlert("Du tapte " + tapPenger.toFixed(0) + " penger", "error")
         }
     }
@@ -909,60 +914,60 @@ function startGame() {
 
 
 //forklaringskjerm
-const explButton = document.getElementById("Next")
+const explButton = document.getElementById("next")
 const explText = document.getElementById("explainEverything")
 const explText2 = document.getElementById("explainEverything2")
 const fortsett = document.getElementById("Skip")
 const buttons = document.getElementById("buttons")
 
-explButton.addEventListener("click", Next1)
+explButton.addEventListener("click", next1)
 
-function Next1() {
+function next1() {
     explText.innerText = 'For å angripe motstanderen din må du trykke på han'
     explText2.innerText = "Men pass på, motstanderen din er rask"
 
-    explButton.removeEventListener("click", Next1)
-    explButton.addEventListener("click", Next2)
+    explButton.removeEventListener("click", next1)
+    explButton.addEventListener("click", next2)
 }
 
-function Next2() {
+function next2() {
     explText.innerText = "Motstanderen din gjør det ikke lett for deg dessverre"
     explText2.innerText = "De kan mane fram flammer som skader deg så lenge du er i dem"
 
-    explButton.removeEventListener("click", Next2)
-    explButton.addEventListener("click", Next3)
+    explButton.removeEventListener("click", next2)
+    explButton.addEventListener("click", next3)
 }
 
-function Next3() {
+function next3() {
     explText.innerText = "For å unngå flammene bruk W A S D eller pil tastene"
     explText2.innerText = "Å brenne seg er lite kult"
 
-    explButton.removeEventListener("click", Next3)
-    explButton.addEventListener("click", Next4)
+    explButton.removeEventListener("click", next3)
+    explButton.addEventListener("click", next4)
 }
 
-function Next4() {
+function next4() {
     explText.innerText = "Du kan se din helse markert med grønt ved siden av deg"
     explText2.innerText = "Fienden din sin helse er markert med rødt ved siden av fienden"
 
-    explButton.removeEventListener("click", Next4)
-    explButton.addEventListener("click", Next5)
+    explButton.removeEventListener("click", next4)
+    explButton.addEventListener("click", next5)
 }
 
-function Next5() {
+function next5() {
     explText.innerText = "Pass på helsen din"
     explText2.innerText = "Det er ikke mulig å regenere sin egen helse"
 
-    explButton.removeEventListener("click", Next5)
-    explButton.addEventListener("click", Next6)
+    explButton.removeEventListener("click", next5)
+    explButton.addEventListener("click", next6)
 }
 
-function Next6() {
+function next6() {
     explText.innerText = "Lykke til"
     explText2.innerText = "Trykk på start når du er klar"
 
     fortsett.innerText = "Start"
-    buttons.removeChild(document.querySelector("#Next"));
+    buttons.removeChild(document.querySelector("#next"));
 }
 
 

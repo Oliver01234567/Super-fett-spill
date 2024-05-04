@@ -6,47 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Superspil</title>
 
+    <link rel="icon" href="../Bilder/kiste_til_logo.png">
     <link rel="stylesheet" href="spill.css">
 </head>
 
 <body>
+
     <div id="space">
+        
         <main id="øy">
+            <img src="../Bilder/Torbjorn.png" alt="character" id="character">
+
+            <div class="beach"></div> 
+            <div class="beach2"></div>
 
 
-            <div class="strand"></div>
+            <div id="Enemies">
 
-            <div id="character"><img src="Bilder/Torbjorn.png" alt="character"></div>
+                <div id="anden" class="InteractiveMaterial npc"> <img src="../Bilder/playerIcon1.png" alt="anden">
+                </div>
 
-            <div id="anden" class="InteractiveMaterial npc"> <img src="Bilder/playerIcon1.png" alt="anden"></div>
+                <div id="jonas" class="InteractiveMaterial npc"><img src="../Bilder/Jonas.png" alt="Jonas"></div>
 
-            <div id="jonas" class="InteractiveMaterial npc"><img src="Bilder/Jonas.png" alt="Jonas"></div>
+                <div id="kasper" class="InteractiveMaterial npc"><img src="../Bilder/kasper.png" alt="Kasper"></div>
 
-            <div id="kasper" class="InteractiveMaterial npc"><img src="Bilder/kasper.png" alt="Kasper"></div>
+                <div id="Elon" class="InteractiveMaterial npc"> <img src="../Bilder/Elon.png" alt="Elon Musk"></div>
 
-            <div id="Elon" class="InteractiveMaterial npc"> <img src="Bilder/Elon.png" alt="Elon Musk"></div>
+                <div id="mario" class="InteractiveMaterial npc"><img src="../Bilder/Mario.png" alt="Mario"></div>
 
-            <div id="mario" class="InteractiveMaterial npc"><img src="Bilder/Mario.png" alt="Mario"></div>
-
-            <div id="pete" class="InteractiveMaterial npc"><img src="Bilder/peteD.png" alt="Pete Davidson"></div>
-
-
-            <div id="birk" class="InteractiveMaterial npc"><img src="Bilder/Birk.png" alt="Birk"></div>
-
-
-            <div id="tree1" class="tree"><img src="Bilder/tre.png" alt="tree"></div>
-
+                <div id="pete" class="InteractiveMaterial npc"><img src="../Bilder/peteD.png" alt="Pete Davidson">
+                </div>
 
 
 
-            <div id="npc" class="InteractiveMaterial NPC">NPC
+                <div id="birk" class="InteractiveMaterial npc"><img src="../Bilder/Birk.png" alt="Birk"></div>
+
+                <div id="svamp"class="InteractiveMaterial npc"><img src="../Bilder/svanpeBob.png" alt="Svampebob"></div>
+
+
+                <div id="tarzan" class="InteractiveMaterial npc"><img id="tarzanBilde" src="../Bilder/tarzanUtenBak.png"
+                        alt="tarzan"></div>
+            </div>
+
+            <!--pynt på map-->
+            <div id="tree1" class="tree"><img src="../Bilder/tre.png" alt="tre"></div>
+    
+            <div id="npc" class="InteractiveMaterial NPC">
                 <div id="npc-dialog" class="dialog-box">
-                    <p id="npc-message"></p>
-                    <button id="npc-yes" onclick="handleNPCResponse(true)">Yes</button>
-                    <button id="npc-no" onclick="handleNPCResponse(false)">No</button>
+                    <p id="npc-message" class="dialog-message"></p>
+                    <div class="dialog-options">
+                        <button id="npc-yes" class="dialog-btn">Yes</button>
+                        <button id="npc-no" class="dialog-btn">No</button>
+                    </div>
                 </div>
             </div>
-            <div id="skinBoxSpinner" class="spinning-wheel">
+            <div id="skinWheel" class="spinning-wheel">
                 <div class="wheel-section" id="wheelSection1"></div>
                 <div class="wheel-section" id="wheelSection2"></div>
                 <div class="wheel-section" id="wheelSection3"></div>
@@ -74,12 +88,12 @@
             </div>
             <div class="buttons">
                 <div class="wrapper1">
-                    <button class="settings">Innstillinger</button>
+                    <button class="settings" onclick="settings()">Innstillinger</button>
                     <button class="upgrades" onclick="showStats()">Oppgraderinger</button>
                 </div>
                 <div class="wrapper2">
                     <button class="skins" onclick="showSkins()">Skins</button>
-                    <a href="intro/intro.html"><button class="HowToPlay">Hvordan spiller man?</button></a>
+                    <a href="../intro/intro.html"><button class="HowToPlay">Hvordan spiller man?</button></a>
                 </div>
             </div>
         </div>
@@ -96,23 +110,23 @@
             </button>
 
             <Button class="Mbuttons" id="rasmusSkin" onclick="choosenRasmus()">
-                Rasmus<br> <span> Koster: 5000</span>
+                Rasmus<br> <span> Koster: 30 000</span>
             </Button>
 
             <button class="Mbuttons" id="skrueSkin" onclick="choosenSkrue()">
-                Skrue McDuck <br> <span>Koster: 2000</span>
+                Skrue McDuck <br> <span>Koster: 5 000</span>
             </button>
 
             <button class="Mbuttons" id="rockSKin" onclick="choosenRock()">
-                The Rock <br> <span>Koster: 1000</span>
+                The Rock <br> <span>Koster: 10 000</span>
             </button>
 
             <button class="Mbuttons" id="stewieSkin" onclick="choosenStewie()">
-                Stewie Griffin <br> <span>Koster: 3000</span>
+                Stewie Griffin <br> <span>Koster: 3 000</span>
             </button>
 
             <button class="Mbuttons" id="sidSkin" onclick="choosenSid()">
-                Sid Fra Istid <br> <span>Koster: 1000</span>
+                Sid Fra Istid <br> <span>Koster: 10 000</span>
             </button>
 
             <button class="Mbuttons" id="jonasSkin">
@@ -143,8 +157,8 @@
                 Birk <br> <span>Snakk med Birk</span>
             </button>
 
-            <button class="Mbuttons" id="peterSkin" onclick="chosenPeter()">
-                Filler <br> <span>Snakk med Matte spill NPC</span>
+            <button class="Mbuttons" id="svampSkin">
+                Svampebob <br> <span>Snakk med Svampebob</span>
             </button>
 
             <button class="Mbuttons" id="monkeSkin" onclick="chosenMonke()">
@@ -163,7 +177,8 @@
                 Peter Griffin <br> <span>Snakk med SKin NPC </span>
             </button>
 
-           <div id ="backToGameDiv"> <button class="Mbuttons" onclick="backToGame()" id="Tilbake">Tilbake</button> </div>
+            <div id="backToGameDiv"> <button class="Mbuttons" onclick="backToGame()" id="Tilbake">Tilbake</button>
+            </div>
         </div>
     </div>
     <div id="statsSelect" class="select">
@@ -194,7 +209,8 @@
             </div>
             <div id="damage">
                 <button id="damageer0">reset damage</button>
-                <button class="Sbuttons" id="damageButton">Øk skade<br> <span> Koster:<span id="dmgUpg">1000</span></span></button>
+                <button class="Sbuttons" id="damageButton">Øk skade<br> <span> Koster:<span
+                            id="dmgUpg">1000</span></span></button>
                 <div id="damageLevel">
                     <div id="damage1" class="LevelIndicater"></div>
                     <div id="damage2" class="LevelIndicater"></div>
@@ -206,9 +222,9 @@
         </div>
     </div>
 
-    <audio id="moneySound" src="lyd/kaching.m4a" type="audio/m4a">
+    <audio id="moneySound" src="../lyd/kaching.m4a" type="audio/m4a">
     </audio>
-    <audio id="ErrorSound" src="lyd/Error.m4a"></audio>
+    <audio id="ErrorSound" src="../lyd/Error.m4a"></audio>
 
     <script src="Javascriptkoding.js"></script>
 </body>

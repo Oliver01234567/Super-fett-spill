@@ -46,6 +46,12 @@
     margin-left: 20px;
     font-size: 15px;
     color: white ;
+    transition: 0.3s;
+}
+
+#quiz_knapp:hover{
+    font-size: 20px;
+    background-color: #aa9559;
 }
 
 /** Quiz 2 **/
@@ -91,6 +97,12 @@
     margin-left: 20px;
     font-size: 15px;
     color: white ;
+    transition: 0.3s;
+}
+
+#quiz_2_knapp:hover{
+    font-size: 20px;
+    background-color:#f38b31 ;
 }
 
 /** Quiz 3 **/
@@ -140,6 +152,12 @@
     margin-left: 20px;
     font-size: 15px;
     color: white ;
+    transition: 0.3s;
+}
+
+#quiz_3_knapp:hover{
+    font-size: 20px;
+    background-color: #f6c6d2;
 }
 
 /** Quiz 4 **/
@@ -179,17 +197,71 @@
     margin-left: 20px;
 }
 
-#quiz_4_knapp {
+.quiz_4_knapp {
     background-color: #38593e;
     border: #1f3121 solid 2px;
     border-radius: 30px;
     padding: 10px 15px;
-    margin-left: 20px;
+    margin-left: 30px;
     font-size: 15px;
     color: white ;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.quiz_4_knapp:hover{
+    font-size: 20px;
+    background-color: #3f784a;
+}
+
+/* Quiz 5 */
+
+#quiz_5 {
+    background-color: #92ac54;
+}
+
+#tittel_quiz_5 {
+    background-color: #38593e ;
+    border: #1f3121 solid 2px;
+    padding: 0 20px;
+    color: white;
+    font-size: 22px;
+
+}
+
+#quiz_container > div {
+    display: none;
+    justify-content: space-between;
+    background-color: #38593e;
+    border: #1f3121 solid 2px;
+    padding: 40px;
+    margin: 30px;
+    font-size: 25px;
+    line-height: 50px;
+    color: white;
+}
+
+#quiz_container > div h3 {
+    font-size: 30px
+}
+
+#quiz_container > div img{
+    position: relative;
+    border: #1f3121 3px solid;
+    border-radius: 20%;
+    height: 500px;
 }
 
 
+.ny_flex_vei {
+    display: flex;
+    flex-direction: column;
+}
+
+#bare_flex {
+    display: flex;
+    flex-direction: row;
+}
 
 /*Alert*/
 .alert {

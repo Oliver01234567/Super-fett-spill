@@ -10,12 +10,15 @@
 
 #body {
     background-image: url(bilder/introbakgrunn.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+
 }
 
 .Overskrift-intro {
     font-family: "Press Start 2P", system-ui;
     font-size: 50px;
-    color: rgb(255, 217, 0);
+    color: rgb(234 220 141);
     margin-top: 60px;
     text-align: center;
 }
@@ -36,15 +39,15 @@
 }
 @keyframes Forklareranimasjon{
     100%{
-        left: 620px;
-        top: 550px;
+        left: 650px;
+        top: 450px;
     
     }
 }
 
 #snakkeboble-container {
     position: absolute;
-    top: 300px;
+    top: 200px;
     left: 700px;
     display: none;
     
@@ -55,7 +58,7 @@
     width: 700px;
 }
 
-.content {
+#content {
     width: 100%;
     height: 100%;
     top: 0;
@@ -67,4 +70,49 @@
     flex-direction: row;
     flex-wrap: wrap;
     font-size: 20px;
+}
+
+#flexboks {
+    display: none;
+    position: absolute;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color:#15e8ed;
+    width: 300px;
+    border: 5px solid #000000b0;
+    padding: 20px;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+    top: 90%;
+    left: 40%;
+    border-radius: 40px;
+}
+
+#hovedcontainer {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 90px);
+}
+
+a {
+    text-decoration: none;
+}
+
+#backButton {
+    display: none;
+}
+
+button {
+    background-color: #4bc54b;
+    padding: 5px;
+    border-radius: 15px;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover{
+    background-color: rgb(180, 182, 180);
+    font-size: 1em;
 }
